@@ -1,0 +1,380 @@
+/**
+ * Testimonial Carousel Component - Styles
+ *
+ * @package AITSC_Pro_Theme
+ * @subpackage Components
+ * @since 3.1.0
+ */
+
+/* ==========================================================================
+   Testimonial Component - Base Styles
+   ========================================================================== */
+
+.aitsc-testimonials {
+    position: relative;
+    width: 100%;
+    padding: 5rem 0;
+    background: #ffffff;
+}
+
+.aitsc-testimonials__container {
+    max-width: var(--aitsc-container-width, 1200px);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.aitsc-testimonials__header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.aitsc-testimonials__title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #001a33;
+    margin: 0;
+}
+
+/* ==========================================================================
+   Carousel Container
+   ========================================================================== */
+
+.aitsc-testimonials__carousel {
+    position: relative;
+    overflow: hidden;
+}
+
+.aitsc-testimonials__track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.aitsc-testimonials__slide {
+    flex: 0 0 100%;
+    width: 100%;
+    padding: 0 1rem;
+}
+
+/* ==========================================================================
+   Testimonial Card
+   ========================================================================== */
+
+.aitsc-testimonials__card {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem;
+    background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 100%);
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.aitsc-testimonials__rating {
+    display: flex;
+    justify-content: center;
+    gap: 0.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.aitsc-testimonials__rating .material-symbols-outlined {
+    font-size: 1.5rem;
+    color: #ddd;
+}
+
+.aitsc-testimonials__rating .is-filled {
+    color: #ffc107;
+}
+
+.aitsc-testimonials__quote {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: #333;
+    margin: 0 0 2rem;
+    font-style: italic;
+}
+
+.aitsc-testimonials__quote::before {
+    content: '"';
+    font-size: 4rem;
+    color: #005cb2;
+    opacity: 0.2;
+    display: block;
+    margin-bottom: -1rem;
+    line-height: 1;
+}
+
+/* ==========================================================================
+   Author Info
+   ========================================================================== */
+
+.aitsc-testimonials__author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.aitsc-testimonials__image {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: linear-gradient(135deg, #005cb2, #001a33);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.aitsc-testimonials__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.aitsc-testimonials__image--placeholder {
+    color: #ffffff;
+}
+
+.aitsc-testimonials__image--placeholder .material-symbols-outlined {
+    font-size: 48px;
+}
+
+.aitsc-testimonials__details {
+    text-align: left;
+}
+
+.aitsc-testimonials__name {
+    font-style: normal;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #001a33;
+}
+
+.aitsc-testimonials__role {
+    margin: 0.25rem 0;
+    font-size: 0.95rem;
+    color: #666;
+}
+
+.aitsc-testimonials__company {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #005cb2;
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   Navigation Controls
+   ========================================================================== */
+
+.aitsc-testimonials__controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.aitsc-testimonials__nav {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 2px solid #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #005cb2;
+}
+
+.aitsc-testimonials__nav:hover {
+    background: #005cb2;
+    border-color: #005cb2;
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+.aitsc-testimonials__nav:focus {
+    outline: 3px solid #005cb2;
+    outline-offset: 2px;
+}
+
+.aitsc-testimonials__nav .material-symbols-outlined {
+    font-size: 24px;
+}
+
+.aitsc-testimonials__dots {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.aitsc-testimonials__dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #e0e0e0;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.aitsc-testimonials__dot:hover {
+    background: #005cb2;
+    transform: scale(1.2);
+}
+
+.aitsc-testimonials__dot.is-active {
+    background: #005cb2;
+    width: 32px;
+    border-radius: 6px;
+}
+
+.aitsc-testimonials__dot:focus {
+    outline: 3px solid #005cb2;
+    outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+
+.aitsc-testimonials__card {
+    animation: testimonialFadeIn 0.6s ease-out;
+}
+
+@keyframes testimonialFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+
+@media (max-width: 991px) {
+    .aitsc-testimonials__title {
+        font-size: 2rem;
+    }
+
+    .aitsc-testimonials__card {
+        padding: 2rem;
+    }
+
+    .aitsc-testimonials__quote {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .aitsc-testimonials {
+        padding: 3rem 0;
+    }
+
+    .aitsc-testimonials__container {
+        padding: 0 1rem;
+    }
+
+    .aitsc-testimonials__header {
+        margin-bottom: 2rem;
+    }
+
+    .aitsc-testimonials__title {
+        font-size: 1.75rem;
+    }
+
+    .aitsc-testimonials__card {
+        padding: 1.5rem;
+    }
+
+    .aitsc-testimonials__quote {
+        font-size: 1rem;
+    }
+
+    .aitsc-testimonials__quote::before {
+        font-size: 3rem;
+    }
+
+    .aitsc-testimonials__author {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .aitsc-testimonials__details {
+        text-align: center;
+    }
+
+    .aitsc-testimonials__nav {
+        width: 44px;
+        height: 44px;
+        /* Phase 5: WCAG 2.1 AAA - Minimum touch target size 44x44px */
+    }
+
+    .aitsc-testimonials__nav .material-symbols-outlined {
+        font-size: 20px;
+    }
+}
+
+/* ==========================================================================
+   Accessibility
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .aitsc-testimonials__track {
+        transition: none;
+    }
+
+    .aitsc-testimonials__card {
+        animation: none;
+    }
+
+    .aitsc-testimonials__nav,
+    .aitsc-testimonials__dot {
+        transition: none;
+    }
+}
+
+/* Focus visible for keyboard navigation */
+.aitsc-testimonials__nav:focus-visible,
+.aitsc-testimonials__dot:focus-visible {
+    outline: 3px solid #005cb2;
+    outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .aitsc-testimonials__card {
+        border: 2px solid #005cb2;
+    }
+
+    .aitsc-testimonials__quote {
+        color: #000;
+    }
+}
+
+/* ==========================================================================
+   Performance Optimization
+   ========================================================================== */
+
+.aitsc-testimonials__track {
+    will-change: transform;
+}
+
+.aitsc-testimonials__nav,
+.aitsc-testimonials__dot {
+    will-change: transform, background;
+}
+
+/* Disable will-change after interaction */
+.aitsc-testimonials__nav:hover,
+.aitsc-testimonials__dot:hover {
+    will-change: auto;
+}

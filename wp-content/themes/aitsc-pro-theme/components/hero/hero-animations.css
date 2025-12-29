@@ -1,0 +1,248 @@
+/**
+ * Universal Hero Component - Animations
+ *
+ * @package AITSC_Pro_Theme
+ * @subpackage Components
+ * @since 3.1.0
+ */
+
+/* ==========================================================================
+   Hero Content Animations
+   ========================================================================== */
+
+/* Staggered entrance animations */
+.aitsc-hero__subtitle {
+    animation: heroSlideDown 0.6s ease-out 0.2s both;
+}
+
+.aitsc-hero__title {
+    animation: heroFadeInUp 0.8s ease-out 0.4s both;
+}
+
+.aitsc-hero__description {
+    animation: heroFadeInUp 0.8s ease-out 0.6s both;
+}
+
+.aitsc-hero__ctas {
+    animation: heroFadeIn 0.8s ease-out 0.8s both;
+}
+
+@keyframes heroSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes heroFadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes heroFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* ==========================================================================
+   Background Parallax Effect
+   ========================================================================== */
+
+.aitsc-hero[style*="background-image"] {
+    background-attachment: fixed;
+}
+
+@media (max-width: 767px) {
+    .aitsc-hero[style*="background-image"] {
+        background-attachment: scroll;
+    }
+}
+
+/* ==========================================================================
+   Overlay Pulse Effect (Homepage variant)
+   ========================================================================== */
+
+@keyframes overlayPulse {
+    0%, 100% {
+        background: rgba(0, 26, 51, 0.7);
+    }
+    50% {
+        background: rgba(0, 26, 51, 0.6);
+    }
+}
+
+.aitsc-hero--homepage .aitsc-hero__overlay {
+    animation: overlayPulse 8s ease-in-out infinite;
+}
+
+/* ==========================================================================
+   Button Hover Animations
+   ========================================================================== */
+
+.aitsc-btn--primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.aitsc-btn--primary::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.aitsc-btn--primary:hover::before {
+    width: 400px;
+    height: 400px;
+}
+
+.aitsc-btn--secondary {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.aitsc-btn--secondary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: #005cb2;
+    transition: left 0.4s ease;
+    z-index: -1;
+}
+
+.aitsc-btn--secondary:hover::before {
+    left: 0;
+}
+
+/* ==========================================================================
+   Breadcrumb Animations
+   ========================================================================== */
+
+.aitsc-breadcrumb__item {
+    animation: breadcrumbFadeIn 0.5s ease-out both;
+}
+
+.aitsc-breadcrumb__item:nth-child(1) { animation-delay: 0.1s; }
+.aitsc-breadcrumb__item:nth-child(2) { animation-delay: 0.2s; }
+.aitsc-breadcrumb__item:nth-child(3) { animation-delay: 0.3s; }
+.aitsc-breadcrumb__item:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes breadcrumbFadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ==========================================================================
+   Floating Animation for Decorative Elements
+   ========================================================================== */
+
+@keyframes heroFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* ==========================================================================
+   Gradient Animation (Homepage variant)
+   ========================================================================== */
+
+@keyframes heroGradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.aitsc-hero--homepage {
+    background: linear-gradient(135deg, #001a33 0%, #005cb2 50%, #001a33 100%);
+    background-size: 200% 200%;
+    animation: heroGradientShift 15s ease infinite;
+}
+
+/* ==========================================================================
+   Particle Canvas Integration
+   ========================================================================== */
+
+.aitsc-hero__particles {
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   Reduced Motion (Accessibility)
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .aitsc-hero__subtitle,
+    .aitsc-hero__title,
+    .aitsc-hero__description,
+    .aitsc-hero__ctas,
+    .aitsc-breadcrumb__item {
+        animation: none;
+    }
+
+    .aitsc-hero--homepage {
+        animation: none;
+    }
+
+    .aitsc-hero--homepage .aitsc-hero__overlay {
+        animation: none;
+    }
+
+    .aitsc-btn::before,
+    .aitsc-hero[style*="background-image"] {
+        transition: none;
+        animation: none;
+    }
+}
+
+/* ==========================================================================
+   Performance Optimization
+   ========================================================================== */
+
+.aitsc-hero__content,
+.aitsc-btn {
+    will-change: transform, opacity;
+}
+
+.aitsc-hero__content:hover,
+.aitsc-btn:hover {
+    will-change: auto;
+}

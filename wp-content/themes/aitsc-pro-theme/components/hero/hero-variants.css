@@ -1,0 +1,402 @@
+/**
+ * Universal Hero Component - Variants
+ *
+ * @package AITSC_Pro_Theme
+ * @subpackage Components
+ * @since 3.1.0
+ */
+
+/* ==========================================================================
+   Hero Component - Base Styles
+   ========================================================================== */
+
+.aitsc-hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* ==========================================================================
+   Variant: Homepage (Large hero with particle background)
+   ========================================================================== */
+
+.aitsc-hero--homepage {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #001a33 0%, #005cb2 100%);
+    color: #ffffff;
+    text-align: center;
+}
+
+.aitsc-hero--homepage .aitsc-hero__content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   Variant: Page (Standard page hero with gradient)
+   ========================================================================== */
+
+.aitsc-hero--page {
+    background: linear-gradient(180deg, #f5f7fa 0%, #ffffff 100%);
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.aitsc-hero--page .aitsc-hero__title {
+    color: #001a33;
+}
+
+.aitsc-hero--page .aitsc-hero__subtitle {
+    color: #005cb2;
+}
+
+/* ==========================================================================
+   Variant: Pillar (Product pillar page with CTA)
+   ========================================================================== */
+
+.aitsc-hero--pillar {
+    background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
+    border-bottom: 3px solid #005cb2;
+}
+
+.aitsc-hero--pillar .aitsc-hero__content {
+    text-align: left;
+    max-width: 700px;
+}
+
+.aitsc-hero--pillar .aitsc-hero__title {
+    font-size: 2.5rem;
+}
+
+/* ==========================================================================
+   Variant: Minimal (Simple title + breadcrumb)
+   ========================================================================== */
+
+.aitsc-hero--minimal {
+    background: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 2rem 0;
+}
+
+.aitsc-hero--minimal .aitsc-hero__subtitle,
+.aitsc-hero--minimal .aitsc-hero__description,
+.aitsc-hero--minimal .aitsc-hero__ctas {
+    display: none;
+}
+
+/* ==========================================================================
+   Heights: Small, Medium, Large, Full
+   ========================================================================== */
+
+.aitsc-hero--small {
+    min-height: 300px;
+}
+
+.aitsc-hero--medium {
+    min-height: 450px;
+}
+
+.aitsc-hero--large {
+    min-height: 600px;
+}
+
+.aitsc-hero--full {
+    min-height: 100vh;
+}
+
+/* ==========================================================================
+   Hero Elements
+   ========================================================================== */
+
+.aitsc-hero__container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: var(--aitsc-container-width, 1200px);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.aitsc-hero__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 26, 51, 0.7);
+    z-index: 1;
+}
+
+.aitsc-hero__particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.aitsc-hero__content {
+    position: relative;
+    z-index: 3;
+    animation: heroFadeIn 0.8s ease-out;
+}
+
+@keyframes heroFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.aitsc-hero__subtitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+}
+
+.aitsc-hero--homepage .aitsc-hero__subtitle {
+    color: #00d4ff;
+}
+
+.aitsc-hero__title {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: inherit;
+}
+
+.aitsc-hero__description {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+}
+
+.aitsc-hero__ctas {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.aitsc-hero--pillar .aitsc-hero__ctas {
+    justify-content: flex-start;
+}
+
+/* ==========================================================================
+   Background Image Support
+   ========================================================================== */
+
+.aitsc-hero[style*="background-image"] {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* ==========================================================================
+   Breadcrumb Navigation
+   ========================================================================== */
+
+.aitsc-hero__breadcrumb {
+    margin-bottom: 1.5rem;
+}
+
+.aitsc-breadcrumb {
+    display: flex;
+    align-items: center;
+}
+
+.aitsc-breadcrumb__list {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.aitsc-breadcrumb__item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.aitsc-breadcrumb__link {
+    color: #005cb2;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.aitsc-breadcrumb__link:hover {
+    color: #001a33;
+    text-decoration: underline;
+}
+
+.aitsc-breadcrumb__current {
+    color: #666;
+    font-weight: 600;
+}
+
+.aitsc-breadcrumb__separator {
+    color: #999;
+}
+
+/* ==========================================================================
+   Button Styles (Hero CTAs)
+   ========================================================================== */
+
+.aitsc-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    border: none;
+}
+
+.aitsc-btn--primary {
+    background: linear-gradient(135deg, #005cb2, #001a33);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 92, 178, 0.3);
+}
+
+.aitsc-btn--primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 92, 178, 0.4);
+}
+
+.aitsc-btn--secondary {
+    background: transparent;
+    color: #005cb2;
+    border: 2px solid #005cb2;
+}
+
+.aitsc-btn--secondary:hover {
+    background: #005cb2;
+    color: #ffffff;
+}
+
+.aitsc-btn--large {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+
+@media (max-width: 991px) {
+    .aitsc-hero__title {
+        font-size: 2.5rem;
+    }
+
+    .aitsc-hero--pillar .aitsc-hero__title {
+        font-size: 2rem;
+    }
+
+    .aitsc-hero__description {
+        font-size: 1.1rem;
+    }
+
+    .aitsc-hero--medium {
+        min-height: 350px;
+    }
+
+    .aitsc-hero--large {
+        min-height: 450px;
+    }
+}
+
+@media (max-width: 767px) {
+    .aitsc-hero__container {
+        padding: 0 1rem;
+    }
+
+    .aitsc-hero__title {
+        font-size: 2rem;
+    }
+
+    .aitsc-hero--pillar .aitsc-hero__title {
+        font-size: 1.75rem;
+    }
+
+    .aitsc-hero__subtitle {
+        font-size: 1rem;
+        letter-spacing: 1px;
+    }
+
+    .aitsc-hero__description {
+        font-size: 1rem;
+    }
+
+    .aitsc-hero__ctas {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .aitsc-btn {
+        width: 100%;
+    }
+
+    .aitsc-hero--small {
+        min-height: 250px;
+    }
+
+    .aitsc-hero--medium {
+        min-height: 300px;
+    }
+
+    .aitsc-hero--large {
+        min-height: 350px;
+    }
+
+    .aitsc-hero__breadcrumb {
+        margin-bottom: 1rem;
+    }
+
+    .aitsc-breadcrumb__list {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 575px) {
+    .aitsc-hero__title {
+        font-size: 1.75rem;
+    }
+
+    .aitsc-hero--homepage .aitsc-hero__title {
+        font-size: 1.5rem;
+    }
+}
+
+/* ==========================================================================
+   Accessibility
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .aitsc-hero__content {
+        animation: none;
+    }
+
+    .aitsc-btn {
+        transition: none;
+    }
+}

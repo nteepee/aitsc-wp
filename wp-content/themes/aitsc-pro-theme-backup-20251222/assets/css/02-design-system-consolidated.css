@@ -1,0 +1,747 @@
+/**
+ * AITSC Pro Theme - Consolidated Design System
+ * WorldQuant-inspired design with unified color, typography, and component systems
+ * Removes duplicate design tokens and establishes consistent branding
+ *
+ * @package AITSCProTheme
+ * @version 1.0.0
+ * @date 2025-12-03
+ */
+
+/*--------------------------------------------------------------
+>>> WORLDQUANT-INSPIRED DESIGN SYSTEM
+--------------------------------------------------------------*/
+
+/* === Core Brand Colors === */
+:root {
+    /* === Primary Palette === */
+    --color-primary: #000000;
+    --color-primary-100: #1a1a1a;
+    --color-primary-200: #2a2a2a;
+    --color-primary-300: #3a3a3a;
+    --color-primary-400: #4a4a4a;
+    --color-primary-500: #5a5a5a;
+
+    /* === Accent Blue === */
+    --color-accent: #0066ff;
+    --color-accent-100: #0052cc;
+    --color-accent-200: #0040b3;
+    --color-accent-300: #003099;
+    --color-accent-light: #e6f0ff;
+    --color-accent-muted: rgba(0, 102, 255, 0.1);
+
+    /* === Neutral Grays === */
+    --color-gray-50: #fafafa;
+    --color-gray-100: #f8f9fa;
+    --color-gray-200: #e9ecef;
+    --color-gray-300: #dee2e6;
+    --color-gray-400: #ced4da;
+    --color-gray-500: #adb5bd;
+    --color-gray-600: #6c757d;
+    --color-gray-700: #495057;
+    --color-gray-800: #343a40;
+    --color-gray-900: #212529;
+    --color-gray-950: #0a0a0a;
+
+    /* === Semantic Colors === */
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-success: #28a745;
+    --color-warning: #ffc107;
+    --color-error: #dc3545;
+    --color-info: #17a2b8;
+
+    /* === Text Colors === */
+    --color-text-primary: var(--color-primary);
+    --color-text-secondary: var(--color-gray-700);
+    --color-text-muted: var(--color-gray-600);
+    --color-text-light: var(--color-gray-500);
+    --color-text-inverse: var(--color-white);
+    --color-text-accent: var(--color-accent);
+
+    /* === Background Colors === */
+    --color-bg-primary: var(--color-white);
+    --color-bg-secondary: var(--color-gray-100);
+    --color-bg-tertiary: var(--color-gray-200);
+    --color-bg-dark: var(--color-primary);
+    --color-bg-overlay: rgba(10, 10, 10, 0.8);
+    --color-bg-light: var(--color-gray-50);
+
+    /* === Border Colors === */
+    --color-border-primary: var(--color-gray-300);
+    --color-border-secondary: var(--color-gray-200);
+    --color-border-light: var(--color-gray-100);
+    --color-border-dark: var(--color-gray-400);
+    --color-border-accent: var(--color-accent);
+
+    /* === State Colors === */
+    --color-hover-primary: var(--color-accent-100);
+    --color-hover-secondary: var(--color-gray-200);
+    --color-active-primary: var(--color-accent-200);
+    --color-focus-ring: var(--color-accent);
+
+    /* === Shadow System === */
+    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+    --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.25);
+    --shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.06);
+    --shadow-accent: 0 0 0 3px rgba(0, 102, 255, 0.1);
+
+    /* === Typography System === */
+    --font-family-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    --font-family-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+
+    /* === Fluid Typography Scale === */
+    --font-size-xs: clamp(0.75rem, 2vw, 0.875rem);     /* 12-14px */
+    --font-size-sm: clamp(0.875rem, 2.5vw, 1rem);       /* 14-16px */
+    --font-size-base: clamp(1rem, 3vw, 1.125rem);        /* 16-18px */
+    --font-size-lg: clamp(1.125rem, 3.5vw, 1.25rem);    /* 18-20px */
+    --font-size-xl: clamp(1.25rem, 4vw, 1.5rem);        /* 20-24px */
+    --font-size-2xl: clamp(1.5rem, 5vw, 2rem);          /* 24-32px */
+    --font-size-3xl: clamp(2rem, 6vw, 2.5rem);         /* 32-40px */
+    --font-size-4xl: clamp(2.5rem, 7vw, 3rem);         /* 40-48px */
+    --font-size-5xl: clamp(3rem, 8vw, 4rem);           /* 48-64px */
+
+    /* === Font Weights === */
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-weight-extrabold: 800;
+
+    /* === Line Heights === */
+    --line-height-tight: 1.25;
+    --line-height-snug: 1.375;
+    --line-height-normal: 1.5;
+    --line-height-relaxed: 1.625;
+    --line-height-loose: 2;
+
+    /* === Letter Spacing === */
+    --letter-spacing-tight: -0.025em;
+    --letter-spacing-normal: 0;
+    --letter-spacing-wide: 0.025em;
+    --letter-spacing-wider: 0.05em;
+    --letter-spacing-widest: 0.1em;
+
+    /* === Spacing System === */
+    --space-px: 1px;
+    --space-0: 0;
+    --space-1: 0.25rem;    /* 4px */
+    --space-2: 0.5rem;     /* 8px */
+    --space-3: 0.75rem;    /* 12px */
+    --space-4: 1rem;        /* 16px */
+    --space-5: 1.25rem;     /* 20px */
+    --space-6: 1.5rem;      /* 24px */
+    --space-8: 2rem;        /* 32px */
+    --space-10: 2.5rem;     /* 40px */
+    --space-12: 3rem;        /* 48px */
+    --space-16: 4rem;        /* 64px */
+    --space-20: 5rem;        /* 80px */
+    --space-24: 6rem;        /* 96px */
+    --space-32: 8rem;        /* 128px */
+
+    /* === Border Radius === */
+    --radius-none: 0;
+    --radius-sm: 0.25rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+    --radius-2xl: 1.5rem;
+    --radius-3xl: 2rem;
+    --radius-full: 9999px;
+
+    /* === Transitions === */
+    --transition-none: none;
+    --transition-fast: 0.15s ease;
+    --transition-base: 0.25s ease;
+    --transition-slow: 0.35s ease;
+    --transition-slower: 0.5s ease;
+    --transition-colors: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+    --transition-transform: transform 0.25s ease;
+    --transition-opacity: opacity 0.2s ease;
+    --transition-shadow: box-shadow 0.2s ease;
+
+    /* === Touch Targets === */
+    --touch-target-min: 44px;
+    --touch-target-comfortable: 48px;
+    --touch-target-large: 52px;
+
+    /* === Container Max Widths === */
+    --container-xs: 320px;
+    --container-sm: 640px;
+    --container-md: 768px;
+    --container-lg: 1024px;
+    --container-xl: 1280px;
+    --container-2xl: 1536px;
+
+    /* === Breakpoints === */
+    --breakpoint-sm: 640px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 1024px;
+    --breakpoint-xl: 1280px;
+    --breakpoint-2xl: 1536px;
+}
+
+/*--------------------------------------------------------------
+>>> LEGACY AITSC VARIABLE MAPPING
+--------------------------------------------------------------*/
+
+/* Maintain backward compatibility */
+:root {
+    /* === Legacy AITSC Color Mapping === */
+    --aitsc-primary: var(--color-accent);
+    --aitsc-primary-dark: var(--color-accent-100);
+    --aitsc-primary-light: var(--color-accent-light);
+    --aitsc-secondary: var(--color-accent);
+    --aitsc-accent: var(--color-accent);
+    --aitsc-danger: var(--color-error);
+    --aitsc-warning: var(--color-warning);
+    --aitsc-success: var(--color-success);
+    --aitsc-info: var(--color-info);
+
+    /* === Legacy AITSC Space Mapping === */
+    --aitsc-space-xs: var(--space-1);
+    --aitsc-space-sm: var(--space-2);
+    --aitsc-space-md: var(--space-4);
+    --aitsc-space-lg: var(--space-6);
+    --aitsc-space-xl: var(--space-8);
+    --aitsc-space-2xl: var(--space-12);
+
+    /* === Legacy AITSC Font Mapping === */
+    --aitsc-font-xs: var(--font-size-xs);
+    --aitsc-font-sm: var(--font-size-sm);
+    --aitsc-font-base: var(--font-size-base);
+    --aitsc-font-lg: var(--font-size-lg);
+    --aitsc-font-xl: var(--font-size-xl);
+    --aitsc-font-2xl: var(--font-size-2xl);
+    --aitsc-font-3xl: var(--font-size-3xl);
+
+    /* === Legacy AITSC Colors === */
+    --aitsc-bg-primary: var(--color-bg-primary);
+    --aitsc-bg-secondary: var(--color-bg-secondary);
+    --aitsc-bg-card: var(--color-bg-primary);
+    --aitsc-text-primary: var(--color-text-primary);
+    --aitsc-text-secondary: var(--color-text-secondary);
+    --aitsc-text-muted: var(--color-text-muted);
+    --aitsc-border: var(--color-border-primary);
+
+    /* === Legacy AITSC Transitions === */
+    --aitsc-transition-fast: var(--transition-fast);
+    --aitsc-transition-normal: var(--transition-base);
+    --aitsc-transition-slow: var(--transition-slow);
+
+    /* === Legacy AITSC Shadows === */
+    --aitsc-shadow-sm: var(--shadow-sm);
+    --aitsc-shadow-md: var(--shadow-md);
+    --aitsc-shadow-lg: var(--shadow-lg);
+    --aitsc-shadow-xl: var(--shadow-xl);
+
+    /* === Legacy AITSC Radius === */
+    --aitsc-radius-sm: var(--radius-sm);
+    --aitsc-radius-md: var(--radius-md);
+    --aitsc-radius-lg: var(--radius-lg);
+    --aitsc-radius-xl: var(--radius-xl);
+}
+
+/*--------------------------------------------------------------
+>>> TYPOGRAPHY BASE
+--------------------------------------------------------------*/
+
+html {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+body {
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-normal);
+    line-height: var(--line-height-normal);
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-primary);
+}
+
+/* === Typography Headings === */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-tight);
+    letter-spacing: var(--letter-spacing-tight);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-6);
+}
+
+h1 {
+    font-size: var(--font-size-4xl);
+    margin-bottom: var(--space-8);
+}
+
+h2 {
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--space-7);
+}
+
+h3 {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--space-6);
+}
+
+h4 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-5);
+}
+
+h5 {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-4);
+}
+
+h6 {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--space-3);
+}
+
+/* === Typography Elements === */
+p {
+    margin-bottom: var(--space-4);
+    line-height: var(--line-height-relaxed);
+    max-width: 65ch; /* Optimal reading width */
+}
+
+a {
+    color: var(--color-text-accent);
+    text-decoration: none;
+    transition: var(--transition-colors);
+}
+
+a:hover {
+    color: var(--color-hover-primary);
+    text-decoration: underline;
+}
+
+a:focus {
+    outline: 2px solid var(--color-focus-ring);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+}
+
+/* === Lists === */
+ul, ol {
+    margin-bottom: var(--space-4);
+    padding-left: var(--space-6);
+}
+
+li {
+    margin-bottom: var(--space-2);
+    line-height: var(--line-height-relaxed);
+}
+
+/* === Text Elements === */
+small {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+}
+
+mark {
+    background-color: var(--color-accent-muted);
+    color: var(--color-accent);
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-sm);
+}
+
+code {
+    font-family: var(--font-family-mono);
+    font-size: 0.875em;
+    background-color: var(--color-bg-tertiary);
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-sm);
+    color: var(--color-text-primary);
+}
+
+pre {
+    font-family: var(--font-family-mono);
+    background-color: var(--color-bg-secondary);
+    padding: var(--space-4);
+    border-radius: var(--radius-md);
+    overflow-x: auto;
+    line-height: var(--line-height-normal);
+}
+
+pre code {
+    background: none;
+    padding: 0;
+    font-size: 1em;
+}
+
+/* === Blockquote === */
+blockquote {
+    margin: var(--space-8) 0;
+    padding: var(--space-4) var(--space-6);
+    border-left: 4px solid var(--color-border-accent);
+    background-color: var(--color-bg-secondary);
+    border-radius: var(--radius-md);
+    font-style: italic;
+    color: var(--color-text-secondary);
+}
+
+blockquote p {
+    margin-bottom: var(--space-2);
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-relaxed);
+}
+
+blockquote cite {
+    font-style: normal;
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+}
+
+/* === Tables === */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: var(--space-6);
+    font-size: var(--font-size-sm);
+}
+
+th, td {
+    padding: var(--space-3) var(--space-4);
+    text-align: left;
+    border-bottom: 1px solid var(--color-border-primary);
+}
+
+th {
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-secondary);
+    background-color: var(--color-bg-secondary);
+}
+
+td {
+    color: var(--color-text-primary);
+}
+
+/*--------------------------------------------------------------
+>>> BUTTON COMPONENTS
+--------------------------------------------------------------*/
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-5);
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    line-height: 1;
+    text-decoration: none;
+    border: 1px solid transparent;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: var(--transition-colors);
+    min-height: var(--touch-target-min);
+    white-space: nowrap;
+    user-select: none;
+}
+
+.btn:focus {
+    outline: 2px solid var(--color-focus-ring);
+    outline-offset: 2px;
+}
+
+/* === Button Sizes === */
+.btn-xs {
+    padding: var(--space-1) var(--space-3);
+    font-size: var(--font-size-xs);
+    min-height: 32px;
+}
+
+.btn-sm {
+    padding: var(--space-2) var(--space-4);
+    font-size: var(--font-size-sm);
+    min-height: 40px;
+}
+
+.btn-md {
+    padding: var(--space-3) var(--space-5);
+    font-size: var(--font-size-base);
+    min-height: 48px;
+}
+
+.btn-lg {
+    padding: var(--space-4) var(--space-6);
+    font-size: var(--font-size-lg);
+    min-height: 52px;
+}
+
+.btn-xl {
+    padding: var(--space-5) var(--space-8);
+    font-size: var(--font-size-xl);
+    min-height: 56px;
+}
+
+/* === Button Variants === */
+.btn-primary {
+    background-color: var(--color-accent);
+    color: var(--color-white);
+    border-color: var(--color-accent);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-hover-primary);
+    border-color: var(--color-hover-primary);
+    color: var(--color-white);
+    text-decoration: none;
+}
+
+.btn-secondary {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    border-color: var(--color-border-primary);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-hover-secondary);
+    border-color: var(--color-border-dark);
+    color: var(--color-text-primary);
+    text-decoration: none;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+}
+
+.btn-outline:hover {
+    background-color: var(--color-accent);
+    color: var(--color-white);
+    text-decoration: none;
+}
+
+.btn-ghost {
+    background-color: transparent;
+    color: var(--color-text-primary);
+    border-color: transparent;
+}
+
+.btn-ghost:hover {
+    background-color: var(--color-bg-secondary);
+    color: var(--color-text-primary);
+    text-decoration: none;
+}
+
+.btn-icon {
+    padding: var(--space-2);
+    min-height: var(--touch-target-min);
+    min-width: var(--touch-target-min);
+}
+
+/* === Full Width Buttons === */
+.btn-full-width {
+    width: 100%;
+    justify-content: center;
+}
+
+/*--------------------------------------------------------------
+>>> FORM COMPONENTS
+--------------------------------------------------------------*/
+
+.form-group {
+    margin-bottom: var(--space-5);
+}
+
+.form-label {
+    display: block;
+    margin-bottom: var(--space-2);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+    width: 100%;
+    padding: var(--space-3) var(--space-4);
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-normal);
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-primary);
+    border: 1px solid var(--color-border-primary);
+    border-radius: var(--radius-md);
+    transition: var(--transition-colors);
+    min-height: var(--touch-target-min);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: var(--color-focus-ring);
+    box-shadow: var(--shadow-accent);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+    color: var(--color-text-muted);
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* === Form Validation === */
+.form-error {
+    color: var(--color-error);
+    font-size: var(--font-size-xs);
+    margin-top: var(--space-1);
+}
+
+.form-input.error,
+.form-select.error,
+.form-textarea.error {
+    border-color: var(--color-error);
+}
+
+/* === Checkbox and Radio === */
+.form-checkbox,
+.form-radio {
+    width: var(--touch-target-min);
+    height: var(--touch-target-min);
+    margin-right: var(--space-3);
+    cursor: pointer;
+}
+
+.form-checkbox-label,
+.form-radio-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: var(--font-size-base);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-3);
+}
+
+/*--------------------------------------------------------------
+>>> ACCESSIBILITY IMPROVEMENTS
+--------------------------------------------------------------*/
+
+/* === Focus Management === */
+:focus-visible {
+    outline: 2px solid var(--color-focus-ring);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+}
+
+/* === Screen Reader Content === */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* === Reduced Motion === */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* === High Contrast === */
+@media (prefers-contrast: high) {
+    :root {
+        --color-border-primary: var(--color-gray-600);
+        --color-border-dark: var(--color-gray-700);
+        --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
+        --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+}
+
+/*--------------------------------------------------------------
+>>> UTILITY CLASSES
+--------------------------------------------------------------*/
+
+/* === Spacing === */
+.m-0 { margin: 0; }
+.mt-0 { margin-top: 0; }
+.mr-0 { margin-right: 0; }
+.mb-0 { margin-bottom: 0; }
+.ml-0 { margin-left: 0; }
+
+.p-0 { padding: 0; }
+.pt-0 { padding-top: 0; }
+.pr-0 { padding-right: 0; }
+.pb-0 { padding-bottom: 0; }
+.pl-0 { padding-left: 0; }
+
+/* === Text Alignment === */
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+/* === Display === */
+.block { display: block; }
+.inline { display: inline; }
+.inline-block { display: inline-block; }
+.flex { display: flex; }
+.inline-flex { display: inline-flex; }
+.grid { display: grid; }
+.hidden { display: none; }
+
+/* === Position === */
+.relative { position: relative; }
+.absolute { position: absolute; }
+.fixed { position: fixed; }
+.sticky { position: sticky; }
+
+/* === Colors === */
+.text-primary { color: var(--color-text-primary); }
+.text-secondary { color: var(--color-text-secondary); }
+.text-muted { color: var(--color-text-muted); }
+.text-accent { color: var(--color-text-accent); }
+
+.bg-primary { background-color: var(--color-bg-primary); }
+.bg-secondary { background-color: var(--color-bg-secondary); }
+.bg-accent { background-color: var(--color-accent); }
+
+/* === Borders === */
+.border { border: 1px solid var(--color-border-primary); }
+.border-t { border-top: 1px solid var(--color-border-primary); }
+.border-r { border-right: 1px solid var(--color-border-primary); }
+.border-b { border-bottom: 1px solid var(--color-border-primary); }
+.border-l { border-left: 1px solid var(--color-border-primary); }
+
+.rounded { border-radius: var(--radius-md); }
+.rounded-sm { border-radius: var(--radius-sm); }
+.rounded-lg { border-radius: var(--radius-lg); }
+.rounded-xl { border-radius: var(--radius-xl); }
+.rounded-full { border-radius: var(--radius-full); }
+
+/* === Shadows === */
+.shadow-sm { box-shadow: var(--shadow-sm); }
+.shadow-md { box-shadow: var(--shadow-md); }
+.shadow-lg { box-shadow: var(--shadow-lg); }
+.shadow-xl { box-shadow: var(--shadow-xl); }
+.shadow-none { box-shadow: none; }

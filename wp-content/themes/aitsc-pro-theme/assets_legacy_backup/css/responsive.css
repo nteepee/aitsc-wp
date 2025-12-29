@@ -1,0 +1,985 @@
+/**
+ * AITSC Pro Theme - Responsive CSS
+ * Mobile-first responsive design breakpoints
+ *
+ * @package AITSCProTheme
+ * @since 1.0.0
+ */
+
+/* CSS Custom Properties for Responsive Design */
+:root {
+    /* Responsive breakpoints */
+    --aitsc-breakpoint-sm: 576px;
+    --aitsc-breakpoint-md: 768px;
+    --aitsc-breakpoint-lg: 992px;
+    --aitsc-breakpoint-xl: 1200px;
+    --aitsc-breakpoint-2xl: 1400px;
+
+    /* Responsive spacing */
+    --aitsc-responsive-padding-sm: var(--aitsc-space-3);
+    --aitsc-responsive-padding-md: var(--aitsc-space-4);
+    --aitsc-responsive-padding-lg: var(--aitsc-space-6);
+    --aitsc-responsive-padding-xl: var(--aitsc-space-8);
+
+    /* Responsive font sizes */
+    --aitsc-responsive-font-xs: clamp(0.75rem, 2vw, 0.875rem);
+    --aitsc-responsive-font-sm: clamp(0.875rem, 2.5vw, 1rem);
+    --aitsc-responsive-font-base: clamp(1rem, 3vw, 1.125rem);
+    --aitsc-responsive-font-lg: clamp(1.125rem, 3.5vw, 1.25rem);
+    --aitsc-responsive-font-xl: clamp(1.25rem, 4vw, 1.5rem);
+    --aitsc-responsive-font-2xl: clamp(1.5rem, 5vw, 2rem);
+    --aitsc-responsive-font-3xl: clamp(1.875rem, 6vw, 2.5rem);
+    --aitsc-responsive-font-4xl: clamp(2.25rem, 7vw, 3rem);
+    --aitsc-responsive-font-5xl: clamp(3rem, 8vw, 4rem);
+}
+
+/* Base Container Responsive */
+.container {
+    width: 100%;
+    max-width: var(--aitsc-container-max-width);
+    margin: 0 auto;
+    padding-left: var(--aitsc-responsive-padding-sm);
+    padding-right: var(--aitsc-responsive-padding-sm);
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    .container {
+        padding-left: var(--aitsc-responsive-padding-md);
+        padding-right: var(--aitsc-responsive-padding-md);
+    }
+
+    .hero-headline {
+        font-size: var(--aitsc-responsive-font-3xl);
+    }
+
+    .hero-subheadline {
+        font-size: var(--aitsc-responsive-font-xl);
+    }
+
+    .service-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-widgets {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .container {
+        padding-left: var(--aitsc-responsive-padding-lg);
+        padding-right: var(--aitsc-responsive-padding-lg);
+    }
+
+    .section {
+        padding: var(--aitsc-section-padding) 0;
+    }
+
+    .main-navigation {
+        display: flex !important;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .menu-primary-container {
+        display: flex !important;
+        position: static;
+        background: none;
+        box-shadow: none;
+        padding: 0;
+        transform: none;
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+
+    .main-navigation ul {
+        flex-direction: row;
+        align-items: center;
+        gap: var(--aitsc-space-6);
+    }
+
+    .hero-section {
+        padding: calc(var(--aitsc-section-padding) * 1.5) 0;
+    }
+
+    .hero-headline {
+        font-size: var(--aitsc-responsive-font-4xl);
+    }
+
+    .hero-subheadline {
+        font-size: var(--aitsc-responsive-font-2xl);
+    }
+
+    .hero-cta {
+        display: flex;
+        gap: var(--aitsc-space-4);
+        justify-content: center;
+        align-items: center;
+    }
+
+    .solutions-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .service-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-widgets {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .contact-form {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--aitsc-space-6);
+    }
+
+    .contact-form .form-group:last-child {
+        grid-column: span 2;
+    }
+
+    .blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .sidebar-layout {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: var(--aitsc-space-8);
+    }
+
+    .search-form {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    /* Tables responsive */
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 600px;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .container {
+        padding-left: var(--aitsc-responsive-padding-xl);
+        padding-right: var(--aitsc-responsive-padding-xl);
+    }
+
+    .hero-section {
+        padding: calc(var(--aitsc-section-padding) * 2) 0;
+    }
+
+    .hero-headline {
+        font-size: var(--aitsc-responsive-font-5xl);
+    }
+
+    .hero-subheadline {
+        font-size: var(--aitsc-responsive-font-3xl);
+    }
+
+    .solutions-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .service-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--aitsc-space-8);
+    }
+
+    .testimonials-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .team-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .portfolio-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .blog-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .page-header {
+        padding: calc(var(--aitsc-section-padding) * 1.5) 0;
+    }
+
+    .breadcrumb {
+        margin-bottom: var(--aitsc-space-6);
+    }
+
+    .contact-form {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .contact-form .form-group.full-width {
+        grid-column: span 3;
+    }
+
+    .contact-form .form-group.half-width {
+        grid-column: span 1;
+    }
+
+    /* Navigation enhancements */
+    .main-navigation .sub-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: var(--aitsc-white);
+        min-width: 200px;
+        box-shadow: var(--aitsc-shadow-lg);
+        border-radius: var(--aitsc-border-radius-md);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: var(--aitsc-transition-colors), var(--aitsc-transition-transform);
+    }
+
+    .main-navigation li:hover>.sub-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .main-navigation .sub-menu li {
+        margin: 0;
+        padding: 0;
+    }
+
+    .main-navigation .sub-menu a {
+        padding: var(--aitsc-space-3) var(--aitsc-space-4);
+        border-bottom: 1px solid var(--aitsc-gray-100);
+    }
+
+    .main-navigation .sub-menu li:last-child a {
+        border-bottom: none;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .hero-section {
+        padding: calc(var(--aitsc-section-padding) * 2.5) 0;
+    }
+
+    .hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .solutions-grid {
+        gap: var(--aitsc-space-8);
+    }
+
+    .portfolio-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .blog-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--aitsc-space-8);
+    }
+
+    .team-grid {
+        gap: var(--aitsc-space-8);
+    }
+
+    .service-card {
+        padding: var(--aitsc-space-8);
+    }
+
+    .contact-form {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+}
+
+/* Extra extra large devices (1400px and up) */
+@media (min-width: 1400px) {
+    .container {
+        padding-left: var(--aitsc-space-8);
+        padding-right: var(--aitsc-space-8);
+    }
+
+    .hero-section {
+        padding: calc(var(--aitsc-section-padding) * 3) 0;
+    }
+
+    .solutions-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Mobile-first Styles (for small screens) */
+@media (max-width: 575px) {
+    .container {
+        padding-left: var(--aitsc-space-4);
+        padding-right: var(--aitsc-space-4);
+    }
+
+    .section {
+        padding: calc(var(--aitsc-section-padding) * 0.6) 0;
+    }
+
+    .hero-section {
+        padding: calc(var(--aitsc-section-padding) * 0.8) 0;
+        text-align: center;
+    }
+
+    .hero-headline {
+        font-size: var(--aitsc-responsive-font-2xl);
+        margin-bottom: var(--aitsc-space-4);
+    }
+
+    .hero-subheadline {
+        font-size: var(--aitsc-responsive-font-base);
+        margin-bottom: var(--aitsc-space-6);
+    }
+
+    .hero-cta .button {
+        display: block;
+        width: 100%;
+        margin-bottom: var(--aitsc-space-3);
+    }
+
+    /* Fix Logo Overlap */
+    .site-logo-text {
+        font-size: 1rem !important;
+        /* Reduced from 1.25rem */
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        max-width: 180px;
+        /* Reduced width constraint */
+        display: block;
+        /* Ensure block model for overflow */
+    }
+
+    /* Mobile Navigation */
+    .main-navigation {
+        position: relative;
+    }
+
+    .menu-toggle {
+        display: block;
+        z-index: 1001;
+    }
+
+    #mobile-navigation {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--aitsc-white);
+        z-index: 1000;
+        padding: var(--aitsc-space-20) var(--aitsc-space-6);
+        overflow-y: auto;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+    }
+
+    #mobile-navigation.menu-open {
+        display: block;
+        transform: translateX(0);
+    }
+
+    .main-navigation ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--aitsc-space-4);
+    }
+
+    .main-navigation a {
+        font-size: var(--aitsc-responsive-font-lg);
+        padding: var(--aitsc-space-3) 0;
+        display: block;
+    }
+
+    .main-navigation .sub-menu {
+        display: none;
+        padding-left: var(--aitsc-space-4);
+        margin-top: var(--aitsc-space-2);
+    }
+
+    .main-navigation .sub-menu.is-active {
+        display: block;
+    }
+
+    /* Mobile Cards */
+    .card,
+    .service-card,
+    .post-card {
+        margin-bottom: var(--aitsc-space-6);
+    }
+
+    .card {
+        padding: var(--aitsc-space-4);
+    }
+
+    .service-card {
+        padding: var(--aitsc-space-6);
+    }
+
+    .post-content {
+        padding: var(--aitsc-space-4);
+    }
+
+    /* Mobile Grids */
+    .solutions-grid,
+    .service-grid,
+    .testimonials-grid,
+    .team-grid,
+    .portfolio-grid,
+    .blog-grid {
+        grid-template-columns: 1fr;
+        gap: var(--aitsc-space-6);
+    }
+
+    /* Mobile Forms */
+    .form-field,
+    .search-field {
+        font-size: var(--aitsc-responsive-font-base);
+    }
+
+    .form-group {
+        margin-bottom: var(--aitsc-space-5);
+    }
+
+    .contact-form {
+        padding: var(--aitsc-space-6);
+    }
+
+    /* Mobile Footer */
+    .site-footer {
+        padding: var(--aitsc-space-12) 0 var(--aitsc-space-6);
+    }
+
+    .footer-widgets {
+        grid-template-columns: 1fr;
+        gap: var(--aitsc-space-6);
+    }
+
+    .site-info {
+        font-size: var(--aitsc-responsive-font-xs);
+        padding-top: var(--aitsc-space-4);
+    }
+
+    /* Mobile Buttons */
+    .button {
+        width: 100%;
+        margin-bottom: var(--aitsc-space-3);
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+
+    .button-group .button {
+        margin-bottom: 0;
+    }
+
+    /* Mobile Tables */
+    .table-responsive {
+        border: 1px solid var(--aitsc-gray-300);
+        border-radius: var(--aitsc-border-radius-md);
+    }
+
+    /* Mobile Pagination */
+    .pagination {
+        flex-wrap: wrap;
+    }
+
+    .page-numbers {
+        min-width: 44px;
+        min-height: 44px;
+    }
+
+    /* Mobile Breadcrumb */
+    .breadcrumb {
+        font-size: var(--aitsc-responsive-font-xs);
+        flex-wrap: wrap;
+    }
+}
+
+/* Tablet Styles (576px to 991px) */
+@media (min-width: 576px) and (max-width: 991px) {
+    .solutions-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--aitsc-space-6);
+    }
+
+    .service-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--aitsc-space-6);
+    }
+
+    .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .team-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--aitsc-space-6);
+    }
+
+    .hero-headline {
+        font-size: var(--aitsc-responsive-font-3xl);
+    }
+
+    .hero-subheadline {
+        font-size: var(--aitsc-responsive-font-xl);
+    }
+}
+
+/* Landscape Mobile */
+@media (max-width: 767px) and (orientation: landscape) {
+    .hero-section {
+        padding: var(--aitsc-section-padding) 0;
+    }
+
+    .hero-headline {
+        font-size: var(--aitsc-responsive-font-2xl);
+    }
+
+    .hero-subheadline {
+        font-size: var(--aitsc-responsive-font-base);
+    }
+}
+
+/* High DPI / Retina Displays */
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+    .site-logo img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+
+    .service-icon {
+        image-rendering: -webkit-optimize-contrast;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --aitsc-white: #0a0a0a;
+        --aitsc-black: #ffffff;
+        --aitsc-gray-50: #212529;
+        --aitsc-gray-100: #343a40;
+        --aitsc-gray-200: #495057;
+        --aitsc-gray-300: #6c757d;
+        --aitsc-gray-400: #adb5bd;
+        --aitsc-gray-500: #ced4da;
+        --aitsc-gray-600: #dee2e6;
+        --aitsc-gray-700: #e9ecef;
+        --aitsc-gray-800: #f8f9fa;
+        --aitsc-gray-900: #ffffff;
+    }
+}
+
+/* Print Styles */
+@media print {
+    * {
+        background: white !important;
+        color: black !important;
+        box-shadow: none !important;
+    }
+
+    .site-header,
+    .site-footer,
+    .sidebar,
+    .navigation,
+    .menu-toggle,
+    .pagination,
+    .button {
+        display: none !important;
+    }
+
+    .container {
+        width: 100% !important;
+        max-width: none !important;
+        padding: 0 !important;
+    }
+
+    .hero-section {
+        padding: 2rem 0 !important;
+        background: none !important;
+        color: black !important;
+    }
+
+    .card,
+    .service-card,
+    .post-card {
+        border: 1px solid #000 !important;
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    a {
+        text-decoration: underline !important;
+    }
+
+    .page-break {
+        page-break-before: always;
+    }
+}
+
+/* Utility Classes for Responsive Design */
+.visible-xs {
+    display: none !important;
+}
+
+.visible-sm {
+    display: none !important;
+}
+
+.visible-md {
+    display: none !important;
+}
+
+.visible-lg {
+    display: none !important;
+}
+
+.visible-xl {
+    display: none !important;
+}
+
+.hidden-xs {
+    display: block !important;
+}
+
+.hidden-sm {
+    display: block !important;
+}
+
+.hidden-md {
+    display: block !important;
+}
+
+.hidden-lg {
+    display: block !important;
+}
+
+.hidden-xl {
+    display: block !important;
+}
+
+@media (max-width: 575px) {
+    .visible-xs {
+        display: block !important;
+    }
+
+    .hidden-xs {
+        display: none !important;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+    .visible-sm {
+        display: block !important;
+    }
+
+    .hidden-sm {
+        display: none !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .visible-md {
+        display: block !important;
+    }
+
+    .hidden-md {
+        display: none !important;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .visible-lg {
+        display: block !important;
+    }
+
+    .hidden-lg {
+        display: none !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    .visible-xl {
+        display: block !important;
+    }
+
+    .hidden-xl {
+        display: none !important;
+    }
+}
+
+/* Responsive Typography Classes */
+.text-xs-xs {
+    font-size: 0.625rem !important;
+}
+
+.text-xs-sm {
+    font-size: 0.75rem !important;
+}
+
+.text-xs-md {
+    font-size: 0.875rem !important;
+}
+
+.text-xs-lg {
+    font-size: 1rem !important;
+}
+
+.text-sm-xs {
+    font-size: 0.75rem !important;
+}
+
+.text-sm-sm {
+    font-size: 0.875rem !important;
+}
+
+.text-sm-md {
+    font-size: 1rem !important;
+}
+
+.text-sm-lg {
+    font-size: 1.125rem !important;
+}
+
+.text-md-xs {
+    font-size: 0.875rem !important;
+}
+
+.text-md-sm {
+    font-size: 1rem !important;
+}
+
+.text-md-md {
+    font-size: 1.125rem !important;
+}
+
+.text-md-lg {
+    font-size: 1.25rem !important;
+}
+
+.text-lg-xs {
+    font-size: 1rem !important;
+}
+
+.text-lg-sm {
+    font-size: 1.125rem !important;
+}
+
+.text-lg-md {
+    font-size: 1.25rem !important;
+}
+
+.text-lg-lg {
+    font-size: 1.5rem !important;
+}
+
+.text-xl-xs {
+    font-size: 1.125rem !important;
+}
+
+.text-xl-sm {
+    font-size: 1.25rem !important;
+}
+
+.text-xl-md {
+    font-size: 1.5rem !important;
+}
+
+.text-xl-lg {
+    font-size: 1.875rem !important;
+}
+
+/* Responsive Spacing Classes */
+.p-responsive-xs {
+    padding: var(--aitsc-space-2) !important;
+}
+
+.p-responsive-sm {
+    padding: var(--aitsc-space-4) !important;
+}
+
+.p-responsive-md {
+    padding: var(--aitsc-space-6) !important;
+}
+
+.p-responsive-lg {
+    padding: var(--aitsc-space-8) !important;
+}
+
+.m-responsive-xs {
+    margin: var(--aitsc-space-2) !important;
+}
+
+.m-responsive-sm {
+    margin: var(--aitsc-space-4) !important;
+}
+
+.m-responsive-md {
+    margin: var(--aitsc-space-6) !important;
+}
+
+.m-responsive-lg {
+    margin: var(--aitsc-space-8) !important;
+}
+
+/* Accessibility Improvements for Mobile */
+@media (max-width: 767px) {
+
+    .button,
+    .menu-toggle,
+    input[type="submit"],
+    input[type="button"],
+    a {
+        min-height: 44px;
+        min-width: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .form-field {
+        min-height: 44px;
+        padding: var(--aitsc-space-3) var(--aitsc-space-4);
+    }
+
+    .page-numbers {
+        min-width: 44px;
+        min-height: 44px;
+    }
+}
+
+/* Responsive Utilities for Touch Devices */
+@media (hover: none) and (pointer: coarse) {
+
+    .hover-fade:hover,
+    .hover-bounce:hover,
+    .hover-pulse:hover,
+    .hover-glow:hover,
+    .hover-zoom:hover,
+    .hover-rotate:hover {
+        transform: none;
+        animation: none;
+    }
+
+    .button:hover,
+    .card:hover,
+    .service-card:hover {
+        transform: none;
+        box-shadow: var(--aitsc-shadow-md);
+    }
+}
+
+/* MOBILE POLISH */
+
+@media (max-width: 768px) {
+
+    /* Increase touch targets */
+    .button {
+        min-height: 48px;
+        padding: 0.75rem 1.5rem;
+    }
+
+    /* Simplify hover effects on touch */
+    .card:hover {
+        border-color: var(--aitsc-color-border);
+        box-shadow: none;
+    }
+
+    /* Reduce animation complexity */
+    .animate-glow {
+        animation: none;
+    }
+
+    .button--neon:hover {
+        animation: none;
+        box-shadow: 0 0 15px rgba(0, 225, 40, 0.4);
+    }
+
+    /* Text sizing */
+    .button {
+        font-size: 0.9375rem;
+    }
+
+    .button--small {
+        font-size: 0.8125rem;
+    }
+
+    /* Remove subtle animations on mobile */
+    .section-enter--left,
+    .section-enter--right {
+        animation: aitsc-slideUp 0.6s ease-out !important;
+    }
+
+    /* Link underlines less aggressive */
+    a::after {
+        display: none;
+    }
+
+    a:active {
+        color: var(--aitsc-color-neon);
+    }
+}
+
+/* TABLET POLISH */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .button {
+        padding: 0.75rem 1.5rem;
+    }
+}
+
+/* DESKTOP ENHANCEMENTS */
+
+@media (min-width: 1025px) {
+
+    /* Full glow effects on desktop */
+    .button--neon {
+        animation: aitsc-glow 2s ease-in-out infinite;
+    }
+
+    /* Stagger animations */
+    .card:nth-child(1) {
+        animation-delay: 0s;
+    }
+
+    .card:nth-child(2) {
+        animation-delay: 0.1s;
+    }
+
+    .card:nth-child(3) {
+        animation-delay: 0.2s;
+    }
+}

@@ -1,0 +1,923 @@
+/**
+ * AITSC Pro Theme - Animations CSS
+ * Transitions, keyframes, hover states, and scroll animations
+ * Complete animation system for Phase 2
+ *
+ * @package AITSCProTheme
+ */
+
+/* ===== TRANSITIONS ===== */
+
+.transition-all {
+  transition: all var(--aitsc-transition-base);
+}
+
+.transition-transform {
+  transition: transform var(--aitsc-transition-base);
+}
+
+.transition-opacity {
+  transition: opacity var(--aitsc-transition-base);
+}
+
+.transition-colors {
+  transition: color var(--aitsc-transition-base), background-color var(--aitsc-transition-base), border-color var(--aitsc-transition-base);
+}
+
+/* ===== KEYFRAME ANIMATIONS ===== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes scaleOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 53%, 80%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  40%, 43% {
+    transform: translate3d(0, -30px, 0);
+  }
+  70% {
+    transform: translate3d(0, -15px, 0);
+  }
+  90% {
+    transform: translate3d(0, -4px, 0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-10px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(10px);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px var(--aitsc-color-accent-neon);
+  }
+  50% {
+    box-shadow: 0 0 20px var(--aitsc-color-accent-neon), 0 0 30px var(--aitsc-color-accent-neon);
+  }
+  100% {
+    box-shadow: 0 0 5px var(--aitsc-color-accent-neon);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes wiggle {
+  0%, 7% {
+    transform: rotateZ(0);
+  }
+  15% {
+    transform: rotateZ(-15deg);
+  }
+  20% {
+    transform: rotateZ(10deg);
+  }
+  25% {
+    transform: rotateZ(-10deg);
+  }
+  30% {
+    transform: rotateZ(6deg);
+  }
+  35% {
+    transform: rotateZ(-4deg);
+  }
+  40%, 100% {
+    transform: rotateZ(0);
+  }
+}
+
+/* ===== ANIMATION CLASSES ===== */
+
+.animate-fade-in {
+  animation: fadeIn 0.6s var(--aitsc-transition-base);
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s var(--aitsc-transition-base);
+}
+
+.animate-slide-down {
+  animation: slideDown 0.6s var(--aitsc-transition-base);
+}
+
+.animate-slide-left {
+  animation: slideLeft 0.6s var(--aitsc-transition-base);
+}
+
+.animate-slide-right {
+  animation: slideRight 0.6s var(--aitsc-transition-base);
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.4s var(--aitsc-transition-base);
+}
+
+.animate-scale-out {
+  animation: scaleOut 0.4s var(--aitsc-transition-base);
+}
+
+.animate-bounce {
+  animation: bounce 1s infinite;
+}
+
+.animate-pulse {
+  animation: pulse 2s infinite;
+}
+
+.animate-shake {
+  animation: shake 0.5s var(--aitsc-transition-base);
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-wiggle {
+  animation: wiggle 0.8s var(--aitsc-transition-base);
+}
+
+/* ===== SCROLL ANIMATIONS (Applied via JS) ===== */
+
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s var(--aitsc-transition-base);
+}
+
+.scroll-animate.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-animate-fade {
+  opacity: 0;
+  transition: opacity 0.6s var(--aitsc-transition-base);
+}
+
+.scroll-animate-fade.in-view {
+  opacity: 1;
+}
+
+.scroll-animate-slide-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all 0.6s var(--aitsc-transition-base);
+}
+
+.scroll-animate-slide-left.in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-animate-slide-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: all 0.6s var(--aitsc-transition-base);
+}
+
+.scroll-animate-slide-right.in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-animate-scale {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.6s var(--aitsc-transition-base);
+}
+
+.scroll-animate-scale.in-view {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ===== HOVER EFFECTS ===== */
+
+.hover-lift {
+  transition: transform var(--aitsc-transition-base),
+              box-shadow var(--aitsc-transition-base);
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--aitsc-shadow-xl);
+}
+
+.hover-grow {
+  transition: transform var(--aitsc-transition-base);
+}
+
+.hover-grow:hover {
+  transform: scale(1.05);
+}
+
+.hover-shrink {
+  transition: transform var(--aitsc-transition-base);
+}
+
+.hover-shrink:hover {
+  transform: scale(0.95);
+}
+
+.hover-rotate {
+  transition: transform var(--aitsc-transition-base);
+}
+
+.hover-rotate:hover {
+  transform: rotate(5deg);
+}
+
+.hover-flip {
+  transition: transform var(--aitsc-transition-slow);
+  transform-style: preserve-3d;
+}
+
+.hover-flip:hover {
+  transform: rotateY(180deg);
+}
+
+.hover-glow {
+  transition: box-shadow var(--aitsc-transition-base);
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 20px rgba(0, 225, 40, 0.3);
+}
+
+.hover-blur {
+  transition: filter var(--aitsc-transition-base);
+}
+
+.hover-blur:hover {
+  filter: blur(2px);
+}
+
+/* ===== LOADING STATES ===== */
+
+.loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* ===== BOUNCING & FLOATING (aitsc- prefixed) ===== */
+
+@keyframes aitsc-bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-20px);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes aitsc-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* ===== SCALING & ZOOM (aitsc- prefixed) ===== */
+
+@keyframes aitsc-zoom {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes aitsc-zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes aitsc-zoomHover {
+  to {
+    transform: scale(1.05);
+  }
+}
+
+/* ===== PULSING & BREATHING (aitsc- prefixed) ===== */
+
+@keyframes aitsc-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes aitsc-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(0, 225, 40, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 225, 40, 0.8);
+  }
+}
+
+/* ===== SHIMMER (SKELETON LOADING - aitsc- prefixed) ===== */
+
+@keyframes aitsc-shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+/* ===== TEXT REVEAL (aitsc- prefixed) ===== */
+
+@keyframes aitsc-textReveal {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes aitsc-slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes aitsc-slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes aitsc-slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ===== OPACITY FADES (aitsc- prefixed) ===== */
+
+@keyframes aitsc-fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes aitsc-fadeInDelay {
+  0%, 50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* ===== ANIMATION UTILITY CLASSES (aitsc- prefixed keyframes) ===== */
+
+/* Bounce */
+.animate-bounce-aitsc {
+  animation: aitsc-bounce 2s infinite;
+}
+
+/* Float */
+.animate-float-aitsc {
+  animation: aitsc-float 3s ease-in-out infinite;
+}
+
+/* Zoom */
+.animate-zoom {
+  animation: aitsc-zoom 0.4s ease-out;
+}
+
+.animate-zoom-hover:hover {
+  animation: aitsc-zoomHover 0.3s ease-out forwards;
+}
+
+/* Pulse */
+.animate-pulse-aitsc {
+  animation: aitsc-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Glow (neon accent) */
+.animate-glow-aitsc {
+  animation: aitsc-glow 2s ease-in-out infinite;
+}
+
+/* Shimmer (skeleton) */
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    #f0f0f0 25%,
+    #e0e0e0 50%,
+    #f0f0f0 75%
+  );
+  background-size: 1000px 100%;
+  animation: aitsc-shimmer 1.5s infinite;
+}
+
+[data-theme="dark"] .animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    #2a2a2a 25%,
+    #1a1a1a 50%,
+    #2a2a2a 75%
+  );
+  background-size: 1000px 100%;
+}
+
+/* Text/Slide Reveals */
+.animate-slide-up-aitsc {
+  animation: aitsc-slideUp 0.6s ease-out;
+}
+
+.animate-slide-left-aitsc {
+  animation: aitsc-slideInLeft 0.6s ease-out;
+}
+
+.animate-slide-right-aitsc {
+  animation: aitsc-slideInRight 0.6s ease-out;
+}
+
+.animate-fade-in-aitsc {
+  animation: aitsc-fadeIn 0.4s ease-out;
+}
+
+.loading-dots {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.loading-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--aitsc-color-primary);
+  animation: loading-dots 1.4s infinite ease-in-out both;
+}
+
+.loading-dots span:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.loading-dots span:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+@keyframes loading-dots {
+  0%, 80%, 100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+
+/* ===== STAGGERED ANIMATIONS ===== */
+
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUp 0.6s var(--aitsc-transition-base) forwards;
+}
+
+.stagger-children > *:nth-child(1) { animation-delay: 0.1s; }
+.stagger-children > *:nth-child(2) { animation-delay: 0.2s; }
+.stagger-children > *:nth-child(3) { animation-delay: 0.3s; }
+.stagger-children > *:nth-child(4) { animation-delay: 0.4s; }
+.stagger-children > *:nth-child(5) { animation-delay: 0.5s; }
+.stagger-children > *:nth-child(6) { animation-delay: 0.6s; }
+.stagger-children > *:nth-child(7) { animation-delay: 0.7s; }
+.stagger-children > *:nth-child(8) { animation-delay: 0.8s; }
+
+/* ===== DURATION MODIFIERS ===== */
+
+.animate-slow {
+  animation-duration: 2s;
+}
+
+.animate-slower {
+  animation-duration: 3s;
+}
+
+.animate-fast {
+  animation-duration: 0.3s;
+}
+
+.animate-faster {
+  animation-duration: 0.15s;
+}
+
+/* ===== DELAY MODIFIERS ===== */
+
+.animate-delay-100 {
+  animation-delay: 0.1s;
+}
+
+.animate-delay-200 {
+  animation-delay: 0.2s;
+}
+
+.animate-delay-300 {
+  animation-delay: 0.3s;
+}
+
+.animate-delay-400 {
+  animation-delay: 0.4s;
+}
+
+.animate-delay-500 {
+  animation-delay: 0.5s;
+}
+
+/* ===== EASING MODIFIERS ===== */
+
+.animate-ease-in {
+  animation-timing-function: ease-in;
+}
+
+.animate-ease-out {
+  animation-timing-function: ease-out;
+}
+
+.animate-ease-in-out {
+  animation-timing-function: ease-in-out;
+}
+
+.animate-linear {
+  animation-timing-function: linear;
+}
+
+/* ===== INTERSECTION OBSERVER HELPERS ===== */
+
+.intersection-observer {
+  opacity: 0;
+  transition: opacity 0.6s var(--aitsc-transition-base), transform 0.6s var(--aitsc-transition-base);
+}
+
+.intersection-observer-up {
+  transform: translateY(30px);
+}
+
+.intersection-observer-down {
+  transform: translateY(-30px);
+}
+
+.intersection-observer-left {
+  transform: translateX(-30px);
+}
+
+.intersection-observer-right {
+  transform: translateX(30px);
+}
+
+.intersection-observer-scale {
+  transform: scale(0.8);
+}
+
+.intersection-observer.visible {
+  opacity: 1;
+  transform: translate(0, 0) scale(1);
+}
+
+/* ===== PARALLAX EFFECTS ===== */
+
+.parallax-slow {
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+.parallax-medium {
+  will-change: transform;
+  transition: transform 0.05s linear;
+}
+
+.parallax-fast {
+  will-change: transform;
+  transition: transform 0.02s linear;
+}
+
+/* ===== ACCESSIBILITY: REDUCED MOTION ===== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .scroll-animate,
+  .scroll-animate-fade,
+  .scroll-animate-slide-left,
+  .scroll-animate-slide-right,
+  .scroll-animate-scale {
+    opacity: 1;
+    transform: none;
+  }
+
+  .animate-bounce,
+  .animate-pulse,
+  .animate-shake,
+  .animate-spin,
+  .animate-glow,
+  .animate-float,
+  .animate-wiggle {
+    animation: none !important;
+  }
+
+  .hover-lift:hover,
+  .hover-grow:hover,
+  .hover-shrink:hover,
+  .hover-rotate:hover,
+  .hover-flip:hover {
+    transform: none;
+  }
+}
+
+/* ===== PAGE LOAD ANIMATIONS ===== */
+
+.page-load-animation .site-header {
+  animation: slideDown 0.8s var(--aitsc-transition-base);
+}
+
+.page-load-animation .hero-section {
+  animation: fadeIn 1s var(--aitsc-transition-base) 0.2s both;
+}
+
+.page-load-animation .content-section {
+  animation: slideUp 0.8s var(--aitsc-transition-base) 0.4s both;
+}
+
+.page-load-animation .site-footer {
+  animation: slideUp 0.8s var(--aitsc-transition-base) 0.6s both;
+}
+
+/* ===== SPECIFIC COMPONENT ANIMATIONS ===== */
+
+/* Card hover animations */
+.card-animate {
+  transition: all var(--aitsc-transition-base);
+}
+
+.card-animate:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: var(--aitsc-shadow-xl);
+}
+
+/* Button hover animations */
+.btn-animate {
+  position: relative;
+  overflow: hidden;
+  transition: all var(--aitsc-transition-base);
+}
+
+.btn-animate::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn-animate:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Navigation animations */
+.nav-animate {
+  transition: all var(--aitsc-transition-base);
+}
+
+.nav-animate:hover {
+  transform: translateY(-2px);
+}
+
+/* Form focus animations */
+.form-animate {
+  transition: all var(--aitsc-transition-base);
+}
+
+.form-animate:focus {
+  transform: translateY(-1px);
+  box-shadow: 0 0 0 3px rgba(0, 92, 178, 0.1);
+}
+
+/* ===== PERFORMANCE OPTIMIZATIONS ===== */
+
+.gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.smooth-animation {
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== MOBILE-OPTIMIZED ANIMATIONS ===== */
+
+@media (max-width: 768px) {
+  .hover-lift:hover {
+    transform: translateY(-4px);
+  }
+
+  .hover-grow:hover {
+    transform: scale(1.02);
+  }
+
+  .animate-fast {
+    animation-duration: 0.2s;
+  }
+
+  .stagger-children > *:nth-child(1) { animation-delay: 0.05s; }
+  .stagger-children > *:nth-child(2) { animation-delay: 0.1s; }
+  .stagger-children > *:nth-child(3) { animation-delay: 0.15s; }
+  .stagger-children > *:nth-child(4) { animation-delay: 0.2s; }
+  .stagger-children > *:nth-child(5) { animation-delay: 0.25s; }
+  .stagger-children > *:nth-child(6) { animation-delay: 0.3s; }
+  .stagger-children > *:nth-child(7) { animation-delay: 0.35s; }
+  .stagger-children > *:nth-child(8) { animation-delay: 0.4s; }
+}

@@ -1,0 +1,1103 @@
+/**
+ * Enhanced Accessibility Styles
+ * Comprehensive focus indicators, ARIA support, and WCAG 2.1 AA compliance
+ * Enhanced keyboard navigation and screen reader optimizations
+ */
+
+/* ==========================================================================
+   Skip Links
+   ========================================================================== */
+
+#skip-links {
+    position: absolute;
+    top: -100px;
+    left: 6px;
+    z-index: 10000;
+    transition: top 0.3s ease;
+}
+
+#skip-links:focus-within {
+    top: 6px;
+}
+
+.skip-link {
+    position: absolute;
+    top: auto;
+    left: -9999px;
+    background: var(--aitsc-color-primary, #00a8ff);
+    color: var(--aitsc-color-white, #ffffff);
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: var(--aitsc-border-radius-md, 6px);
+    font-weight: 600;
+    font-size: var(--aitsc-font-size-base, 1rem);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    z-index: 10001;
+    transition: all 0.3s ease;
+}
+
+.skip-link:focus {
+    left: 6px;
+    top: auto;
+    outline: none;
+    animation: skipLinkPulse 2s ease-in-out;
+}
+
+.skip-link--focused {
+    left: 6px;
+    top: auto;
+}
+
+@keyframes skipLinkPulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 4px 20px rgba(0, 168, 255, 0.5);
+    }
+}
+
+/* ==========================================================================
+   Enhanced Focus Indicators
+   ========================================================================== */
+
+/* High contrast focus indicators */
+:focus-visible {
+    outline: 3px solid var(--aitsc-color-neon, #00e128);
+    outline-offset: 2px;
+    border-radius: 2px;
+    box-shadow: 0 0 0 2px var(--aitsc-color-bg, #ffffff),
+                0 0 0 4px var(--aitsc-color-neon, #00e128);
+}
+
+/* Enhanced focus for interactive elements */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+summary:focus-visible,
+[role="button"]:focus-visible,
+[role="link"]:focus-visible,
+[role="tab"]:focus-visible,
+[role="menuitem"]:focus-visible,
+[role="option"]:focus-visible,
+[role="checkbox"]:focus-visible,
+[role="radio"]:focus-visible {
+    outline: 3px solid var(--aitsc-color-neon, #00e128);
+    outline-offset: 2px;
+    border-radius: 4px;
+    box-shadow: 0 0 0 2px var(--aitsc-color-bg, #ffffff),
+                0 0 0 4px var(--aitsc-color-neon, #00e128),
+                0 0 20px rgba(0, 225, 40, 0.4);
+    position: relative;
+}
+
+/* Dark mode focus adjustments */
+[data-theme="dark"] :focus-visible {
+    box-shadow: 0 0 0 2px var(--aitsc-color-bg-secondary, #1a1a1a),
+                0 0 0 4px var(--aitsc-color-neon, #00e128),
+                0 0 25px rgba(0, 225, 40, 0.6);
+}
+
+/* High contrast mode adjustments */
+@media (prefers-contrast: high) {
+    :focus-visible {
+        outline-width: 4px;
+        outline-color: #000000;
+        outline-offset: 3px;
+    }
+
+    [data-theme="dark"] :focus-visible {
+        outline-color: #ffffff;
+    }
+}
+
+/* Reduced motion for focus */
+@media (prefers-reduced-motion: reduce) {
+    :focus-visible {
+        transition: outline-color 0.1s ease;
+        animation: none;
+    }
+}
+
+/* ==========================================================================
+   Keyboard Navigation Styles
+   ========================================================================== */
+
+/* Keyboard navigation indicator */
+.keyboard-navigation *:focus-visible {
+    outline: 3px solid var(--aitsc-color-neon, #00e128);
+    outline-offset: 2px;
+}
+
+/* Enhanced focus for carousel controls */
+.carousel-prev:focus-visible,
+.carousel-next:focus-visible,
+.carousel-dot:focus-visible {
+    outline: 3px solid var(--aitsc-color-neon, #00e128);
+    outline-offset: 3px;
+    border-radius: 50%;
+    transform: scale(1.1);
+}
+
+/* Menu focus styles */
+.primary-menu a:focus-visible,
+.mobile-menu a:focus-visible,
+.footer-menu a:focus-visible {
+    outline: 2px solid var(--aitsc-color-neon, #00e128);
+    outline-offset: 2px;
+    background-color: rgba(0, 225, 40, 0.1);
+    color: var(--aitsc-color-neon, #00e128);
+}
+
+/* Dropdown focus styles */
+.dropdown-toggle:focus-visible {
+    outline: 2px solid var(--aitsc-color-neon, #00e128);
+    outline-offset: 2px;
+    border-color: var(--aitsc-color-neon, #00e128);
+}
+
+/* Form field focus enhancements */
+input[type="text"]:focus-visible,
+input[type="email"]:focus-visible,
+input[type="tel"]:focus-visible,
+input[type="url"]:focus-visible,
+input[type="search"]:focus-visible,
+input[type="password"]:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 3px solid var(--aitsc-color-neon, #00e128);
+    outline-offset: 2px;
+    border-color: var(--aitsc-color-neon, #00e128);
+    box-shadow: 0 0 0 2px var(--aitsc-color-bg, #ffffff),
+                0 0 0 4px var(--aitsc-color-neon, #00e128),
+                0 0 15px rgba(0, 225, 40, 0.3);
+}
+
+/* Checkbox and radio focus */
+input[type="checkbox"]:focus-visible + label::before,
+input[type="radio"]:focus-visible + label::before {
+    outline: 3px solid var(--aitsc-color-neon, #00e128);
+    outline-offset: 2px;
+}
+
+/* Button focus enhancements */
+.button:focus-visible,
+.button--primary:focus-visible,
+.button--secondary:focus-visible,
+.button--neon:focus-visible {
+    outline: 3px solid var(--aitsc-color-neon, #00e128);
+    outline-offset: 2px;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(0, 225, 40, 0.4);
+}
+
+/* ==========================================================================
+   Touch and Mobile Enhancements
+   ========================================================================== */
+
+/* Touch targets minimum 44px */
+@media (pointer: coarse) {
+    button,
+    input,
+    select,
+    textarea,
+    a,
+    [role="button"],
+    [role="link"],
+    .theme-toggle,
+    .menu-toggle,
+    .carousel-prev,
+    .carousel-next {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    /* Spacing for touch targets */
+    .nav-item,
+    .menu-item {
+        margin: 4px 0;
+    }
+
+    /* Enhanced tap feedback */
+    button:active,
+    a:active,
+    [role="button"]:active {
+        background-color: rgba(0, 225, 40, 0.1);
+        transform: scale(0.98);
+        transition: all 0.1s ease;
+    }
+}
+
+/* Touch state indicator */
+.touch-active {
+    background-color: rgba(0, 225, 40, 0.1) !important;
+    outline: 2px solid var(--aitsc-color-neon, #00e128) !important;
+    outline-offset: 1px !important;
+}
+
+/* ==========================================================================
+   Screen Reader Only Content
+   ========================================================================== */
+
+.sr-only,
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.sr-only-focusable:focus,
+.visually-hidden-focusable:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: inherit;
+    margin: inherit;
+    overflow: visible;
+    clip: auto;
+    white-space: inherit;
+}
+
+/* Live regions */
+.live-region {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+/* ==========================================================================
+   ARIA Landmarks
+   ========================================================================== */
+
+[role="banner"],
+[role="navigation"],
+[role="main"],
+[role="complementary"],
+[role="contentinfo"],
+[role="search"],
+[role="form"] {
+    position: relative;
+}
+
+/* Add landmark indicators for developers (hidden from users) */
+[role="banner"]::before,
+[role="navigation"]::before,
+[role="main"]::before,
+[role="complementary"]::before,
+[role="contentinfo"]::before {
+    position: absolute;
+    left: -9999px;
+    font-size: 0;
+    content: attr(role) " landmark";
+}
+
+/* ==========================================================================
+   Form Validation Accessibility
+   ========================================================================== */
+
+/* Error message styles */
+.error-message,
+.field-error,
+.validation-error {
+    color: var(--aitsc-color-error, #dc3545);
+    font-size: var(--aitsc-font-size-sm, 0.875rem);
+    font-weight: 500;
+    margin-top: 0.25rem;
+    display: block;
+    position: relative;
+}
+
+/* Warning message styles */
+.warning-message,
+.field-warning,
+.validation-warning {
+    color: var(--aitsc-color-warning, #ffc107);
+    font-size: var(--aitsc-font-size-sm, 0.875rem);
+    font-weight: 500;
+    margin-top: 0.25rem;
+    display: block;
+    position: relative;
+}
+
+/* Success message styles */
+.success-message,
+.field-success,
+.validation-success {
+    color: var(--aitsc-color-success, #28a745);
+    font-size: var(--aitsc-font-size-sm, 0.875rem);
+    font-weight: 500;
+    margin-top: 0.25rem;
+    display: block;
+    position: relative;
+}
+
+/* Validation icons */
+.field-validation-messages {
+    position: relative;
+    margin-top: 0.25rem;
+}
+
+.validation-errors,
+.validation-warnings {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.validation-errors li,
+.validation-warnings li {
+    padding: 0.25rem 0;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.validation-errors li::before,
+.validation-warnings li::before {
+    position: absolute;
+    left: 0;
+    top: 0.25rem;
+    font-family: monospace;
+    font-weight: bold;
+}
+
+.validation-errors li::before {
+    content: "⚠";
+    color: var(--aitsc-color-error, #dc3545);
+}
+
+.validation-warnings li::before {
+    content: "⚠";
+    color: var(--aitsc-color-warning, #ffc107);
+}
+
+.validation-success {
+    color: var(--aitsc-color-success, #28a745);
+    font-weight: 500;
+    font-size: var(--aitsc-font-size-sm, 0.875rem);
+    margin-top: 0.25rem;
+}
+
+.validation-success::before {
+    content: "✓ ";
+    color: var(--aitsc-color-success, #28a745);
+    font-weight: bold;
+}
+
+/* Enhanced form field states */
+input.error,
+textarea.error,
+select.error {
+    border-color: var(--aitsc-color-error, #dc3545);
+    background-color: rgba(220, 53, 69, 0.05);
+    box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.2);
+}
+
+input.warning,
+textarea.warning,
+select.warning {
+    border-color: var(--aitsc-color-warning, #ffc107);
+    background-color: rgba(255, 193, 7, 0.05);
+    box-shadow: 0 0 0 2px rgba(255, 193, 7, 0.2);
+}
+
+input.success,
+textarea.success,
+select.success {
+    border-color: var(--aitsc-color-success, #28a745);
+    background-color: rgba(40, 167, 69, 0.05);
+    box-shadow: 0 0 0 2px rgba(40, 167, 69, 0.2);
+}
+
+/* ==========================================================================
+   Carousel and Slider Accessibility
+   ========================================================================== */
+
+.carousel {
+    position: relative;
+}
+
+/* Carousel controls */
+.carousel-prev,
+.carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: var(--aitsc-color-bg-overlay, rgba(0, 0, 0, 0.7));
+    color: var(--aitsc-color-white, #ffffff);
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    transition: all 0.3s ease;
+}
+
+.carousel-prev:hover,
+.carousel-next:hover,
+.carousel-prev:focus-visible,
+.carousel-next:focus-visible {
+    background: var(--aitsc-color-primary, #00a8ff);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-prev {
+    left: 1rem;
+}
+
+.carousel-next {
+    right: 1rem;
+}
+
+/* Carousel dots */
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.5));
+}
+
+.carousel-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.carousel-dot:hover,
+.carousel-dot:focus-visible {
+    background: rgba(255, 255, 255, 0.8);
+    transform: scale(1.2);
+    outline: 2px solid var(--aitsc-color-neon, #00e128);
+    outline-offset: 2px;
+}
+
+.carousel-dot.active {
+    background: var(--aitsc-color-white, #ffffff);
+    border-color: var(--aitsc-color-primary, #00a8ff);
+}
+
+/* Play/pause button */
+.carousel-play-pause {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    background: var(--aitsc-color-bg-overlay, rgba(0, 0, 0, 0.7));
+    color: var(--aitsc-color-white, #ffffff);
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: var(--aitsc-border-radius-md, 6px);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.carousel-play-pause:hover,
+.carousel-play-pause:focus-visible {
+    background: var(--aitsc-color-primary, #00a8ff);
+    transform: scale(1.05);
+}
+
+/* ==========================================================================
+   Modal and Dialog Accessibility
+   ========================================================================== */
+
+.modal[role="dialog"] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: var(--aitsc-color-bg, #ffffff);
+    border-radius: var(--aitsc-border-radius-lg, 8px);
+    max-width: 90vw;
+    max-height: 90vh;
+    overflow: auto;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--aitsc-color-gray-100, #f8f9fa);
+    border: none;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--aitsc-color-gray-600, #6c757d);
+    transition: all 0.3s ease;
+}
+
+.modal-close:hover,
+.modal-close:focus-visible {
+    background: var(--aitsc-color-error, #dc3545);
+    color: var(--aitsc-color-white, #ffffff);
+    transform: scale(1.1);
+}
+
+/* Focus trap within modal */
+.modal:focus-within {
+    outline: 3px solid var(--aitsc-color-primary, #00a8ff);
+}
+
+/* ==========================================================================
+   Table Accessibility
+   ========================================================================== */
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1rem 0;
+}
+
+th,
+td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid var(--aitsc-color-border, #dee2e6);
+}
+
+th {
+    background-color: var(--aitsc-color-gray-50, #f8f9fa);
+    font-weight: 600;
+    position: relative;
+}
+
+/* Table header scope indicators */
+th[scope="col"]::after {
+    content: " (column)";
+    position: absolute;
+    left: -9999px;
+}
+
+th[scope="row"]::after {
+    content: " (row)";
+    position: absolute;
+    left: -9999px;
+}
+
+/* Data table focus */
+table:focus-visible {
+    outline: 2px solid var(--aitsc-color-primary, #00a8ff);
+    outline-offset: 2px;
+}
+
+/* ==========================================================================
+   List and Menu Accessibility
+   ========================================================================== */
+
+[role="list"] {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+[role="listitem"] {
+    display: block;
+    padding: 0.5rem 0;
+}
+
+[role="menu"] {
+    list-style: none;
+    padding: 0.5rem 0;
+    margin: 0;
+    background: var(--aitsc-color-bg, #ffffff);
+    border: 1px solid var(--aitsc-color-border, #dee2e6);
+    border-radius: var(--aitsc-border-radius-md, 6px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+[role="menuitem"] {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: var(--aitsc-color-text, #212529);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+}
+
+[role="menuitem"]:hover,
+[role="menuitem"]:focus-visible {
+    background-color: var(--aitsc-color-primary, #00a8ff);
+    color: var(--aitsc-color-white, #ffffff);
+    outline: none;
+}
+
+[role="menuitem"]:disabled,
+[role="menuitem"][aria-disabled="true"] {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   Tab Panel Accessibility
+   ========================================================================== */
+
+[role="tablist"] {
+    display: flex;
+    border-bottom: 2px solid var(--aitsc-color-border, #dee2e6);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+[role="tab"] {
+    padding: 0.75rem 1.5rem;
+    background: transparent;
+    border: none;
+    color: var(--aitsc-color-gray-600, #6c757d);
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+}
+
+[role="tab"]:hover,
+[role="tab"]:focus-visible {
+    color: var(--aitsc-color-primary, #00a8ff);
+    border-bottom-color: var(--aitsc-color-primary, #00a8ff);
+    outline: none;
+}
+
+[role="tab"][aria-selected="true"] {
+    color: var(--aitsc-color-primary, #00a8ff);
+    border-bottom-color: var(--aitsc-color-primary, #00a8ff);
+    background: var(--aitsc-color-bg, #ffffff);
+}
+
+[role="tabpanel"] {
+    padding: 1.5rem;
+    border: 1px solid var(--aitsc-color-border, #dee2e6);
+    border-top: none;
+    background: var(--aitsc-color-bg, #ffffff);
+}
+
+[role="tabpanel"]:focus-visible {
+    outline: 2px solid var(--aitsc-color-primary, #00a8ff);
+    outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Tree View Accessibility
+   ========================================================================== */
+
+[role="tree"] {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+[role="treeitem"] {
+    padding: 0.5rem;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+[role="treeitem"]:hover,
+[role="treeitem"]:focus-visible {
+    background-color: var(--aitsc-color-gray-100, #f8f9fa);
+    outline: none;
+}
+
+[role="treeitem"][aria-expanded="true"] .tree-icon::before {
+    content: "▼";
+}
+
+[role="treeitem"][aria-expanded="false"] .tree-icon::before {
+    content: "▶";
+}
+
+.tree-icon {
+    width: 1rem;
+    text-align: center;
+    color: var(--aitsc-color-gray-600, #6c757d);
+}
+
+/* ==========================================================================
+   Progress and Loading Accessibility
+   ========================================================================== */
+
+[role="progressbar"] {
+    width: 100%;
+    height: 0.5rem;
+    background: var(--aitsc-color-gray-200, #e9ecef);
+    border-radius: var(--aitsc-border-radius-sm, 3px);
+    overflow: hidden;
+    position: relative;
+}
+
+[role="progressbar"]::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: var(--aitsc-color-primary, #00a8ff);
+    border-radius: var(--aitsc-border-radius-sm, 3px);
+    transition: width 0.3s ease;
+}
+
+/* Loading spinner */
+.loading {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 3px solid var(--aitsc-color-gray-300, #dee2e6);
+    border-top-color: var(--aitsc-color-primary, #00a8ff);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.loading[aria-label]::before {
+    content: attr(aria-label);
+    position: absolute;
+    left: -9999px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ==========================================================================
+   Tooltips Accessibility
+   ========================================================================== */
+
+.tooltip {
+    position: absolute;
+    z-index: 1000;
+    background: var(--aitsc-color-gray-900, #212529);
+    color: var(--aitsc-color-white, #ffffff);
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--aitsc-border-radius-sm, 3px);
+    font-size: var(--aitsc-font-size-sm, 0.875rem);
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.tooltip.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.tooltip::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 5px solid transparent;
+}
+
+.tooltip[data-position="top"] {
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.tooltip[data-position="top"]::after {
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-top-color: var(--aitsc-color-gray-900, #212529);
+}
+
+.tooltip[data-position="bottom"] {
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.tooltip[data-position="bottom"]::after {
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-bottom-color: var(--aitsc-color-gray-900, #212529);
+}
+
+/* ==========================================================================
+   High Contrast Mode Support
+   ========================================================================== */
+
+@media (prefers-contrast: high) {
+    :root {
+        --aitsc-color-neon: #00ff00;
+        --aitsc-color-primary: #0000ff;
+        --aitsc-color-error: #ff0000;
+        --aitsc-color-warning: #ff8000;
+        --aitsc-color-success: #00ff00;
+    }
+
+    .button,
+    input,
+    textarea,
+    select {
+        border-width: 2px;
+    }
+
+    [data-theme="dark"] {
+        --aitsc-color-neon: #00ff00;
+        --aitsc-color-bg: #000000;
+        --aitsc-color-text: #ffffff;
+    }
+}
+
+/* ==========================================================================
+   Reduced Motion Support
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .carousel,
+    .modal,
+    .tooltip {
+        transition: none !important;
+    }
+
+    /* Keep essential animations but reduce them */
+    .loading {
+        animation: spin 2s linear infinite;
+    }
+
+    /* Allow user-controlled animations */
+    [data-user-animation="true"] {
+        animation-duration: inherit !important;
+        transition-duration: inherit !important;
+    }
+}
+
+/* ==========================================================================
+   Print Accessibility
+   ========================================================================== */
+
+@media print {
+    .skip-links,
+    .carousel-controls,
+    .modal-backdrop,
+    [role="tooltip"] {
+        display: none !important;
+    }
+
+    a[href^="http"]:after,
+    a[href^="https"]:after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+        color: #666;
+    }
+
+    a[href^="#"]:after {
+        content: "";
+    }
+}
+
+/* ==========================================================================
+   Dark Mode Accessibility
+   ========================================================================== */
+
+[data-theme="dark"] {
+    --focus-outline-color: #00e128;
+    --focus-shadow-color: rgba(0, 225, 40, 0.6);
+    --error-color: #ff6b6b;
+    --warning-color: #ffd43b;
+    --success-color: #51cf66;
+}
+
+[data-theme="dark"] .error-message,
+[data-theme="dark"] .field-error,
+[data-theme="dark"] .validation-error {
+    color: var(--error-color);
+}
+
+[data-theme="dark"] .warning-message,
+[data-theme="dark"] .field-warning,
+[data-theme="dark"] .validation-warning {
+    color: var(--warning-color);
+}
+
+[data-theme="dark"] .success-message,
+[data-theme="dark"] .field-success,
+[data-theme="dark"] .validation-success {
+    color: var(--success-color);
+}
+
+[data-theme="dark"] .tooltip {
+    background: #333333;
+    color: #ffffff;
+}
+
+[data-theme="dark"] [role="menu"] {
+    background: #2d3748;
+    border-color: #4a5568;
+}
+
+[data-theme="dark"] [role="menuitem"] {
+    color: #e2e8f0;
+}
+
+[data-theme="dark"] [role="menuitem"]:hover,
+[data-theme="dark"] [role="menuitem"]:focus-visible {
+    background-color: #4a5568;
+}
+
+/* ==========================================================================
+   Responsive Accessibility
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .skip-link {
+        padding: 1rem;
+        font-size: 1.1rem;
+    }
+
+    .carousel-prev,
+    .carousel-next {
+        width: 44px;
+        height: 44px;
+        padding: 0.75rem;
+    }
+
+    [role="tab"] {
+        padding: 1rem;
+        font-size: 0.9rem;
+    }
+
+    .modal-content {
+        margin: 1rem;
+        max-width: calc(100vw - 2rem);
+    }
+}
+
+/* ==========================================================================
+   Custom Properties for Enhanced Focus
+   ========================================================================== */
+
+:root {
+    --focus-width: 3px;
+    --focus-offset: 2px;
+    --focus-color: #00e128;
+    --focus-color-dark: #00ff41;
+    --focus-radius: 4px;
+    --focus-scale: 1.05;
+}
+
+/* Enhanced focus with custom properties */
+.enhanced-focus {
+    outline: var(--focus-width) solid var(--focus-color);
+    outline-offset: var(--focus-offset);
+    border-radius: var(--focus-radius);
+    box-shadow: 0 0 0 calc(var(--focus-offset) + 1px) var(--aitsc-color-bg, #ffffff),
+                0 0 0 calc(var(--focus-width) + var(--focus-offset) + 1px) var(--focus-color);
+}
+
+.enhanced-focus:hover {
+    transform: scale(var(--focus-scale));
+}
+
+/* ==========================================================================
+   Animation Performance Classes
+   ========================================================================== */
+
+.animation-optimizing {
+    will-change: auto;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+.animation-paused {
+    animation-play-state: paused !important;
+    transition-duration: 0.01s !important;
+}
+
+.animation-slow {
+    animation-duration: 0.3s !important;
+    transition-duration: 0.3s !important;
+}
+
+/* ==========================================================================
+   Debug Accessibility (Development Only)
+   ========================================================================== */
+
+.debug-accessibility * {
+    outline: 1px solid rgba(255, 0, 0, 0.3);
+}
+
+.debug-accessibility [role] {
+    outline: 2px solid rgba(0, 255, 0, 0.5);
+}
+
+.debug-accessibility [aria-label]::before {
+    content: attr(aria-label) " ";
+    background: rgba(255, 255, 0, 0.8);
+    color: #000;
+    font-size: 0.7rem;
+    padding: 2px 4px;
+    position: absolute;
+    z-index: 9999;
+}
+
+.debug-accessibility [tabindex] {
+    outline: 3px solid rgba(0, 0, 255, 0.7);
+}

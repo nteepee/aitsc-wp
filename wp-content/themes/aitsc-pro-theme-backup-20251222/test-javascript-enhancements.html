@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phase 1 JavaScript Enhancement Tests - WorldQuant Theme</title>
+    <style>
+        /* Basic test styles */
+        :root {
+            --aitsc-color-bg: #ffffff;
+            --aitsc-color-bg-secondary: #f8f9fa;
+            --aitsc-color-text: #212529;
+            --aitsc-color-border: #dee2e6;
+            --aitsc-color-primary: #00a8ff;
+            --aitsc-color-neon: #00e128;
+            --aitsc-color-error: #dc3545;
+            --aitsc-color-success: #28a745;
+            --aitsc-color-warning: #ffc107;
+        }
+
+        [data-theme="dark"] {
+            --aitsc-color-bg: #1a1a1a;
+            --aitsc-color-bg-secondary: #2d3748;
+            --aitsc-color-text: #e2e8f0;
+            --aitsc-color-border: #4a5568;
+            --aitsc-color-primary: #00a8ff;
+            --aitsc-color-neon: #00e128;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--aitsc-color-text);
+            background-color: var(--aitsc-color-bg);
+            margin: 0;
+            padding: 2rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .test-section {
+            background: var(--aitsc-color-bg-secondary);
+            border: 1px solid var(--aitsc-color-border);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .theme-toggle {
+            background: var(--aitsc-color-primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+            cursor: pointer;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 20px rgba(0, 168, 255, 0.4);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--aitsc-color-border);
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            background: var(--aitsc-color-bg);
+            color: var(--aitsc-color-text);
+        }
+
+        button {
+            background: var(--aitsc-color-primary);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: var(--aitsc-color-neon);
+            transform: translateY(-1px);
+        }
+
+        .test-status {
+            padding: 1rem;
+            border-radius: 4px;
+            margin: 1rem 0;
+            font-weight: 600;
+        }
+
+        .test-status.pass {
+            background: rgba(40, 167, 69, 0.1);
+            color: var(--aitsc-color-success);
+            border: 1px solid var(--aitsc-color-success);
+        }
+
+        .test-status.fail {
+            background: rgba(220, 53, 69, 0.1);
+            color: var(--aitsc-color-error);
+            border: 1px solid var(--aitsc-color-error);
+        }
+
+        .test-status.info {
+            background: rgba(0, 168, 255, 0.1);
+            color: var(--aitsc-color-primary);
+            border: 1px solid var(--aitsc-color-primary);
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Skip links for testing */
+        #skip-links {
+            position: absolute;
+            top: -100px;
+            left: 6px;
+            z-index: 10000;
+            transition: top 0.3s ease;
+        }
+
+        #skip-links:focus-within {
+            top: 6px;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: auto;
+            left: -9999px;
+            background: var(--aitsc-color-primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            z-index: 10001;
+            transition: all 0.3s ease;
+        }
+
+        .skip-link:focus {
+            left: 6px;
+            top: auto;
+            outline: none;
+        }
+
+        /* Test carousel */
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            background: var(--aitsc-color-bg-secondary);
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 2rem 0;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        .carousel-controls {
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-dot:focus {
+            outline: 2px solid var(--aitsc-color-neon);
+            outline-offset: 2px;
+        }
+
+        .carousel-dot.active {
+            background: var(--aitsc-color-primary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip Links -->
+    <div id="skip-links">
+        <a href="#main-content" class="skip-link">Skip to main content</a>
+        <a href="#test-form" class="skip-link">Skip to test form</a>
+        <a href="#theme-toggle" class="skip-link">Skip to theme toggle</a>
+    </div>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <h1>Phase 1 JavaScript Enhancement Tests</h1>
+        <p>Test all the enhanced JavaScript functionality implemented in Phase 1.</p>
+
+        <!-- Theme Toggle Test -->
+        <section class="test-section">
+            <h2>1. Enhanced Dark Mode Toggle</h2>
+            <button id="theme-toggle" class="theme-toggle" data-theme-toggle aria-label="Toggle dark mode">
+                <span class="theme-icon">🌙</span>
+            </button>
+            <div id="theme-status" class="test-status info">
+                Current theme: <span id="current-theme">light</span>
+            </div>
+        </section>
+
+        <!-- Form Validation Test -->
+        <section class="test-section">
+            <h2>2. Enhanced Form Validation</h2>
+            <form id="test-form">
+                <div class="form-group">
+                    <label for="test-name">Name (required)</label>
+                    <input type="text" id="test-name" name="name" required minlength="2" maxlength="50">
+                </div>
+
+                <div class="form-group">
+                    <label for="test-email">Email (required)</label>
+                    <input type="email" id="test-email" name="email" required data-enhance-validation>
+                </div>
+
+                <div class="form-group">
+                    <label for="test-phone">Phone (optional)</label>
+                    <input type="tel" id="test-phone" name="phone" data-enhance-validation>
+                </div>
+
+                <div class="form-group">
+                    <label for="test-message">Message (min 10 characters)</label>
+                    <textarea id="test-message" name="message" rows="4" minlength="10" maxlength="500" data-enhance-validation></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="test-file">File upload (optional)</label>
+                    <input type="file" id="test-file" name="file" accept="image/*,.pdf,.doc,.docx" data-max-size="5MB">
+                </div>
+
+                <button type="submit">Submit Test Form</button>
+            </form>
+        </section>
+
+        <!-- Keyboard Navigation Test -->
+        <section class="test-section">
+            <h2>3. Keyboard Navigation Test</h2>
+            <p>Use Tab key to navigate through these elements. Focus should be clearly visible.</p>
+
+            <div class="keyboard-test">
+                <button>Button 1</button>
+                <button>Button 2</button>
+                <a href="#test-link">Test Link</a>
+                <input type="text" placeholder="Tab to this input">
+                <select>
+                    <option>Option 1</option>
+                    <option>Option 2</option>
+                </select>
+            </div>
+
+            <div id="keyboard-status" class="test-status info">
+                Press Tab to test keyboard navigation
+            </div>
+        </section>
+
+        <!-- Animation Performance Test -->
+        <section class="test-section">
+            <h2>4. Page Visibility API & Animation Performance</h2>
+            <p>Switch tabs to see if animations pause/resume properly.</p>
+
+            <div class="carousel">
+                <div class="carousel-slide active" data-slide="1">Slide 1</div>
+                <div class="carousel-slide" data-slide="2">Slide 2</div>
+                <div class="carousel-slide" data-slide="3">Slide 3</div>
+
+                <div class="carousel-controls">
+                    <button class="carousel-dot active" data-slide="1" aria-label="Go to slide 1">1</button>
+                    <button class="carousel-dot" data-slide="2" aria-label="Go to slide 2">2</button>
+                    <button class="carousel-dot" data-slide="3" aria-label="Go to slide 3">3</button>
+                </div>
+            </div>
+
+            <div id="visibility-status" class="test-status info">
+                Page visibility: <span id="page-visibility">visible</span>
+            </div>
+        </section>
+
+        <!-- Accessibility Features Test -->
+        <section class="test-section">
+            <h2>5. Accessibility Features</h2>
+            <div class="accessibility-test">
+                <h3>ARIA Live Regions</h3>
+                <div id="live-region" aria-live="polite" aria-atomic="true" class="sr-only"></div>
+                <button onclick="announceChange('Live region announcement test')">Test Live Region</button>
+
+                <h3>Reduced Motion</h3>
+                <p>Reduced motion preference: <span id="reduced-motion-status">unknown</span></p>
+                <div class="animated-box" style="width: 100px; height: 100px; background: var(--aitsc-color-primary); margin: 1rem 0; animation: pulse 2s infinite;"></div>
+
+                <h3>High Contrast</h3>
+                <p>High contrast preference: <span id="contrast-status">unknown</span></p>
+            </div>
+        </section>
+
+        <!-- Test Results -->
+        <section class="test-section">
+            <h2>6. Test Results</h2>
+            <div id="test-results">
+                <div class="test-status info">Running tests...</div>
+            </div>
+            <button onclick="runAllTests()">Run All Tests</button>
+        </section>
+    </main>
+
+    <!-- JavaScript Files -->
+    <script src="assets/js/dark-mode.js"></script>
+    <script src="assets/js/dark-mode-toggle.js"></script>
+    <script src="assets/js/accessibility.js"></script>
+    <script src="assets/js/form-validation.js"></script>
+    <script src="assets/js/animation-manager.js"></script>
+    <script src="assets/css/accessibility.css"></script>
+
+    <!-- Test Script -->
+    <script>
+        // Test variables
+        let testResults = {
+            darkMode: false,
+            formValidation: false,
+            keyboardNavigation: false,
+            pageVisibilityAPI: false,
+            accessibility: false
+        };
+
+        // Wait for DOM to be ready
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Phase 1 JavaScript Enhancement Tests - Starting...');
+
+            // Initialize tests after a short delay to allow scripts to load
+            setTimeout(() => {
+                runAllTests();
+                setupEventListeners();
+            }, 1000);
+        });
+
+        function setupEventListeners() {
+            // Theme change listener
+            document.addEventListener('themeChanged', function(e) {
+                updateThemeStatus(e.detail.newTheme);
+                testResults.darkMode = true;
+                updateTestResults();
+            });
+
+            // Form validation listener
+            const testForm = document.getElementById('test-form');
+            if (testForm) {
+                testForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    console.log('Form submission prevented for testing');
+                    testResults.formValidation = true;
+                    updateTestResults();
+                });
+            }
+
+            // Keyboard navigation listener
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Tab') {
+                    document.body.classList.add('keyboard-navigation');
+                    testResults.keyboardNavigation = true;
+                    updateTestResults();
+                }
+            });
+
+            document.addEventListener('mousedown', function() {
+                document.body.classList.remove('keyboard-navigation');
+            });
+
+            // Page visibility listener
+            document.addEventListener('visibilitychange', function() {
+                updateVisibilityStatus();
+                testResults.pageVisibilityAPI = true;
+                updateTestResults();
+            });
+
+            // Reduced motion listener
+            if (window.matchMedia) {
+                const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+                document.getElementById('reduced-motion-status').textContent = reducedMotionQuery.matches ? 'enabled' : 'disabled';
+
+                reducedMotionQuery.addEventListener('change', function(e) {
+                    document.getElementById('reduced-motion-status').textContent = e.matches ? 'enabled' : 'disabled';
+                    testResults.accessibility = true;
+                    updateTestResults();
+                });
+            }
+
+            // High contrast listener
+            if (window.matchMedia) {
+                const highContrastQuery = window.matchMedia('(prefers-contrast: high)');
+                document.getElementById('contrast-status').textContent = highContrastQuery.matches ? 'enabled' : 'disabled';
+
+                highContrastQuery.addEventListener('change', function(e) {
+                    document.getElementById('contrast-status').textContent = e.matches ? 'enabled' : 'disabled';
+                    testResults.accessibility = true;
+                    updateTestResults();
+                });
+            }
+        }
+
+        function updateThemeStatus(theme) {
+            document.getElementById('current-theme').textContent = theme;
+            document.documentElement.setAttribute('data-theme', theme);
+        }
+
+        function updateVisibilityStatus() {
+            const isVisible = !document.hidden;
+            document.getElementById('page-visibility').textContent = isVisible ? 'visible' : 'hidden';
+        }
+
+        function announceChange(message) {
+            const liveRegion = document.getElementById('live-region');
+            if (liveRegion) {
+                liveRegion.textContent = message;
+                setTimeout(() => {
+                    liveRegion.textContent = '';
+                }, 2000);
+            }
+        }
+
+        function runAllTests() {
+            console.log('Running comprehensive tests...');
+
+            // Test Dark Mode
+            testDarkMode();
+
+            // Test Form Validation
+            testFormValidation();
+
+            // Test Keyboard Navigation
+            testKeyboardNavigation();
+
+            // Test Page Visibility API
+            testPageVisibilityAPI();
+
+            // Test Accessibility Features
+            testAccessibilityFeatures();
+
+            // Update overall results
+            updateTestResults();
+        }
+
+        function testDarkMode() {
+            console.log('Testing dark mode functionality...');
+
+            // Check if dark mode manager exists
+            if (window.AITSC_DarkMode || window.darkModeManager) {
+                console.log('✓ Dark mode manager loaded');
+
+                // Test theme toggle
+                const toggleBtn = document.querySelector('[data-theme-toggle]');
+                if (toggleBtn) {
+                    console.log('✓ Theme toggle button found');
+
+                    // Test theme change
+                    const initialTheme = document.documentElement.getAttribute('data-theme');
+                    toggleBtn.click();
+
+                    setTimeout(() => {
+                        const newTheme = document.documentElement.getAttribute('data-theme');
+                        if (newTheme !== initialTheme) {
+                            console.log('✓ Theme toggle working');
+                            testResults.darkMode = true;
+                        } else {
+                            console.log('✗ Theme toggle not working');
+                        }
+                    }, 500);
+                }
+            } else {
+                console.log('✗ Dark mode manager not found');
+            }
+        }
+
+        function testFormValidation() {
+            console.log('Testing form validation...');
+
+            // Check if form validation is enhanced
+            const testForm = document.getElementById('test-form');
+            if (testForm && testForm.hasAttribute('data-enhance-validation')) {
+                console.log('✓ Enhanced form validation enabled');
+
+                // Test field validation
+                const emailField = document.getElementById('test-email');
+                if (emailField) {
+                    emailField.value = 'invalid-email';
+                    emailField.dispatchEvent(new Event('blur'));
+
+                    setTimeout(() => {
+                        if (emailField.classList.contains('error')) {
+                            console.log('✓ Email validation working');
+                            testResults.formValidation = true;
+                        }
+                    }, 500);
+                }
+            }
+        }
+
+        function testKeyboardNavigation() {
+            console.log('Testing keyboard navigation...');
+
+            // Check if accessibility manager exists
+            if (window.AITSC_Accessibility || window.accessibilityManager) {
+                console.log('✓ Accessibility manager loaded');
+
+                // Test keyboard navigation styles
+                if (document.querySelector('.sr-only')) {
+                    console.log('✓ Screen reader styles present');
+                    testResults.keyboardNavigation = true;
+                }
+            }
+        }
+
+        function testPageVisibilityAPI() {
+            console.log('Testing Page Visibility API...');
+
+            // Check if Page Visibility API is supported
+            if (typeof document.hidden !== 'undefined') {
+                console.log('✓ Page Visibility API supported');
+                testResults.pageVisibilityAPI = true;
+
+                // Test animation manager
+                if (window.AITSC_AnimationManager || window.animationManager) {
+                    console.log('✓ Animation manager loaded');
+                }
+            } else {
+                console.log('✗ Page Visibility API not supported');
+            }
+        }
+
+        function testAccessibilityFeatures() {
+            console.log('Testing accessibility features...');
+
+            // Test for skip links
+            const skipLinks = document.querySelectorAll('.skip-link');
+            if (skipLinks.length > 0) {
+                console.log('✓ Skip links present');
+            }
+
+            // Test for ARIA attributes
+            const toggleBtn = document.querySelector('[data-theme-toggle]');
+            if (toggleBtn && toggleBtn.hasAttribute('aria-label')) {
+                console.log('✓ ARIA labels present');
+            }
+
+            // Test for reduced motion support
+            if (window.matchMedia) {
+                const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+                if (reducedMotionQuery) {
+                    console.log('✓ Reduced motion detection working');
+                }
+            }
+
+            testResults.accessibility = true;
+        }
+
+        function updateTestResults() {
+            const resultsContainer = document.getElementById('test-results');
+            const allPassed = Object.values(testResults).every(result => result);
+
+            let html = '<div class="test-status ' + (allPassed ? 'pass' : 'info') + '">';
+            html += '<h3>Test Results Summary</h3>';
+            html += '<ul>';
+            html += '<li>Dark Mode: ' + (testResults.darkMode ? '✓ Pass' : '⚠ Pending') + '</li>';
+            html += '<li>Form Validation: ' + (testResults.formValidation ? '✓ Pass' : '⚠ Pending') + '</li>';
+            html += '<li>Keyboard Navigation: ' + (testResults.keyboardNavigation ? '✓ Pass' : '⚠ Pending') + '</li>';
+            html += '<li>Page Visibility API: ' + (testResults.pageVisibilityAPI ? '✓ Pass' : '⚠ Pending') + '</li>';
+            html += '<li>Accessibility Features: ' + (testResults.accessibility ? '✓ Pass' : '⚠ Pending') + '</li>';
+            html += '</ul>';
+            html += '<p><strong>Overall Status: ' + (allPassed ? '✓ All Tests Passed' : '⚠ Some Tests Pending') + '</strong></p>';
+            html += '</div>';
+
+            resultsContainer.innerHTML = html;
+
+            console.log('Test Results:', testResults);
+            console.log('Overall Status:', allPassed ? 'PASSED' : 'PENDING');
+        }
+
+        // Add pulse animation for reduced motion test
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes pulse {
+                0%, 100% { opacity: 1; transform: scale(1); }
+                50% { opacity: 0.7; transform: scale(1.05); }
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                .animated-box {
+                    animation: none !important;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

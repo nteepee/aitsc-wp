@@ -1,0 +1,87 @@
+/**
+ * Advanced Scroll-Based Animations
+ * Used for GSAP ScrollTrigger or Intersection Observer triggers
+ *
+ * @package AITSCProTheme
+ */
+
+/* ===== SCROLL TRIGGER KEYFRAMES ===== */
+
+@keyframes aitsc-countUp {
+  from {
+    opacity: 0;
+    counter-increment: counter 0;
+  }
+  to {
+    opacity: 1;
+    counter-increment: counter 100;
+  }
+}
+
+/* ===== CARD & COMPONENT ANIMATIONS ===== */
+
+/* Solution card entrance */
+.solution-card {
+  animation: aitsc-slideUp 0.6s ease-out backwards;
+}
+
+.solution-card:nth-child(1) { animation-delay: 0s; }
+.solution-card:nth-child(2) { animation-delay: 0.1s; }
+.solution-card:nth-child(3) { animation-delay: 0.2s; }
+
+/* Case study card entrance */
+.case-study-card {
+  animation: aitsc-slideUp 0.6s ease-out backwards;
+}
+
+.case-study-card:nth-child(1) { animation-delay: 0s; }
+.case-study-card:nth-child(2) { animation-delay: 0.1s; }
+.case-study-card:nth-child(3) { animation-delay: 0.2s; }
+
+/* ===== TEXT ANIMATIONS ===== */
+
+/* Character-by-character reveal (requires JS) */
+.text-reveal {
+  animation: aitsc-textReveal 0.5s ease-out;
+}
+
+.text-reveal span {
+  display: inline-block;
+}
+
+/* ===== SECTION ENTRANCE ===== */
+
+.section-enter {
+  animation: aitsc-slideUp 0.8s ease-out;
+}
+
+.section-enter--left {
+  animation: aitsc-slideInLeft 0.8s ease-out;
+}
+
+.section-enter--right {
+  animation: aitsc-slideInRight 0.8s ease-out;
+}
+
+/* ===== HOVER EFFECTS ===== */
+
+.card-hover-lift:hover {
+  animation: aitsc-float 0.3s ease-out forwards;
+}
+
+.image-zoom-hover:hover {
+  animation: aitsc-zoomHover 0.3s ease-out forwards;
+}
+
+/* ===== INTERSECTION OBSERVER STATES ===== */
+
+/* Before intersection (hidden) */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* After intersection (visible) */
+.scroll-animate.visible {
+  animation: aitsc-slideUp 0.6s ease-out forwards;
+}

@@ -1,0 +1,783 @@
+/**
+ * AITSC Pro Theme - Advanced Animations CSS
+ * WorldQuant-inspired animation system with performance optimizations
+ *
+ * @package AITSCProTheme
+ * @since 1.0.0
+ * @version 3.0.0
+ */
+
+/* === ANIMATION FRAMEWORK SUPPORT === */
+
+/* Animation States */
+[data-animation] {
+    will-change: transform, opacity;
+}
+
+.animation-active {
+    will-change: transform, opacity;
+}
+
+.animation-complete {
+    will-change: auto;
+}
+
+/* === ANIMATION PRESETS === */
+
+/* Fade In Up */
+.animate-fade-in-up,
+[data-animation="fadeInUp"] {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate-fade-in-up.animation-active,
+[data-animation="fadeInUp"].animation-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Fade In Left */
+.animate-fade-in-left,
+[data-animation="fadeInLeft"] {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate-fade-in-left.animation-active,
+[data-animation="fadeInLeft"].animation-active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Fade In Right */
+.animate-fade-in-right,
+[data-animation="fadeInRight"] {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate-fade-in-right.animation-active,
+[data-animation="fadeInRight"].animation-active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Scale In */
+.animate-scale-in,
+[data-animation="scaleIn"] {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate-scale-in.animation-active,
+[data-animation="scaleIn"].animation-active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Slide In From Top */
+.animate-slide-in-top,
+[data-animation="slideInFromTop"] {
+    opacity: 0;
+    transform: translateY(-30px);
+    transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate-slide-in-top.animation-active,
+[data-animation="slideInFromTop"].animation-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* === TEXT ANIMATIONS === */
+
+/* Word Animation Support */
+.hero-word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hero-word.word-revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Character Animation Support */
+.char {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.char.char-revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Word Animation for Text Elements */
+.word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.word.word-revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Text Reveal Effect */
+.text-reveal {
+    position: relative;
+    display: inline-block;
+}
+
+.text-reveal::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, var(--background-primary), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.8s ease;
+}
+
+.text-reveal.animation-active::after {
+    transform: translateX(100%);
+}
+
+/* === STAGGERED ANIMATIONS === */
+
+/* Staggered Lists */
+[data-stagger] > * {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+[data-stagger].animation-active > * {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered Grid Items */
+.stagger-grid {
+    display: grid;
+    gap: var(--space-6);
+}
+
+.stagger-grid > * {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.stagger-grid.animation-active > *:nth-child(1) { transition-delay: 0ms; }
+.stagger-grid.animation-active > *:nth-child(2) { transition-delay: 100ms; }
+.stagger-grid.animation-active > *:nth-child(3) { transition-delay: 200ms; }
+.stagger-grid.animation-active > *:nth-child(4) { transition-delay: 300ms; }
+.stagger-grid.animation-active > *:nth-child(5) { transition-delay: 400ms; }
+.stagger-grid.animation-active > *:nth-child(6) { transition-delay: 500ms; }
+
+.stagger-grid.animation-active > * {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* === PARALLAX EFFECTS === */
+
+/* Scroll Parallax */
+[data-parallax] {
+    will-change: transform;
+    transform: translateZ(0); /* GPU acceleration */
+}
+
+/* Mouse-based Parallax */
+[data-mouse-parallax] {
+    will-change: transform;
+    transition: transform 0.1s ease-out;
+    transform: translateZ(0); /* GPU acceleration */
+}
+
+/* Parallax Background */
+.parallax-bg {
+    position: absolute;
+    top: -20%;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+/* Parallax Layers */
+.parallax-layer {
+    position: absolute;
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+.parallax-layer-bg {
+    z-index: 1;
+}
+
+.parallax-layer-mid {
+    z-index: 2;
+}
+
+.parallax-layer-fg {
+    z-index: 3;
+}
+
+/* === COUNTER ANIMATIONS === */
+
+.counter {
+    display: inline-block;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+}
+
+.counter-container {
+    text-align: center;
+}
+
+.counter-number {
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--accent-primary);
+    line-height: var(--line-height-tight);
+}
+
+.counter-label {
+    font-size: var(--font-size-base);
+    color: var(--text-secondary);
+    line-height: var(--line-height-normal);
+    margin-top: var(--space-2);
+}
+
+/* === ADVANCED INTERACTIONS === */
+
+/* Magnetic Buttons */
+.magnetic-btn {
+    position: relative;
+    transform-origin: center;
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
+}
+
+.magnetic-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border-radius: inherit;
+    z-index: -1;
+}
+
+.magnetic-btn:hover::before {
+    transform: translate(-50%, -50%) scale(1.5);
+}
+
+/* Tilt Images */
+.tilt-image {
+    transform-style: preserve-3d;
+    transition: transform 0.1s ease-out;
+    will-change: transform;
+}
+
+.tilt-image img {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+.tilt-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.tilt-image:hover .tilt-overlay {
+    opacity: 1;
+}
+
+/* Ripple Effects */
+.ripple-btn {
+    position: relative;
+    overflow: hidden;
+    transform: translateZ(0); /* Create stacking context */
+}
+
+.ripple-btn .ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    transform: scale(0);
+    animation: ripple-animation 0.6s ease-out;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes ripple-animation {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* === SCROLL INDICATORS === */
+
+/* Scroll Progress Bar */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-primary), var(--accent-hover));
+    z-index: 10000;
+    transition: width 0.1s ease;
+    box-shadow: 0 0 10px rgba(0, 102, 255, 0.5);
+}
+
+/* Scroll to Top Button */
+.scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--accent-primary);
+    color: var(--text-primary);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    will-change: transform, opacity;
+}
+
+.scroll-to-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.scroll-to-top:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.scroll-to-top:focus {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+}
+
+.scroll-to-top svg {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.2s ease;
+}
+
+.scroll-to-top:hover svg {
+    transform: translateY(-2px);
+}
+
+/* === LOADING STATES === */
+
+/* Skeleton Loading */
+.skeleton {
+    background: linear-gradient(90deg,
+        var(--background-secondary) 25%,
+        var(--background-light) 50%,
+        var(--background-secondary) 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite;
+}
+
+@keyframes skeleton-loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+.skeleton-text {
+    height: 1em;
+    margin-bottom: 0.5em;
+    border-radius: 4px;
+}
+
+.skeleton-text.large {
+    height: 1.5em;
+}
+
+.skeleton-text.small {
+    height: 0.8em;
+    width: 60%;
+}
+
+.skeleton-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.skeleton-image {
+    width: 100%;
+    height: 200px;
+    border-radius: 8px;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--border-light);
+    border-top: 2px solid var(--accent-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* === FILTER ANIMATIONS === */
+
+/* Filter Button States */
+.filter-btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.filter-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: var(--accent-primary);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 0;
+}
+
+.filter-btn.active::before {
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+}
+
+.filter-btn span {
+    position: relative;
+    z-index: 1;
+}
+
+/* Filter Item Animations */
+[data-category] {
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+[data-category].filter-hidden {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    pointer-events: none;
+}
+
+[data-category].filter-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* === HOVER EFFECTS === */
+
+/* Card Hover Effects */
+.hover-lift {
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.hover-scale {
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hover-scale:hover {
+    transform: scale(1.05);
+}
+
+.hover-glow {
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+}
+
+.hover-glow::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--accent-primary), var(--accent-hover));
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.hover-glow:hover::before {
+    opacity: 1;
+}
+
+/* Image Hover Effects */
+.img-zoom {
+    overflow: hidden;
+}
+
+.img-zoom img {
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.img-zoom:hover img {
+    transform: scale(1.1);
+}
+
+.img-overlay {
+    position: relative;
+    overflow: hidden;
+}
+
+.img-overlay::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.7) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.img-overlay:hover::before {
+    opacity: 1;
+}
+
+/* === ANIMATION DELAYS === */
+
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
+.delay-600 { transition-delay: 600ms; }
+.delay-700 { transition-delay: 700ms; }
+.delay-800 { transition-delay: 800ms; }
+.delay-900 { transition-delay: 900ms; }
+.delay-1000 { transition-delay: 1000ms; }
+
+/* === PERFORMANCE OPTIMIZATIONS === */
+
+/* GPU Acceleration */
+.gpu-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* Reduce Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    [data-animation],
+    .animate-fade-in-up,
+    .animate-fade-in-left,
+    .animate-fade-in-right,
+    .animate-scale-in,
+    .animate-slide-in-top,
+    .hero-word,
+    .char,
+    .word,
+    .text-reveal,
+    .magnetic-btn,
+    .tilt-image,
+    .hover-lift,
+    .hover-scale,
+    .hover-glow,
+    .img-zoom,
+    .img-overlay {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+    }
+
+    [data-parallax],
+    [data-mouse-parallax],
+    .parallax-bg,
+    .parallax-layer {
+        transform: none !important;
+    }
+
+    .scroll-progress,
+    .scroll-to-top {
+        display: none !important;
+    }
+
+    .ripple {
+        display: none !important;
+    }
+
+    .skeleton {
+        animation: none !important;
+        background: var(--background-secondary);
+    }
+
+    .loading-spinner {
+        animation: none !important;
+    }
+
+    .filter-btn::before {
+        transition: none !important;
+    }
+
+    [data-category] {
+        transition: none !important;
+    }
+}
+
+/* === MOBILE RESPONSIVE === */
+
+@media (max-width: 768px) {
+    .scroll-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+    }
+
+    .scroll-to-top svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .magnetic-btn,
+    .tilt-image {
+        transform: none !important;
+    }
+
+    .counter-number {
+        font-size: var(--font-size-3xl);
+    }
+
+    .stagger-grid.animation-active > * {
+        transition-delay: 0ms !important;
+    }
+
+    .img-zoom:hover img {
+        transform: scale(1.05);
+    }
+
+    .hover-lift:hover {
+        transform: translateY(-4px);
+    }
+}
+
+@media (max-width: 480px) {
+    .scroll-to-top {
+        bottom: 15px;
+        right: 15px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .scroll-to-top svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .counter-number {
+        font-size: var(--font-size-2xl);
+    }
+
+    .hero-word {
+        transform: translateY(20px);
+    }
+
+    .char {
+        transform: translateY(15px);
+    }
+
+    .word {
+        transform: translateY(15px);
+    }
+}
+
+/* === UTILITY CLASSES === */
+
+/* Animation States */
+.is-animated {
+    animation: all 0.3s ease;
+}
+
+.is-paused {
+    animation-play-state: paused !important;
+}
+
+.is-hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+}
+
+.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* Performance Classes */
+.will-change-transform {
+    will-change: transform;
+}
+
+.will-change-opacity {
+    will-change: opacity;
+}
+
+.no-will-change {
+    will-change: auto;
+}
