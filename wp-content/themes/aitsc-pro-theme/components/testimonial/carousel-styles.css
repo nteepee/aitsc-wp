@@ -257,6 +257,119 @@
 }
 
 /* ==========================================================================
+   WHITE THEME VARIANTS (Harrison.ai Style)
+   ========================================================================== */
+
+/* White Photo Testimonial - Photo cards style with clean white design */
+.aitsc-testimonial--white-photo .aitsc-testimonials__card {
+    background: var(--aitsc-bg-primary, #FFFFFF);
+    border: 1px solid var(--aitsc-border, #E2E8F0);
+    box-shadow: var(--aitsc-shadow-md);
+    padding: 2.5rem;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.aitsc-testimonial--white-photo .aitsc-testimonials__rating {
+    justify-content: flex-start;
+    margin-bottom: 0;
+}
+
+.aitsc-testimonial--white-photo .aitsc-testimonials__rating .material-symbols-outlined {
+    font-size: 1.25rem;
+    color: #E2E8F0;
+}
+
+.aitsc-testimonial--white-photo .aitsc-testimonials__rating .is-filled {
+    color: #FFA500;
+}
+
+.aitsc-testimonial--white-photo .aitsc-testimonials__quote {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--aitsc-text-secondary, #475569);
+    margin: 0;
+    font-style: normal;
+}
+
+.aitsc-testimonial--white-photo .aitsc-testimonials__quote::before {
+    display: none;
+}
+
+.aitsc-testimonial--white-photo .aitsc-testimonials__author {
+    justify-content: flex-start;
+    margin-top: auto;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--aitsc-border-light, #F1F5F9);
+}
+
+.aitsc-testimonial--white-photo .aitsc-testimonials__image {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--aitsc-bg-secondary, #F8FAFC);
+    border: 2px solid var(--aitsc-border, #E2E8F0);
+}
+
+.aitsc-testimonial--white-photo .aitsc-testimonials__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.aitsc-testimonial--white-photo .aitsc-testimonials__image--placeholder {
+    background: var(--aitsc-primary-light, #E0F2FE);
+    color: var(--aitsc-primary, #005cb2);
+}
+
+.aitsc-testimonial--white-photo .aitsc-testimonials__image--placeholder .material-symbols-outlined {
+    font-size: 32px;
+}
+
+.aitsc-testimonial--white-photo .aitsc-testimonials__name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--aitsc-text-primary, #1E293B);
+}
+
+.aitsc-testimonial--white-photo .aitsc-testimonials__role {
+    font-size: 0.875rem;
+    color: var(--aitsc-text-muted, #64748B);
+    margin: 0.125rem 0;
+}
+
+.aitsc-testimonial--white-photo .aitsc-testimonials__company {
+    font-size: 0.875rem;
+    color: var(--aitsc-primary, #005cb2);
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Navigation for white photo variant */
+.aitsc-testimonial--white-photo .aitsc-testimonials__nav {
+    background: var(--aitsc-bg-primary, #FFFFFF);
+    border: 2px solid var(--aitsc-border, #E2E8F0);
+    color: var(--aitsc-text-primary, #1E293B);
+}
+
+.aitsc-testimonial--white-photo .aitsc-testimonials__nav:hover {
+    background: var(--aitsc-primary, #005cb2);
+    border-color: var(--aitsc-primary, #005cb2);
+    color: var(--aitsc-text-on-primary, #FFFFFF);
+}
+
+.aitsc-testimonial--white-photo .aitsc-testimonials__dot {
+    background: var(--aitsc-border, #E2E8F0);
+}
+
+.aitsc-testimonial--white-photo .aitsc-testimonials__dot:hover,
+.aitsc-testimonial--white-photo .aitsc-testimonials__dot.is-active {
+    background: var(--aitsc-primary, #005cb2);
+}
+
+/* ==========================================================================
    Responsive Design
    ========================================================================== */
 
@@ -271,6 +384,15 @@
 
     .aitsc-testimonials__quote {
         font-size: 1.1rem;
+    }
+
+    /* White photo variant responsive adjustments */
+    .aitsc-testimonial--white-photo .aitsc-testimonials__card {
+        padding: 2rem;
+    }
+
+    .aitsc-testimonial--white-photo .aitsc-testimonials__quote {
+        font-size: 1rem;
     }
 }
 
@@ -320,6 +442,38 @@
 
     .aitsc-testimonials__nav .material-symbols-outlined {
         font-size: 20px;
+    }
+
+    /* White photo variant mobile adjustments */
+    .aitsc-testimonial--white-photo .aitsc-testimonials__card {
+        padding: 1.5rem;
+        gap: 1.25rem;
+    }
+
+    .aitsc-testimonial--white-photo .aitsc-testimonials__quote {
+        font-size: 0.9375rem;
+    }
+
+    .aitsc-testimonial--white-photo .aitsc-testimonials__author {
+        padding-top: 1.25rem;
+    }
+
+    .aitsc-testimonial--white-photo .aitsc-testimonials__image {
+        width: 48px;
+        height: 48px;
+    }
+
+    .aitsc-testimonial--white-photo .aitsc-testimonials__image--placeholder .material-symbols-outlined {
+        font-size: 28px;
+    }
+
+    .aitsc-testimonial--white-photo .aitsc-testimonials__name {
+        font-size: 0.9375rem;
+    }
+
+    .aitsc-testimonial--white-photo .aitsc-testimonials__role,
+    .aitsc-testimonial--white-photo .aitsc-testimonials__company {
+        font-size: 0.8125rem;
     }
 }
 

@@ -1,0 +1,39 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build",
+      "type": "shell",
+      "command": "cmake --build build --config Release",
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Build Receiver",
+      "type": "shell",
+      "command": "cmake --build build --config Release --target receiver",
+      "problemMatcher": []
+    },
+    {
+      "label": "Build Transmitter",
+      "type": "shell",
+      "command": "cmake --build build --config Release --target transmitter",
+      "problemMatcher": []
+    },
+    {
+      "label": "Flash Receiver (picotool, BOOTSEL)",
+      "type": "shell",
+      "command": "picotool load -x build/receiver.uf2",
+      "problemMatcher": []
+    },
+    {
+      "label": "Flash Transmitter (picotool, BOOTSEL)",
+      "type": "shell",
+      "command": "picotool load -x build/transmitter.uf2",
+      "problemMatcher": []
+    }
+  ]
+}

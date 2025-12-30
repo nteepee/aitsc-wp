@@ -5,7 +5,8 @@
 ?>
 
 <footer id="colophon" class="site-footer">
-    <div class="container">
+    <div class="footer-pattern-overlay" aria-hidden="true"></div>
+    <div class="container footer-container">
         <div class="footer-widgets-grid">
 
             <!-- Column 1: Branding & Info -->
@@ -78,91 +79,178 @@
 </html>
 
 <style>
-    /* Local Critical CSS for Footer */
+    /* Footer - Harrison.ai White Theme with Cyan Square Patterns */
     .site-footer {
-        background-color: var(--wq-black);
-        border-top: 1px solid var(--wq-border);
-        padding: var(--space-16) 0 var(--space-8);
-        font-size: var(--text-sm);
-        color: var(--wq-text-grey);
+        background-color: var(--aitsc-bg-primary);
+        border-top: 1px solid var(--aitsc-border);
+        padding: 4rem 0 2rem;
+        font-size: var(--font-size-sm);
+        color: var(--aitsc-text-secondary);
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Cyan Square Pattern Overlay */
+    .footer-pattern-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.05;
+        pointer-events: none;
+        z-index: 0;
+        background-image:
+            repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 20px,
+                var(--aitsc-primary) 20px,
+                var(--aitsc-primary) 21px
+            ),
+            repeating-linear-gradient(
+                90deg,
+                transparent,
+                transparent 20px,
+                var(--aitsc-primary) 20px,
+                var(--aitsc-primary) 21px
+            );
+        background-size: 40px 40px;
+    }
+
+    /* Decorative cyan squares */
+    .footer-pattern-overlay::before {
+        content: '';
+        position: absolute;
+        top: 20%;
+        right: 10%;
+        width: 60px;
+        height: 60px;
+        background-color: var(--aitsc-primary);
+        opacity: 0.08;
+        transform: rotate(15deg);
+    }
+
+    .footer-pattern-overlay::after {
+        content: '';
+        position: absolute;
+        bottom: 30%;
+        left: 15%;
+        width: 40px;
+        height: 40px;
+        background-color: var(--aitsc-primary);
+        opacity: 0.06;
+        transform: rotate(-10deg);
+    }
+
+    .footer-container {
+        position: relative;
+        z-index: 1;
     }
 
     .footer-widgets-grid {
         display: grid;
         grid-template-columns: 2fr 1fr 1fr 1fr;
-        gap: var(--space-12);
-        margin-bottom: var(--space-16);
+        gap: 3rem;
+        margin-bottom: 3rem;
     }
 
     .footer-branding {
-        margin-bottom: var(--space-6);
+        margin-bottom: 1.5rem;
+    }
+
+    .footer-branding img {
+        filter: none;
     }
 
     .site-title-footer {
         font-weight: 800;
-        color: var(--wq-text-white);
-        font-size: var(--text-xl);
-        text-transform: uppercase;
+        color: var(--aitsc-text-primary);
+        font-size: var(--font-size-xl);
     }
 
     .footer-desc {
-        margin-bottom: var(--space-6);
-        max-width: 300px;
+        margin-bottom: 1.5rem;
+        max-width: 320px;
         line-height: 1.6;
+        color: var(--aitsc-text-secondary);
+    }
+
+    .footer-contact {
+        color: var(--aitsc-text-secondary);
+    }
+
+    .footer-contact strong {
+        color: var(--aitsc-text-primary);
     }
 
     .footer-heading {
-        color: var(--wq-text-white);
-        text-transform: uppercase;
-        margin-bottom: var(--space-6);
-        font-size: var(--text-sm);
-        letter-spacing: 0.1em;
+        color: var(--aitsc-text-primary);
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        font-size: var(--font-size-sm);
+        letter-spacing: 0.05em;
     }
 
     .footer-menu {
         list-style: none;
         padding: 0;
+        margin: 0;
     }
 
     .footer-menu li {
-        margin-bottom: var(--space-4);
+        margin-bottom: 0.75rem;
     }
 
     .footer-menu a {
-        color: var(--wq-text-grey);
-        transition: color 0.2s;
+        color: var(--aitsc-text-secondary);
+        text-decoration: none;
+        transition: color 0.2s ease;
     }
 
-    .footer-menu a:hover {
+    .footer-menu a:hover,
+    .footer-menu a:focus {
         color: var(--aitsc-primary);
-        text-shadow: 0 0 10px rgba(0, 92, 178, 0.4);
     }
 
     .site-info {
-        border-top: 1px solid var(--wq-border);
-        padding-top: var(--space-8);
+        border-top: 1px solid var(--aitsc-border);
+        padding-top: 2rem;
         display: flex;
         justify-content: space-between;
-        font-size: var(--text-xs);
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        color: var(--wq-text-muted);
+        font-size: var(--font-size-xs);
+        color: var(--aitsc-text-muted);
+    }
+
+    .copyright,
+    .credits {
+        color: var(--aitsc-text-muted);
     }
 
     @media (max-width: 61.9375rem) {
         .footer-widgets-grid {
             grid-template-columns: 1fr 1fr;
+            gap: 2rem;
         }
     }
 
     @media (max-width: 47.9375rem) {
+        .site-footer {
+            padding: 3rem 0 1.5rem;
+        }
+
         .footer-widgets-grid {
             grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .footer-desc {
+            max-width: 100%;
         }
 
         .site-info {
             flex-direction: column;
-            gap: var(--space-4);
+            gap: 1rem;
             text-align: center;
         }
     }

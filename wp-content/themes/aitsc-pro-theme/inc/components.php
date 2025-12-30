@@ -36,6 +36,11 @@ function aitsc_load_components() {
 
     // Load testimonial component
     require_once $component_dir . '/testimonial/testimonial-carousel.php';
+
+    // Load Phase 3 Harrison.ai components
+    require_once $component_dir . '/trust-bar/trust-bar.php';
+    require_once $component_dir . '/logo-carousel/logo-carousel.php';
+    require_once $component_dir . '/image-composition/image-composition.php';
 }
 add_action('after_setup_theme', 'aitsc_load_components');
 
@@ -118,6 +123,37 @@ function aitsc_enqueue_component_styles() {
         wp_enqueue_style(
             'aitsc-component-testimonial',
             $component_dir . '/testimonial/carousel-styles.css',
+            array(),
+            AITSC_VERSION
+        );
+    }
+
+    // Phase 3 Harrison.ai component styles
+    $trust_bar_css = $component_path . '/trust-bar/trust-bar-styles.css';
+    if (file_exists($trust_bar_css)) {
+        wp_enqueue_style(
+            'aitsc-component-trust-bar',
+            $component_dir . '/trust-bar/trust-bar-styles.css',
+            array(),
+            AITSC_VERSION
+        );
+    }
+
+    $logo_carousel_css = $component_path . '/logo-carousel/logo-carousel-styles.css';
+    if (file_exists($logo_carousel_css)) {
+        wp_enqueue_style(
+            'aitsc-component-logo-carousel',
+            $component_dir . '/logo-carousel/logo-carousel-styles.css',
+            array(),
+            AITSC_VERSION
+        );
+    }
+
+    $image_composition_css = $component_path . '/image-composition/image-composition-styles.css';
+    if (file_exists($image_composition_css)) {
+        wp_enqueue_style(
+            'aitsc-component-image-composition',
+            $component_dir . '/image-composition/image-composition-styles.css',
             array(),
             AITSC_VERSION
         );

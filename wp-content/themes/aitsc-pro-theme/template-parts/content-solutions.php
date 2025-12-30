@@ -48,7 +48,7 @@ $complexity_classes = array(
 
 <?php
 /**
- * Solutions Content Template (WorldQuant Glass Style)
+ * Solutions Content Template
  *
  * @package AITSC_Pro_Theme
  */
@@ -57,38 +57,25 @@ $solution_id = get_the_ID();
 $service_type = get_post_meta($solution_id, '_solution_service_type', true);
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('wq-blog-card wq-solution-card animate-fade-in'); ?>>
-	<?php if (has_post_thumbnail()): ?>
-		<div class="wq-blog-thumbnail">
-			<a href="<?php the_permalink(); ?>">
-				<?php the_post_thumbnail('large'); ?>
-			</a>
-			<div class="wq-blog-type-badge">Solution</div>
-		</div>
-	<?php endif; ?>
-
-	<div class="wq-blog-content">
-		<header class="wq-blog-header">
-			<div class="wq-blog-meta">
-				<span class="category"><?php echo esc_html($service_type ?: 'Expert Solution'); ?></span>
-			</div>
-			<?php the_title('<h2 class="wq-blog-title"><a href="' . esc_url(get_permalink()) . '">', '</a></h2>'); ?>
-		</header>
-
-		<div class="wq-blog-excerpt">
-			<?php the_excerpt(); ?>
-		</div>
-
-		<div class="wq-blog-footer">
-			<a href="<?php the_permalink(); ?>" class="wq-read-more">
-				<span>Explore Solution</span>
-				<span class="material-symbols-outlined">arrow_forward</span>
-			</a>
-			<a href="#contact" class="wq-btn-mini-neon">
-				Get Quote
-			</a>
-		</div>
-	</div>
+<article id="post-<?php the_ID(); ?>" <?php post_class('animate-fade-in'); ?>>
+	<?php
+	// Render unified solution card using AITSC component system
+	aitsc_render_card([
+		'variant' => 'solution',
+		'title' => get_the_title(),
+		'description' => get_the_excerpt(),
+		'link' => get_permalink(),
+		'image' => has_post_thumbnail() ? get_the_post_thumbnail_url($solution_id, 'large') : '',
+		'icon' => 'shield', // Default icon for solutions
+		'cta_text' => 'Explore Solution',
+		'size' => 'medium',
+		'custom_class' => 'aitsc-solution-card',
+		'meta' => [
+			'category' => $service_type ?: 'Expert Solution',
+			'badge' => 'Solution'
+		]
+	]);
+	?>
 </article>
 
 <!-- Hidden Data for JavaScript -->

@@ -1,0 +1,325 @@
+/**
+ * Image Composition Component Styles
+ *
+ * Overlapping images with absolute positioning, rounded corners, and shadows.
+ * Responsive design with mobile stacking.
+ *
+ * @package AITSC_Pro_Theme
+ * @subpackage Components
+ * @since 4.0.0
+ */
+
+/* ============================================================
+   IMAGE COMPOSITION - BASE STYLES
+   ============================================================ */
+
+.aitsc-image-composition {
+    width: 100%;
+    padding: var(--space-12, 3rem) var(--space-4, 1rem);
+    overflow: hidden;
+}
+
+.aitsc-image-composition__container {
+    position: relative;
+    max-width: var(--aitsc-container-width, 1400px);
+    margin: 0 auto;
+    height: var(--composition-height, 500px);
+}
+
+/* ============================================================
+   IMAGE ITEMS - BASE
+   ============================================================ */
+
+.aitsc-image-composition__item {
+    position: absolute;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--aitsc-shadow-lg, 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1));
+    transition: transform var(--aitsc-transition-normal, 0.3s),
+                box-shadow var(--aitsc-transition-normal, 0.3s);
+    background-color: var(--aitsc-bg-tertiary, #F1F5F9);
+}
+
+.aitsc-image-composition__item:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--aitsc-shadow-xl, 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1));
+    z-index: 10;
+}
+
+.aitsc-image-composition__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ============================================================
+   OVERLAP LAYOUT - DEFAULT POSITIONING
+   ============================================================ */
+
+/* Desktop overlap positioning for 4 images */
+.aitsc-image-composition--overlap .aitsc-image-composition__item--primary {
+    width: 45%;
+    height: 60%;
+    top: 5%;
+    left: 5%;
+    z-index: 4;
+}
+
+.aitsc-image-composition--overlap .aitsc-image-composition__item--secondary {
+    width: 40%;
+    height: 50%;
+    top: 15%;
+    right: 8%;
+    z-index: 3;
+}
+
+.aitsc-image-composition--overlap .aitsc-image-composition__item--tertiary {
+    width: 35%;
+    height: 45%;
+    bottom: 10%;
+    left: 15%;
+    z-index: 2;
+}
+
+.aitsc-image-composition--overlap .aitsc-image-composition__item--accent {
+    width: 30%;
+    height: 40%;
+    bottom: 5%;
+    right: 5%;
+    z-index: 1;
+}
+
+/* Generic positioning fallback for custom positions */
+.aitsc-image-composition--overlap .aitsc-image-composition__item--position-1 {
+    width: 50%;
+    height: 65%;
+    top: 10%;
+    left: 5%;
+    z-index: 4;
+}
+
+.aitsc-image-composition--overlap .aitsc-image-composition__item--position-2 {
+    width: 45%;
+    height: 55%;
+    top: 20%;
+    right: 10%;
+    z-index: 3;
+}
+
+.aitsc-image-composition--overlap .aitsc-image-composition__item--position-3 {
+    width: 40%;
+    height: 50%;
+    bottom: 15%;
+    left: 20%;
+    z-index: 2;
+}
+
+.aitsc-image-composition--overlap .aitsc-image-composition__item--position-4 {
+    width: 35%;
+    height: 45%;
+    bottom: 5%;
+    right: 15%;
+    z-index: 1;
+}
+
+/* ============================================================
+   GRID LAYOUT (Alternative)
+   ============================================================ */
+
+.aitsc-image-composition--grid .aitsc-image-composition__container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: var(--space-4, 1rem);
+}
+
+.aitsc-image-composition--grid .aitsc-image-composition__item {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* ============================================================
+   STACK LAYOUT (Alternative)
+   ============================================================ */
+
+.aitsc-image-composition--stack .aitsc-image-composition__container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6, 1.5rem);
+    height: auto;
+}
+
+.aitsc-image-composition--stack .aitsc-image-composition__item {
+    position: relative;
+    width: 100%;
+    height: 300px;
+}
+
+/* ============================================================
+   PLACEHOLDER STYLES
+   ============================================================ */
+
+.aitsc-image-composition__placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--aitsc-bg-secondary, #F8FAFC) 0%, var(--aitsc-bg-tertiary, #F1F5F9) 100%);
+    border: 2px dashed var(--aitsc-border, #E2E8F0);
+}
+
+.aitsc-image-composition__placeholder-text {
+    font-family: var(--aitsc-font-main, 'Manrope', sans-serif);
+    font-size: var(--font-size-sm, 0.875rem);
+    font-weight: 500;
+    color: var(--aitsc-text-muted, #64748B);
+    text-align: center;
+    padding: var(--space-4, 1rem);
+    max-width: 80%;
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN
+   ============================================================ */
+
+/* Mobile: 320px - 767px - Stack all images */
+@media (max-width: 767px) {
+    .aitsc-image-composition {
+        padding: var(--space-8, 2rem) var(--space-4, 1rem);
+    }
+
+    .aitsc-image-composition__container {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-4, 1rem);
+        height: auto !important;
+    }
+
+    .aitsc-image-composition__item {
+        position: relative !important;
+        width: 100% !important;
+        height: 250px !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        border-radius: 8px;
+    }
+
+    .aitsc-image-composition__item:hover {
+        transform: scale(1.02);
+    }
+}
+
+/* Tablet: 768px - 1023px - Adjust overlap positioning */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .aitsc-image-composition {
+        padding: var(--space-10, 2.5rem) var(--space-6, 1.5rem);
+    }
+
+    .aitsc-image-composition__container {
+        height: 400px;
+    }
+
+    /* Simplified 2-column overlap for tablets */
+    .aitsc-image-composition--overlap .aitsc-image-composition__item--primary {
+        width: 55%;
+        height: 70%;
+        top: 5%;
+        left: 5%;
+    }
+
+    .aitsc-image-composition--overlap .aitsc-image-composition__item--secondary {
+        width: 50%;
+        height: 60%;
+        top: 25%;
+        right: 5%;
+    }
+
+    .aitsc-image-composition--overlap .aitsc-image-composition__item--tertiary {
+        width: 45%;
+        height: 50%;
+        bottom: 5%;
+        left: 10%;
+    }
+
+    .aitsc-image-composition--overlap .aitsc-image-composition__item--accent {
+        display: none; /* Hide 4th image on tablet */
+    }
+}
+
+/* Desktop: 1024px - 1439px */
+@media (min-width: 1024px) and (max-width: 1439px) {
+    .aitsc-image-composition__container {
+        height: 500px;
+    }
+
+    .aitsc-image-composition__item {
+        border-radius: 14px;
+    }
+}
+
+/* Large Desktop: 1440px+ */
+@media (min-width: 1440px) {
+    .aitsc-image-composition__container {
+        height: 600px;
+    }
+
+    .aitsc-image-composition__item {
+        border-radius: 16px;
+    }
+}
+
+/* ============================================================
+   ACCESSIBILITY
+   ============================================================ */
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .aitsc-image-composition__item {
+        transition: none !important;
+    }
+
+    .aitsc-image-composition__item:hover {
+        transform: none !important;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .aitsc-image-composition__item {
+        border: 2px solid var(--aitsc-border, #E2E8F0);
+        box-shadow: none;
+    }
+
+    .aitsc-image-composition__placeholder {
+        border-width: 3px;
+    }
+}
+
+/* Focus styles for keyboard navigation */
+.aitsc-image-composition__item:focus-within {
+    outline: 3px solid var(--aitsc-border-focus, #005cb2);
+    outline-offset: 4px;
+}
+
+/* Print styles */
+@media print {
+    .aitsc-image-composition__container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-4, 1rem);
+        height: auto !important;
+    }
+
+    .aitsc-image-composition__item {
+        position: relative !important;
+        width: 100% !important;
+        height: 300px !important;
+        box-shadow: none;
+        page-break-inside: avoid;
+    }
+}

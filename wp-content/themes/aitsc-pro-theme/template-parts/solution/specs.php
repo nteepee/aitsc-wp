@@ -1,7 +1,7 @@
 <?php
 /**
  * Template Part: Technical Specifications
- * Bordered grid layout following wireframe
+ * Bordered grid layout following wireframe - Refactored to use standardized card component
  */
 
 $specs = get_field('specs');
@@ -29,19 +29,27 @@ if (!$specs || empty($specs)) {
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border-t border-l border-white/10">
             <?php foreach ($specs as $index => $spec): ?>
                 <?php
+                // Extract ACF fields
                 $label = $spec['spec_label'] ?? '';
                 $value = $spec['spec_value'] ?? '';
+
+                // Generate numbered prefix for title
+                $numbered_prefix = '<span class="spec-number">' .
+                    str_pad($index + 1, 2, '0', STR_PAD_LEFT) .
+                    '</span>';
                 ?>
-                <div class="p-8 border-r border-b border-white/10 hover:bg-white/[0.02] transition-colors">
-                    <span class="text-blue-500/60 font-mono text-sm mb-2 block">
-                        <?php echo str_pad($index + 1, 2, '0', STR_PAD_LEFT); ?>
-                    </span>
-                    <h4 class="text-lg font-medium text-white mb-2">
-                        <?php echo esc_html($label); ?>
-                    </h4>
-                    <p class="text-sm text-slate-400 leading-relaxed">
-                        <?php echo esc_html($value); ?>
-                    </p>
+                <div class="spec-cell border-r border-b border-white/10">
+                    <?php
+                    // Render standardized card component
+                    aitsc_render_card(array(
+                        'variant' => 'outlined',
+                        'title' => $numbered_prefix . $label,
+                        'description' => $value,
+                        'size' => 'medium',
+                        'custom_class' => 'spec-card',
+                        'custom_attrs' => array()
+                    ));
+                    ?>
                 </div>
             <?php endforeach; ?>
         </div>
@@ -55,3 +63,41 @@ if (!$specs || empty($specs)) {
         </div>
     </div>
 </section>
+
+<style>
+/* Dark theme spec card styling override */
+.spec-cell .spec-card.aitsc-card {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 2rem;
+    transition: background-color 0.3s ease;
+}
+
+.spec-cell .spec-card.aitsc-card:hover {
+    background: rgba(255, 255, 255, 0.02);
+    transform: none;
+    box-shadow: none;
+}
+
+.spec-cell .spec-card .spec-number {
+    display: block;
+    color: rgba(59, 130, 246, 0.6);
+    font-family: 'Monaco', 'Courier New', monospace;
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+}
+
+.spec-cell .spec-card .aitsc-card__title {
+    color: white;
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.spec-cell .spec-card .aitsc-card__description {
+    color: rgb(148, 163, 184);
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+</style>

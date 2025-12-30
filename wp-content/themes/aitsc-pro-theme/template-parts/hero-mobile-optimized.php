@@ -655,18 +655,6 @@ $hero_mobile_video = get_theme_mod('aitsc_hero_mobile_video');
         transform: none;
     }
 }
-
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-    .hero-gradient-background {
-        background: linear-gradient(
-            135deg,
-            #1a1a1a 0%,
-            #2d3748 50%,
-            #005cb2 100%
-        );
-    }
-}
 </style>
 
 <!-- Mobile Hero Performance Scripts -->

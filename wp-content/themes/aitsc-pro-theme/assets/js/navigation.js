@@ -17,6 +17,8 @@
         if (mobileToggle.length && primaryNav.length) {
             mobileToggle.on('click', function (e) {
                 e.preventDefault();
+                const isExpanded = $(this).attr('aria-expanded') === 'true';
+                $(this).attr('aria-expanded', !isExpanded);
                 $(this).toggleClass('active');
                 primaryNav.toggleClass('active');
                 $('body').toggleClass('menu-open');
@@ -36,6 +38,7 @@
         $(document).on('click', function (e) {
             if (!$(e.target).closest('.site-header').length) {
                 if (primaryNav.hasClass('active')) {
+                    mobileToggle.attr('aria-expanded', 'false');
                     mobileToggle.removeClass('active');
                     primaryNav.removeClass('active');
                     $('body').removeClass('menu-open');
@@ -59,6 +62,7 @@
 
                     // Close mobile menu if open
                     if (primaryNav.hasClass('active')) {
+                        mobileToggle.attr('aria-expanded', 'false');
                         mobileToggle.removeClass('active');
                         primaryNav.removeClass('active');
                         $('body').removeClass('menu-open');

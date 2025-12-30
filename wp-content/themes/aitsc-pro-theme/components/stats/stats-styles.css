@@ -125,28 +125,87 @@
     }
 }
 
+
 /* ==========================================================================
-   Dark Mode Support
+   WHITE THEME VARIANTS (Harrison.ai Style)
    ========================================================================== */
 
-@media (prefers-color-scheme: dark) {
-    .aitsc-stats {
-        background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
-        border-color: #333;
-    }
+/* Inline Text Stats - Stats embedded in body copy (Harrison.ai style) */
+.aitsc-stats--inline-text {
+    background: transparent;
+    border: none;
+    padding: 0;
+}
 
-    .aitsc-stats__item {
-        background: #252525;
-    }
+.aitsc-stats--inline-text .aitsc-stats__container {
+    padding: 0;
+}
 
-    .aitsc-stats__label {
-        color: #e0e0e0;
-    }
+.aitsc-stats--inline-text .aitsc-stats__grid {
+    display: inline-flex;
+    gap: 2rem;
+    align-items: baseline;
+    flex-wrap: wrap;
+}
 
-    .aitsc-stats__prefix,
-    .aitsc-stats__suffix {
-        color: #00d4ff;
-    }
+.aitsc-stats--inline-text .aitsc-stats__item {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+    text-align: left;
+    transition: none;
+}
+
+.aitsc-stats--inline-text .aitsc-stats__item:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.aitsc-stats--inline-text .aitsc-stats__number {
+    display: inline-flex;
+    gap: 0.125rem;
+    margin: 0;
+}
+
+.aitsc-stats--inline-text .aitsc-stats__count {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--aitsc-primary, #005cb2);
+    background: none;
+    -webkit-text-fill-color: var(--aitsc-primary, #005cb2);
+}
+
+.aitsc-stats--inline-text .aitsc-stats__prefix,
+.aitsc-stats--inline-text .aitsc-stats__suffix {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--aitsc-primary, #005cb2);
+}
+
+.aitsc-stats--inline-text .aitsc-stats__label {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--aitsc-text-secondary, #475569);
+    text-transform: none;
+    letter-spacing: normal;
+    margin-left: 0.25rem;
+}
+
+/* Optional: Vertical inline variant for tight spaces */
+.aitsc-stats--inline-text.aitsc-stats--vertical .aitsc-stats__item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+}
+
+.aitsc-stats--inline-text.aitsc-stats--vertical .aitsc-stats__label {
+    margin-left: 0;
+    font-size: 0.875rem;
 }
 
 /* ==========================================================================
@@ -170,6 +229,24 @@
 
     .aitsc-stats__label {
         font-size: 0.9rem;
+    }
+
+    /* Inline text stats responsive adjustments */
+    .aitsc-stats--inline-text .aitsc-stats__grid {
+        gap: 1.5rem;
+    }
+
+    .aitsc-stats--inline-text .aitsc-stats__count {
+        font-size: 2rem;
+    }
+
+    .aitsc-stats--inline-text .aitsc-stats__prefix,
+    .aitsc-stats--inline-text .aitsc-stats__suffix {
+        font-size: 1.25rem;
+    }
+
+    .aitsc-stats--inline-text .aitsc-stats__label {
+        font-size: 0.9375rem;
     }
 }
 
@@ -202,6 +279,26 @@
 
     .aitsc-stats__label {
         font-size: 0.85rem;
+    }
+
+    /* Inline text stats mobile adjustments */
+    .aitsc-stats--inline-text .aitsc-stats__grid {
+        gap: 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .aitsc-stats--inline-text .aitsc-stats__count {
+        font-size: 1.75rem;
+    }
+
+    .aitsc-stats--inline-text .aitsc-stats__prefix,
+    .aitsc-stats--inline-text .aitsc-stats__suffix {
+        font-size: 1.125rem;
+    }
+
+    .aitsc-stats--inline-text .aitsc-stats__label {
+        font-size: 0.875rem;
     }
 }
 

@@ -1,94 +1,119 @@
 <?php
 /**
- * The template for displaying single Case Studies
+ * The template for displaying single Case Studies - White Theme Migration (Phase 5)
  */
 
 get_header();
 ?>
 
-<main id="primary" class="site-main">
+<main id="primary" class="site-main bg-white">
 
 	<?php while (have_posts()):
 		the_post();
 		$client = get_post_meta(get_the_ID(), '_case_study_client', true);
+		$client_industry = get_post_meta(get_the_ID(), '_case_study_client_industry', true);
 		$challenge = get_post_meta(get_the_ID(), '_case_study_challenge', true);
 		$results = get_post_meta(get_the_ID(), '_case_study_results', true);
 		?>
 
-		<!-- Case Study Hero -->
-		<section class="cs-hero section">
-			<div class="container">
-				<div class="cs-hero-content">
-					<span class="cs-client-label">Client: <?php echo esc_html($client); ?></span>
-					<h1 class="cs-page-title"><?php the_title(); ?></h1>
-				</div>
-			</div>
-		</section>
+		<!-- Case Study Hero - White Theme -->
+		<?php
+		aitsc_render_hero([
+			'variant' => 'page',
+			'title' => get_the_title(),
+			'subtitle' => 'CLIENT: ' . strtoupper($client),
+			'description' => get_the_excerpt(),
+			'height' => 'medium'
+		]);
+		?>
 
-		<!-- Main Content Grid -->
-		<section class="cs-body section">
+		<!-- Trust Bar -->
+		<?php
+		aitsc_render_trust_bar([
+			'text' => 'A proven success story in ' . ($client_industry ?: 'transport safety engineering'),
+			'tag' => 'p'
+		]);
+		?>
+
+		<!-- Main Content Grid - White Theme -->
+		<section class="py-24 bg-white">
 			<div class="container">
-				<div class="cs-grid">
+				<div class="row g-5">
 
 					<!-- Left Column: Story -->
-					<div class="cs-story">
-						<div class="cs-block">
-							<h3 class="cs-heading">The Challenge</h3>
-							<div class="cs-text">
+					<div class="col-lg-8">
+						<div class="mb-12">
+							<h3 class="text-3xl font-light text-slate-900 mb-6 pb-4 border-b-2 border-cyan-600">The Challenge</h3>
+							<div class="text-lg text-slate-700 leading-relaxed">
 								<?php echo wpautop(esc_html($challenge)); ?>
 							</div>
 						</div>
 
-						<div class="cs-block">
-							<h3 class="cs-heading">The Solution</h3>
-							<div class="entry-content">
+						<div class="mb-12">
+							<h3 class="text-3xl font-light text-slate-900 mb-6 pb-4 border-b-2 border-slate-200">The Solution</h3>
+							<div class="entry-content text-lg text-slate-700 leading-relaxed">
 								<?php the_content(); ?>
 							</div>
 						</div>
 
-						<div class="cs-block">
-							<h3 class="cs-heading text-orange">The Results</h3>
-							<div class="cs-text">
+						<div class="mb-12">
+							<h3 class="text-3xl font-light text-cyan-600 mb-6 pb-4 border-b-2 border-cyan-600">The Results</h3>
+							<div class="text-lg text-slate-700 leading-relaxed">
 								<?php echo wpautop(esc_html($results)); ?>
 							</div>
 						</div>
 					</div>
 
 					<!-- Right Column: Stats & Meta -->
-					<aside class="cs-meta-sidebar">
-						<div class="cs-meta-box">
-							<h4>Project Specs</h4>
-							<ul class="meta-list">
-								<li>
-									<span>Industry</span>
-									<strong><?php echo esc_html(get_post_meta(get_the_ID(), '_case_study_client_industry', true)); ?></strong>
-								</li>
-								<li>
-									<span>Duration</span>
-									<strong><?php echo esc_html(get_post_meta(get_the_ID(), '_case_study_duration', true)); ?></strong>
-								</li>
-								<li>
-									<span>Team Size</span>
-									<strong><?php echo esc_html(get_post_meta(get_the_ID(), '_case_study_team_size', true)); ?></strong>
-								</li>
-							</ul>
-						</div>
+					<aside class="col-lg-4">
+						<div class="sticky-top" style="top: 100px;">
+							<!-- Project Specs Card -->
+							<?php
+							aitsc_render_card([
+								'variant' => 'white-minimal',
+								'title' => 'Project Specs',
+								'description' => sprintf(
+									'<ul class="list-none p-0 space-y-3">
+										<li class="flex justify-between pb-2 border-b border-slate-200">
+											<span class="text-slate-600">Industry</span>
+											<strong class="text-slate-900">%s</strong>
+										</li>
+										<li class="flex justify-between pb-2 border-b border-slate-200">
+											<span class="text-slate-600">Duration</span>
+											<strong class="text-slate-900">%s</strong>
+										</li>
+										<li class="flex justify-between pb-2 border-b border-slate-200">
+											<span class="text-slate-600">Team Size</span>
+											<strong class="text-slate-900">%s</strong>
+										</li>
+									</ul>',
+									esc_html($client_industry ?: 'N/A'),
+									esc_html(get_post_meta(get_the_ID(), '_case_study_duration', true) ?: 'N/A'),
+									esc_html(get_post_meta(get_the_ID(), '_case_study_team_size', true) ?: 'N/A')
+								),
+								'custom_class' => 'mb-4'
+							]);
+							?>
 
-						<?php if ($metrics = get_post_meta(get_the_ID(), '_case_study_metrics', true)): ?>
-							<div class="cs-meta-box highlight-box">
-								<h4>Key Metrics</h4>
-								<ul class="metric-list">
-									<?php
-									$metric_lines = explode("\n", $metrics);
-									foreach ($metric_lines as $metric) {
-										if (trim($metric)) {
-											echo '<li>' . esc_html($metric) . '</li>';
-										}
-									}
-									?>
-								</ul>
-							</div>
-						<?php endif; ?>
+							<!-- Key Metrics Card -->
+							<?php if ($metrics = get_post_meta(get_the_ID(), '_case_study_metrics', true)): ?>
+								<?php
+								$metric_lines = array_filter(array_map('trim', explode("\n", $metrics)));
+								$metrics_html = '<ul class="list-none p-0 space-y-3">';
+								foreach ($metric_lines as $metric) {
+									$metrics_html .= sprintf('<li class="text-xl font-bold text-cyan-600">%s</li>', esc_html($metric));
+								}
+								$metrics_html .= '</ul>';
+
+								aitsc_render_card([
+									'variant' => 'white-minimal',
+									'title' => 'Key Metrics',
+									'description' => $metrics_html,
+									'custom_class' => 'border-2 border-cyan-600'
+								]);
+								?>
+							<?php endif; ?>
+						</div>
 					</aside>
 
 				</div>
@@ -98,100 +123,6 @@ get_header();
 	<?php endwhile; ?>
 
 </main><!-- #primary -->
-
-<style>
-	/* Local Critical CSS for Single Case Study */
-	.cs-hero {
-		background-color: var(--wq-panel);
-		border-bottom: 1px solid var(--wq-border);
-		padding-top: var(--space-32);
-		padding-bottom: var(--space-12);
-	}
-
-	.cs-client-label {
-		display: block;
-		color: var(--wq-orange);
-		text-transform: uppercase;
-		margin-bottom: var(--space-4);
-		font-weight: 600;
-	}
-
-	.cs-page-title {
-		font-size: var(--text-4xl);
-	}
-
-	.cs-grid {
-		display: grid;
-		grid-template-columns: 2fr 1fr;
-		gap: var(--space-16);
-	}
-
-	.cs-heading {
-		font-size: var(--text-2xl);
-		margin-bottom: var(--space-6);
-		border-bottom: 1px solid var(--wq-border);
-		padding-bottom: var(--space-4);
-		display: inline-block;
-	}
-
-	.cs-block {
-		margin-bottom: var(--space-16);
-	}
-
-	.cs-meta-sidebar {
-		position: sticky;
-		top: 100px;
-		height: fit-content;
-	}
-
-	.cs-meta-box {
-		background: var(--wq-panel);
-		border: 1px solid var(--wq-border);
-		padding: var(--space-6);
-		margin-bottom: var(--space-8);
-	}
-
-	.cs-meta-box h4 {
-		font-size: var(--text-lg);
-		margin-bottom: var(--space-4);
-		color: var(--wq-text-white);
-	}
-
-	.meta-list,
-	.metric-list {
-		list-style: none;
-		padding: 0;
-	}
-
-	.meta-list li {
-		display: flex;
-		justify-content: space-between;
-		margin-bottom: var(--space-4);
-		border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-		padding-bottom: var(--space-2);
-	}
-
-	.meta-list span {
-		color: var(--wq-text-grey);
-	}
-
-	.highlight-box {
-		border-color: var(--wq-orange);
-	}
-
-	.metric-list li {
-		font-size: var(--text-xl);
-		color: var(--wq-text-white);
-		font-weight: 700;
-		margin-bottom: var(--space-4);
-	}
-
-	@media (max-width: 61.9375rem) {
-		.cs-grid {
-			grid-template-columns: 1fr;
-		}
-	}
-</style>
 
 <?php
 get_footer();

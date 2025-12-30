@@ -1,51 +1,55 @@
 /*
-Theme Name: AITSC Pro Theme (WorldQuant Rebuild)
+Theme Name: AITSC Pro Theme (Harrison.ai White Theme)
 Author: Antigravity
-Version: 3.0.0 (Strict Dark Mode)
+Version: 4.0.0 (White Theme - Harrison.ai Branding)
 */
 
-/* --- 1. GLOBAL RESET (The Nuclear Option) --- */
+/* --- 1. WHITE THEME VARIABLES --- */
 :root {
-	--wq-black: #000000;
-	--wq-panel: #111111;
-	--wq-text: #ffffff;
-	--wq-text-muted: #888888;
-	--wq-blue: #005cb2;
-	/* AITSC Primary Brand Color */
-	--wq-cyan: #005cb2;
-	/* Replaced Neon with Brand Blue */
-	--wq-accent-blue: #4dabf7;
-	/* Lighter blue for accents */
+	/* === BACKGROUNDS === */
+	--aitsc-bg-primary: #FFFFFF;
+	--aitsc-bg-secondary: #F8FAFC;
+	--aitsc-bg-tertiary: #F1F5F9;
+	--aitsc-bg-panel: rgba(248, 250, 252, 0.95);
 
-	--wq-border: #333;
-	--wq-card-bg: #111;
-	--wq-neon-blue: #005cb2;
-	/* Mapped to Brand Blue */
-	--wq-dark-grey: #222;
-	--wq-text-white: #fff;
-	--wq-text-grey: #ccc;
+	/* === PRIMARY BRAND - AITSC CYAN === */
+	--aitsc-primary: #005cb2;
+	--aitsc-primary-hover: #004a94;
+	--aitsc-primary-light: #E0F2FE;
+	--aitsc-primary-dark: #003d75;
 
-	/* AITSC Mappings to WorldQuant Theme */
-	/* --- 1. CORE VARIABLES (WorldQuant Brain Inspired) --- */
-	--aitsc-bg-dark: #000000;
-	--aitsc-bg-panel: rgba(20, 20, 20, 0.6);
-	--aitsc-text-main: #ffffff;
-	/* Updated for higher contrast (was #e0e0e0) */
-	--aitsc-text-light: #b0b0b0;
-	/* Updated for higher contrast (was #a0a0a0) */
+	/* === TEXT === */
+	--aitsc-text-primary: #1E293B;
+	--aitsc-text-secondary: #475569;
+	--aitsc-text-muted: #64748B;
+	--aitsc-text-light: #94A3B8;
+	--aitsc-text-on-primary: #FFFFFF;
 
-	/* Accents - Updated to match Fleet Safe Pro manual blues */
-	--aitsc-primary: #1863F7;
-	/* Manual Blue (from img-003.png) - Vibrant */
-	--aitsc-secondary: #1841C5;
-	/* Manual Royal Blue (from img-001.png) */
-	--aitsc-accent: #2222A0;
-	/* Manual Dark Blue (from img-002.png) */
+	/* === BORDERS === */
+	--aitsc-border: #E2E8F0;
+	--aitsc-border-light: #F1F5F9;
+	--aitsc-border-focus: #005cb2;
+	--aitsc-border-color: #E2E8F0;
 
-	/* Structural */
-	--aitsc-border-color: rgba(255, 255, 255, 0.15);
-	--aitsc-grid-line: rgba(24, 99, 247, 0.2);
-	/* Updated to match new primary blue */
+	/* === SHADOWS === */
+	--aitsc-shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+	--aitsc-shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+	--aitsc-shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+	--aitsc-shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+
+	/* === CTA BUTTONS === */
+	--aitsc-cta-bg: #005cb2;
+	--aitsc-cta-bg-hover: #004a94;
+	--aitsc-cta-text: #FFFFFF;
+	--aitsc-cta-secondary-bg: transparent;
+	--aitsc-cta-secondary-border: #005cb2;
+	--aitsc-cta-secondary-text: #005cb2;
+
+	/* === STATES === */
+	--aitsc-success: #10B981;
+	--aitsc-warning: #F59E0B;
+	--aitsc-error: #EF4444;
+	--aitsc-info: #3B82F6;
 
 	/* Typography - Increased contrast for manual-style clarity */
 	--aitsc-font-main: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -391,7 +395,7 @@ Version: 3.0.0 (Strict Dark Mode)
 
 /* --- Colors --- */
 .bg-black {
-	background-color: #000;
+	background-color: #FFFFFF;
 }
 
 .bg-blue-600 {
@@ -707,16 +711,7 @@ main .scroll-section {
 		max-width: 100% !important;
 	}
 
-	/* Typography scaling for readability */
-	.wq-section-title {
-		font-size: 1.75rem !important;
-		line-height: 1.2 !important;
-	}
-
-	.wq-subtitle {
-		font-size: 0.9rem !important;
-		letter-spacing: 0.1em !important;
-	}
+	/* Typography scaling for readability - DEPRECATED */
 
 	/* Section padding reduction and layout fix */
 	.scroll-section {
@@ -769,8 +764,8 @@ body {
 	margin: 0;
 	padding: 0;
 	font-family: var(--aitsc-font-main);
-	background-color: var(--aitsc-bg-dark);
-	color: var(--aitsc-text-main);
+	background-color: var(--aitsc-bg-primary);
+	color: var(--aitsc-text-primary);
 	line-height: 1.6;
 	overflow-x: hidden;
 	-webkit-font-smoothing: antialiased;
@@ -834,19 +829,6 @@ body:not(.home) .global-tech-background .matrix-rain {
 	margin: 0 auto 5rem;
 }
 
-.wq-section-title {
-	font-size: 3.5rem;
-	font-weight: 800;
-	color: #fff;
-	margin-bottom: 1.5rem;
-	letter-spacing: -0.03em;
-}
-
-.wq-subtitle {
-	font-size: 1.25rem;
-	color: #888;
-}
-
 /* Grid Layout */
 .blog-layout-grid {
 	display: grid;
@@ -870,160 +852,6 @@ body:not(.home) .global-tech-background .matrix-rain {
 
 /* DEPRECATED: Blog cards now use unified component system (components/card/card-variants.css)
    See: aitsc_render_card() with variant='blog' for new implementation */
-/* .wq-blog-card {
-	background: rgba(255, 255, 255, 0.03);
-	backdrop-filter: blur(20px);
-	-webkit-backdrop-filter: blur(20px);
-	border: 1px solid rgba(255, 255, 255, 0.08);
-	border-radius: 4px;
-	overflow: hidden;
-	transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-	display: flex;
-	flex-direction: column;
-	height: 100%;
-}
-
-@media (max-width: 47.9375rem) {
-	.wq-blog-card {
-		flex-direction: column;
-	}
-}
-
-.wq-blog-card:hover {
-	transform: translateY(-8px);
-	border-color: rgba(0, 212, 255, 0.3);
-	background: rgba(255, 255, 255, 0.05);
-	box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 212, 255, 0.1);
-} */
-
-.wq-blog-thumbnail {
-	width: 40%;
-	position: relative;
-	overflow: hidden;
-}
-
-@media (max-width: 47.9375rem) {
-	.wq-blog-thumbnail {
-		width: 100%;
-		aspect-ratio: 16/9;
-	}
-}
-
-.wq-blog-thumbnail img {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	transition: transform 0.6s ease;
-}
-
-.wq-blog-card:hover .wq-blog-thumbnail img {
-	transform: scale(1.1);
-}
-
-.wq-blog-date {
-	position: absolute;
-	top: 20px;
-	left: 20px;
-	background: rgba(0, 0, 0, 0.8);
-	backdrop-filter: blur(10px);
-	color: #fff;
-	padding: 10px;
-	border-radius: 12px;
-	text-align: center;
-	border: 1px solid rgba(255, 255, 255, 0.1);
-	z-index: 2;
-}
-
-.wq-blog-date .day {
-	display: block;
-	font-size: 1.25rem;
-	font-weight: 800;
-	line-height: 1;
-}
-
-.wq-blog-date .month {
-	display: block;
-	font-size: 0.75rem;
-	text-transform: uppercase;
-	letter-spacing: 0.1em;
-}
-
-.wq-blog-content {
-	width: 100%;
-	padding: 1.5rem 2rem;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-}
-
-@media (max-width: 47.9375rem) {
-	.wq-blog-content {
-		width: 100%;
-	}
-}
-
-.wq-blog-meta {
-	margin-bottom: 1rem;
-}
-
-.wq-blog-meta .category a {
-	color: var(--aitsc-primary);
-	text-transform: uppercase;
-	font-size: 0.75rem;
-	font-weight: 700;
-	letter-spacing: 0.1em;
-	text-decoration: none;
-}
-
-.wq-blog-title {
-	font-size: 1.75rem;
-	font-weight: 700;
-	color: #fff;
-	margin-bottom: 1.5rem;
-	line-height: 1.3;
-}
-
-.wq-blog-title a {
-	color: inherit;
-	text-decoration: none;
-	transition: color 0.3s ease;
-}
-
-.wq-blog-title a:hover {
-	color: var(--aitsc-primary);
-}
-
-.wq-blog-excerpt {
-	color: #b0b0b0;
-	font-size: 1rem;
-	line-height: 1.7;
-	margin-bottom: 2rem;
-}
-
-.wq-read-more {
-	display: inline-flex;
-	align-items: center;
-	gap: 0.75rem;
-	color: #fff;
-	text-decoration: none;
-	font-weight: 600;
-	font-size: 0.9rem;
-	transition: all 0.3s ease;
-}
-
-.wq-read-more .material-symbols-outlined {
-	font-size: 1.25rem;
-	transition: transform 0.3s ease;
-	color: var(--aitsc-primary);
-}
-
-.wq-read-more:hover {
-	color: var(--aitsc-primary);
-}
-
-.wq-read-more:hover .material-symbols-outlined {
-	transform: translateX(5px);
-}
 
 /* Sidebar & Widgets */
 .sidebar {
@@ -1147,44 +975,6 @@ body:not(.home) .global-tech-background .matrix-rain {
 }
 
 
-/* Mini Neon Button for Cards */
-.wq-btn-mini-neon {
-	display: inline-block;
-	padding: 0.5rem 1.25rem;
-	background: transparent;
-	border: 1px solid var(--aitsc-primary);
-	color: var(--aitsc-primary);
-	border-radius: 50px;
-	font-size: 0.75rem;
-	font-weight: 700;
-	text-transform: uppercase;
-	letter-spacing: 0.05em;
-	text-decoration: none;
-	transition: all 0.3s ease;
-	margin-left: auto;
-}
-
-.wq-btn-mini-neon:hover {
-	background: var(--aitsc-primary);
-	color: #000;
-	box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
-}
-
-.wq-blog-type-badge {
-	position: absolute;
-	bottom: 20px;
-	right: 20px;
-	background: var(--aitsc-primary);
-	color: #000;
-	font-size: 0.65rem;
-	font-weight: 800;
-	padding: 4px 10px;
-	border-radius: 4px;
-	text-transform: uppercase;
-	letter-spacing: 0.1em;
-	z-index: 2;
-}
-
 /* Fix Pagination Vertical Stacking */
 .pagination {
 	display: flex !important;
@@ -1211,67 +1001,53 @@ body:not(.home) .global-tech-background .matrix-rain {
 	/* Prevent shrinking */
 }
 
-/* Improved Read More */
-.wq-read-more {
-	border-bottom: 2px solid transparent;
-	padding-bottom: 2px;
-}
-
-.wq-read-more:hover {
-	border-color: var(--aitsc-primary);
-}
-
-/* --- 2. HEADER FIXES --- */
+/* --- 2. HEADER - HARRISON.AI WHITE THEME --- */
 .site-header {
-	background-color: transparent;
-	/* Start transparent for hero */
-	border-bottom: 1px solid transparent;
+	background-color: var(--aitsc-bg-primary);
+	border-bottom: 1px solid var(--aitsc-border);
 	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
 	z-index: 9999;
-	padding: 1.5rem 0;
-	transition: all 0.4s ease;
+	padding: 1rem 0;
+	transition: all 0.3s var(--aitsc-transition-normal);
 }
 
 /* Ensure global background is visible and content is readable */
 .site-content {
-	background-color: transparent !important;
+	background-color: var(--aitsc-bg-primary) !important;
 	position: relative;
 	z-index: 10;
 }
 
 .hero-background {
-	/* No longer needs background-color as it's transparent to show global bg */
-	background: transparent;
+	background: var(--aitsc-bg-secondary);
 	position: relative;
 	overflow: hidden;
 }
 
-/* Scrolled State (WorldQuant Glass) */
-/* Scrolled State (WorldQuant Glass) */
+/* Scrolled State - White with Elevated Shadow */
 .site-header.scrolled {
-	background-color: rgba(0, 0, 0, 0.85);
-	backdrop-filter: blur(10px);
-	-webkit-backdrop-filter: blur(10px);
-	padding: 1rem 0;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+	background-color: var(--aitsc-bg-primary);
+	padding: 0.75rem 0;
+	border-bottom: 1px solid var(--aitsc-border);
+	box-shadow: var(--aitsc-shadow-md);
+}
+
+/* Header Container Layout */
+.header-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 2rem;
 }
 
 .site-branding a {
-	color: #fff !important;
+	color: var(--aitsc-text-primary) !important;
 	text-decoration: none;
 	font-weight: 800;
 	font-size: 1.5rem;
-	text-transform: uppercase;
-	display: block;
-}
-
-.site-logo-img {
-	height: 50px;
-	width: auto;
 	display: block;
 }
 
@@ -1287,63 +1063,119 @@ body:not(.home) .global-tech-background .matrix-rain {
 	}
 }
 
-/* Navigation Styles */
+/* Navigation Styles - Harrison.ai White Theme */
+.main-navigation {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+}
+
 .main-navigation ul {
 	display: flex;
-	gap: 2rem;
+	gap: 2.5rem;
 	list-style: none;
 	margin: 0;
 	padding: 0;
+	align-items: center;
 }
 
 .main-navigation a {
-	color: var(--aitsc-text-light);
+	color: var(--aitsc-text-primary);
 	font-weight: 500;
 	text-decoration: none;
-	transition: color 0.3s ease;
-	text-transform: uppercase;
-	font-size: 0.9rem;
-	letter-spacing: 0.05em;
+	transition: color 0.2s ease;
+	font-size: 0.9375rem;
+	letter-spacing: 0;
+	position: relative;
 }
 
-.main-navigation a:hover {
-	color: var(--aitsc-secondary);
+.main-navigation a:hover,
+.main-navigation a:focus {
+	color: var(--aitsc-primary);
 }
 
+.main-navigation a::after {
+	content: '';
+	position: absolute;
+	bottom: -4px;
+	left: 0;
+	width: 0;
+	height: 2px;
+	background-color: var(--aitsc-primary);
+	transition: width 0.2s ease;
+}
+
+.main-navigation a:hover::after,
+.main-navigation a:focus::after {
+	width: 100%;
+}
+
+/* Header CTA */
+.header-cta {
+	display: flex;
+	align-items: center;
+}
+
+/* Hamburger Menu Toggle */
 .menu-toggle {
 	display: none;
-	/* Hidden on desktop */
 	background: none;
 	border: none;
-	color: var(--aitsc-text-light);
 	cursor: pointer;
 	padding: 0.5rem;
+	z-index: 10001;
 }
 
-.menu-toggle .material-symbols-outlined {
-	font-size: 2rem;
+.hamburger {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	width: 24px;
+}
+
+.hamburger span {
+	display: block;
+	width: 100%;
+	height: 2px;
+	background-color: var(--aitsc-text-primary);
+	transition: all 0.3s ease;
+	border-radius: 2px;
+}
+
+.menu-toggle[aria-expanded="true"] .hamburger span:nth-child(1) {
+	transform: rotate(45deg) translate(6px, 6px);
+}
+
+.menu-toggle[aria-expanded="true"] .hamburger span:nth-child(2) {
+	opacity: 0;
+}
+
+.menu-toggle[aria-expanded="true"] .hamburger span:nth-child(3) {
+	transform: rotate(-45deg) translate(6px, -6px);
 }
 
 /* Mobile Menu Media Query */
 @media (max-width: 61.9375rem) {
 	.menu-toggle {
 		display: block;
-		/* Show on mobile */
-		z-index: 10001;
-		position: relative;
+	}
+
+	.header-cta {
+		order: -1;
+	}
+
+	.main-navigation {
+		order: 1;
 	}
 
 	.main-navigation ul {
 		display: none;
-		/* Hide default menu */
 		position: fixed;
 		top: 0;
 		left: 0;
 		width: 100%;
 		height: 100vh;
-		background-color: rgba(0, 0, 0, 0.95);
-		backdrop-filter: blur(10px);
-		-webkit-backdrop-filter: blur(10px);
+		background-color: var(--aitsc-bg-primary);
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
@@ -1356,7 +1188,6 @@ body:not(.home) .global-tech-background .matrix-rain {
 
 	.main-navigation.active ul {
 		display: flex;
-		/* Show when active */
 		opacity: 1;
 		visibility: visible;
 	}
@@ -1370,6 +1201,34 @@ body:not(.home) .global-tech-background .matrix-rain {
 	body.menu-open {
 		overflow: hidden;
 	}
+}
+
+/* Accessibility: Focus Styles for Keyboard Navigation */
+.menu-toggle:focus,
+.main-navigation a:focus,
+.header-cta a:focus,
+button:focus,
+a:focus {
+	outline: 2px solid var(--aitsc-primary);
+	outline-offset: 2px;
+}
+
+.skip-link.screen-reader-text:focus {
+	background-color: var(--aitsc-bg-primary);
+	color: var(--aitsc-text-primary);
+	display: block;
+	font-size: 1rem;
+	font-weight: 600;
+	height: auto;
+	left: 0.5rem;
+	line-height: normal;
+	padding: 1rem;
+	text-decoration: none;
+	top: 0.5rem;
+	width: auto;
+	z-index: 100000;
+	border-radius: 4px;
+	box-shadow: var(--aitsc-shadow-lg);
 }
 
 /* --- 3. LAYOUT & SPACING --- */
@@ -1415,46 +1274,63 @@ body:not(.home) .global-tech-background .matrix-rain {
 	padding: 4rem 0;
 }
 
-/* --- 4. TYPOGRAPHY --- */
+/* --- 4. TYPOGRAPHY - WHITE THEME --- */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-	color: #fff !important;
+	color: var(--aitsc-text-primary) !important;
 	margin-top: 0;
+	font-family: var(--aitsc-font-heading);
 }
 
 p {
-	color: #aaa;
+	color: var(--aitsc-text-secondary);
 	line-height: 1.6;
 }
 
 a {
+	color: var(--aitsc-primary);
 	transition: all 0.2s ease;
 }
 
-/* --- 5. COMPONENT: CARDS (Case Studies / Solutions) --- */
+a:hover,
+a:focus {
+	color: var(--aitsc-primary-hover);
+}
+
+body {
+	background-color: var(--aitsc-bg-primary);
+	color: var(--aitsc-text-primary);
+	font-family: var(--aitsc-font-main);
+}
+
+/* --- 5. COMPONENT: CARDS (Case Studies / Solutions) - WHITE THEME --- */
 .case-study-row,
 .solution-card {
-	background: #111;
-	border: 1px solid #222;
+	background: var(--aitsc-bg-primary);
+	border: 1px solid var(--aitsc-border);
 	padding: 2rem;
 	margin-bottom: 2rem;
-	border-radius: 4px;
+	border-radius: 8px;
+	box-shadow: var(--aitsc-shadow-sm);
+	transition: all 0.3s ease;
 }
 
 .case-study-row:hover,
 .solution-card:hover {
 	border-color: var(--aitsc-primary);
+	box-shadow: var(--aitsc-shadow-md);
+	transform: translateY(-2px);
 }
 
 .metric-card {
-	background: #000;
-	border: 1px solid #333;
+	background: var(--aitsc-bg-secondary);
+	border: 1px solid var(--aitsc-border);
 	padding: 1rem;
-	border-radius: 4px;
+	border-radius: 8px;
 	text-align: center;
 }
 
@@ -1486,7 +1362,7 @@ body.admin-bar .site-header {
 
 /* Fix for the white gap at top */
 #page {
-	background: #000;
+	background: #FFFFFF;
 }
 
 /* --- 8. HOMEPAGE HERO SECTION --- */
@@ -1496,7 +1372,7 @@ body.admin-bar .site-header {
 	width: 100%;
 	display: flex;
 	align-items: center;
-	background-color: #000;
+	background-color: #FFFFFF;
 	overflow: hidden;
 	margin-top: -100px;
 	/* Counteract site-main padding for full screen */
@@ -1686,7 +1562,7 @@ body.admin-bar .site-header {
 
 /* --- 10. CORE BELIEFS --- */
 .core-beliefs {
-	background-color: #000;
+	background-color: var(--aitsc-bg-primary);
 }
 
 .section-title {
@@ -1705,9 +1581,9 @@ body.admin-bar .site-header {
 }
 
 .belief-card {
-	background: #0a0a0a;
+	background: var(--aitsc-bg-secondary);
 	padding: 2rem;
-	border: 1px solid #1f1f1f;
+	border: 1px solid var(--aitsc-border);
 	transition: transform 0.3s ease;
 }
 
@@ -1742,7 +1618,7 @@ body.admin-bar .site-header {
 
 /* --- 11. SERVICES GRID --- */
 .services-section {
-	background-color: #000;
+	background-color: var(--aitsc-bg-primary);
 }
 
 .services-grid {
@@ -1752,9 +1628,9 @@ body.admin-bar .site-header {
 }
 
 .service-card {
-	background: #0a0a0a;
+	background: var(--aitsc-bg-secondary);
 	padding: 2.5rem;
-	border: 1px solid #1f1f1f;
+	border: 1px solid var(--aitsc-border);
 	transition: all 0.3s ease;
 	position: relative;
 }
@@ -1808,7 +1684,7 @@ body.admin-bar .site-header {
 
 /* --- 12. FLEET SHOWCASE --- */
 .fleet-showcase {
-	background: linear-gradient(135deg, #000814 0%, #001d3d 100%);
+	background: var(--aitsc-bg-secondary);
 	padding: 6rem 0;
 }
 
@@ -1885,7 +1761,7 @@ body.admin-bar .site-header {
 
 /* --- 13. PROCESS STEPS --- */
 .process-section {
-	background-color: #000;
+	background-color: var(--aitsc-bg-primary);
 }
 
 .process-steps {
@@ -1926,7 +1802,7 @@ body.admin-bar .site-header {
 
 /* --- 14. CONTACT CTA --- */
 .contact-cta {
-	background: linear-gradient(135deg, #001d3d 0%, #000814 100%);
+	background: var(--aitsc-bg-secondary);
 	padding: 6rem 0;
 	text-align: center;
 }
@@ -1996,10 +1872,9 @@ font-size: 1.125rem;
 }
 
 .widget_search .search-field {
-	background-color: #000 !important;
-	/* Force dark background */
-	border: 1px solid #333 !important;
-	color: #fff !important;
+	background-color: #FFFFFF !important;
+	border: 1px solid var(--aitsc-border) !important;
+	color: var(--aitsc-text-primary) !important;
 	padding: 10px 15px !important;
 	border-radius: 4px;
 }
@@ -2064,9 +1939,9 @@ font-size: 1.125rem;
 /* Target specifically the input inside the search widget */
 .widget_search form.search-form input[type="search"],
 .widget_search form.search-form input.search-field {
-	background-color: #000 !important;
-	color: #fff !important;
-	border: 1px solid #333 !important;
+	background-color: #FFFFFF !important;
+	color: var(--aitsc-text-primary) !important;
+	border: 1px solid var(--aitsc-border) !important;
 	box-shadow: none !important;
 	padding: 10px 15px !important;
 	width: 100% !important;
@@ -2167,7 +2042,7 @@ font-size: 1.125rem;
 
 /* --- 16. ARCHIVE HEADERS --- */
 .archive-header {
-	background-color: var(--aitsc-bg-dark);
+	background-color: var(--aitsc-bg-primary);
 	padding: 6rem 0 4rem;
 	border-bottom: 1px solid var(--aitsc-border-color);
 }
@@ -2192,13 +2067,13 @@ font-size: 1.125rem;
 }
 
 .solutions-archive-section {
-	background-color: #000;
+	background-color: var(--aitsc-bg-primary);
 	padding: 4rem 0;
 }
 
 /* --- 17. PAGE HEROES --- */
 .page-hero {
-	background-color: var(--aitsc-bg-dark);
+	background-color: var(--aitsc-bg-primary);
 	padding: 8rem 0 6rem;
 	/* border-bottom: 1px solid var(--aitsc-border-color); */
 }
@@ -2212,7 +2087,7 @@ font-size: 1.125rem;
 }
 
 .page-content-wrapper {
-	background-color: #000;
+	background-color: var(--aitsc-bg-primary);
 }
 
 .entry-content {
@@ -2390,29 +2265,6 @@ h6, .h6 {
 	font-weight: var(--font-weight-medium);
 	text-transform: uppercase;
 	letter-spacing: var(--letter-spacing-wide);
-}
-
-/* WorldQuant Hero Typography System */
-.wq-hero-title {
-	font-family: var(--aitsc-font-heading);
-	color: #fff;
-	margin-bottom: 1.5rem;
-	line-height: 1.1;
-	text-transform: uppercase;
-	display: block;
-	width: 100%;
-}
-
-.wq-hero-title--display {
-	font-weight: 300; /* Light */
-	font-size: clamp(2.5rem, 5vw, 5rem);
-	letter-spacing: 0.02em;
-}
-
-.wq-hero-title--standard {
-	font-weight: 700; /* Bold */
-	font-size: clamp(2.5rem, 5vw, 4.5rem);
-	letter-spacing: 0.05em;
 }
 
 /* Body Text Utilities */
@@ -2643,11 +2495,11 @@ h6, .h6 {
 }
 
 .bg-black {
-	background-color: #000000;
+	background-color: #FFFFFF;
 }
 
 .bg-panel {
-	background-color: #0A0A0A;
+	background-color: var(--aitsc-bg-secondary);
 }
 
 /* Slightly lighter black for cards */
@@ -2969,28 +2821,6 @@ p a:hover {
 	align-items: start !important;
 }
 
-/* Glass Card */
-.wq-card {
-	background: rgba(10, 10, 15, 0.6) !important;
-	backdrop-filter: blur(20px) !important;
-	-webkit-backdrop-filter: blur(20px) !important;
-	border: 1px solid rgba(255, 255, 255, 0.08) !important;
-	border-radius: 16px !important;
-	padding: 2.5rem !important;
-	box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5) !important;
-	transition: all 0.3s ease !important;
-}
-
-.wq-card h3 {
-	font-size: 1.5rem !important;
-	font-weight: 700 !important;
-	color: #fff !important;
-	margin-bottom: 2rem !important;
-	padding-bottom: 1rem !important;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-	text-transform: none !important;
-}
-
 /* Inputs */
 .simple-contact-form .form-group {
 	margin-bottom: 1.5rem !important;
@@ -3143,7 +2973,7 @@ p a:hover {
 
 /* Mobile Ticker Adjustments - Phase 4: Removed !important overrides */
 @media (max-width: 47.9375rem) {
-	/* .wq-huge-title now uses fluid clamp() from inline styles - no override needed */
+	/* Responsive hero title now uses fluid clamp() from inline styles - no override needed */
 
 	.ticker-item {
 		font-size: 0.7rem;
@@ -3420,7 +3250,7 @@ body.no-js {
 	position: relative;
 	width: 100%;
 	overflow: hidden;
-	background-color: var(--aitsc-bg-dark);
+	background-color: var(--aitsc-bg-primary);
 	display: flex;
 	align-items: center;
 }
@@ -3564,10 +3394,8 @@ body.no-js {
 	/* Redirects to .aitsc-card--solution in unified card system */
 }
 
-/* Blog Card Alias */
-.wq-blog-card {
-	/* Redirects to .aitsc-card--blog in unified card system */
-}
+/* Blog Card Alias - DEPRECATED */
+/* Redirects to .aitsc-card--blog in unified card system */
 
 /* Related Solution Card Alias */
 .related-solution-card {
@@ -3625,11 +3453,11 @@ body.no-js {
 .aitsc-section {
 	padding: 6rem 0;
 	position: relative;
-	background-color: var(--aitsc-bg-dark);
+	background-color: var(--aitsc-bg-primary);
 }
 
 .aitsc-section:nth-child(even) {
-	background-color: rgba(255, 255, 255, 0.02);
+	background-color: var(--aitsc-bg-secondary);
 }
 
 .aitsc-container {
@@ -3716,8 +3544,8 @@ body.no-js {
 
 /* --- SPEC CARDS --- */
 .aitsc-spec-card {
-	background: var(--wq-card-bg);
-	border: 1px solid var(--wq-border);
+	background: var(--aitsc-bg-primary, #FFFFFF);
+	border: 1px solid var(--aitsc-border, #E2E8F0);
 	border-radius: 8px;
 	overflow: hidden;
 }
@@ -3728,7 +3556,7 @@ body.no-js {
 	display: flex;
 	align-items: center;
 	gap: 1rem;
-	border-bottom: 1px solid var(--wq-border);
+	border-bottom: 1px solid var(--aitsc-border, #E2E8F0);
 }
 
 .aitsc-spec-card__icon {

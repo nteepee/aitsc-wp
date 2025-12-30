@@ -1,0 +1,11 @@
+# ESP32-S3 Size Optimization Override
+# Place this file in the same directory as your .ino file
+# This forces the Arduino IDE to use size optimization
+
+compiler.c.extra_flags=-Os -ffunction-sections -fdata-sections
+compiler.cpp.extra_flags=-Os -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti
+compiler.c.elf.extra_flags=-Wl,--gc-sections
+compiler.cpp.elf.extra_flags=-Wl,--gc-sections
+
+# Disable verbose compilation output
+build.extra_flags=-DCORE_DEBUG_LEVEL=0 -DARDUINO_USB_CDC_ON_BOOT=0

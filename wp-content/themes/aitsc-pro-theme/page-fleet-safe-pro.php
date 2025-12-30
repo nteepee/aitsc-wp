@@ -41,17 +41,17 @@ if (file_exists(get_template_directory() . '/assets/images/fleet-safe-pro/galler
         <div class="row justify-content-center text-center">
             <div class="col-lg-10">
                 <!-- Animated Title -->
-                <h1 class="wq-huge-title animate-title" style="margin-bottom: 2rem;">
+                <h1 class="aitsc-hero__title animate-title" style="margin-bottom: 2rem;">
                     FLEET SAFE PRO
                 </h1>
 
                 <!-- Subtitle -->
-                <p class="wq-subtitle animate-fade-in delay-1">
+                <p class="aitsc-hero__subtitle animate-fade-in delay-1">
                     ADVANCED SAFETY TECHNOLOGY
                 </p>
 
                 <!-- Description -->
-                <p class="wq-body-text mt-4 animate-fade-in delay-2" style="max-width: 56.25rem; margin-left: auto; margin-right: auto; font-size: 1.25rem; line-height: 1.8;">
+                <p class="aitsc-hero__description mt-4 animate-fade-in delay-2" style="max-width: 56.25rem; margin-left: auto; margin-right: auto; font-size: 1.25rem; line-height: 1.8;">
                     Real-time seat belt detection system that installs easily with seamless hardware integration and smart alerts
                 </p>
 
@@ -93,7 +93,7 @@ if (file_exists(get_template_directory() . '/assets/images/fleet-safe-pro/galler
     overflow: visible;
 }
 
-.fleet-safe-hero .wq-huge-title {
+.fleet-safe-hero .aitsc-hero__title {
     font-family: var(--aitsc-font-heading);
     font-weight: 200;
     font-size: clamp(2.5rem, 10vw, 8rem);
@@ -103,7 +103,7 @@ if (file_exists(get_template_directory() . '/assets/images/fleet-safe-pro/galler
     text-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
 }
 
-.fleet-safe-hero .wq-subtitle {
+.fleet-safe-hero .aitsc-hero__subtitle {
     font-family: 'Inter', sans-serif;
     font-size: clamp(0.7rem, 1.5vw, 1.25rem);
     letter-spacing: 0.2em;
@@ -112,7 +112,7 @@ if (file_exists(get_template_directory() . '/assets/images/fleet-safe-pro/galler
     margin-bottom: 0;
 }
 
-.fleet-safe-hero .wq-body-text {
+.fleet-safe-hero .aitsc-hero__description {
     color: #dfdfdf;
     font-family: 'Inter', sans-serif;
 }
@@ -231,7 +231,7 @@ if (file_exists(get_template_directory() . '/assets/images/fleet-safe-pro/galler
         padding-bottom: 12vh !important;
     }
 
-    .fleet-safe-hero .wq-huge-title {
+    .fleet-safe-hero .aitsc-hero__title {
         font-size: clamp(2.5rem, 8vw, 6rem);
     }
 }
@@ -241,17 +241,17 @@ if (file_exists(get_template_directory() . '/assets/images/fleet-safe-pro/galler
         padding-bottom: 13vh !important;
     }
 
-    .fleet-safe-hero .wq-huge-title {
+    .fleet-safe-hero .aitsc-hero__title {
         font-size: clamp(2rem, 8vw, 4rem);
         letter-spacing: -0.02em;
     }
 
-    .fleet-safe-hero .wq-subtitle {
+    .fleet-safe-hero .aitsc-hero__subtitle {
         font-size: clamp(0.65rem, 2vw, 0.9rem);
         letter-spacing: 0.15em;
     }
 
-    .fleet-safe-hero .wq-body-text {
+    .fleet-safe-hero .aitsc-hero__description {
         font-size: 1rem !important;
     }
 
@@ -282,18 +282,18 @@ if (file_exists(get_template_directory() . '/assets/images/fleet-safe-pro/galler
         padding-bottom: 3rem !important;
     }
 
-    .fleet-safe-hero .wq-huge-title {
+    .fleet-safe-hero .aitsc-hero__title {
         font-size: clamp(1.75rem, 8vw, 2.5rem);
         margin-bottom: 1rem !important;
     }
 
-    .fleet-safe-hero .wq-subtitle {
+    .fleet-safe-hero .aitsc-hero__subtitle {
         font-size: 0.65rem;
         letter-spacing: 0.08em;
         margin-bottom: 0.75rem;
     }
 
-    .fleet-safe-hero .wq-body-text {
+    .fleet-safe-hero .aitsc-hero__description {
         font-size: 0.95rem !important;
         margin-top: 1rem !important;
     }
@@ -319,7 +319,7 @@ if (file_exists(get_template_directory() . '/assets/images/fleet-safe-pro/galler
 }
 
 @media (max-width: 23.4375rem) {
-    .fleet-safe-hero .wq-huge-title {
+    .fleet-safe-hero .aitsc-hero__title {
         font-size: 1.5rem;
     }
 

@@ -300,6 +300,112 @@
 }
 
 /* ==========================================================================
+   WHITE THEME VARIANTS (Harrison.ai Style)
+   ========================================================================== */
+
+/* White Fullwidth Hero - Full-width photo background with centered overlay text */
+.aitsc-hero--white-fullwidth {
+    min-height: 70vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.aitsc-hero--white-fullwidth::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.6) 100%);
+    z-index: 1;
+}
+
+.aitsc-hero--white-fullwidth .aitsc-hero__container {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    text-align: center;
+}
+
+.aitsc-hero--white-fullwidth .aitsc-hero__content {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 3rem;
+    border-radius: var(--aitsc-radius-lg, 4px);
+    box-shadow: var(--aitsc-shadow-xl);
+}
+
+.aitsc-hero--white-fullwidth .aitsc-hero__subtitle {
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--aitsc-primary, #005cb2);
+    margin-bottom: 1rem;
+}
+
+.aitsc-hero--white-fullwidth .aitsc-hero__title {
+    font-size: 2.75rem;
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--aitsc-text-primary, #1E293B);
+    margin-bottom: 1.5rem;
+}
+
+.aitsc-hero--white-fullwidth .aitsc-hero__description {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--aitsc-text-secondary, #475569);
+    margin-bottom: 2rem;
+}
+
+.aitsc-hero--white-fullwidth .aitsc-hero__ctas {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.aitsc-hero--white-fullwidth .aitsc-btn--primary {
+    background: var(--aitsc-primary, #005cb2);
+    color: var(--aitsc-text-on-primary, #FFFFFF);
+    padding: 1rem 2rem;
+    border-radius: var(--aitsc-radius-lg, 4px);
+    font-weight: 600;
+    box-shadow: var(--aitsc-shadow-md);
+    transition: all var(--aitsc-transition-fast);
+}
+
+.aitsc-hero--white-fullwidth .aitsc-btn--primary:hover {
+    background: var(--aitsc-primary-hover, #004a94);
+    transform: translateY(-2px);
+    box-shadow: var(--aitsc-shadow-lg);
+}
+
+.aitsc-hero--white-fullwidth .aitsc-btn--secondary {
+    background: transparent;
+    color: var(--aitsc-primary, #005cb2);
+    border: 2px solid var(--aitsc-primary, #005cb2);
+    padding: 1rem 2rem;
+    border-radius: var(--aitsc-radius-lg, 4px);
+    font-weight: 600;
+    transition: all var(--aitsc-transition-fast);
+}
+
+.aitsc-hero--white-fullwidth .aitsc-btn--secondary:hover {
+    background: var(--aitsc-primary, #005cb2);
+    color: var(--aitsc-text-on-primary, #FFFFFF);
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
    Responsive Design
    ========================================================================== */
 
@@ -322,6 +428,23 @@
 
     .aitsc-hero--large {
         min-height: 450px;
+    }
+
+    /* White fullwidth hero responsive adjustments */
+    .aitsc-hero--white-fullwidth {
+        min-height: 60vh;
+    }
+
+    .aitsc-hero--white-fullwidth .aitsc-hero__content {
+        padding: 2.5rem;
+    }
+
+    .aitsc-hero--white-fullwidth .aitsc-hero__title {
+        font-size: 2.25rem;
+    }
+
+    .aitsc-hero--white-fullwidth .aitsc-hero__description {
+        font-size: 1rem;
     }
 }
 
@@ -374,6 +497,33 @@
 
     .aitsc-breadcrumb__list {
         font-size: 0.85rem;
+    }
+
+    /* White fullwidth hero mobile adjustments */
+    .aitsc-hero--white-fullwidth {
+        min-height: 50vh;
+    }
+
+    .aitsc-hero--white-fullwidth .aitsc-hero__content {
+        padding: 2rem 1.5rem;
+    }
+
+    .aitsc-hero--white-fullwidth .aitsc-hero__title {
+        font-size: 1.75rem;
+    }
+
+    .aitsc-hero--white-fullwidth .aitsc-hero__description {
+        font-size: 0.9375rem;
+    }
+
+    .aitsc-hero--white-fullwidth .aitsc-hero__ctas {
+        flex-direction: column;
+    }
+
+    .aitsc-hero--white-fullwidth .aitsc-btn--primary,
+    .aitsc-hero--white-fullwidth .aitsc-btn--secondary {
+        width: 100%;
+        justify-content: center;
     }
 }
 

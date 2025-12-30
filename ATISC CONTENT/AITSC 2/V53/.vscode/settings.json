@@ -1,0 +1,15 @@
+{
+  "cmake.generator": "Ninja",
+  "cmake.buildDirectory": "${workspaceFolder}/build",
+  "cmake.configureArgs": [
+    "-DPICO_BOARD=pico2",
+    "-DCMAKE_BUILD_TYPE=Release"
+  ],
+  "cmake.configureEnvironment": {
+    "PICO_SDK_PATH": "C:/Users/luong/.pico-sdk/sdk/2.2.0",
+    "PATH": "C:/msys64/ucrt64/bin;${env:PATH}"
+  },
+  "cmake.environment": {
+    "PATH": "C:/msys64/ucrt64/bin;${env:PATH}"
+  }
+}

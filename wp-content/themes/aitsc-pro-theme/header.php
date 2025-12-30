@@ -6,31 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="profile" href="https://gmpg.org/xfn/11">
     <?php wp_head(); ?>
-    <!-- Custom Styles for Glassmorphism (Global) -->
+    <!-- Harrison.ai White Theme Global Styles -->
     <style>
+        /* White Theme Card Styles */
         .aitsc-glass-card {
-            background-color: rgba(15, 23, 42, 0.5) !important;
-            /* slate-900/50 */
-            backdrop-filter: blur(4px) !important;
-            -webkit-backdrop-filter: blur(4px) !important;
-            border: 1px solid rgba(30, 41, 59, 1) !important;
-            /* slate-800 */
+            background-color: var(--aitsc-bg-primary) !important;
+            border: 1px solid var(--aitsc-border) !important;
+            border-radius: 8px !important;
+            box-shadow: var(--aitsc-shadow-md) !important;
             transition: all 0.3s ease !important;
         }
 
         .aitsc-glass-card:hover {
-            border-color: rgba(37, 99, 235, 0.3) !important;
-            /* blue-600/30 */
-            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5) !important;
+            border-color: var(--aitsc-primary) !important;
+            box-shadow: var(--aitsc-shadow-lg) !important;
+            transform: translateY(-2px);
         }
 
         .aitsc-ecosystem-card {
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.6) 0%, rgba(30, 58, 138, 0.2) 100%) !important;
-            backdrop-filter: blur(4px) !important;
-            -webkit-backdrop-filter: blur(4px) !important;
-            border: 1px solid rgba(59, 130, 246, 0.2) !important;
-            border-radius: 0.75rem !important;
-            /* rounded-xl */
+            background: var(--aitsc-bg-primary) !important;
+            border: 1px solid var(--aitsc-border) !important;
+            border-radius: 8px !important;
             padding: 1.5rem !important;
             transition: all 0.3s ease !important;
             display: flex !important;
@@ -40,21 +36,19 @@
         }
 
         .aitsc-ecosystem-card:hover {
-            background: linear-gradient(135deg, rgba(30, 58, 138, 0.3) 0%, rgba(37, 99, 235, 0.2) 100%) !important;
-            border-color: rgba(96, 165, 250, 0.5) !important;
-            box-shadow: 0 0 15px rgba(37, 99, 235, 0.2) !important;
+            border-color: var(--aitsc-primary) !important;
+            box-shadow: 0 0 15px rgba(0, 92, 178, 0.15) !important;
             transform: translateY(-2px);
         }
 
-        /* CTA Button Styles */
+        /* CTA Button Styles - Harrison.ai Cyan */
         .aitsc-cta-btn {
             display: inline-flex !important;
             align-items: center !important;
             justify-content: center !important;
             gap: 0.5rem !important;
             padding: 0.75rem 1.5rem !important;
-            border-radius: 0.75rem !important;
-            /* rounded-xl */
+            border-radius: 4px !important;
             font-weight: 600 !important;
             transition: all 0.2s ease !important;
             text-decoration: none !important;
@@ -63,45 +57,25 @@
         }
 
         .aitsc-cta-btn-primary {
-            border-color: #2563eb !important;
-            /* blue-600 */
-            color: #60a5fa !important;
-            /* blue-400 */
+            background-color: var(--aitsc-cta-bg) !important;
+            border-color: var(--aitsc-cta-bg) !important;
+            color: var(--aitsc-cta-text) !important;
         }
 
         .aitsc-cta-btn-primary:hover {
-            background-color: rgba(37, 99, 235, 0.1) !important;
+            background-color: var(--aitsc-cta-bg-hover) !important;
+            border-color: var(--aitsc-cta-bg-hover) !important;
         }
 
         .aitsc-cta-btn-secondary {
-            border-color: #475569 !important;
-            /* slate-600 */
-            color: #cbd5e1 !important;
-            /* slate-300 */
+            background-color: transparent !important;
+            border-color: var(--aitsc-primary) !important;
+            color: var(--aitsc-primary) !important;
         }
 
         .aitsc-cta-btn-secondary:hover {
-            border-color: #2563eb !important;
-            color: white !important;
-        }
-
-        /* Custom Background Pattern */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/brand/bg-pattern-logo.png');
-            background-repeat: repeat;
-            background-size: 150px auto;
-            /* Adjust size as needed */
-            opacity: 0.4;
-            /* Subtle effect */
-            pointer-events: none;
-            z-index: -1;
-            mix-blend-mode: overlay;
+            background-color: var(--aitsc-primary-light) !important;
+            color: var(--aitsc-primary) !important;
         }
     </style>
 </head>
@@ -119,8 +93,7 @@
             href="#primary"><?php esc_html_e('Skip to content', 'aitsc-pro-theme'); ?></a>
 
         <header id="masthead" class="site-header">
-            <div class="container header-container"
-                style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="container header-container">
 
                 <div class="site-branding">
                     <?php
@@ -138,19 +111,32 @@
                     ?>
                 </div><!-- .site-branding -->
 
-                <nav id="site-navigation" class="main-navigation">
-                    <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
-                        <span class="material-symbols-outlined">menu</span>
+                <nav id="site-navigation" class="main-navigation" role="navigation" aria-label="<?php esc_attr_e('Primary Navigation', 'aitsc-pro-theme'); ?>">
+                    <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false" aria-label="<?php esc_attr_e('Toggle navigation menu', 'aitsc-pro-theme'); ?>">
+                        <span class="hamburger">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
                     </button>
                     <?php
                     wp_nav_menu(array(
                         'theme_location' => 'primary',
                         'menu_id' => 'primary-menu',
                         'container' => false,
-                        'fallback_cb' => false, // Don't show pages if no menu assigned
+                        'fallback_cb' => false,
                     ));
                     ?>
                 </nav><!-- #site-navigation -->
+
+                <div class="header-cta">
+                    <a href="<?php echo esc_url(home_url('/contact')); ?>" class="aitsc-cta-btn aitsc-cta-btn-primary">
+                        <?php esc_html_e('Book a demo', 'aitsc-pro-theme'); ?>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
 
             </div>
         </header><!-- #masthead -->

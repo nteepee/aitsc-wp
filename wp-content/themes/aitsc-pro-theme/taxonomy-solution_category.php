@@ -133,12 +133,12 @@ get_header();
 <style>
 	.breadcrumb-nav {
 		font-size: var(--text-sm);
-		color: var(--wq-text-grey);
+		color: var(--aitsc-text-grey);
 		margin-bottom: var(--space-6);
 	}
 
 	.breadcrumb-nav a {
-		color: var(--wq-blue);
+		color: var(--aitsc-blue);
 		text-decoration: none;
 	}
 
@@ -153,13 +153,13 @@ get_header();
 	.subcategories-section {
 		margin-top: var(--space-16);
 		padding-top: var(--space-12);
-		border-top: 1px solid var(--wq-border);
+		border-top: 1px solid var(--aitsc-border);
 	}
 
 	.subcategories-section h2 {
 		font-size: var(--text-3xl);
 		margin-bottom: var(--space-8);
-		color: var(--wq-text-white);
+		color: var(--aitsc-text-white);
 	}
 </style>
 

@@ -1,7 +1,7 @@
 <?php
 /**
  * Template Part: Overview Section
- * Clean centered text layout
+ * Clean centered text layout - Refactored to use standardized components
  */
 
 $overview_text = get_field('overview_text');

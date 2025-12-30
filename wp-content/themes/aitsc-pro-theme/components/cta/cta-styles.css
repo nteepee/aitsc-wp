@@ -301,6 +301,86 @@
 }
 
 /* ==========================================================================
+   WHITE THEME VARIANTS (Harrison.ai Style)
+   ========================================================================== */
+
+/* White Primary CTA - Cyan button on white background */
+.aitsc-cta--white-primary {
+    background: var(--aitsc-bg-primary, #FFFFFF);
+    border: 1px solid var(--aitsc-border, #E2E8F0);
+    border-radius: var(--aitsc-radius-lg, 4px);
+    box-shadow: var(--aitsc-shadow-md);
+    padding: 3rem 0;
+}
+
+.aitsc-cta--white-primary .aitsc-cta__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.aitsc-cta--white-primary .aitsc-cta__content {
+    flex: 1;
+}
+
+.aitsc-cta--white-primary .aitsc-cta__title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--aitsc-text-primary, #1E293B);
+    margin-bottom: 0.75rem;
+}
+
+.aitsc-cta--white-primary .aitsc-cta__description {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--aitsc-text-secondary, #475569);
+    margin: 0;
+}
+
+.aitsc-cta--white-primary .aitsc-cta__action {
+    flex-shrink: 0;
+}
+
+.aitsc-cta--white-primary .aitsc-cta__button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: var(--aitsc-primary, #005cb2);
+    color: var(--aitsc-text-on-primary, #FFFFFF);
+    border: none;
+    border-radius: var(--aitsc-radius-lg, 4px);
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all var(--aitsc-transition-fast);
+    box-shadow: var(--aitsc-shadow-sm);
+}
+
+.aitsc-cta--white-primary .aitsc-cta__button:hover {
+    background: var(--aitsc-primary-hover, #004a94);
+    transform: translateY(-2px);
+    box-shadow: var(--aitsc-shadow-md);
+}
+
+.aitsc-cta--white-primary .aitsc-cta__button:focus {
+    outline: 3px solid var(--aitsc-border-focus, #005cb2);
+    outline-offset: 2px;
+}
+
+.aitsc-cta--white-primary .aitsc-cta__button::after {
+    content: '→';
+    font-size: 1.2em;
+    transition: transform var(--aitsc-transition-fast);
+}
+
+.aitsc-cta--white-primary .aitsc-cta__button:hover::after {
+    transform: translateX(4px);
+}
+
+/* ==========================================================================
    Responsive Design
    ========================================================================== */
 
@@ -335,6 +415,29 @@
     .aitsc-cta--inline .aitsc-cta__container {
         flex-direction: column;
     }
+
+    /* White primary CTA responsive adjustments */
+    .aitsc-cta--white-primary {
+        padding: 2.5rem 0;
+    }
+
+    .aitsc-cta--white-primary .aitsc-cta__container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .aitsc-cta--white-primary .aitsc-cta__title {
+        font-size: 1.75rem;
+    }
+
+    .aitsc-cta--white-primary .aitsc-cta__description {
+        font-size: 1rem;
+    }
+
+    .aitsc-cta--white-primary .aitsc-cta__button {
+        width: 100%;
+        justify-content: center;
+    }
 }
 
 @media (max-width: 767px) {
@@ -366,6 +469,23 @@
     .aitsc-form__input,
     .aitsc-form__textarea {
         font-size: 16px; /* Prevents zoom on iOS */
+    }
+
+    /* White primary CTA mobile adjustments */
+    .aitsc-cta--white-primary {
+        padding: 2rem 0;
+    }
+
+    .aitsc-cta--white-primary .aitsc-cta__title {
+        font-size: 1.5rem;
+    }
+
+    .aitsc-cta--white-primary .aitsc-cta__description {
+        font-size: 0.9375rem;
+    }
+
+    .aitsc-cta--white-primary .aitsc-cta__button {
+        padding: 0.875rem 1.5rem;
     }
 }
 

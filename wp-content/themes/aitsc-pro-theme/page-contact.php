@@ -13,7 +13,7 @@ get_header();
     <!-- Page Hero -->
     <header class="page-hero full-width" style="background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8));">
         <div class="container">
-            <?php the_title('<h1 class="wq-hero-title wq-hero-title--standard">', '</h1>'); ?>
+            <?php the_title('<h1 class="aitsc-hero__title aitsc-hero__title--standard">', '</h1>'); ?>
         </div>
     </header>
 

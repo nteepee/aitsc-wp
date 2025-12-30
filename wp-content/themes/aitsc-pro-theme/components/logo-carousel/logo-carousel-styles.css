@@ -1,0 +1,256 @@
+/**
+ * Logo Carousel Component Styles
+ *
+ * CSS-only horizontal auto-scroll carousel with grayscale logos.
+ * Features pause-on-hover and reduced motion support.
+ *
+ * @package AITSC_Pro_Theme
+ * @subpackage Components
+ * @since 4.0.0
+ */
+
+/* ============================================================
+   LOGO CAROUSEL - BASE STYLES
+   ============================================================ */
+
+.aitsc-logo-carousel {
+    width: 100%;
+    background-color: var(--aitsc-bg-secondary, #F8FAFC);
+    padding: var(--space-12, 3rem) 0;
+    overflow: hidden;
+}
+
+.aitsc-logo-carousel__header {
+    max-width: var(--aitsc-container-width, 1400px);
+    margin: 0 auto var(--space-8, 2rem);
+    padding: 0 var(--space-4, 1rem);
+    text-align: center;
+}
+
+.aitsc-logo-carousel__title {
+    font-family: var(--aitsc-font-heading, 'Manrope', sans-serif);
+    font-size: var(--font-size-2xl, 1.5rem);
+    font-weight: 600;
+    color: var(--aitsc-text-secondary, #475569);
+    margin: 0;
+    letter-spacing: var(--letter-spacing-normal, 0);
+}
+
+/* ============================================================
+   CAROUSEL WRAPPER & TRACK
+   ============================================================ */
+
+.aitsc-logo-carousel__wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    /* Mask gradient for smooth fade at edges */
+    mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 5%,
+        black 95%,
+        transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 5%,
+        black 95%,
+        transparent 100%
+    );
+}
+
+.aitsc-logo-carousel__track {
+    display: flex;
+    gap: var(--space-12, 3rem);
+    width: max-content;
+    animation: carousel-scroll var(--carousel-speed, 30s) linear infinite;
+}
+
+/* Pause animation on hover */
+.aitsc-logo-carousel__track:hover {
+    animation-play-state: paused;
+}
+
+/* ============================================================
+   CAROUSEL ITEMS
+   ============================================================ */
+
+.aitsc-logo-carousel__item {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 180px;
+    height: 80px;
+    padding: var(--space-4, 1rem);
+}
+
+.aitsc-logo-carousel__link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    transition: transform var(--aitsc-transition-normal, 0.3s);
+}
+
+.aitsc-logo-carousel__link:hover {
+    transform: scale(1.05);
+}
+
+.aitsc-logo-carousel__link:focus-visible {
+    outline: 2px solid var(--aitsc-border-focus, #005cb2);
+    outline-offset: 4px;
+    border-radius: var(--aitsc-radius-sm, 2px);
+}
+
+/* ============================================================
+   LOGO STYLES
+   ============================================================ */
+
+.aitsc-logo-carousel__logo {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    /* Grayscale effect */
+    filter: grayscale(100%) opacity(0.6);
+    transition: filter var(--aitsc-transition-normal, 0.3s);
+}
+
+.aitsc-logo-carousel__link:hover .aitsc-logo-carousel__logo,
+.aitsc-logo-carousel__link:focus .aitsc-logo-carousel__logo {
+    filter: grayscale(0%) opacity(1);
+}
+
+/* ============================================================
+   PLACEHOLDER STYLES (when no logo image provided)
+   ============================================================ */
+
+.aitsc-logo-carousel__placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: var(--aitsc-bg-primary, #FFFFFF);
+    border: 2px solid var(--aitsc-border, #E2E8F0);
+    border-radius: var(--aitsc-radius-sm, 2px);
+    padding: var(--space-4, 1rem);
+    transition: border-color var(--aitsc-transition-normal, 0.3s);
+}
+
+.aitsc-logo-carousel__link:hover .aitsc-logo-carousel__placeholder,
+.aitsc-logo-carousel__link:focus .aitsc-logo-carousel__placeholder {
+    border-color: var(--aitsc-primary, #005cb2);
+}
+
+.aitsc-logo-carousel__placeholder span {
+    font-family: var(--aitsc-font-main, 'Manrope', sans-serif);
+    font-size: var(--font-size-sm, 0.875rem);
+    font-weight: 600;
+    color: var(--aitsc-text-muted, #64748B);
+    text-align: center;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+/* ============================================================
+   KEYFRAME ANIMATION
+   ============================================================ */
+
+@keyframes carousel-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN
+   ============================================================ */
+
+/* Mobile: 320px - 767px */
+@media (max-width: 767px) {
+    .aitsc-logo-carousel {
+        padding: var(--space-8, 2rem) 0;
+    }
+
+    .aitsc-logo-carousel__title {
+        font-size: var(--font-size-lg, 1.125rem);
+    }
+
+    .aitsc-logo-carousel__track {
+        gap: var(--space-8, 2rem);
+    }
+
+    .aitsc-logo-carousel__item {
+        min-width: 140px;
+        height: 60px;
+    }
+}
+
+/* Tablet: 768px - 1023px */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .aitsc-logo-carousel {
+        padding: var(--space-10, 2.5rem) 0;
+    }
+
+    .aitsc-logo-carousel__title {
+        font-size: var(--font-size-xl, 1.25rem);
+    }
+
+    .aitsc-logo-carousel__track {
+        gap: var(--space-10, 2.5rem);
+    }
+
+    .aitsc-logo-carousel__item {
+        min-width: 160px;
+        height: 70px;
+    }
+}
+
+/* Desktop: 1024px+ */
+@media (min-width: 1024px) {
+    .aitsc-logo-carousel__item {
+        min-width: 200px;
+        height: 90px;
+    }
+}
+
+/* ============================================================
+   ACCESSIBILITY
+   ============================================================ */
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .aitsc-logo-carousel__track {
+        animation: none !important;
+    }
+
+    .aitsc-logo-carousel__track {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: var(--space-6, 1.5rem);
+    }
+
+    .aitsc-logo-carousel__wrapper {
+        mask-image: none;
+        -webkit-mask-image: none;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .aitsc-logo-carousel__logo {
+        filter: grayscale(100%) opacity(1);
+    }
+
+    .aitsc-logo-carousel__placeholder {
+        border-width: 3px;
+    }
+}
+

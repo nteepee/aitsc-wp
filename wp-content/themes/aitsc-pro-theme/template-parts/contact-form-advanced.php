@@ -15,14 +15,14 @@ $form_title = get_theme_mod('aitsc_contact_title', 'Contact Us');
 <div class="contact-section-wrapper">
     <!-- Page Header (Removed as Duplicate)
     <div class="text-center mb-5">
-        <h2 class="wq-section-title"><?php echo esc_html($form_title); ?></h2>
-        <p class="wq-subtitle text-muted">Reach out for inquiries about fleet safety, partnerships, or support.</p>
+        <h2 class="aitsc-section__title"><?php echo esc_html($form_title); ?></h2>
+        <p class="aitsc-section__subtitle text-muted">Reach out for inquiries about fleet safety, partnerships, or support.</p>
     </div> -->
 
     <div class="contact-grid">
 
         <!-- MAIN FORM CARD -->
-        <div class="wq-card">
+        <div class="aitsc-card">
             <h3>Send us a message</h3>
             <form action="#" method="POST" class="simple-contact-form">
                 <?php wp_nonce_field('aitsc_contact_form_submit', 'aitsc_contact_nonce'); ?>
@@ -58,7 +58,7 @@ $form_title = get_theme_mod('aitsc_contact_title', 'Contact Us');
 
         <!-- CONTACT INFO SIDEBAR -->
         <div class="info-stack">
-            <div class="wq-card">
+            <div class="aitsc-card">
                 <h3>Other ways to connect</h3>
 
                 <a href="mailto:contact@aitsc.au" class="connect-item">

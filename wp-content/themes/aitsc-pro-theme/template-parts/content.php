@@ -45,7 +45,7 @@ $meta['read_time'] = $read_time . ' min read';
 		'image' => has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'large') : '',
 		'cta_text' => 'Read Full Insight',
 		'size' => 'medium',
-		'custom_class' => 'wq-blog-card',
+		'custom_class' => 'aitsc-blog-card',
 		'meta' => $meta
 	]);
 	?>

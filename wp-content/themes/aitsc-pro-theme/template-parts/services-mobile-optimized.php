@@ -882,36 +882,6 @@ if ($show_case_studies) {
         transform: none;
     }
 }
-
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-    .services-section-mobile {
-        background: linear-gradient(180deg, #1a1a1a 0%, #2d3748 50%, #4a5568 100%);
-    }
-
-    .case-studies-section-mobile {
-        background-color: #2d3748;
-    }
-
-    .service-card-mobile,
-    .case-study-card-mobile {
-        background-color: #2d3748;
-        border-color: #4a5568;
-    }
-
-    .section-title-mobile,
-    .service-title-mobile,
-    .case-study-link-mobile {
-        color: #ffffff;
-    }
-
-    .section-subtitle-mobile,
-    .service-description-mobile,
-    .case-study-excerpt-mobile,
-    .case-study-client-mobile {
-        color: #cbd5e0;
-    }
-}
 </style>
 
 <!-- Mobile Services & Case Studies JavaScript -->

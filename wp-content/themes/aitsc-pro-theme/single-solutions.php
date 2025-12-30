@@ -1,71 +1,84 @@
 <?php
 /**
- * The template for displaying all single solutions
+ * The template for displaying all single solutions - White Theme Migration (Phase 5)
  *
- * ACF-powered dynamic solution landing pages with universal components.
+ * ACF-powered dynamic solution landing pages with white theme universal components.
  * Uses ACF data for dynamic content rendering.
  *
  * @package AITSC_Pro_Theme
- * @since 3.1.0
+ * @since 4.0.0
  */
-
-// Load universal components
-require_once get_template_directory() . '/components/hero/hero-universal.php';
-require_once get_template_directory() . '/components/card/card-base.php';
-require_once get_template_directory() . '/components/cta/cta-block.php';
 
 get_header();
 
 $solution_id = get_the_ID();
 ?>
 
-<main id="primary" class="site-main solution-page">
+<main id="primary" class="site-main solution-page bg-white">
 
 	<?php
 	while (have_posts()):
 		the_post();
 
-		// Hero Section - ACF-driven using universal component
+		// Hero Section - White Fullwidth Variant
 		$hero = get_field('hero_section', $solution_id);
 		if ($hero) {
 			aitsc_render_hero([
-				'variant' => 'pillar',
+				'variant' => 'white-fullwidth',
 				'title' => $hero['title'] ?? get_the_title($solution_id),
 				'subtitle' => $hero['subtitle'] ?? '',
 				'description' => $hero['description'] ?? '',
 				'cta_primary' => $hero['cta_text'] ?? 'Learn More',
 				'cta_primary_link' => $hero['cta_link'] ?? get_permalink($solution_id),
-				'cta_secondary' => $hero['cta_secondary_text'] ?? '',
-				'cta_secondary_link' => $hero['cta_secondary_link'] ?? '',
+				'cta_secondary' => $hero['cta_secondary_text'] ?? 'Contact Sales',
+				'cta_secondary_link' => $hero['cta_secondary_link'] ?? home_url('/contact'),
 				'image' => $hero['image'] ?? '',
 				'height' => 'large'
 			]);
 		} else {
-			// Fallback to original hero if no ACF data
-			get_template_part('template-parts/solution/hero-fleet');
+			// Fallback hero
+			aitsc_render_hero([
+				'variant' => 'white-fullwidth',
+				'title' => get_the_title($solution_id),
+				'subtitle' => 'TRANSPORT SAFETY SOLUTIONS',
+				'description' => get_the_excerpt($solution_id),
+				'height' => 'large'
+			]);
 		}
+
+		// Trust Bar
+		aitsc_render_trust_bar([
+			'text' => 'Trusted by over 50 active transport fleets across Australia',
+			'tag' => 'p'
+		]);
+		?>
 
 		// Overview Section
 		get_template_part('template-parts/solution/overview');
 
-		// Key Features Grid - ACF-driven using universal card component
+		// Key Features Grid - White Feature Cards
 		$features = get_field('features', $solution_id);
 		if ($features && is_array($features)): ?>
-			<section id="features" class="solution-features py-20 md:py-28">
-				<div class="container max-w-7xl mx-auto px-6">
+			<section id="features" class="solution-features py-24 bg-slate-50">
+				<div class="container">
 					<div class="text-center mb-16">
-						<h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Key Features</h2>
+						<h2 class="text-4xl md:text-5xl font-light text-slate-900 mb-4">Key Features</h2>
+						<p class="text-lg text-cyan-600 uppercase tracking-wider">What Makes This Solution Stand Out</p>
 					</div>
-					<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-						<?php foreach ($features as $feature):
-							aitsc_render_card('solution', [
-								'title' => $feature['feature_title'] ?? '',
-								'description' => $feature['feature_description'] ?? '',
-								'icon' => $feature['feature_icon'] ?? 'star',
-								'link' => '',
-								'cta_text' => ''
-							]);
-						endforeach; ?>
+					<div class="row g-4">
+						<?php foreach ($features as $feature): ?>
+							<div class="col-lg-4 col-md-6 mb-4">
+								<?php
+								aitsc_render_card([
+									'variant' => 'white-feature',
+									'title' => $feature['feature_title'] ?? '',
+									'description' => $feature['feature_description'] ?? '',
+									'icon' => $feature['feature_icon'] ?? 'star',
+									'custom_class' => 'h-100'
+								]);
+								?>
+							</div>
+						<?php endforeach; ?>
 					</div>
 				</div>
 			</section>
@@ -94,21 +107,29 @@ $solution_id = get_the_ID();
 		// Trusted Ecosystem
 		get_template_part('template-parts/solution/ecosystem');
 
-		// Call-to-Action Section - ACF-driven using universal CTA component
+		// Call-to-Action Section - White Theme CTA
 		$cta = get_field('cta', $solution_id);
 		if ($cta && is_array($cta)) {
 			aitsc_render_cta([
-				'variant' => 'banner',
+				'variant' => 'fullwidth',
 				'title' => $cta['cta_section_title'] ?? 'Ready to Get Started?',
-				'description' => $cta['cta_section_description'] ?? '',
-				'button_text' => $cta['cta_button_text'] ?? 'Contact Us',
-				'button_link' => $cta['cta_button_link'] ?? '/contact/',
-				'background' => '',
-				'text_color' => ''
+				'description' => $cta['cta_section_description'] ?? 'Contact our engineering team to discuss how this solution can transform your fleet operations.',
+				'button_text' => $cta['cta_button_text'] ?? 'Request a Quote',
+				'button_link' => $cta['cta_button_link'] ?? home_url('/contact'),
+				'button_secondary_text' => 'Learn More',
+				'button_secondary_link' => home_url('/solutions')
 			]);
 		} else {
-			// Fallback to original CTA if no ACF data
-			get_template_part('template-parts/solution/cta');
+			// Fallback CTA
+			aitsc_render_cta([
+				'variant' => 'fullwidth',
+				'title' => 'Ready to Transform Your Fleet Safety?',
+				'description' => 'Contact our engineering team to discuss how this solution can meet your unique requirements.',
+				'button_text' => 'Request a Quote',
+				'button_link' => home_url('/contact'),
+				'button_secondary_text' => 'View All Solutions',
+				'button_secondary_link' => home_url('/solutions')
+			]);
 		}
 
 	endwhile; // End of the loop.

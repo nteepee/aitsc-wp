@@ -10,8 +10,8 @@
 ?>
 
 <div class="global-tech-background">
-    <!--WorldQuant-Style Particle Canvas -->
-    <canvas id="wq-particle-canvas"></canvas>
+    <!--Harrison.ai-Style Particle Canvas -->
+    <canvas id="aitsc-particle-canvas"></canvas>
 
     <!-- Pure CSS Background Effects -->
     <div class="hero-particles">
@@ -69,8 +69,8 @@
         overflow: hidden;
     }
 
-    /* WorldQuant Particle Canvas */
-    #wq-particle-canvas {
+    /* Harrison.ai Particle Canvas */
+    #aitsc-particle-canvas {
         position: absolute;
         top: 0;
         left: 0;

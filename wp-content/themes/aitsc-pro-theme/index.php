@@ -13,8 +13,8 @@ get_header();
 
         <!-- Blog Header Section -->
         <header class="blog-header py-5 mb-5 text-center">
-            <h1 class="wq-section-title animate-slide-up">Insights & News</h1>
-            <p class="wq-subtitle animate-slide-up delay-1">Expert analysis and updates for the fleet industry.</p>
+            <h1 class="aitsc-section__title animate-slide-up">Insights & News</h1>
+            <p class="aitsc-section__subtitle animate-slide-up delay-1">Expert analysis and updates for the fleet industry.</p>
         </header>
 
         <div class="blog-layout-grid">

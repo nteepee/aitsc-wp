@@ -50,26 +50,26 @@ get_header();
     /* Local Critical CSS for Pages */
     .entry-header {
         padding-top: var(--space-32);
-        background-color: var(--wq-black);
-        border-bottom: 1px solid var(--wq-border);
+        background-color: var(--aitsc-black);
+        border-bottom: 1px solid var(--aitsc-border);
         padding-bottom: var(--space-8);
     }
 
     .page-title {
         font-size: var(--text-5xl);
         text-transform: uppercase;
-        color: var(--wq-text-white);
+        color: var(--aitsc-text-white);
     }
 
     .entry-content {
-        color: var(--wq-text-grey);
+        color: var(--aitsc-text-grey);
         font-size: var(--text-lg);
         line-height: 1.8;
     }
 
     .entry-content h2,
     .entry-content h3 {
-        color: var(--wq-text-white);
+        color: var(--aitsc-text-white);
         margin-top: var(--space-8);
         margin-bottom: var(--space-4);
     }

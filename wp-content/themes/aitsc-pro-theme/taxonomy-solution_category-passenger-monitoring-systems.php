@@ -23,13 +23,13 @@ get_header();
         <div class="container">
             <div class="row justify-content-center text-center">
                 <div class="col-lg-10">
-                    <h1 class="wq-huge-title animate-title">
+                    <h1 class="aitsc-hero__title animate-title">
                         PASSENGER<br>MONITORING SYSTEMS
                     </h1>
-                    <p class="wq-subtitle animate-fade-in delay-1">
+                    <p class="aitsc-hero__subtitle animate-fade-in delay-1">
                         Real-Time Seat Belt Detection System
                     </p>
-                    <p class="wq-body-text mt-5 animate-fade-in delay-2"
+                    <p class="aitsc-hero__description mt-5 animate-fade-in delay-2"
                         style="max-width: 50rem; margin-left: auto; margin-right: auto;">
                         A safety solution designed for buses and passenger transport. Instantly detect unbuckled
                         passengers
@@ -45,8 +45,8 @@ get_header();
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-5 mb-lg-0">
-                    <h2 class="wq-section-title">What are Passenger Monitoring Systems?</h2>
-                    <p class="wq-body-text">
+                    <h2 class="aitsc-section__title">What are Passenger Monitoring Systems?</h2>
+                    <p class="aitsc-section__description">
                         Passenger Monitoring Systems are a suite of integrated technologies designed to oversee and
                         enhance the
                         safety, security, and experience of passengers within a vehicle fleet. From public transport to
@@ -54,7 +54,7 @@ get_header();
                         these systems provide real-time data and alerts, ensuring accountability and immediate response
                         capabilities.
                     </p>
-                    <p class="wq-body-text">
+                    <p class="aitsc-section__description">
                         They are crucial for modern fleet management, offering everything from high-definition
                         surveillance to
                         automated passenger counting and behavior analysis. AITS solutions provide unparalleled accuracy
@@ -77,8 +77,8 @@ get_header();
         <div class="container">
             <div class="row mb-5 text-center">
                 <div class="col-12">
-                    <h2 class="wq-section-title">The AITS Consulting Advantage</h2>
-                    <p class="wq-subtitle">Innovation. Reliability. Support.</p>
+                    <h2 class="aitsc-section__title">The AITS Consulting Advantage</h2>
+                    <p class="aitsc-section__subtitle">Innovation. Reliability. Support.</p>
                 </div>
             </div>
             <div class="row">
@@ -87,7 +87,7 @@ get_header();
                     <div class="glass-panel feature-card p-5 h-100">
                         <span class="material-symbols-outlined icon-display mb-4 text-blue">bolt</span>
                         <h3 class="feature-title mb-3">Plug-and-Play</h3>
-                        <p class="wq-body-text mb-0">Fast and hassle-free setup with daisy-chain connectivity,
+                        <p class="aitsc-section__description mb-0">Fast and hassle-free setup with daisy-chain connectivity,
                             minimizing vehicle downtime and installation costs.</p>
                     </div>
                 </div>
@@ -96,7 +96,7 @@ get_header();
                     <div class="glass-panel feature-card p-5 h-100">
                         <span class="material-symbols-outlined icon-display mb-4 text-accent">dashboard</span>
                         <h3 class="feature-title mb-3">Visual Dashboard</h3>
-                        <p class="wq-body-text mb-0">An intuitive display providing clear visual feedback for quick
+                        <p class="aitsc-section__description mb-0">An intuitive display providing clear visual feedback for quick
                             situational awareness of every seat status.</p>
                     </div>
                 </div>
@@ -106,7 +106,7 @@ get_header();
                         <span
                             class="material-symbols-outlined icon-display mb-4 text-orange">notifications_active</span>
                         <h3 class="feature-title mb-3">Real-Time Alerts</h3>
-                        <p class="wq-body-text mb-0">Instantly detects and reports unbuckled passengers, enabling
+                        <p class="aitsc-section__description mb-0">Instantly detects and reports unbuckled passengers, enabling
                             operators to take immediate action for onboard safety.</p>
                     </div>
                 </div>
@@ -121,14 +121,14 @@ get_header();
             <div class="system-overview-grid-final">
                 <!-- Text Content -->
                 <div class="overview-text order-2 order-md-1">
-                    <h2 class="wq-section-title mb-5">System Overview.</h2>
+                    <h2 class="aitsc-section__title mb-5">System Overview.</h2>
 
                     <div class="overview-item mb-5">
                         <div class="d-flex align-items-start">
-                            <span class="wq-huge-title me-4" style="font-size: 3rem; line-height: 0.8;">01</span>
+                            <span class="aitsc-hero__title me-4" style="font-size: 3rem; line-height: 0.8;">01</span>
                             <div>
                                 <h3 class="text-white mb-2" style="font-size: 1.5rem;">Real-Time Monitoring</h3>
-                                <p class="wq-body-text mb-0" style="font-size: 1rem;">
+                                <p class="aitsc-section__description mb-0" style="font-size: 1rem;">
                                     Instantly detects and reports unbuckled passengers, enabling operators to take
                                     immediate action for onboard safety and reducing liability risks.
                                 </p>
@@ -139,10 +139,10 @@ get_header();
 
                     <div class="overview-item mb-5">
                         <div class="d-flex align-items-start">
-                            <span class="wq-huge-title me-4" style="font-size: 3rem; line-height: 0.8;">02</span>
+                            <span class="aitsc-hero__title me-4" style="font-size: 3rem; line-height: 0.8;">02</span>
                             <div>
                                 <h3 class="text-white mb-2" style="font-size: 1.5rem;">Visual Dashboard</h3>
-                                <p class="wq-body-text mb-0" style="font-size: 1rem;">
+                                <p class="aitsc-section__description mb-0" style="font-size: 1rem;">
                                     An intuitive display provides clear visual feedback allowing quick situational
                                     awareness.
                                 </p>
@@ -153,10 +153,10 @@ get_header();
 
                     <div class="overview-item">
                         <div class="d-flex align-items-start">
-                            <span class="wq-huge-title me-4" style="font-size: 3rem; line-height: 0.8;">03</span>
+                            <span class="aitsc-hero__title me-4" style="font-size: 3rem; line-height: 0.8;">03</span>
                             <div>
                                 <h3 class="text-white mb-2" style="font-size: 1.5rem;">Plug-and-Play Installation</h3>
-                                <p class="wq-body-text mb-0" style="font-size: 1rem;">
+                                <p class="aitsc-section__description mb-0" style="font-size: 1rem;">
                                     The system offers a fast and hassle-free setup, minimizing downtime and installation
                                     costs.
                                 </p>
@@ -224,14 +224,14 @@ get_header();
                                 The Ultimate Solution
                             </span>
 
-                            <h2 class="wq-section-title mb-5"
+                            <h2 class="aitsc-section__title mb-5"
                                 style="font-size: 4rem; color: #fff; line-height: 1.1; letter-spacing: -0.02em;">
                                 Fleet Safe <span
                                     class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400"
                                     style="filter: drop-shadow(0 0 20px rgba(59,130,246,0.4));">Pro</span>
                             </h2>
 
-                            <p class="wq-body-text mb-8 mx-auto"
+                            <p class="aitsc-section__description mb-8 mx-auto"
                                 style="color: #cbd5e1; font-size: 1.25rem; line-height: 1.8; max-width: 37.5rem;">
                                 The complete, all-in-one passenger monitoring ecosystem. Integrate every
                                 component—counters,
@@ -287,7 +287,7 @@ get_header();
         <div class="container">
             <div class="row align-items-center mb-5">
                 <div class="col-12 text-center">
-                    <h2 class="wq-section-title">Unlock Key Benefits</h2>
+                    <h2 class="aitsc-section__title">Unlock Key Benefits</h2>
                 </div>
             </div>
             <div class="row justify-content-center">
@@ -296,7 +296,7 @@ get_header();
                         <span class="material-symbols-outlined text-accent"
                             style="font-size: 3rem;">notifications_active</span>
                         <h4 class="text-white mt-3">Real-Time Alerts</h4>
-                        <p class="wq-body-text mb-0 mt-2" style="font-size: 0.9rem;">Accurate audible and visual alerts.
+                        <p class="aitsc-section__description mb-0 mt-2" style="font-size: 0.9rem;">Accurate audible and visual alerts.
                         </p>
                     </div>
                 </div>
@@ -304,7 +304,7 @@ get_header();
                     <div class="glass-panel p-4 text-center h-100">
                         <span class="material-symbols-outlined text-blue" style="font-size: 3rem;">build</span>
                         <h4 class="text-white mt-3">Cost-Effective</h4>
-                        <p class="wq-body-text mb-0 mt-2" style="font-size: 0.9rem;">Modular design streamlines
+                        <p class="aitsc-section__description mb-0 mt-2" style="font-size: 0.9rem;">Modular design streamlines
                             replacement.</p>
                     </div>
                 </div>
@@ -312,7 +312,7 @@ get_header();
                     <div class="glass-panel p-4 text-center h-100">
                         <span class="material-symbols-outlined text-orange" style="font-size: 3rem;">tune</span>
                         <h4 class="text-white mt-3">Universal</h4>
-                        <p class="wq-body-text mb-0 mt-2" style="font-size: 0.9rem;">Supports all configurations and
+                        <p class="aitsc-section__description mb-0 mt-2" style="font-size: 0.9rem;">Supports all configurations and
                             drives.</p>
                     </div>
                 </div>
@@ -323,8 +323,8 @@ get_header();
     <!-- CALL TO ACTION -->
     <section class="scroll-section cta-slide" style="padding: 150px 0;">
         <div class="container text-center">
-            <h2 class="wq-huge-title mb-4" style="font-size: 4rem;">Ready to Secure Your Fleet?</h2>
-            <p class="wq-body-text mb-5" style="font-size: 1.5rem;">Get in touch with an AITS expert today.</p>
+            <h2 class="aitsc-hero__title mb-4" style="font-size: 4rem;">Ready to Secure Your Fleet?</h2>
+            <p class="aitsc-section__description mb-5" style="font-size: 1.5rem;">Get in touch with an AITS expert today.</p>
             <a href="<?php echo esc_url(site_url('/contact')); ?>" class="submit-btn d-inline-block w-auto px-5 py-3"
                 style="font-size: 1.25rem;">
                 Request a Demo
@@ -335,11 +335,11 @@ get_header();
 </main>
 
 <style>
-    /* 
-     * Inline Styles from Homepage to ensure consistent rendering 
+    /*
+     * Inline Styles from Homepage to ensure consistent rendering
      * without relying on front-page.php being loaded.
      */
-    .wq-huge-title {
+    .aitsc-hero__title {
         font-family: var(--aitsc-font-heading, "Oswald", sans-serif);
         font-weight: 300;
         font-size: clamp(2.5rem, 5vw, 5rem);
@@ -362,11 +362,11 @@ get_header();
             padding: 40px 30px !important;
         }
 
-        .fleet-safe-card .wq-section-title {
+        .fleet-safe-card .aitsc-section__title {
             font-size: 3rem !important;
         }
 
-        .fleet-safe-card p.wq-body-text {
+        .fleet-safe-card p.aitsc-section__description {
             font-size: 1rem !important;
         }
     }
@@ -381,7 +381,7 @@ get_header();
             border-radius: 20px !important;
         }
 
-        .fleet-safe-card .wq-section-title {
+        .fleet-safe-card .aitsc-section__title {
             font-size: 2.25rem !important;
         }
 
@@ -397,7 +397,7 @@ get_header();
         }
     }
 
-    .wq-subtitle {
+    .aitsc-hero__subtitle {
         font-family: 'Inter', sans-serif;
         font-size: clamp(0.9rem, 1.5vw, 1.25rem);
         letter-spacing: 0.3em;
@@ -405,14 +405,22 @@ get_header();
         color: var(--aitsc-primary, #D32F2F);
     }
 
-    .wq-section-title {
+    .aitsc-section__title {
         font-size: clamp(2rem, 3vw, 3.5rem);
         font-weight: 300;
         color: #fff;
         margin-bottom: 1.5rem;
     }
 
-    .wq-body-text {
+    .aitsc-section__subtitle {
+        font-family: 'Inter', sans-serif;
+        font-size: clamp(0.9rem, 1.5vw, 1.25rem);
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: var(--aitsc-primary, #D32F2F);
+    }
+
+    .aitsc-section__description {
         font-size: 1.1rem;
         color: #aaa;
         line-height: 1.7;

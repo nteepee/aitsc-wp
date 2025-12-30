@@ -1,131 +1,85 @@
 <?php
 /**
- * The template for displaying archive pages for Case Studies
+ * The template for displaying archive pages for Case Studies - White Theme Migration (Phase 5)
  */
 
 get_header();
 ?>
 
-<main id="primary" class="site-main">
+<main id="primary" class="site-main bg-white">
 
-	<header class="page-header section-header">
-		<div class="container">
-			<h1 class="page-title">SUCCESS <span class="text-orange">STORIES</span></h1>
-			<div class="archive-description">
-				<p>Proven results across the Australian transport logistics sector.</p>
-			</div>
-		</div>
-	</header>
+	<!-- Archive Hero - White Theme -->
+	<?php
+	aitsc_render_hero([
+		'variant' => 'page',
+		'title' => 'Success <span class="text-cyan-600">Stories</span>',
+		'subtitle' => 'PROVEN RESULTS IN TRANSPORT SAFETY',
+		'description' => 'Discover how our engineering solutions are transforming fleet operations across the Australian transport logistics sector.',
+		'height' => 'medium'
+	]);
+	?>
 
-	<section class="case-studies-list section">
+	<!-- Trust Bar -->
+	<?php
+	aitsc_render_trust_bar([
+		'text' => 'Delivering measurable safety improvements across Bus4x4 and leading transport operators',
+		'tag' => 'p'
+	]);
+	?>
+
+	<!-- Case Studies Grid - White Product Cards -->
+	<section class="py-24 bg-white">
 		<div class="container">
 			<?php if (have_posts()): ?>
-				<div class="case-study-rows">
+				<div class="row g-4">
 					<?php
 					while (have_posts()):
 						the_post();
+						$client = get_post_meta(get_the_ID(), '_case_study_client', true);
 						$client_industry = get_post_meta(get_the_ID(), '_case_study_client_industry', true);
-						$metrics = get_post_meta(get_the_ID(), '_case_study_metrics', true);
-						// Extract first metric line if available
-						$first_metric = $metrics ? strtok($metrics, "\n") : '';
+						$thumbnail = get_the_post_thumbnail_url(get_the_ID(), 'medium');
 						?>
-						<article id="post-<?php the_ID(); ?>" <?php post_class('case-study-row'); ?>>
-							<div class="cs-content">
-								<span class="cs-industry"><?php echo esc_html($client_industry); ?></span>
-								<h2 class="cs-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-								<div class="cs-excerpt"><?php the_excerpt(); ?></div>
-								<a href="<?php the_permalink(); ?>" class="btn-link">Read Case Study &rarr;</a>
-							</div>
-							<div class="cs-metric-highlight">
-								<?php if ($first_metric): ?>
-									<div class="metric-card">
-										<span class="metric-value"><?php echo esc_html($first_metric); ?></span>
-									</div>
-								<?php endif; ?>
-							</div>
-						</article>
+						<div class="col-lg-4 col-md-6 mb-4">
+							<?php
+							aitsc_render_card([
+								'variant' => 'white-product',
+								'title' => get_the_title(),
+								'description' => get_the_excerpt(),
+								'link' => get_permalink(),
+								'image' => $thumbnail ?: get_template_directory_uri() . '/assets/images/placeholder-case-study.jpg',
+								'cta_text' => 'Read Case Study',
+								'custom_class' => 'h-100',
+								'meta' => [
+									'client' => $client,
+									'industry' => $client_industry
+								]
+							]);
+							?>
+						</div>
 					<?php endwhile; ?>
 				</div>
 
-				<div class="pagination">
-					<?php the_posts_pagination(); ?>
+				<div class="pagination mt-12">
+					<?php the_posts_pagination([
+						'prev_text' => '← Previous',
+						'next_text' => 'Next →',
+						'class' => 'flex justify-center gap-2'
+					]); ?>
 				</div>
 
 			<?php else: ?>
-				<p><?php esc_html_e('No case studies found.', 'aitsc-pro-theme'); ?></p>
+				<div class="text-center py-16">
+					<p class="text-slate-600 text-lg"><?php esc_html_e('No case studies found.', 'aitsc-pro-theme'); ?></p>
+					<a href="<?php echo esc_url(home_url('/solutions')); ?>" class="inline-flex items-center gap-2 mt-6 text-cyan-600 hover:text-cyan-700 font-semibold">
+						<span>Explore Our Solutions</span>
+						<span class="material-symbols-outlined">arrow_forward</span>
+					</a>
+				</div>
 			<?php endif; ?>
 		</div>
 	</section>
 
 </main><!-- #primary -->
-
-<style>
-	/* Local Critical CSS for Case Studies Archive */
-	.case-study-rows {
-		display: flex;
-		flex-direction: column;
-		gap: var(--space-8);
-	}
-
-	.case-study-row {
-		display: grid;
-		grid-template-columns: 2fr 1fr;
-		gap: var(--space-8);
-		background-color: var(--wq-panel);
-		border: 1px solid var(--wq-border);
-		padding: var(--space-8);
-		transition: border-color 0.3s ease;
-	}
-
-	.case-study-row:hover {
-		border-color: var(--wq-orange);
-	}
-
-	.cs-industry {
-		color: var(--wq-orange);
-		text-transform: uppercase;
-		font-size: var(--text-xs);
-		letter-spacing: 0.1em;
-		margin-bottom: var(--space-2);
-		display: block;
-	}
-
-	.cs-title {
-		font-size: var(--text-2xl);
-		margin-bottom: var(--space-4);
-	}
-
-	.cs-title a {
-		color: var(--wq-text-white);
-	}
-
-	.metric-card {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		height: 100%;
-		background: rgba(255, 255, 255, 0.05);
-		border-radius: var(--radius-md);
-		padding: var(--space-4);
-		text-align: center;
-	}
-
-	.metric-value {
-		font-size: var(--text-xl);
-		font-weight: 700;
-		color: var(--wq-text-white);
-	}
-
-	@media (max-width: 47.9375rem) {
-		.case-study-row {
-			grid-template-columns: 1fr;
-		}
-
-		.metric-card {
-			padding: var(--space-4) 0;
-		}
-	}
-</style>
 
 <?php
 get_footer();

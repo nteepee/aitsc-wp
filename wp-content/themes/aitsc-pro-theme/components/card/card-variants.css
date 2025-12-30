@@ -45,17 +45,6 @@
     box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
 }
 
-/* Dark mode support for glass variant */
-@media (prefers-color-scheme: dark) {
-    .aitsc-card--glass {
-        background: rgba(0, 0, 0, 0.3);
-        border-color: rgba(255, 255, 255, 0.1);
-    }
-
-    .aitsc-card--glass:hover {
-        background: rgba(0, 0, 0, 0.4);
-    }
-}
 
 /* ==========================================================================
    Variant: Solid (Solid background with shadow)
@@ -73,13 +62,6 @@
     border-color: var(--aitsc-primary, #0066cc);
 }
 
-/* Dark mode for solid variant */
-@media (prefers-color-scheme: dark) {
-    .aitsc-card--solid {
-        background: #1a1a1a;
-        border-color: #333;
-    }
-}
 
 /* ==========================================================================
    Variant: Outlined (Border-only with hover fill)
@@ -411,6 +393,155 @@
 }
 
 /* ==========================================================================
+   WHITE THEME VARIANTS (Harrison.ai Style)
+   ========================================================================== */
+
+/* White Feature Card - Clean card with subtle shadow and cyan accents */
+.aitsc-card--white-feature {
+    background: var(--aitsc-bg-primary, #FFFFFF);
+    border: 1px solid var(--aitsc-border, #E2E8F0);
+    box-shadow: var(--aitsc-shadow-md);
+    padding: 2rem;
+}
+
+.aitsc-card--white-feature:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--aitsc-shadow-lg);
+    border-color: var(--aitsc-primary, #005cb2);
+}
+
+.aitsc-card--white-feature .aitsc-card__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    margin-bottom: 1.5rem;
+    background: var(--aitsc-primary-light, #E0F2FE);
+    color: var(--aitsc-primary, #005cb2);
+    border-radius: var(--aitsc-radius-lg, 4px);
+    font-size: 28px;
+}
+
+.aitsc-card--white-feature .aitsc-card__title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--aitsc-text-primary, #1E293B);
+    margin-bottom: 1rem;
+}
+
+.aitsc-card--white-feature .aitsc-card__description {
+    color: var(--aitsc-text-secondary, #475569);
+    line-height: 1.6;
+}
+
+.aitsc-card--white-feature .aitsc-card__cta {
+    color: var(--aitsc-primary, #005cb2);
+    margin-top: 1rem;
+}
+
+/* White Product Card - Product showcase with photo */
+.aitsc-card--white-product {
+    background: var(--aitsc-bg-primary, #FFFFFF);
+    border: 1px solid var(--aitsc-border, #E2E8F0);
+    box-shadow: var(--aitsc-shadow-sm);
+    padding: 0;
+    overflow: hidden;
+}
+
+.aitsc-card--white-product:hover {
+    box-shadow: var(--aitsc-shadow-xl);
+    transform: translateY(-6px);
+}
+
+.aitsc-card--white-product .aitsc-card__image {
+    position: relative;
+    width: 100%;
+    height: 240px;
+    overflow: hidden;
+    background: var(--aitsc-bg-secondary, #F8FAFC);
+}
+
+.aitsc-card--white-product .aitsc-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.aitsc-card--white-product:hover .aitsc-card__image img {
+    transform: scale(1.08);
+}
+
+.aitsc-card--white-product .aitsc-card__body {
+    padding: 2rem;
+}
+
+.aitsc-card--white-product .aitsc-card__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--aitsc-text-primary, #1E293B);
+    margin-bottom: 0.75rem;
+}
+
+.aitsc-card--white-product .aitsc-card__description {
+    color: var(--aitsc-text-secondary, #475569);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.aitsc-card--white-product .aitsc-card__cta {
+    display: inline-flex;
+    padding: 0.75rem 1.5rem;
+    background: var(--aitsc-primary, #005cb2);
+    color: var(--aitsc-text-on-primary, #FFFFFF);
+    border-radius: var(--aitsc-radius-lg, 4px);
+    font-weight: 600;
+    transition: all var(--aitsc-transition-fast);
+}
+
+.aitsc-card--white-product .aitsc-card__cta:hover {
+    background: var(--aitsc-primary-hover, #004a94);
+    gap: 1rem;
+}
+
+/* White Minimal Card - Ultra-clean minimal design */
+.aitsc-card--white-minimal {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--aitsc-border-light, #F1F5F9);
+    border-radius: 0;
+    transition: padding var(--aitsc-transition-normal);
+}
+
+.aitsc-card--white-minimal:hover {
+    transform: none;
+    padding-left: 1rem;
+    border-bottom-color: var(--aitsc-primary, #005cb2);
+}
+
+.aitsc-card--white-minimal .aitsc-card__title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--aitsc-text-primary, #1E293B);
+    margin-bottom: 0.5rem;
+}
+
+.aitsc-card--white-minimal .aitsc-card__description {
+    font-size: 0.9375rem;
+    color: var(--aitsc-text-muted, #64748B);
+    line-height: 1.5;
+}
+
+.aitsc-card--white-minimal .aitsc-card__cta {
+    font-size: 0.875rem;
+    color: var(--aitsc-primary, #005cb2);
+    font-weight: 600;
+}
+
+/* ==========================================================================
    Responsive Design
    ========================================================================== */
 
@@ -435,5 +566,32 @@
         width: 50px;
         height: 50px;
         font-size: 28px;
+    }
+
+    /* White variant responsive adjustments */
+    .aitsc-card--white-feature {
+        padding: 1.5rem;
+    }
+
+    .aitsc-card--white-feature .aitsc-card__icon {
+        width: 48px;
+        height: 48px;
+        font-size: 24px;
+    }
+
+    .aitsc-card--white-product .aitsc-card__image {
+        height: 200px;
+    }
+
+    .aitsc-card--white-product .aitsc-card__body {
+        padding: 1.5rem;
+    }
+
+    .aitsc-card--white-product .aitsc-card__title {
+        font-size: 1.25rem;
+    }
+
+    .aitsc-card--white-minimal {
+        padding: 1.25rem 0;
     }
 }
