@@ -98,8 +98,9 @@ class AITSCParticleNetwork {
                 y: Math.random() * this.canvas.height,
                 vx: (Math.random() - 0.5) * this.config.particleSpeed,
                 vy: (Math.random() - 0.5) * this.config.particleSpeed,
-                radius: Math.random() * 2 + 1,
-                color: this.getRandomColor()
+                size: Math.random() * 3 + 2, // Mini-square size: 2-5px
+                color: this.getRandomColor(),
+                rotation: Math.random() * Math.PI * 2 // Random rotation
             });
         }
     }
@@ -167,10 +168,18 @@ class AITSCParticleNetwork {
 
     drawParticles() {
         this.particles.forEach(particle => {
-            this.ctx.beginPath();
-            this.ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+            this.ctx.save();
+            this.ctx.translate(particle.x, particle.y);
+            this.ctx.rotate(particle.rotation);
+
+            // Draw mini-square instead of circle
             this.ctx.fillStyle = this.hexToRgba(particle.color, this.config.opacity.particle);
-            this.ctx.fill();
+            this.ctx.fillRect(-particle.size / 2, -particle.size / 2, particle.size, particle.size);
+
+            this.ctx.restore();
+
+            // Slowly rotate squares for subtle animation
+            particle.rotation += 0.001;
         });
     }
 
@@ -213,9 +222,8 @@ class AITSCParticleNetwork {
         // Clear canvas
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-        // Update and draw
+        // Update and draw (NO CONNECTIONS - just floating squares)
         this.updateParticles();
-        this.drawConnections();
         this.drawParticles();
 
         // Continue animation

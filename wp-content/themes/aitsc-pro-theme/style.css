@@ -338,7 +338,7 @@ Version: 4.0.0 (White Theme - Harrison.ai Branding)
 }
 
 .text-white {
-	color: #fff;
+	color: var(--aitsc-text-primary);
 }
 
 .text-sm {
@@ -779,9 +779,8 @@ h4,
 h5,
 h6 {
 	font-family: var(--aitsc-font-heading);
-	color: #fff;
-	font-weight: 300;
-	/* Light weight is key */
+	color: var(--aitsc-text-primary); /* Dark text for readability */
+	font-weight: 700; /* Bold for Harrison.ai style */
 	letter-spacing: -0.02em;
 	margin-top: 0;
 	line-height: 1.1;
@@ -871,7 +870,7 @@ body:not(.home) .global-tech-background .matrix-rain {
 .widget-title {
 	font-size: 1.25rem;
 	font-weight: 700;
-	color: #fff;
+	color: var(--aitsc-text-primary);
 	margin-bottom: 1.5rem;
 	padding-bottom: 1rem;
 	border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -955,7 +954,7 @@ body:not(.home) .global-tech-background .matrix-rain {
 	background: rgba(255, 255, 255, 0.05);
 	border: 1px solid rgba(255, 255, 255, 0.1);
 	border-radius: 12px;
-	color: #fff;
+	color: var(--aitsc-text-primary);
 	text-decoration: none;
 	font-weight: 600;
 	transition: all 0.3s ease;
@@ -1416,7 +1415,7 @@ body.admin-bar .site-header {
 	line-height: 0.9;
 	font-weight: 800;
 	margin-bottom: 1.5rem;
-	color: #fff !important;
+	color: var(--aitsc-text-primary) !important; /* Dark text on white */
 	text-transform: uppercase;
 }
 
@@ -1449,7 +1448,7 @@ body.admin-bar .site-header {
 	cursor: pointer;
 	text-decoration: none;
 	background: transparent;
-	color: #fff;
+	color: var(--aitsc-text-primary);
 }
 
 .btn-primary {
@@ -1467,7 +1466,7 @@ body.admin-bar .site-header {
 }
 
 .btn-outline:hover {
-	border-color: #fff;
+	border-color: var(--aitsc-text-primary);
 	background: rgba(255, 255, 255, 0.05);
 }
 
@@ -1494,7 +1493,7 @@ body.admin-bar .site-header {
 	background: rgba(0, 212, 255, 0.1);
 	box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
 	transform: translateY(-2px);
-	color: #fff;
+	color: var(--aitsc-text-primary);
 }
 
 /* Large Neon Button (Hero) */
@@ -1502,7 +1501,7 @@ body.admin-bar .site-header {
 	font-size: 1.25rem;
 	padding: 1rem 2.5rem;
 	border: 1px solid var(--aitsc-primary);
-	color: #fff;
+	color: var(--aitsc-text-primary);
 	text-decoration: none;
 	text-transform: uppercase;
 	letter-spacing: 0.1em;
@@ -1665,7 +1664,7 @@ body.admin-bar .site-header {
 .service-card h3 {
 	font-size: 1.5rem;
 	margin-bottom: 1rem;
-	color: #fff;
+	color: var(--aitsc-text-primary);
 }
 
 .service-card p {
@@ -1708,7 +1707,7 @@ body.admin-bar .site-header {
 .showcase-title {
 	font-size: 3.5rem;
 	margin-bottom: 1.5rem;
-	color: #fff;
+	color: var(--aitsc-text-primary);
 	line-height: 1;
 }
 
@@ -1729,7 +1728,7 @@ body.admin-bar .site-header {
 	padding: 0.75rem 0;
 	padding-left: 2rem;
 	position: relative;
-	color: #fff;
+	color: var(--aitsc-text-primary);
 	font-size: 1.125rem;
 }
 
@@ -1786,7 +1785,7 @@ body.admin-bar .site-header {
 .process-step h3 {
 	font-size: 1.5rem;
 	margin-bottom: 1rem;
-	color: #fff;
+	color: var(--aitsc-text-primary);
 }
 
 .process-step p {
@@ -1810,7 +1809,7 @@ body.admin-bar .site-header {
 .cta-content h2 {
 	font-size: 2.5rem;
 	margin-bottom: 1rem;
-	color: #fff;
+	color: var(--aitsc-text-primary);
 }
 
 .cta-content p {
@@ -1833,7 +1832,7 @@ font-size: 1.125rem;
 .widget-title {
 	font-size: 1.25rem;
 	font-weight: 300;
-	color: #fff;
+	color: var(--aitsc-text-primary);
 	border-bottom: 1px solid var(--aitsc-primary);
 	padding-bottom: 0.5rem;
 	margin-bottom: 1.25rem;
@@ -1965,7 +1964,7 @@ font-size: 1.125rem;
 /* Calendar Widget Fix */
 .widget_calendar table {
 	width: 100%;
-	color: #fff;
+	color: var(--aitsc-text-primary);
 }
 
 .widget_calendar caption {
@@ -1987,7 +1986,7 @@ font-size: 1.125rem;
 	padding: 0.75rem 1rem;
 	background: rgba(255, 255, 255, 0.05);
 	border: 1px solid rgba(255, 255, 255, 0.1);
-	color: #fff;
+	color: var(--aitsc-text-primary);
 	border-radius: 4px;
 	font-family: 'Manrope', sans-serif;
 }
@@ -2031,7 +2030,7 @@ font-size: 1.125rem;
 
 .tagcloud a:hover {
 	border-color: var(--aitsc-primary);
-	color: #fff;
+	color: var(--aitsc-text-primary);
 	background: rgba(0, 212, 255, 0.1);
 }
 
@@ -2050,7 +2049,7 @@ font-size: 1.125rem;
 .archive-title {
 	font-size: 3.5rem;
 	margin-bottom: 1.5rem;
-	color: #fff;
+	color: var(--aitsc-text-primary);
 	text-transform: uppercase;
 	letter-spacing: 0.05em;
 }
@@ -2080,7 +2079,7 @@ font-size: 1.125rem;
 
 .page-hero-title {
 	font-size: 4rem;
-	color: #fff;
+	color: var(--aitsc-text-primary);
 	text-transform: uppercase;
 	letter-spacing: 0.05em;
 	margin: 0;
@@ -2098,7 +2097,7 @@ font-size: 1.125rem;
 	font-size: 2.5rem;
 	margin-top: 3rem;
 	margin-bottom: 1.5rem;
-	color: #fff;
+	color: var(--aitsc-text-primary);
 	border-left: 4px solid var(--aitsc-primary);
 	padding-left: 1.5rem;
 }
@@ -2107,7 +2106,7 @@ font-size: 1.125rem;
 	font-size: 1.75rem;
 	margin-top: 2rem;
 	margin-bottom: 1rem;
-	color: #fff;
+	color: var(--aitsc-text-primary);
 }
 
 .entry-content ul {
@@ -2122,7 +2121,7 @@ font-size: 1.125rem;
 }
 
 .entry-content li strong {
-	color: #fff;
+	color: var(--aitsc-text-primary);
 	font-weight: 600;
 }
 
@@ -3085,7 +3084,7 @@ p a:hover {
 	font-size: 0.8rem;
 	text-transform: uppercase;
 	letter-spacing: 0.1em;
-	color: #fff;
+	color: var(--aitsc-text-primary);
 	display: flex;
 	align-items: center;
 	gap: 0.5rem;
@@ -3336,7 +3335,7 @@ body.no-js {
 	font-size: clamp(2.5rem, 5vw, 4rem);
 	line-height: 1.1;
 	margin-bottom: 1.5rem;
-	color: #fff;
+	color: var(--aitsc-text-primary);
 	font-weight: 700;
 }
 
@@ -3475,7 +3474,7 @@ body.no-js {
 	font-size: 2.5rem;
 	font-weight: 700;
 	margin-bottom: 1rem;
-	color: #fff;
+	color: var(--aitsc-text-primary);
 }
 
 .aitsc-section__subtitle {
@@ -3510,7 +3509,7 @@ body.no-js {
 	font-size: 1.25rem;
 	font-weight: 600;
 	margin-bottom: 1rem;
-	color: #fff;
+	color: var(--aitsc-text-primary);
 }
 
 /* --- SOLUTION OVERVIEW --- */
@@ -3581,7 +3580,7 @@ body.no-js {
 }
 
 .aitsc-spec-list li strong {
-	color: #fff;
+	color: var(--aitsc-text-primary);
 	min-width: 100px;
 }
 
@@ -3600,7 +3599,7 @@ body.no-js {
 
 .aitsc-btn--primary {
 	background: var(--aitsc-primary);
-	color: #fff;
+	color: var(--aitsc-text-primary);
 	border: 1px solid var(--aitsc-primary);
 }
 
@@ -3611,13 +3610,13 @@ body.no-js {
 
 .aitsc-btn--secondary {
 	background: transparent;
-	color: #fff;
+	color: var(--aitsc-text-primary);
 	border: 1px solid rgba(255, 255, 255, 0.3);
 	margin-left: 1rem;
 }
 
 .aitsc-btn--secondary:hover {
-	border-color: #fff;
+	border-color: var(--aitsc-text-primary);
 	background: rgba(255, 255, 255, 0.05);
 }
 
@@ -3790,5 +3789,5 @@ body.no-js {
 .aitsc-slider-btn:hover {
 	background: var(--aitsc-primary);
 	border-color: var(--aitsc-primary);
-	color: #fff;
+	color: var(--aitsc-text-primary);
 }
