@@ -2,3 +2,6 @@ wp-content/debug.log
 *.log
 .DS_Store
 node_modules/
+.puppeteer-cache/
+.puppeteer_cache/
+repomix-output.xml
