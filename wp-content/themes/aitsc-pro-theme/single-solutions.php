@@ -9,9 +9,25 @@
  * @since 4.0.0
  */
 
-get_header();
+if (!defined('ABSPATH')) {
+    exit;
+}
 
 $solution_id = get_the_ID();
+$slug = get_post_field('post_name', $solution_id);
+
+// Custom Routing for Pillar Pages (e.g. Fleet Safe Pro)
+// Route BEFORE calling get_header() to prevent duplication
+if ($slug === 'fleet-safe-pro') {
+    $template_path = locate_template('page-fleet-safe-pro.php');
+    if ($template_path) {
+        include($template_path);
+    }
+    // Stop execution - pillar template handles header/footer
+    exit;
+}
+
+get_header();
 ?>
 
 <main id="primary" class="site-main solution-page bg-white">
@@ -65,9 +81,9 @@ $solution_id = get_the_ID();
 						<h2 class="text-4xl md:text-5xl font-light text-slate-900 mb-4">Key Features</h2>
 						<p class="text-lg text-cyan-600 uppercase tracking-wider">What Makes This Solution Stand Out</p>
 					</div>
-					<div class="row g-4">
+					<div class="aitsc-grid aitsc-grid--3-col">
 						<?php foreach ($features as $feature): ?>
-							<div class="col-lg-4 col-md-6 mb-4">
+							<div>
 								<?php
 								aitsc_render_card([
 									'variant' => 'white-feature',
