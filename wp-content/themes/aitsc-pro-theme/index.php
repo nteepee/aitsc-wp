@@ -9,14 +9,19 @@ get_header();
 ?>
 
 <div id="primary" class="site-content blog-index-page">
-    <div class="container">
 
-        <!-- Blog Header Section -->
-        <header class="blog-header py-5 mb-5 text-center">
-            <h1 class="aitsc-section__title animate-slide-up">Insights & News</h1>
-            <p class="aitsc-section__subtitle animate-slide-up delay-1">Expert analysis and updates for the fleet industry.</p>
-        </header>
+    <!-- Blog Hero -->
+    <?php
+    aitsc_render_hero([
+        'variant' => 'page',
+        'title' => 'Insights & <span class="text-cyan-600">News</span>',
+        'subtitle' => 'EXPERT ANALYSIS AND UPDATES',
+        'description' => 'Expert analysis and updates for the fleet industry.',
+        'height' => 'medium'
+    ]);
+    ?>
 
+    <div class="container py-24">
         <div class="blog-layout-grid">
 
             <!-- Main Content Area -->

@@ -15,12 +15,16 @@ get_header();
 
         <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-            <!-- Page Hero - Full Width -->
-            <header class="page-hero full-width">
-                <div class="container">
-                    <?php the_title('<h1 class="page-hero-title">', '</h1>'); ?>
-                </div>
-            </header>
+            <!-- Page Hero - Standardized -->
+            <?php
+            aitsc_render_hero([
+                'variant' => 'page',
+                'title' => get_the_title(),
+                'subtitle' => ' ', // Optional or dynamic based on post meta
+                'description' => get_the_excerpt() ?: '',
+                'height' => 'medium'
+            ]);
+            ?>
 
             <div class="page-content-wrapper full-width">
                 <div class="container">
@@ -45,44 +49,6 @@ get_header();
     ?>
 
 </main><!-- #primary -->
-
-<style>
-    /* Local Critical CSS for Pages */
-    .entry-header {
-        padding-top: var(--space-32);
-        background-color: var(--aitsc-black);
-        border-bottom: 1px solid var(--aitsc-border);
-        padding-bottom: var(--space-8);
-    }
-
-    .page-title {
-        font-size: var(--text-5xl);
-        text-transform: uppercase;
-        color: var(--aitsc-text-white);
-    }
-
-    .entry-content {
-        color: var(--aitsc-text-grey);
-        font-size: var(--text-lg);
-        line-height: 1.8;
-    }
-
-    .entry-content h2,
-    .entry-content h3 {
-        color: var(--aitsc-text-white);
-        margin-top: var(--space-8);
-        margin-bottom: var(--space-4);
-    }
-
-    .entry-content ul {
-        margin-bottom: var(--space-6);
-        padding-left: var(--space-6);
-    }
-
-    .entry-content li {
-        margin-bottom: var(--space-2);
-    }
-</style>
 
 <?php
 get_footer();
