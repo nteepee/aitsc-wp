@@ -8,12 +8,29 @@
 
 /* ==========================================================================
    Card Component - Base Styles
+
+   EQUAL HEIGHT REQUIREMENT:
+   - height: 100% ensures cards fill their grid cell completely
+   - Works with .aitsc-grid's align-items: stretch to enforce uniform heights
+   - flex-direction: column allows internal content to distribute vertically
+   - flex: 1 on .aitsc-card__body makes description area grow to fill space
+
+   USAGE IN GRIDS:
+   Always pass 'custom_class' => 'h-100' when rendering cards in grids:
+
+   aitsc_render_card([
+       'variant' => 'white-feature',
+       'custom_class' => 'h-100'  // REQUIRED for equal heights
+   ]);
+
+   DO NOT REMOVE height: 100% - This is critical for grid layout consistency
    ========================================================================== */
 
 .aitsc-card {
     position: relative;
     display: flex;
     flex-direction: column;
+    height: 100%;  /* CRITICAL: Fills grid cell for equal-height cards */
     border-radius: var(--aitsc-border-radius, 12px);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     overflow: hidden;
@@ -51,15 +68,16 @@
    ========================================================================== */
 
 .aitsc-card--solid {
-    background: var(--aitsc-card-bg, #ffffff);
-    border: 1px solid var(--aitsc-border-color, #e0e0e0);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    background: var(--aitsc-card-bg);
+    border: 2px solid var(--aitsc-border);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .aitsc-card--solid:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-    border-color: var(--aitsc-primary, #0066cc);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.08);
+    border-color: var(--aitsc-primary);
 }
 
 
@@ -69,18 +87,18 @@
 
 .aitsc-card--outlined {
     background: transparent;
-    border: 2px solid var(--aitsc-primary, #0066cc);
+    border: 2px solid var(--aitsc-primary);
     box-shadow: none;
 }
 
 .aitsc-card--outlined:hover {
-    background: var(--aitsc-primary, #0066cc);
-    color: #ffffff;
+    background: var(--aitsc-primary);
+    color: var(--aitsc-text-on-primary, #ffffff);
     transform: translateY(-2px);
 }
 
 .aitsc-card--outlined:hover .aitsc-card__cta {
-    color: #ffffff;
+    color: var(--aitsc-text-on-primary, #ffffff);
 }
 
 /* ==========================================================================
@@ -88,8 +106,8 @@
    ========================================================================== */
 
 .aitsc-card--image {
-    background: var(--aitsc-card-bg, #ffffff);
-    border: 1px solid var(--aitsc-border-color, #e0e0e0);
+    background: var(--aitsc-card-bg);
+    border: 1px solid var(--aitsc-border);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
@@ -120,9 +138,10 @@
    ========================================================================== */
 
 .aitsc-card--icon {
-    background: var(--aitsc-card-bg, #ffffff);
-    border: 1px solid var(--aitsc-border-color, #e0e0e0);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    background: var(--aitsc-card-bg);
+    border: 2px solid var(--aitsc-border);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .aitsc-card--icon .aitsc-card__icon {
@@ -132,8 +151,8 @@
     width: 60px;
     height: 60px;
     margin: 0 auto 1rem;
-    background: linear-gradient(135deg, var(--aitsc-primary, #0066cc), var(--aitsc-primary-dark, #004499));
-    color: #ffffff;
+    background: linear-gradient(135deg, var(--aitsc-primary), var(--aitsc-primary-dark));
+    color: var(--aitsc-text-on-primary, #ffffff);
     border-radius: 50%;
     font-size: 32px;
     transition: transform 0.3s ease;
@@ -144,8 +163,8 @@
 }
 
 .aitsc-card--icon:hover {
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.08);
+    transform: translateY(-6px);
 }
 
 /* ==========================================================================
@@ -399,14 +418,15 @@
 /* White Feature Card - Clean card with subtle shadow and cyan accents */
 .aitsc-card--white-feature {
     background: var(--aitsc-bg-primary, #FFFFFF);
-    border: 1px solid var(--aitsc-border, #E2E8F0);
-    box-shadow: var(--aitsc-shadow-md);
+    border: 2px solid var(--aitsc-border, #E2E8F0);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
     padding: 2rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .aitsc-card--white-feature:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--aitsc-shadow-lg);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.08);
     border-color: var(--aitsc-primary, #005cb2);
 }
 

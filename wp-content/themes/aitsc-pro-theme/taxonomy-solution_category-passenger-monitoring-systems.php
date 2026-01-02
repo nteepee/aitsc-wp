@@ -81,9 +81,9 @@ get_header();
                     <p class="aitsc-section__subtitle">Innovation. Reliability. Support.</p>
                 </div>
             </div>
-            <div class="row">
+            <div class="aitsc-grid aitsc-grid--3-col">
                 <!-- Advantage 1 -->
-                <div class="col-md-4 mb-4">
+                <div>
                     <div class="glass-panel feature-card p-5 h-100">
                         <span class="material-symbols-outlined icon-display mb-4 text-blue">bolt</span>
                         <h3 class="feature-title mb-3">Plug-and-Play</h3>
@@ -92,7 +92,7 @@ get_header();
                     </div>
                 </div>
                 <!-- Advantage 2 -->
-                <div class="col-md-4 mb-4">
+                <div>
                     <div class="glass-panel feature-card p-5 h-100">
                         <span class="material-symbols-outlined icon-display mb-4 text-accent">dashboard</span>
                         <h3 class="feature-title mb-3">Visual Dashboard</h3>
@@ -101,7 +101,7 @@ get_header();
                     </div>
                 </div>
                 <!-- Advantage 3 -->
-                <div class="col-md-4 mb-4">
+                <div>
                     <div class="glass-panel feature-card p-5 h-100">
                         <span
                             class="material-symbols-outlined icon-display mb-4 text-orange">notifications_active</span>
@@ -290,8 +290,8 @@ get_header();
                     <h2 class="aitsc-section__title">Unlock Key Benefits</h2>
                 </div>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-md-4 mb-4">
+            <div class="aitsc-grid aitsc-grid--3-col">
+                <div>
                     <div class="glass-panel p-4 text-center h-100">
                         <span class="material-symbols-outlined text-accent"
                             style="font-size: 3rem;">notifications_active</span>
@@ -300,7 +300,7 @@ get_header();
                         </p>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4">
+                <div>
                     <div class="glass-panel p-4 text-center h-100">
                         <span class="material-symbols-outlined text-blue" style="font-size: 3rem;">build</span>
                         <h4 class="text-white mt-3">Cost-Effective</h4>
@@ -308,7 +308,7 @@ get_header();
                             replacement.</p>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4">
+                <div>
                     <div class="glass-panel p-4 text-center h-100">
                         <span class="material-symbols-outlined text-orange" style="font-size: 3rem;">tune</span>
                         <h4 class="text-white mt-3">Universal</h4>

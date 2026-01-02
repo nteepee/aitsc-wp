@@ -420,23 +420,24 @@ if ($show_case_studies) {
 /* Service Card Mobile */
 .service-card-mobile {
     background-color: #ffffff;
-    border: 2px solid #e2e8f0;
+    border: 2px solid #CBD5E1;
     border-radius: 16px;
     padding: 1.5rem;
     position: relative;
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .service-card-mobile[data-featured="true"] {
     border-color: #00e128;
-    box-shadow: 0 0 25px rgba(0, 225, 40, 0.15);
+    box-shadow: 0 2px 12px rgba(0, 225, 40, 0.15), 0 1px 4px rgba(0, 225, 40, 0.1);
 }
 
 .service-card-mobile:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.08);
     border-color: #005cb2;
 }
 
@@ -650,16 +651,17 @@ if ($show_case_studies) {
 /* Case Study Card Mobile */
 .case-study-card-mobile {
     background-color: #ffffff;
-    border: 2px solid #e2e8f0;
+    border: 2px solid #CBD5E1;
     border-radius: 16px;
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .case-study-card-mobile:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.08);
     border-color: #005cb2;
 }
 

@@ -21,8 +21,8 @@
                     Custom electronics engineering for automotive and transport. From concept to deployment - we solve your most expensive technology problems without spending more.
                 </p>
                 <div class="footer-contact">
-                    <p class="mb-2"><strong class="text-white">1300 AITSC</strong> (1300 000 000)</p>
-                    <p><a href="mailto:info@aitsc.au" class="text-grey hover:text-white">info@aitsc.au</a></p>
+                    <p class="mb-2"><strong class="text-slate-900">1300 AITSC</strong> (1300 000 000)</p>
+                    <p><a href="mailto:info@aitsc.au" class="text-cyan-700 hover:text-cyan-900 focus:text-cyan-900">info@aitsc.au</a></p>
                 </div>
             </div>
 

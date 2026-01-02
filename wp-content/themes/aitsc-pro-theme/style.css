@@ -31,6 +31,9 @@ Version: 4.0.0 (White Theme - Harrison.ai Branding)
 	--aitsc-border-focus: #005cb2;
 	--aitsc-border-color: #E2E8F0;
 
+	/* === CARD COMPONENTS === */
+	--aitsc-card-bg: var(--aitsc-bg-primary);
+
 	/* === SHADOWS === */
 	--aitsc-shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
 	--aitsc-shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
@@ -117,6 +120,20 @@ Version: 4.0.0 (White Theme - Harrison.ai Branding)
 	--container-lg: 960px;
 	--container-xl: 1140px;
 	--container-xxl: 1320px;
+}
+
+/* ==========================================================================
+   Reduced Motion
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }
 
 /* ==========================================================================
@@ -239,6 +256,14 @@ Version: 4.0.0 (White Theme - Harrison.ai Branding)
 }
 
 .h-full {
+	height: 100%;
+}
+
+/* IMPORTANT: .h-100 is used throughout templates for equal-height cards in grids.
+   Without this class, cards will have inconsistent heights based on content length.
+   This is CRITICAL for maintaining visual consistency in grid layouts.
+   DO NOT REMOVE - Referenced in: front-page.php, page-fleet-safe-pro.php, template-parts/* */
+.h-100 {
 	height: 100%;
 }
 
@@ -395,39 +420,84 @@ Version: 4.0.0 (White Theme - Harrison.ai Branding)
 
 /* --- Colors --- */
 .bg-black {
-	background-color: #FFFFFF;
+	background-color: var(--aitsc-bg-primary);
+}
+
+.bg-white {
+	background-color: var(--aitsc-bg-primary);
+}
+
+.bg-slate-50 {
+	background-color: var(--aitsc-bg-secondary);
 }
 
 .bg-blue-600 {
-	background-color: #2563eb;
+	background-color: var(--aitsc-primary);
 }
 
 .text-blue-400 {
-	color: #60a5fa;
+	color: var(--aitsc-primary);
 }
 
 .text-blue-300 {
-	color: #93c5fd;
+	color: var(--aitsc-primary-light);
 }
 
 .text-slate-300 {
-	color: #cbd5e1;
+	color: var(--aitsc-text-light);
 }
 
 .text-slate-400 {
-	color: #94a3b8;
+	color: var(--aitsc-text-muted);
 }
 
 .text-slate-500 {
-	color: #64748b;
+	color: var(--aitsc-text-secondary);
+}
+
+.text-slate-900 {
+	color: var(--aitsc-text-primary);
+}
+
+.text-cyan-600 {
+	color: var(--aitsc-primary);
+}
+
+.text-cyan-700 {
+	color: var(--aitsc-primary-hover);
+}
+
+.text-cyan-900 {
+	color: var(--aitsc-primary-dark);
 }
 
 .border-blue-600 {
-	border-color: #2563eb;
+	border-color: var(--aitsc-primary);
 }
 
 .border-slate-600 {
 	border-color: #475569;
+}
+
+/* Responsive Typography */
+@media (min-width: 48rem) {
+	.md\:text-5xl {
+		font-size: 3rem;
+	}
+}
+
+/* Font Weight */
+.font-light {
+	font-weight: 300;
+}
+
+/* Letter Spacing */
+.tracking-wider {
+	letter-spacing: 0.05em;
+}
+
+.uppercase {
+	text-transform: uppercase;
 }
 
 /* --- Z-Index --- */
@@ -810,8 +880,106 @@ body:not(.home) .global-tech-background .matrix-rain {
 *::before,
 *::after {
 	box-sizing: border-box;
-	border-color: #333;
-	/* Dark borders by default */
+	border-color: var(--aitsc-border);
+	/* Component borders use CSS variable */
+}
+
+/* ==========================================================================
+   REUSABLE GRID COMPONENT (Component Philosophy: Create Once, Use Multiple Times)
+   Replaces Bootstrap .row/.col-* classes with semantic grid system
+
+   EQUAL HEIGHT ENFORCEMENT:
+   - align-items: stretch ensures all grid items have the same height
+   - Cards inside grid must use .h-100 or .h-full to fill the stretched cell
+   - This prevents "jagged" layouts where cards have different heights
+
+   GRID SIZING DECISIONS:
+   - 2-col: Binary comparisons, before/after, pros/cons
+   - 3-col: Balanced showcase, optimal reading rhythm (DEFAULT for features)
+   - 4-col: Dense listings, service catalogs, many items
+
+   RESPONSIVE BEHAVIOR:
+   - Mobile (<768px): All become single column
+   - Tablet (768-992px): 3-col & 4-col become 2 columns
+   - Desktop (>992px): Full grid layout
+   ========================================================================== */
+
+/* Grid Container - Replaces Bootstrap .row */
+.aitsc-grid {
+	display: grid;
+	gap: var(--space-4);
+	width: 100%;
+	align-items: stretch;  /* CRITICAL: Forces equal heights for all grid items */
+}
+
+/* Grid Variants - Common layouts */
+.aitsc-grid--2-col {
+	grid-template-columns: repeat(2, 1fr);
+}
+
+.aitsc-grid--3-col {
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.aitsc-grid--4-col {
+	grid-template-columns: repeat(4, 1fr);
+}
+
+/* Responsive Grid - Mobile first */
+@media (max-width: 47.9375rem) {
+	.aitsc-grid--2-col,
+	.aitsc-grid--3-col,
+	.aitsc-grid--4-col {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (min-width: 48rem) and (max-width: 61.9375rem) {
+	.aitsc-grid--3-col,
+	.aitsc-grid--4-col {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+/* Gap Utilities - Reusable spacing */
+.aitsc-grid--gap-2 {
+	gap: var(--space-2);
+}
+
+.aitsc-grid--gap-4 {
+	gap: var(--space-4);
+}
+
+.aitsc-grid--gap-6 {
+	gap: var(--space-6);
+}
+
+.aitsc-grid--gap-8 {
+	gap: var(--space-8);
+}
+
+/* Alignment Utilities */
+.aitsc-grid--center {
+	justify-items: center;
+	align-items: center;
+}
+
+/* Legacy Bootstrap Compatibility (Fallback for .row/.col-*) */
+.row {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: var(--space-4);
+	width: 100%;
+}
+
+.col-md-4 {
+	/* Handled by parent grid */
+}
+
+@media (min-width: 48rem) {
+	.row:has(.col-md-4) {
+		grid-template-columns: repeat(3, 1fr);
+	}
 }
 
 /* ==========================================================================
@@ -1371,7 +1539,7 @@ body.admin-bar .site-header {
 	width: 100%;
 	display: flex;
 	align-items: center;
-	background-color: #FFFFFF;
+	background-color: var(--aitsc-bg-primary);
 	overflow: hidden;
 	margin-top: -100px;
 	/* Counteract site-main padding for full screen */
@@ -1871,7 +2039,7 @@ font-size: 1.125rem;
 }
 
 .widget_search .search-field {
-	background-color: #FFFFFF !important;
+	background-color: var(--aitsc-bg-primary) !important;
 	border: 1px solid var(--aitsc-border) !important;
 	color: var(--aitsc-text-primary) !important;
 	padding: 10px 15px !important;
@@ -1938,7 +2106,7 @@ font-size: 1.125rem;
 /* Target specifically the input inside the search widget */
 .widget_search form.search-form input[type="search"],
 .widget_search form.search-form input.search-field {
-	background-color: #FFFFFF !important;
+	background-color: var(--aitsc-bg-primary) !important;
 	color: var(--aitsc-text-primary) !important;
 	border: 1px solid var(--aitsc-border) !important;
 	box-shadow: none !important;
@@ -1988,7 +2156,7 @@ font-size: 1.125rem;
 	border: 1px solid rgba(255, 255, 255, 0.1);
 	color: var(--aitsc-text-primary);
 	border-radius: 4px;
-	font-family: 'Manrope', sans-serif;
+	font-family: var(--aitsc-font-heading);
 }
 
 .widget_search .search-field:focus {
@@ -2494,7 +2662,7 @@ h6, .h6 {
 }
 
 .bg-black {
-	background-color: #FFFFFF;
+	background-color: var(--aitsc-bg-primary);
 }
 
 .bg-panel {
@@ -2828,8 +2996,8 @@ p a:hover {
 .simple-contact-form label {
 	display: block !important;
 	font-size: 0.85rem !important;
-	font-weight: 500 !important;
-	color: #b0b0b0 !important;
+	font-weight: 600 !important;
+	color: var(--aitsc-text-secondary, #475569) !important;
 	margin-bottom: 0.5rem !important;
 	text-transform: uppercase !important;
 	letter-spacing: 0.05em !important;
@@ -2839,21 +3007,28 @@ p a:hover {
 .simple-contact-form textarea,
 .simple-contact-form .form-control {
 	width: 100% !important;
-	background: rgba(255, 255, 255, 0.03) !important;
-	border: 1px solid rgba(255, 255, 255, 0.1) !important;
+	background: var(--aitsc-bg-primary, #FFFFFF) !important;
+	border: 2px solid var(--aitsc-border, #CBD5E1) !important;
 	border-radius: 8px !important;
 	padding: 1rem !important;
-	color: #fff !important;
+	color: var(--aitsc-text-primary, #1E293B) !important;
 	font-size: 1rem !important;
 	transition: all 0.3s ease !important;
 	outline: none !important;
+	font-family: var(--aitsc-font-main) !important;
+}
+
+.simple-contact-form input::placeholder,
+.simple-contact-form textarea::placeholder {
+	color: var(--aitsc-text-muted, #94A3B8) !important;
+	opacity: 0.7;
 }
 
 .simple-contact-form input:focus,
 .simple-contact-form textarea:focus {
-	border-color: var(--aitsc-primary) !important;
-	background: rgba(255, 255, 255, 0.05) !important;
-	box-shadow: 0 0 0 2px rgba(0, 92, 178, 0.3) !important;
+	border-color: var(--aitsc-primary, #005cb2) !important;
+	background: var(--aitsc-bg-primary, #FFFFFF) !important;
+	box-shadow: 0 0 0 3px rgba(0, 92, 178, 0.1) !important;
 }
 
 /* Button */
@@ -3618,50 +3793,6 @@ body.no-js {
 .aitsc-btn--secondary:hover {
 	border-color: var(--aitsc-text-primary);
 	background: rgba(255, 255, 255, 0.05);
-}
-
-/* --- GRID FALLBACK IF MISSING --- */
-.aitsc-grid {
-	display: grid;
-	gap: 2rem;
-}
-
-.aitsc-grid--2-col {
-	grid-template-columns: repeat(2, 1fr);
-}
-
-.aitsc-grid--3-col {
-	grid-template-columns: repeat(3, 1fr);
-}
-
-.aitsc-grid--4-col {
-	grid-template-columns: repeat(4, 1fr);
-}
-
-@media (max-width: 61.9375rem) {
-	.aitsc-grid--4-col {
-		grid-template-columns: repeat(2, 1fr);
-	}
-
-	.aitsc-grid--3-col {
-		grid-template-columns: repeat(2, 1fr);
-	}
-}
-
-@media (max-width: 47.9375rem) {
-
-	.aitsc-grid--2-col,
-	.aitsc-grid--3-col,
-	.aitsc-grid--4-col {
-		grid-template-columns: 1fr;
-	}
-
-	.aitsc-btn--secondary {
-		margin-left: 0;
-		margin-top: 1rem;
-		display: flex;
-		text-align: center;
-	}
 }
 
 /* Moved from lines 578-594 */

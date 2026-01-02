@@ -36,17 +36,15 @@ get_header();
     <!-- Engineering Services Section - White Feature Cards -->
     <section class="py-24 bg-white" id="solutions">
         <div class="container">
-            <div class="row mb-12">
-                <div class="col-12 text-center">
-                    <h2 class="text-4xl md:text-5xl font-light text-slate-900 mb-4">Full-Stack Engineering Services</h2>
-                    <p class="text-lg text-cyan-600 uppercase tracking-wider">From PCB Design to Functional Safety Compliance</p>
-                </div>
+            <div class="mb-12 text-center">
+                <h2 class="text-4xl md:text-5xl font-light text-slate-900 mb-4">Full-Stack Engineering Services</h2>
+                <p class="text-lg text-cyan-600 uppercase tracking-wider">From PCB Design to Functional Safety Compliance</p>
             </div>
 
-            <div class="row justify-content-center g-4">
+            <div class="aitsc-grid aitsc-grid--4-col">
 
                 <!-- 1. Passenger Monitoring Systems -->
-                <div class="col-lg-3 col-md-6 mb-4">
+                <div>
                     <?php
                     aitsc_render_card([
                         'variant' => 'white-feature',
@@ -61,7 +59,7 @@ get_header();
                 </div>
 
                 <!-- 2. Custom PCB Design -->
-                <div class="col-lg-3 col-md-6 mb-4">
+                <div>
                     <?php
                     aitsc_render_card([
                         'variant' => 'white-feature',
@@ -76,7 +74,7 @@ get_header();
                 </div>
 
                 <!-- 3. Embedded Systems -->
-                <div class="col-lg-3 col-md-6 mb-4">
+                <div>
                     <?php
                     aitsc_render_card([
                         'variant' => 'white-feature',
@@ -91,7 +89,7 @@ get_header();
                 </div>
 
                 <!-- 4. Automotive Electronics -->
-                <div class="col-lg-3 col-md-6 mb-4">
+                <div>
                     <?php
                     aitsc_render_card([
                         'variant' => 'white-feature',
@@ -112,16 +110,14 @@ get_header();
     <!-- Why Choose Us Section - White Minimal Cards -->
     <section class="py-24 bg-slate-50" id="why-us">
         <div class="container">
-            <div class="row mb-12">
-                <div class="col-12 text-center">
-                    <h2 class="text-4xl md:text-5xl font-light text-slate-900 mb-4">Engineering Expertise Meets Real-World Deployment</h2>
-                    <p class="text-lg text-cyan-600 uppercase tracking-wider">Why Choose AITSC</p>
-                </div>
+            <div class="mb-12 text-center">
+                <h2 class="text-4xl md:text-5xl font-light text-slate-900 mb-4">Engineering Expertise Meets Real-World Deployment</h2>
+                <p class="text-lg text-cyan-600 uppercase tracking-wider">Why Choose AITSC</p>
             </div>
 
-            <div class="row g-4">
+            <div class="aitsc-grid aitsc-grid--3-col">
                 <!-- Feature 1 -->
-                <div class="col-md-4 mb-4">
+                <div>
                     <?php
                     aitsc_render_card([
                         'variant' => 'white-minimal',
@@ -134,7 +130,7 @@ get_header();
                 </div>
 
                 <!-- Feature 2 -->
-                <div class="col-md-4 mb-4">
+                <div>
                     <?php
                     aitsc_render_card([
                         'variant' => 'white-minimal',
@@ -147,7 +143,7 @@ get_header();
                 </div>
 
                 <!-- Feature 3 -->
-                <div class="col-md-4 mb-4">
+                <div>
                     <?php
                     aitsc_render_card([
                         'variant' => 'white-minimal',
@@ -165,14 +161,12 @@ get_header();
     <!-- Latest Insights Section - Blog Cards -->
     <section class="py-24 bg-white" id="insights">
         <div class="container">
-            <div class="row mb-12">
-                <div class="col-12 text-center">
-                    <h2 class="text-4xl md:text-5xl font-light text-slate-900 mb-4">Latest Perspectives</h2>
-                    <p class="text-lg text-cyan-600 uppercase tracking-wider">Insights from the forefront of transport tech</p>
-                </div>
+            <div class="mb-12 text-center">
+                <h2 class="text-4xl md:text-5xl font-light text-slate-900 mb-4">Latest Perspectives</h2>
+                <p class="text-lg text-cyan-600 uppercase tracking-wider">Insights from the forefront of transport tech</p>
             </div>
 
-            <div class="row g-4">
+            <div class="aitsc-grid aitsc-grid--3-col">
                 <?php
                 $homepage_query = new WP_Query(array(
                     'post_type' => 'post',
@@ -184,7 +178,7 @@ get_header();
                     while ($homepage_query->have_posts()):
                         $homepage_query->the_post();
                         ?>
-                        <div class="col-md-4 mb-4">
+                        <div>
                             <?php
                             aitsc_render_card([
                                 'variant' => 'blog',
@@ -196,7 +190,7 @@ get_header();
                                 'meta' => [
                                     'date' => get_the_date(),
                                     'read_time' => '5 min read',
-                                    'category' => get_the_category_list(', ')
+                                    'category' => wp_kses_post(get_the_category_list(', '))
                                 ]
                             ]);
                             ?>

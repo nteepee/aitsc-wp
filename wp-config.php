@@ -9,6 +9,8 @@ define('DB_COLLATE', '');
 $table_prefix = 'wp_';
 
 define('WP_DEBUG', true);
+define('WP_DEBUG_DISPLAY', false); // Hide notices from displaying
+define('WP_DEBUG_LOG', true); // Log to wp-content/debug.log instead
 define('WP_HOME', 'http://localhost:8888/aitsc-wp');
 define('WP_SITEURL', 'http://localhost:8888/aitsc-wp');
 

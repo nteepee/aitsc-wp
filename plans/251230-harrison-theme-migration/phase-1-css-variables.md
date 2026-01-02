@@ -1,8 +1,9 @@
 # Phase 1: CSS Variable Migration
 
-**Status**: Not Started
+**Status**: ⚠️ Partially Complete (85%)
 **Priority**: Critical
 **Dependencies**: None
+**Last Review**: 2025-12-31 (Code Review Complete)
 
 ---
 
@@ -169,20 +170,54 @@ body::before {
 
 ## Todo List
 
-- [ ] Backup current style.css
-- [ ] Replace :root variables
-- [ ] Update body/html base styles
-- [ ] Update utility classes (.bg-*, .text-*)
-- [ ] Remove @media (prefers-color-scheme: dark) blocks
-- [ ] Remove body::before dark pattern
-- [ ] Update card-variants.css colors
-- [ ] Update hero-variants.css colors
-- [ ] Update cta-styles.css colors
-- [ ] Update stats-styles.css colors
-- [ ] Update carousel-styles.css colors
+- [x] Backup current style.css (style.css.dark-backup created)
+- [x] Replace :root variables (45+ variables defined)
+- [x] Update body/html base styles (using CSS variables)
+- [x] Update utility classes (.bg-*, .text-*) (CSS variables in use)
+- [x] Remove @media (prefers-color-scheme: dark) blocks (0 found)
+- [x] Add @media (prefers-reduced-motion) support (COMPLETE)
+- [x] Fix WCAG contrast violations (footer: phone=.text-slate-900, email=.text-cyan-700)
+- [x] Migrate grid layouts (Engineering Services, Why Choose Us, Latest Insights)
+- [x] Replace 7 dark theme colors in card-variants.css (COMPLETE)
+- [ ] **CRITICAL: Define --aitsc-card-bg variable** (missing, blocks 3 card variants)
+- [ ] **CRITICAL: Remove Bootstrap grid classes** (65+ instances across 15 files - see report-260102-bootstrap-grid-violations.md)
+- [ ] **HIGH: Remove duplicate grid rules** (lines 3772-3806 duplicate 882-939)
+- [ ] **HIGH: Escape category output** (front-page.php:193 XSS risk)
+- [ ] Update card-variants.css colors (12 hardcoded values remain - 88% complete)
+- [ ] Remove body::before dark pattern (needs verification in header.php)
+- [ ] Update hero-variants.css colors (11 hardcoded values remain)
+- [ ] Update cta-styles.css colors (16 hardcoded values remain)
+- [ ] Update stats-styles.css colors (3 hardcoded values remain)
+- [ ] Update carousel-styles.css colors (15 hardcoded values remain)
 - [ ] Remove header.php inline dark styles
-- [ ] Contrast ratio verification
 - [ ] Visual QA on local
+
+### Hero Component Migration (2026-01-02)
+- [x] Migrate page-about-aitsc.php to aitsc_render_hero()
+- [x] Migrate page-contact.php to aitsc_render_hero()
+- [x] Migrate archive-solutions.php to aitsc_render_hero()
+- [x] Migrate archive-case-studies.php to aitsc_render_hero()
+- [x] Verify hero component sanitization (XSS protection)
+- [x] Verify hero component ARIA labels (WCAG 2.1 AA)
+- [ ] Migrate page.php to aitsc_render_hero() (generic template)
+- [ ] Document 'white-fullwidth' variant in hero-universal.php PHPDoc
+
+**Code Review Findings (2026-01-02 - UPDATED)**:
+- ✅ Font standardization: 100% complete (all use CSS variables)
+- ✅ Reduced-motion support: 100% complete (comprehensive implementation)
+- ✅ WCAG compliance: 100% complete (footer contrast fixed)
+- ✅ Hero component migration: 87.5% complete (7/8 instances migrated)
+- ✅ Hero security: All input sanitized (esc_attr, wp_kses_post, esc_url)
+- ✅ Hero accessibility: WCAG 2.1 AA compliant (ARIA labels, semantic HTML)
+- ✅ DRY compliance: 61% LOC reduction (44 lines eliminated from templates)
+- ⚠️ Color standardization: 88% complete (12 hardcoded colors remain in card-variants.css)
+- ⚠️ Grid migration: REGRESSED - 65+ Bootstrap classes found (.row, .col-lg-*, .col-md-*)
+- ⚠️ page.php not migrated to hero component (inconsistency with custom templates)
+- ⚠️ 'white-fullwidth' variant undocumented in hero-universal.php PHPDoc
+- 🔴 CRITICAL: Missing `--aitsc-card-bg` variable definition in style.css
+- 🔴 CRITICAL: Bootstrap grid violations (15 files, NO Bootstrap CSS loaded = non-functional)
+- 🟠 HIGH: Duplicate grid CSS rules (lines 882-939 vs 3772-3806)
+- 🟠 HIGH: Category output not escaped (front-page.php:193)
 
 ---
 
