@@ -11,11 +11,15 @@ get_header();
 <main id="primary" class="site-main">
 
     <!-- Page Hero -->
-    <header class="page-hero full-width" style="background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8));">
-        <div class="container">
-            <?php the_title('<h1 class="aitsc-hero__title aitsc-hero__title--standard">', '</h1>'); ?>
-        </div>
-    </header>
+    <?php
+    aitsc_render_hero([
+        'variant' => 'page',
+        'title' => get_the_title(),
+        'subtitle' => 'GET IN TOUCH WITH OUR TEAM',
+        'description' => 'Have a project in mind? Let\'s discuss how we can help you achieve your transport safety engineering goals.',
+        'height' => 'medium'
+    ]);
+    ?>
 
     <div class="page-content-wrapper full-width">
         <div class="container">

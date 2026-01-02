@@ -11,18 +11,15 @@ get_header();
 <main id="primary" class="site-main">
 
     <!-- HERO SECTION -->
-    <section class="page-hero full-width"
-        style="padding: 12rem 0 8rem; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('<?php echo get_template_directory_uri(); ?>/assets/images/brand/hero-texture.jpg'); background-size: cover; background-position: center;">
-        <div class="container">
-            <h1 class="hero-title text-center max-w-4xl mx-auto">
-                Pioneering the Future of <span class="text-blue">Fleet Safety</span> and Efficiency
-            </h1>
-            <p class="hero-subtitle text-center mx-auto mt-6 text-xl text-gray-300 max-w-3xl">
-                AITS Consulting is dedicated to providing innovative solutions that protect your drivers, assets, and
-                bottom line. Discover the minds and mission driving our commitment to excellence.
-            </p>
-        </div>
-    </section>
+    <?php
+    aitsc_render_hero([
+        'variant' => 'page',
+        'title' => 'Pioneering the Future of <span class="text-cyan-600">Fleet Safety</span> and Efficiency',
+        'subtitle' => 'ENGINEERING EXCELLENCE IN TRANSPORT SAFETY',
+        'description' => 'AITS Consulting is dedicated to providing innovative solutions that protect your drivers, assets, and bottom line. Discover the minds and mission driving our commitment to excellence.',
+        'height' => 'medium'
+    ]);
+    ?>
 
     <!-- MISSION & VISION -->
     <section class="section full-width bg-black" data-aos="fade-up" data-aos-duration="1000">
