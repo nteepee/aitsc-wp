@@ -40,7 +40,7 @@ get_header();
 			));
 
 			if (!empty($categories) && !is_wp_error($categories)): ?>
-				<div class="row g-4">
+				<div class="aitsc-grid aitsc-grid--3-col">
 					<?php
 					// Icon and description mapping
 					$category_data = [
@@ -62,23 +62,18 @@ get_header();
 						$cat_slug = $category->slug;
 						$icon = $category_data[$cat_slug]['icon'] ?? 'engineering';
 						$description = $category_data[$cat_slug]['description'] ?? ($category->description ?: 'Explore solutions in this category');
-						?>
-						<div class="col-lg-4 col-md-6 mb-4">
-							<?php
-							// Render white feature card
-							aitsc_render_card([
-								'variant' => 'white-feature',
-								'title' => $category->name,
-								'description' => esc_html($description),
-								'link' => get_term_link($category, 'solution_category'),
-								'icon' => $icon,
-								'cta_text' => 'Explore Solutions',
-								'size' => 'large',
-								'custom_class' => 'h-100'
-							]);
-							?>
-						</div>
-					<?php endforeach; ?>
+						// Render white feature card
+						aitsc_render_card([
+							'variant' => 'white-feature',
+							'title' => $category->name,
+							'description' => esc_html($description),
+							'link' => get_term_link($category, 'solution_category'),
+							'icon' => $icon,
+							'cta_text' => 'Explore Solutions',
+							'size' => 'large',
+							'custom_class' => 'h-100'
+						]);
+					endforeach; ?>
 				</div>
 
 			<?php else: ?>

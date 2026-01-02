@@ -38,10 +38,10 @@ get_header();
 		<!-- Main Content Grid - White Theme -->
 		<section class="py-24 bg-white">
 			<div class="container">
-				<div class="row g-5">
+				<div class="blog-layout-grid">
 
 					<!-- Left Column: Story -->
-					<div class="col-lg-8">
+					<div>
 						<div class="mb-12">
 							<h3 class="text-3xl font-light text-slate-900 mb-6 pb-4 border-b-2 border-cyan-600">The Challenge</h3>
 							<div class="text-lg text-slate-700 leading-relaxed">
@@ -65,7 +65,7 @@ get_header();
 					</div>
 
 					<!-- Right Column: Stats & Meta -->
-					<aside class="col-lg-4">
+					<aside class="sidebar">
 						<div class="sticky-top" style="top: 100px;">
 							<!-- Project Specs Card -->
 							<?php

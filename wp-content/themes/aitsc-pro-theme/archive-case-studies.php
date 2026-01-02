@@ -31,32 +31,28 @@ get_header();
 	<section class="py-24 bg-white">
 		<div class="container">
 			<?php if (have_posts()): ?>
-				<div class="row g-4">
+				<div class="aitsc-grid aitsc-grid--3-col">
 					<?php
 					while (have_posts()):
 						the_post();
 						$client = get_post_meta(get_the_ID(), '_case_study_client', true);
 						$client_industry = get_post_meta(get_the_ID(), '_case_study_client_industry', true);
 						$thumbnail = get_the_post_thumbnail_url(get_the_ID(), 'medium');
-						?>
-						<div class="col-lg-4 col-md-6 mb-4">
-							<?php
-							aitsc_render_card([
-								'variant' => 'white-product',
-								'title' => get_the_title(),
-								'description' => get_the_excerpt(),
-								'link' => get_permalink(),
-								'image' => $thumbnail ?: get_template_directory_uri() . '/assets/images/placeholder-case-study.jpg',
-								'cta_text' => 'Read Case Study',
-								'custom_class' => 'h-100',
-								'meta' => [
-									'client' => $client,
-									'industry' => $client_industry
-								]
-							]);
-							?>
-						</div>
-					<?php endwhile; ?>
+
+						aitsc_render_card([
+							'variant' => 'white-product',
+							'title' => get_the_title(),
+							'description' => get_the_excerpt(),
+							'link' => get_permalink(),
+							'image' => $thumbnail ?: get_template_directory_uri() . '/assets/images/placeholder-case-study.jpg',
+							'cta_text' => 'Read Case Study',
+							'custom_class' => 'h-100',
+							'meta' => [
+								'client' => $client,
+								'industry' => $client_industry
+							]
+						]);
+					endwhile; ?>
 				</div>
 
 				<div class="pagination mt-12">
