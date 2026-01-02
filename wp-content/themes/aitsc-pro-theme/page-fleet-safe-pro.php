@@ -39,34 +39,34 @@ if (file_exists(get_template_directory() . '/assets/images/fleet-safe-pro/galler
 <section class="scroll-section hero-section fleet-safe-hero" style="padding-top: 15vh; padding-bottom: 10vh; min-height: 100vh; position: relative;">
     <div class="aitsc-container">
         <div style="max-width: 83.33%; margin: 0 auto; text-align: center;">
-                <!-- Animated Title -->
-                <h1 class="aitsc-hero__title animate-title" style="margin-bottom: 2rem;">
-                    FLEET SAFE PRO
-                </h1>
+            <!-- Animated Title -->
+            <h1 class="aitsc-hero__title animate-title" style="margin-bottom: 2rem;">
+                FLEET SAFE PRO
+            </h1>
 
-                <!-- Subtitle -->
-                <p class="aitsc-hero__subtitle animate-fade-in delay-1">
-                    ADVANCED SAFETY TECHNOLOGY
-                </p>
+            <!-- Subtitle -->
+            <p class="aitsc-hero__subtitle animate-fade-in delay-1">
+                ADVANCED SAFETY TECHNOLOGY
+            </p>
 
-                <!-- Description -->
-                <p class="aitsc-hero__description mt-4 animate-fade-in delay-2" style="max-width: 56.25rem; margin-left: auto; margin-right: auto; font-size: 1.25rem; line-height: 1.8;">
-                    Real-time seat belt detection system that installs easily with seamless hardware integration and smart alerts
-                </p>
+            <!-- Description -->
+            <p class="aitsc-hero__description mt-4 animate-fade-in delay-2" style="max-width: 56.25rem; margin-left: auto; margin-right: auto; font-size: 1.25rem; line-height: 1.8;">
+                Real-time seat belt detection system that installs easily with seamless hardware integration and smart alerts
+            </p>
 
-                <!-- Hero CTAs -->
-                <div class="hero-cta-group animate-fade-in delay-3" style="margin-top: 3rem; display: flex; gap: 1.5rem; justify-content: center; align-items: center; flex-wrap: wrap;">
-                    <a href="#contact" class="hero-cta-primary">
-                        <span>Request Demo</span>
-                        <span class="material-symbols-outlined">arrow_forward</span>
-                    </a>
-                    <a href="#technical-specs" class="hero-cta-secondary">
-                        <span>View Technical Specs</span>
-                        <span class="material-symbols-outlined">arrow_forward</span>
-                    </a>
-                </div>
+            <!-- Hero CTAs -->
+            <div class="hero-cta-group animate-fade-in delay-3" style="margin-top: 3rem; display: flex; gap: 1.5rem; justify-content: center; align-items: center; flex-wrap: wrap;">
+                <a href="#contact" class="hero-cta-primary">
+                    <span>Request Demo</span>
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                </a>
+                <a href="#technical-specs" class="hero-cta-secondary">
+                    <span>View Technical Specs</span>
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                </a>
             </div>
         </div>
+    </div>
 
     <!-- Bottom Data Ticker -->
     <div class="data-ticker-wrap" style="position: absolute; bottom: 0; left: 0; width: 100%; overflow: hidden; background: rgba(0, 0, 0, 0.5); border-top: 1px solid var(--aitsc-grid-line); padding: 0.75rem 0; backdrop-filter: blur(5px);">
