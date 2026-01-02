@@ -67,7 +67,6 @@ get_header();
 			'text' => 'Trusted by over 50 active transport fleets across Australia',
 			'tag' => 'p'
 		]);
-		?>
 
 		// Overview Section
 		get_template_part('template-parts/solution/overview');
