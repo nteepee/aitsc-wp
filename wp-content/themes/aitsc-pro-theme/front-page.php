@@ -35,7 +35,7 @@ get_header();
 
     <!-- Engineering Services Section - White Feature Cards -->
     <section class="py-24 bg-white" id="solutions">
-        <div class="container">
+        <div class="aitsc-container">
             <div class="mb-12 text-center">
                 <h2 class="text-4xl md:text-5xl font-light text-slate-900 mb-4">Full-Stack Engineering Services</h2>
                 <p class="text-lg text-cyan-600 uppercase tracking-wider">From PCB Design to Functional Safety Compliance</p>
@@ -109,7 +109,7 @@ get_header();
 
     <!-- Why Choose Us Section - White Minimal Cards -->
     <section class="py-24 bg-slate-50" id="why-us">
-        <div class="container">
+        <div class="aitsc-container">
             <div class="mb-12 text-center">
                 <h2 class="text-4xl md:text-5xl font-light text-slate-900 mb-4">Engineering Expertise Meets Real-World Deployment</h2>
                 <p class="text-lg text-cyan-600 uppercase tracking-wider">Why Choose AITSC</p>
@@ -160,7 +160,7 @@ get_header();
 
     <!-- Latest Insights Section - Blog Cards -->
     <section class="py-24 bg-white" id="insights">
-        <div class="container">
+        <div class="aitsc-container">
             <div class="mb-12 text-center">
                 <h2 class="text-4xl md:text-5xl font-light text-slate-900 mb-4">Latest Perspectives</h2>
                 <p class="text-lg text-cyan-600 uppercase tracking-wider">Insights from the forefront of transport tech</p>
@@ -202,15 +202,13 @@ get_header();
                 ?>
             </div>
 
-            <div class="row mt-8">
-                <div class="col-12 text-center">
-                    <a href="<?php echo esc_url(home_url('/blog')); ?>"
+            <div class="mt-8 text-center">
+                <a href="<?php echo esc_url(home_url('/blog')); ?>"
                         class="inline-flex items-center gap-2 text-cyan-600 hover:text-cyan-700 font-semibold transition-colors"
                         aria-label="View all insights and blog articles about electronics engineering and automotive safety">
                         <span>View All Insights</span>
                         <span class="material-symbols-outlined">arrow_forward</span>
                     </a>
-                </div>
             </div>
         </div>
     </section>

@@ -35,10 +35,10 @@ Version: 4.0.0 (White Theme - Harrison.ai Branding)
 	--aitsc-card-bg: var(--aitsc-bg-primary);
 
 	/* === SHADOWS === */
-	--aitsc-shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
-	--aitsc-shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
-	--aitsc-shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
-	--aitsc-shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+	--aitsc-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+	--aitsc-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+	--aitsc-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+	--aitsc-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
 
 	/* === CTA BUTTONS === */
 	--aitsc-cta-bg: #005cb2;
@@ -60,34 +60,54 @@ Version: 4.0.0 (White Theme - Harrison.ai Branding)
 
 	/* Spacing & Radius */
 	--aitsc-container-width: 1400px;
-	--aitsc-radius-sm: 2px;
-	--aitsc-radius-lg: 4px;
+	--aitsc-radius-sm: 4px;
+	--aitsc-radius-lg: 8px;
 	--aitsc-transition-fast: 0.2s ease;
 	--aitsc-transition-normal: 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
 
 	/* Spacing Scale (Phase 3: Grid System) - Based on 0.25rem (4px) increments */
-	--space-1: 0.25rem;   /* 4px */
-	--space-2: 0.5rem;    /* 8px */
-	--space-3: 0.75rem;   /* 12px */
-	--space-4: 1rem;      /* 16px */
-	--space-5: 1.25rem;   /* 20px */
-	--space-6: 1.5rem;    /* 24px */
-	--space-8: 2rem;      /* 32px */
-	--space-10: 2.5rem;   /* 40px */
-	--space-12: 3rem;     /* 48px */
+	--space-1: 0.25rem;
+	/* 4px */
+	--space-2: 0.5rem;
+	/* 8px */
+	--space-3: 0.75rem;
+	/* 12px */
+	--space-4: 1rem;
+	/* 16px */
+	--space-5: 1.25rem;
+	/* 20px */
+	--space-6: 1.5rem;
+	/* 24px */
+	--space-8: 2rem;
+	/* 32px */
+	--space-10: 2.5rem;
+	/* 40px */
+	--space-12: 3rem;
+	/* 48px */
 
 	/* Typography Scale (Phase 4: Fluid Typography) - Modular scale 1.25x (Major Third) */
-	--font-size-xs: 0.75rem;       /* 12px */
-	--font-size-sm: 0.875rem;      /* 14px */
-	--font-size-base: 1rem;        /* 16px */
-	--font-size-md: 1rem;          /* 16px */
-	--font-size-lg: 1.125rem;      /* 18px */
-	--font-size-xl: 1.25rem;       /* 20px */
-	--font-size-2xl: 1.5rem;       /* 24px */
-	--font-size-3xl: 1.875rem;     /* 30px */
-	--font-size-4xl: 2.25rem;      /* 36px */
-	--font-size-5xl: 3rem;         /* 48px */
-	--font-size-6xl: 3.75rem;      /* 60px */
+	--font-size-xs: 0.75rem;
+	/* 12px */
+	--font-size-sm: 0.875rem;
+	/* 14px */
+	--font-size-base: 1rem;
+	/* 16px */
+	--font-size-md: 1rem;
+	/* 16px */
+	--font-size-lg: 1.125rem;
+	/* 18px */
+	--font-size-xl: 1.25rem;
+	/* 20px */
+	--font-size-2xl: 1.5rem;
+	/* 24px */
+	--font-size-3xl: 1.875rem;
+	/* 30px */
+	--font-size-4xl: 2.25rem;
+	/* 36px */
+	--font-size-5xl: 3rem;
+	/* 48px */
+	--font-size-6xl: 3.75rem;
+	/* 60px */
 
 	/* Line Heights */
 	--line-height-tight: 1.2;
@@ -101,18 +121,26 @@ Version: 4.0.0 (White Theme - Harrison.ai Branding)
 	--letter-spacing-normal: 0;
 	--letter-spacing-wide: 0.02em;
 
-	/* Font Weights */
+	/* Font Weights - Tweaked for better visibility on white */
 	--font-weight-normal: 400;
+	/* Standard */
 	--font-weight-medium: 500;
-	--font-weight-semibold: 600;
-	--font-weight-bold: 700;
+	--font-weight-semibold: 700;
+	/* Was 600, boosting for contrast */
+	--font-weight-bold: 800;
+	/* Was 700, boosting for impact */
 
 	/* Responsive Breakpoints - Mobile First (Phase 1: Standardization) */
-	--breakpoint-sm: 36rem;   /* 576px - Phablet/Large phones */
-	--breakpoint-md: 48rem;   /* 768px - Tablet portrait */
-	--breakpoint-lg: 62rem;   /* 992px - Desktop */
-	--breakpoint-xl: 75rem;   /* 1200px - Large desktop */
-	--breakpoint-xxl: 87.5rem; /* 1400px - Ultra-wide */
+	--breakpoint-sm: 36rem;
+	/* 576px - Phablet/Large phones */
+	--breakpoint-md: 48rem;
+	/* 768px - Tablet portrait */
+	--breakpoint-lg: 62rem;
+	/* 992px - Desktop */
+	--breakpoint-xl: 75rem;
+	/* 1200px - Large desktop */
+	--breakpoint-xxl: 87.5rem;
+	/* 1400px - Ultra-wide */
 
 	/* Container max-widths for each breakpoint */
 	--container-sm: 540px;
@@ -126,14 +154,15 @@ Version: 4.0.0 (White Theme - Harrison.ai Branding)
    Reduced Motion
    ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-    }
+
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
 }
 
 /* ==========================================================================
@@ -849,8 +878,10 @@ h4,
 h5,
 h6 {
 	font-family: var(--aitsc-font-heading);
-	color: var(--aitsc-text-primary); /* Dark text for readability */
-	font-weight: 700; /* Bold for Harrison.ai style */
+	color: var(--aitsc-text-primary);
+	/* Dark text for readability */
+	font-weight: 700;
+	/* Bold for Harrison.ai style */
 	letter-spacing: -0.02em;
 	margin-top: 0;
 	line-height: 1.1;
@@ -909,7 +940,8 @@ body:not(.home) .global-tech-background .matrix-rain {
 	display: grid;
 	gap: var(--space-4);
 	width: 100%;
-	align-items: stretch;  /* CRITICAL: Forces equal heights for all grid items */
+	align-items: stretch;
+	/* CRITICAL: Forces equal heights for all grid items */
 }
 
 /* Grid Variants - Common layouts */
@@ -927,6 +959,7 @@ body:not(.home) .global-tech-background .matrix-rain {
 
 /* Responsive Grid - Mobile first */
 @media (max-width: 47.9375rem) {
+
 	.aitsc-grid--2-col,
 	.aitsc-grid--3-col,
 	.aitsc-grid--4-col {
@@ -935,6 +968,7 @@ body:not(.home) .global-tech-background .matrix-rain {
 }
 
 @media (min-width: 48rem) and (max-width: 61.9375rem) {
+
 	.aitsc-grid--3-col,
 	.aitsc-grid--4-col {
 		grid-template-columns: repeat(2, 1fr);
@@ -1529,7 +1563,7 @@ body.admin-bar .site-header {
 
 /* Fix for the white gap at top */
 #page {
-	background: #FFFFFF;
+	background: var(--aitsc-bg-primary);
 }
 
 /* --- 8. HOMEPAGE HERO SECTION --- */
@@ -1583,7 +1617,8 @@ body.admin-bar .site-header {
 	line-height: 0.9;
 	font-weight: 800;
 	margin-bottom: 1.5rem;
-	color: var(--aitsc-text-primary) !important; /* Dark text on white */
+	color: var(--aitsc-text-primary) !important;
+	/* Dark text on white */
 	text-transform: uppercase;
 }
 
@@ -2315,52 +2350,145 @@ font-size: 1.125rem;
 }
 
 /* Column Counts - Mobile (base) */
-.grid-cols-1 { grid-template-columns: repeat(1, 1fr); }
-.grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
-.grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
-.grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
-.grid-cols-6 { grid-template-columns: repeat(6, 1fr); }
-.grid-cols-12 { grid-template-columns: repeat(12, 1fr); }
+.grid-cols-1 {
+	grid-template-columns: repeat(1, 1fr);
+}
+
+.grid-cols-2 {
+	grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-cols-3 {
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-cols-4 {
+	grid-template-columns: repeat(4, 1fr);
+}
+
+.grid-cols-6 {
+	grid-template-columns: repeat(6, 1fr);
+}
+
+.grid-cols-12 {
+	grid-template-columns: repeat(12, 1fr);
+}
 
 /* Auto-fit Responsive (no breakpoint needed) */
-.grid-auto-fit-sm { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
-.grid-auto-fit { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
-.grid-auto-fit-lg { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+.grid-auto-fit-sm {
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.grid-auto-fit {
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.grid-auto-fit-lg {
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
 
 /* Gap Utilities Using Spacing Scale */
-.gap-2 { gap: var(--space-2); }
-.gap-3 { gap: var(--space-3); }
-.gap-4 { gap: var(--space-4); }
-.gap-5 { gap: var(--space-5); }
-.gap-6 { gap: var(--space-6); }
-.gap-8 { gap: var(--space-8); }
-.gap-10 { gap: var(--space-10); }
-.gap-12 { gap: var(--space-12); }
+.gap-2 {
+	gap: var(--space-2);
+}
+
+.gap-3 {
+	gap: var(--space-3);
+}
+
+.gap-4 {
+	gap: var(--space-4);
+}
+
+.gap-5 {
+	gap: var(--space-5);
+}
+
+.gap-6 {
+	gap: var(--space-6);
+}
+
+.gap-8 {
+	gap: var(--space-8);
+}
+
+.gap-10 {
+	gap: var(--space-10);
+}
+
+.gap-12 {
+	gap: var(--space-12);
+}
 
 /* Row/Column Gap */
-.row-gap-4 { row-gap: var(--space-4); }
-.row-gap-6 { row-gap: var(--space-6); }
-.col-gap-4 { column-gap: var(--space-4); }
-.col-gap-6 { column-gap: var(--space-6); }
+.row-gap-4 {
+	row-gap: var(--space-4);
+}
+
+.row-gap-6 {
+	row-gap: var(--space-6);
+}
+
+.col-gap-4 {
+	column-gap: var(--space-4);
+}
+
+.col-gap-6 {
+	column-gap: var(--space-6);
+}
 
 /* Phablet: 576px+ (36rem) */
 @media (min-width: 36rem) {
-	.sm\:grid-cols-1 { grid-template-columns: repeat(1, 1fr); }
-	.sm\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
-	.sm\:grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
-	.sm\:gap-4 { gap: var(--space-4); }
-	.sm\:gap-6 { gap: var(--space-6); }
+	.sm\:grid-cols-1 {
+		grid-template-columns: repeat(1, 1fr);
+	}
+
+	.sm\:grid-cols-2 {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.sm\:grid-cols-3 {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	.sm\:gap-4 {
+		gap: var(--space-4);
+	}
+
+	.sm\:gap-6 {
+		gap: var(--space-6);
+	}
 }
 
 /* Tablet: 768px+ (48rem) */
 @media (min-width: 48rem) {
-	.md\:grid-cols-1 { grid-template-columns: repeat(1, 1fr); }
-	.md\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
-	.md\:grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
-	.md\:grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
-	.md\:gap-4 { gap: var(--space-4); }
-	.md\:gap-6 { gap: var(--space-6); }
-	.md\:gap-8 { gap: var(--space-8); }
+	.md\:grid-cols-1 {
+		grid-template-columns: repeat(1, 1fr);
+	}
+
+	.md\:grid-cols-2 {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.md\:grid-cols-3 {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	.md\:grid-cols-4 {
+		grid-template-columns: repeat(4, 1fr);
+	}
+
+	.md\:gap-4 {
+		gap: var(--space-4);
+	}
+
+	.md\:gap-6 {
+		gap: var(--space-6);
+	}
+
+	.md\:gap-8 {
+		gap: var(--space-8);
+	}
 
 	.md\:p-12 {
 		padding: 3rem;
@@ -2369,21 +2497,52 @@ font-size: 1.125rem;
 
 /* Desktop: 992px+ (62rem) */
 @media (min-width: 62rem) {
-	.lg\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
-	.lg\:grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
-	.lg\:grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
-	.lg\:grid-cols-5 { grid-template-columns: repeat(5, 1fr); }
-	.lg\:gap-6 { gap: var(--space-6); }
-	.lg\:gap-8 { gap: var(--space-8); }
+	.lg\:grid-cols-2 {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.lg\:grid-cols-3 {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	.lg\:grid-cols-4 {
+		grid-template-columns: repeat(4, 1fr);
+	}
+
+	.lg\:grid-cols-5 {
+		grid-template-columns: repeat(5, 1fr);
+	}
+
+	.lg\:gap-6 {
+		gap: var(--space-6);
+	}
+
+	.lg\:gap-8 {
+		gap: var(--space-8);
+	}
 }
 
 /* Wide: 1200px+ (75rem) */
 @media (min-width: 75rem) {
-	.xl\:grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
-	.xl\:grid-cols-5 { grid-template-columns: repeat(5, 1fr); }
-	.xl\:grid-cols-6 { grid-template-columns: repeat(6, 1fr); }
-	.xl\:gap-8 { gap: var(--space-8); }
-	.xl\:gap-10 { gap: var(--space-10); }
+	.xl\:grid-cols-4 {
+		grid-template-columns: repeat(4, 1fr);
+	}
+
+	.xl\:grid-cols-5 {
+		grid-template-columns: repeat(5, 1fr);
+	}
+
+	.xl\:grid-cols-6 {
+		grid-template-columns: repeat(6, 1fr);
+	}
+
+	.xl\:gap-8 {
+		gap: var(--space-8);
+	}
+
+	.xl\:gap-10 {
+		gap: var(--space-10);
+	}
 }
 
 /* =========================================
@@ -2392,42 +2551,54 @@ font-size: 1.125rem;
    ========================================= */
 
 /* Semantic Heading Styles - Fluid Typography */
-h1, .h1 {
-	font-size: clamp(2.25rem, 5vw, 3.75rem);    /* 36px → 60px */
+h1,
+.h1 {
+	font-size: clamp(2.25rem, 5vw, 3.75rem);
+	/* 36px → 60px */
 	line-height: var(--line-height-tight);
 	font-weight: var(--font-weight-bold);
 	letter-spacing: var(--letter-spacing-tight);
 }
 
-h2, .h2 {
-	font-size: clamp(1.875rem, 4vw, 3rem);      /* 30px → 48px */
+h2,
+.h2 {
+	font-size: clamp(1.875rem, 4vw, 3rem);
+	/* 30px → 48px */
 	line-height: var(--line-height-tight);
 	font-weight: var(--font-weight-bold);
 	letter-spacing: var(--letter-spacing-tight);
 }
 
-h3, .h3 {
-	font-size: clamp(1.5rem, 3vw, 2.25rem);     /* 24px → 36px */
+h3,
+.h3 {
+	font-size: clamp(1.5rem, 3vw, 2.25rem);
+	/* 24px → 36px */
 	line-height: var(--line-height-snug);
 	font-weight: var(--font-weight-semibold);
 	letter-spacing: var(--letter-spacing-normal);
 }
 
-h4, .h4 {
-	font-size: clamp(1.25rem, 2.5vw, 1.875rem); /* 20px → 30px */
+h4,
+.h4 {
+	font-size: clamp(1.25rem, 2.5vw, 1.875rem);
+	/* 20px → 30px */
 	line-height: var(--line-height-snug);
 	font-weight: var(--font-weight-semibold);
 	letter-spacing: var(--letter-spacing-normal);
 }
 
-h5, .h5 {
-	font-size: clamp(1.125rem, 2vw, 1.5rem);    /* 18px → 24px */
+h5,
+.h5 {
+	font-size: clamp(1.125rem, 2vw, 1.5rem);
+	/* 18px → 24px */
 	line-height: var(--line-height-normal);
 	font-weight: var(--font-weight-medium);
 }
 
-h6, .h6 {
-	font-size: clamp(1rem, 1.5vw, 1.25rem);     /* 16px → 20px */
+h6,
+.h6 {
+	font-size: clamp(1rem, 1.5vw, 1.25rem);
+	/* 16px → 20px */
 	line-height: var(--line-height-normal);
 	font-weight: var(--font-weight-medium);
 	text-transform: uppercase;
@@ -2436,7 +2607,8 @@ h6, .h6 {
 
 /* Body Text Utilities */
 .text-lead {
-	font-size: clamp(1.125rem, 2vw, 1.25rem);   /* 18px → 20px */
+	font-size: clamp(1.125rem, 2vw, 1.25rem);
+	/* 18px → 20px */
 	line-height: var(--line-height-relaxed);
 }
 
@@ -2451,19 +2623,49 @@ h6, .h6 {
 }
 
 /* Typography Utility Classes */
-.font-normal { font-weight: var(--font-weight-normal); }
-.font-medium { font-weight: var(--font-weight-medium); }
-.font-semibold { font-weight: var(--font-weight-semibold); }
-.font-bold { font-weight: var(--font-weight-bold); }
+.font-normal {
+	font-weight: var(--font-weight-normal);
+}
 
-.leading-tight { line-height: var(--line-height-tight); }
-.leading-snug { line-height: var(--line-height-snug); }
-.leading-normal { line-height: var(--line-height-normal); }
-.leading-relaxed { line-height: var(--line-height-relaxed); }
+.font-medium {
+	font-weight: var(--font-weight-medium);
+}
 
-.tracking-tight { letter-spacing: var(--letter-spacing-tight); }
-.tracking-normal { letter-spacing: var(--letter-spacing-normal); }
-.tracking-wide { letter-spacing: var(--letter-spacing-wide); }
+.font-semibold {
+	font-weight: var(--font-weight-semibold);
+}
+
+.font-bold {
+	font-weight: var(--font-weight-bold);
+}
+
+.leading-tight {
+	line-height: var(--line-height-tight);
+}
+
+.leading-snug {
+	line-height: var(--line-height-snug);
+}
+
+.leading-normal {
+	line-height: var(--line-height-normal);
+}
+
+.leading-relaxed {
+	line-height: var(--line-height-relaxed);
+}
+
+.tracking-tight {
+	letter-spacing: var(--letter-spacing-tight);
+}
+
+.tracking-normal {
+	letter-spacing: var(--letter-spacing-normal);
+}
+
+.tracking-wide {
+	letter-spacing: var(--letter-spacing-wide);
+}
 
 /* Flexbox utilities */
 .flex {
@@ -3517,7 +3719,7 @@ body.no-js {
 .aitsc-hero-split p {
 	font-size: 1.25rem;
 	line-height: 1.6;
-	color: #cbd5e1;
+	color: var(--aitsc-text-light);
 	margin-bottom: 2rem;
 }
 
@@ -3844,81 +4046,183 @@ body.no-js {
 	z-index: 2;
 }
 
-/* Gallery Slider (Scroll Snap) */
-.aitsc-gallery-slider-container {
-	position: relative;
-	width: 100%;
-	overflow: hidden;
-	padding: 1rem 0 3rem;
-	/* Space for scrollbar/shadow */
+
+
+
+
+
+
+/* ==========================================================================
+   DEMO CTA / CONTACT FORM SECTION
+   ========================================================================== */
+.aitsc-demo-cta {
+	display: grid;
+	grid-template-columns: 1fr 1.2fr;
+	gap: 3rem;
+	background: var(--aitsc-bg-primary);
+	border: 1px solid var(--aitsc-border);
+	border-radius: 16px;
+	padding: 3rem;
+	box-shadow: var(--aitsc-shadow-lg);
 }
 
-.aitsc-gallery-track {
+.aitsc-demo-cta__content {
 	display: flex;
-	gap: 1.5rem;
-	overflow-x: auto;
-	scroll-snap-type: x mandatory;
-	scroll-behavior: smooth;
-	padding-bottom: 1rem;
-	/* Hide scrollbar if needed, or allow nice spacing */
-	-webkit-overflow-scrolling: touch;
-	scrollbar-width: none;
-	/* Firefox */
+	flex-direction: column;
+	justify-content: center;
 }
 
-.aitsc-gallery-track::-webkit-scrollbar {
-	display: none;
-	/* Chrome/Safari */
+.aitsc-demo-cta__description {
+	color: var(--aitsc-text-secondary);
+	font-size: 1.1rem;
+	line-height: 1.7;
+	margin-bottom: 2rem;
 }
 
-.aitsc-gallery-slide {
-	flex: 0 0 320px;
-	/* Fixed width cards */
-	scroll-snap-align: start;
-	height: auto;
-	/* Let content dictate height or match */
-}
-
-@media (min-width: 48rem) {
-	.aitsc-gallery-slide {
-		flex: 0 0 400px;
-	}
-}
-
-/* Slider Controls */
-.aitsc-slider-controls {
+.aitsc-demo-cta__features {
 	display: flex;
-	justify-content: flex-end;
+	flex-direction: column;
 	gap: 1rem;
-	margin-top: 1rem;
-	position: absolute;
-	top: -4rem;
-	/* Move to header area? Or keep bottom */
-	right: 0;
 }
 
-/* If keeping at bottom */
-.aitsc-slider-controls {
-	top: auto;
-	bottom: 0;
-}
-
-.aitsc-slider-btn {
-	background: transparent;
-	border: 1px solid var(--aitsc-border-color);
-	color: var(--aitsc-text-main);
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
+.aitsc-demo-feature {
 	display: flex;
 	align-items: center;
+	gap: 0.75rem;
+	color: var(--aitsc-text-primary);
+	font-weight: 500;
+}
+
+.aitsc-demo-feature .material-symbols-outlined {
+	color: var(--aitsc-primary);
+	font-size: 1.5rem;
+}
+
+/* Contact Form Styles */
+.aitsc-contact-form {
+	display: flex;
+	flex-direction: column;
+	gap: 1.25rem;
+}
+
+.aitsc-form-row {
+	display: flex;
+	flex-direction: column;
+	gap: 1.25rem;
+}
+
+.aitsc-form-row--2col {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1rem;
+}
+
+.aitsc-form-group {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.aitsc-form-group label {
+	font-weight: 600;
+	color: var(--aitsc-text-primary);
+	font-size: 0.9rem;
+}
+
+.aitsc-form-group input,
+.aitsc-form-group select,
+.aitsc-form-group textarea {
+	padding: 0.875rem 1rem;
+	border: 1px solid var(--aitsc-border);
+	border-radius: 8px;
+	font-size: 1rem;
+	background: var(--aitsc-bg-secondary);
+	color: var(--aitsc-text-primary);
+	transition: all 0.3s ease;
+}
+
+.aitsc-form-group input:focus,
+.aitsc-form-group select:focus,
+.aitsc-form-group textarea:focus {
+	outline: none;
+	border-color: var(--aitsc-primary);
+	box-shadow: 0 0 0 3px rgba(0, 92, 178, 0.1);
+}
+
+.aitsc-form-group input::placeholder,
+.aitsc-form-group textarea::placeholder {
+	color: var(--aitsc-text-muted);
+}
+
+.aitsc-form-submit {
+	display: inline-flex;
+	align-items: center;
 	justify-content: center;
+	gap: 0.5rem;
+	padding: 1rem 2rem;
+	background: linear-gradient(135deg, var(--aitsc-primary), var(--aitsc-primary-dark));
+	color: #fff;
+	border: none;
+	border-radius: 8px;
+	font-size: 1rem;
+	font-weight: 600;
 	cursor: pointer;
 	transition: all 0.3s ease;
 }
 
-.aitsc-slider-btn:hover {
-	background: var(--aitsc-primary);
-	border-color: var(--aitsc-primary);
-	color: var(--aitsc-text-primary);
+.aitsc-form-submit:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 8px 25px rgba(0, 92, 178, 0.3);
+}
+
+.aitsc-form-submit .material-symbols-outlined {
+	font-size: 1.25rem;
+}
+
+.aitsc-form-note {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	color: var(--aitsc-text-muted);
+	font-size: 0.875rem;
+	margin-top: 0.5rem;
+}
+
+.aitsc-form-note .material-symbols-outlined {
+	font-size: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 47.9375rem) {
+	.aitsc-demo-cta {
+		grid-template-columns: 1fr;
+		padding: 2rem;
+	}
+
+	.aitsc-form-row--2col {
+		grid-template-columns: 1fr;
+	}
+}
+
+
+
+
+
+
+
+/* ==========================================================================
+   MOBILE HEADER FIX - Hide CTA on Small Screens
+   ========================================================================== */
+@media (max-width: 35.9375rem) {
+	.header-cta {
+		display: none !important;
+	}
+
+	.header-container {
+		justify-content: space-between;
+	}
+
+	.site-branding img {
+		max-height: 40px;
+	}
 }
