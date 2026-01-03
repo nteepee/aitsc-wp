@@ -30,7 +30,8 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    height: 100%;  /* CRITICAL: Fills grid cell for equal-height cards */
+    height: 100%;
+    /* CRITICAL: Fills grid cell for equal-height cards */
     border-radius: var(--aitsc-border-radius, 12px);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     overflow: hidden;
@@ -456,8 +457,19 @@
 }
 
 .aitsc-card--white-feature .aitsc-card__cta {
-    color: var(--aitsc-primary, #005cb2);
+    display: inline-flex;
+    padding: 0.75rem 1.5rem;
+    background: var(--aitsc-primary, #005cb2);
+    color: var(--aitsc-text-on-primary, #FFFFFF);
+    border-radius: var(--aitsc-radius-lg, 4px);
+    font-weight: 600;
     margin-top: 1rem;
+    transition: all var(--aitsc-transition-fast);
+}
+
+.aitsc-card--white-feature .aitsc-card__cta:hover {
+    background: var(--aitsc-primary-hover, #004a94);
+    gap: 1rem;
 }
 
 /* White Product Card - Product showcase with photo */
@@ -614,4 +626,86 @@
     .aitsc-card--white-minimal {
         padding: 1.25rem 0;
     }
+}
+
+/* ==========================================================================
+   Variant: Spec (Technical Specification Card)
+   ========================================================================== */
+
+.aitsc-card--spec {
+    background: var(--aitsc-bg-primary);
+    border: 1px solid var(--aitsc-border);
+    border-radius: 8px;
+    padding: 0;
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.aitsc-card--spec:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-color: var(--aitsc-primary);
+}
+
+.aitsc-card--spec .aitsc-card__header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--aitsc-border);
+    background: var(--aitsc-bg-secondary);
+    border-radius: 8px 8px 0 0;
+}
+
+.aitsc-card--spec .aitsc-card__icon {
+    width: 48px;
+    height: 48px;
+    background: var(--aitsc-bg-primary);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--aitsc-primary);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.aitsc-card--spec .aitsc-card__title {
+    margin: 0;
+    font-size: 1.25rem;
+    color: var(--aitsc-text-primary);
+}
+
+.aitsc-card--spec .aitsc-card__body {
+    padding: 1.5rem;
+    flex: 1;
+}
+
+.aitsc-card--spec .aitsc-card__description {
+    color: var(--aitsc-text-secondary);
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.aitsc-spec-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.aitsc-spec-list li {
+    font-size: 0.9rem;
+    color: var(--aitsc-text-primary);
+    padding-left: 1rem;
+    border-left: 2px solid var(--aitsc-border);
+    line-height: 1.4;
+}
+
+.aitsc-spec-list li strong {
+    color: var(--aitsc-text-primary);
+    margin-right: 0.25rem;
 }

@@ -5,11 +5,11 @@
 ?>
 
 <!-- SCIENCE OF SAFETY SECTION -->
-<section class="py-24 relative bg-black">
+<section class="py-24 bg-white">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-normal text-white mb-4">The Science of Safety</h2>
-            <p class="text-blue-500 font-medium tracking-widest text-sm uppercase">Why Leading Fleets Trust AITSC</p>
+            <h2 class="text-3xl md:text-4xl font-normal text-slate-900 mb-4">The Science of Safety</h2>
+            <p class="text-cyan-600 font-medium tracking-widest text-sm uppercase">Why Leading Fleets Trust AITSC</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">

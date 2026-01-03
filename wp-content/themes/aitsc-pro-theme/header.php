@@ -5,6 +5,59 @@
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="profile" href="https://gmpg.org/xfn/11">
+
+    <?php
+    /**
+     * Output SEO meta tags for Solutions
+     */
+    if (is_singular('solutions')) {
+        $post_id = get_the_ID();
+
+        // Meta Description
+        $meta_desc = get_field('seo_meta_description', $post_id);
+        if (empty($meta_desc)) {
+            $meta_desc = get_the_excerpt($post_id);
+            if (empty($meta_desc)) {
+                $meta_desc = wp_trim_words(get_the_content(null, false, $post_id), 25, '...');
+            }
+        }
+
+        // Open Graph Image
+        $og_image = get_field('seo_og_image', $post_id);
+        if (empty($og_image)) {
+            $og_image = get_the_post_thumbnail_url($post_id, 'large');
+        }
+        if (empty($og_image)) {
+            $og_image = get_template_directory_uri() . '/assets/images/default-og-image.jpg';
+        }
+
+        // Output meta tags
+        if (!empty($meta_desc)) {
+            echo '<meta name="description" content="' . esc_attr($meta_desc) . '">' . "\n";
+        }
+
+        // Open Graph tags
+        echo '<meta property="og:type" content="article">' . "\n";
+        echo '<meta property="og:title" content="' . esc_attr(get_the_title()) . '">' . "\n";
+        if (!empty($meta_desc)) {
+            echo '<meta property="og:description" content="' . esc_attr($meta_desc) . '">' . "\n";
+        }
+        if (!empty($og_image)) {
+            echo '<meta property="og:image" content="' . esc_url($og_image) . '">' . "\n";
+        }
+        echo '<meta property="og:url" content="' . esc_url(get_permalink()) . '">' . "\n";
+
+        // Twitter Card tags
+        echo '<meta name="twitter:card" content="summary_large_image">' . "\n";
+        echo '<meta name="twitter:title" content="' . esc_attr(get_the_title()) . '">' . "\n";
+        if (!empty($meta_desc)) {
+            echo '<meta name="twitter:description" content="' . esc_attr($meta_desc) . '">' . "\n";
+        }
+        if (!empty($og_image)) {
+            echo '<meta name="twitter:image" content="' . esc_url($og_image) . '">' . "\n";
+        }
+    }
+    ?>
     <?php wp_head(); ?>
     <!-- Harrison.ai White Theme Global Styles -->
     <style>

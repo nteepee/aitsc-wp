@@ -1,0 +1,89 @@
+/* ==========================================================================
+   GALLERY COMPONENT STYLES
+   ========================================================================== */
+
+.aitsc-gallery-component {
+    padding: 4rem 0;
+    overflow: hidden;
+    width: 100%;
+}
+
+.aitsc-gallery-slider {
+    width: 100%;
+    overflow-x: auto;
+    /* Hide scrollbar for cleaner look */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    cursor: grab;
+    padding-bottom: 2rem;
+    padding-left: max(1rem, calc((100vw - 1200px) / 2));
+    padding-right: 1rem;
+}
+
+.aitsc-gallery-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.aitsc-gallery-slider:active {
+    cursor: grabbing;
+}
+
+.aitsc-gallery-track {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1rem 0;
+}
+
+.aitsc-gallery-slide {
+    flex: 0 0 300px;
+    height: 400px;
+    /* Fixed height for consistency */
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    background: var(--aitsc-bg-secondary);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    scroll-snap-align: start;
+}
+
+.aitsc-gallery-slide:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+        0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.aitsc-gallery-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.aitsc-gallery-slide:hover img {
+    transform: scale(1.05);
+}
+
+/* Overlay gradient for text (optional future use) */
+.aitsc-gallery-slide::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.3) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+/* Responsive */
+@media (min-width: 48rem) {
+    .aitsc-gallery-slide {
+        flex: 0 0 400px;
+        height: 500px;
+    }
+}
+
+@media (min-width: 80rem) {
+    .aitsc-gallery-slider {
+        padding-left: calc((100vw - 1280px) / 2 + 1rem);
+    }
+}

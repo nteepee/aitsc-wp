@@ -34,19 +34,21 @@ if (!defined('ABSPATH')) {
  * }
  * @return void
  */
-function aitsc_render_card($args = array()) {
+function aitsc_render_card($args = array())
+{
     $defaults = array(
-        'variant'      => 'solid',
-        'title'        => '',
-        'description'  => '',
-        'link'         => '',
-        'icon'         => '',
-        'image'        => '',
-        'cta_text'     => __('Learn More', 'aitsc-pro-theme'),
-        'size'         => 'medium',
+        'variant' => 'solid',
+        'title' => '',
+        'description' => '',
+        'link' => '',
+        'icon' => '',
+        'image' => '',
+        'cta_text' => __('Learn More', 'aitsc-pro-theme'),
+        'size' => 'medium',
         'custom_class' => '',
         'custom_attrs' => array(),
-        'meta'         => array() // For blog cards: author, date, category, read_time
+        'meta' => array(), // For blog cards: author, date, category, read_time
+        'specs' => array() // For spec cards: list of specifications
     );
 
     $args = wp_parse_args($args, $defaults);
@@ -57,14 +59,14 @@ function aitsc_render_card($args = array()) {
     }
 
     // Sanitize data
-    $variant      = esc_attr($args['variant']);
-    $title        = wp_kses_post($args['title']);
-    $description  = wp_kses_post($args['description']);
-    $link         = esc_url($args['link']);
-    $icon         = esc_attr($args['icon']);
-    $image        = esc_url($args['image']);
-    $cta_text     = esc_html($args['cta_text']);
-    $size         = esc_attr($args['size']);
+    $variant = esc_attr($args['variant']);
+    $title = wp_kses_post($args['title']);
+    $description = wp_kses_post($args['description']);
+    $link = esc_url($args['link']);
+    $icon = esc_attr($args['icon']);
+    $image = esc_url($args['image']);
+    $cta_text = esc_html($args['cta_text']);
+    $size = esc_attr($args['size']);
     $custom_class = esc_attr($args['custom_class']);
 
     // Generate ARIA label for screen reader accessibility (WCAG 2.1 AA compliance)
@@ -129,7 +131,7 @@ function aitsc_render_card($args = array()) {
                 $aria_hidden = isset($args['icon_aria']) && $args['icon_aria'] ? ' aria-hidden="true"' : '';
                 $output .= sprintf(
                     '<div class="aitsc-card__icon">' .
-                        '<span class="material-symbols-outlined"%s>%s</span>' .
+                    '<span class="material-symbols-outlined"%s>%s</span>' .
                     '</div>',
                     $aria_hidden,
                     $icon
@@ -143,12 +145,30 @@ function aitsc_render_card($args = array()) {
             if (!empty($image)) {
                 $output .= sprintf(
                     '<div class="aitsc-card__image">' .
-                        '<img src="%s" alt="%s" loading="lazy" />' .
+                    '<img src="%s" alt="%s" loading="lazy" />' .
                     '</div>',
                     $image,
                     esc_attr($title)
                 );
             }
+            break;
+
+        case 'spec':
+            // Spec variant: Header with Icon + Title
+            $output .= '<div class="aitsc-card__header">';
+
+            if (!empty($icon)) {
+                $output .= sprintf(
+                    '<div class="aitsc-card__icon"><span class="material-symbols-outlined">%s</span></div>',
+                    $icon
+                );
+            }
+
+            if (!empty($title)) {
+                $output .= sprintf('<h3 class="aitsc-card__title">%s</h3>', $title);
+            }
+
+            $output .= '</div>';
             break;
     }
 
@@ -190,11 +210,13 @@ function aitsc_render_card($args = array()) {
         $output .= '</div>';
     }
 
-    // Card title
-    $output .= sprintf(
-        '<h3 class="aitsc-card__title">%s</h3>',
-        $title
-    );
+    // Card title - ONLY render if NOT spec variant (spec has title in header)
+    if ($variant !== 'spec') {
+        $output .= sprintf(
+            '<h3 class="aitsc-card__title">%s</h3>',
+            $title
+        );
+    }
 
     // Card description
     if (!empty($description)) {
@@ -202,6 +224,15 @@ function aitsc_render_card($args = array()) {
             '<p class="aitsc-card__description">%s</p>',
             $description
         );
+    }
+
+    // Specs list (render if specs array is provided)
+    if (!empty($args['specs']) && is_array($args['specs'])) {
+        $output .= '<ul class="aitsc-spec-list">';
+        foreach ($args['specs'] as $spec) {
+            $output .= sprintf('<li>%s</li>', wp_kses_post($spec));
+        }
+        $output .= '</ul>';
     }
 
     // Card CTA (only if link exists)

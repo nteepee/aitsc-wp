@@ -1,22 +1,57 @@
 <?php
 /**
  * Template Part: Solution Gallery
- * 
+ *
  * Displays the product gallery with a horizontal scroll slider.
  */
 
-// Get all gallery images - scanning specific directory for Fleet Safe Pro
-// Ideally this should be dynamic via ACF, but using file-scan to match original intent
-$gallery_dir_rel = '/assets/images/fleet-safe-pro/gallery/';
-$gallery_dir_abs = get_template_directory() . $gallery_dir_rel;
-$gallery_url_base = get_template_directory_uri() . $gallery_dir_rel;
+$solution_id = get_the_ID();
 
+// Try ACF gallery first
 $gallery_images = array();
-if (file_exists($gallery_dir_abs)) {
-    $gallery_files = scandir($gallery_dir_abs);
-    foreach ($gallery_files as $file) {
-        if (pathinfo($file, PATHINFO_EXTENSION) === 'jpg' || pathinfo($file, PATHINFO_EXTENSION) === 'png') {
-            $gallery_images[] = $gallery_url_base . $file;
+$acf_gallery = get_field('gallery', $solution_id);
+
+if ($acf_gallery && is_array($acf_gallery)) {
+    foreach ($acf_gallery as $attachment) {
+        // Handle both ID format and array format
+        if (is_numeric($attachment)) {
+            // ID format
+            $url = wp_get_attachment_url($attachment);
+            $title = get_the_title($attachment);
+            $alt = get_post_meta($attachment, '_wp_attachment_image_alt', true);
+        } else {
+            // Array format
+            $url = $attachment['url'] ?? '';
+            $title = $attachment['title'] ?? '';
+            $alt = $attachment['alt'] ?? $title;
+        }
+
+        if ($url) {
+            $gallery_images[] = array(
+                'url' => $url,
+                'title' => $title,
+                'alt' => $alt ?: $title,
+            );
+        }
+    }
+}
+
+// Fallback to file scan for backwards compatibility
+if (empty($gallery_images)) {
+    $gallery_dir_rel = '/assets/images/fleet-safe-pro/gallery/';
+    $gallery_dir_abs = get_template_directory() . $gallery_dir_rel;
+    $gallery_url_base = get_template_directory_uri() . $gallery_dir_rel;
+
+    if (file_exists($gallery_dir_abs)) {
+        $gallery_files = scandir($gallery_dir_abs);
+        foreach ($gallery_files as $file) {
+            if (pathinfo($file, PATHINFO_EXTENSION) === 'jpg' || pathinfo($file, PATHINFO_EXTENSION) === 'png') {
+                $gallery_images[] = array(
+                    'url' => $gallery_url_base . $file,
+                    'title' => ucwords(str_replace(array('-', '_', '.'), ' ', pathinfo($file, PATHINFO_FILENAME))),
+                    'alt' => ucwords(str_replace(array('-', '_', '.'), ' ', pathinfo($file, PATHINFO_FILENAME))),
+                );
+            }
         }
     }
 }
@@ -40,13 +75,14 @@ if (empty($gallery_images)) {
                 // Display first 24 gallery images
                 $display_count = min(24, count($gallery_images));
                 for ($i = 0; $i < $display_count; $i++) {
-                    $image_path = $gallery_images[$i];
-                    $image_name = basename($image_path);
-                    $image_title = ucwords(str_replace(array('-', '_', '.'), ' ', pathinfo($image_name, PATHINFO_FILENAME)));
+                    $img = $gallery_images[$i];
+                    $image_url = is_array($img) ? $img['url'] : $img;
+                    $image_title = is_array($img) ? $img['title'] : basename($img);
+                    $image_alt = is_array($img) ? $img['alt'] : $image_title;
                     ?>
                     <div class="aitsc-card aitsc-card--image aitsc-card--gallery aitsc-gallery-slide">
                         <div class="aitsc-card__image-wrapper">
-                            <img src="<?php echo esc_url($image_path); ?>" alt="<?php echo esc_attr($image_title); ?>"
+                            <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($image_alt); ?>"
                                 loading="lazy"
                                 style="max-height: 600px; width: auto; object-fit: contain; margin: 0 auto; display: block;">
                         </div>

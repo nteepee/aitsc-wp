@@ -16,6 +16,32 @@
 .aitsc-section--solution {
     padding: 6rem 0;
     position: relative;
+    background: #000;
+}
+
+.aitsc-section--features {
+    padding: 6rem 0;
+    position: relative;
+}
+
+.aitsc-section--gallery,
+.aitsc-section--installation,
+.aitsc-section--compliance {
+    padding: 6rem 0;
+    position: relative;
+}
+
+/* Light background sections use dark text */
+.aitsc-section--gallery .aitsc-section__title,
+.aitsc-section--installation .aitsc-section__title,
+.aitsc-section--compliance .aitsc-section__title {
+    color: #1e293b;
+}
+
+.aitsc-section--gallery .aitsc-section__subtitle,
+.aitsc-section--installation .aitsc-section__subtitle,
+.aitsc-section--compliance .aitsc-section__subtitle {
+    color: #0891b2;
 }
 
 .aitsc-section__header {
@@ -94,7 +120,7 @@
     transform: translateY(-8px);
     border-color: rgba(239, 68, 68, 0.5);
     box-shadow: 0 20px 60px rgba(239, 68, 68, 0.3),
-                0 0 40px rgba(239, 68, 68, 0.2) inset;
+        0 0 40px rgba(239, 68, 68, 0.2) inset;
     background: linear-gradient(135deg, rgba(40, 51, 69, 0.9) 0%, rgba(20, 28, 46, 0.95) 100%);
 }
 
@@ -106,12 +132,10 @@
     left: -50%;
     width: 200%;
     height: 200%;
-    background: linear-gradient(
-        45deg,
-        transparent,
-        rgba(255, 255, 255, 0.05),
-        transparent
-    );
+    background: linear-gradient(45deg,
+            transparent,
+            rgba(255, 255, 255, 0.05),
+            transparent);
     transform: rotate(45deg);
     transition: all 0.6s;
     opacity: 0;
@@ -164,10 +188,13 @@
 }
 
 @keyframes pulse {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translate(-50%, -50%) scale(1);
         opacity: 0.5;
     }
+
     50% {
         transform: translate(-50%, -50%) scale(1.3);
         opacity: 0;
@@ -209,7 +236,7 @@
     font-family: 'Inter', sans-serif;
     font-size: 1.125rem;
     line-height: 1.8;
-    color: #e2e8f0;
+    color: #1e293b;
     margin-bottom: 2rem;
 }
 
@@ -229,11 +256,11 @@
     position: relative;
     overflow: hidden;
     margin-top: 2rem;
-    opacity: 0;
-    transform: translateY(20px);
+    /* Removed opacity: 0 and transform for white background sections - always visible */
     transition: all 0.4s ease;
 }
 
+/* Animation only applies to dark sections with .fade-in-section.visible  */
 .fade-in-section.visible .aitsc-highlight-box[data-animation="slide-up"] {
     animation: slideUp 0.6s ease-out 0.3s forwards;
 }
@@ -254,17 +281,19 @@
     right: 0;
     height: 2px;
     background: linear-gradient(90deg,
-        transparent 0%,
-        #10b981 50%,
-        transparent 100%
-    );
+            transparent 0%,
+            #10b981 50%,
+            transparent 100%);
     animation: shimmer 3s ease-in-out infinite;
 }
 
 @keyframes shimmer {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 0.3;
     }
+
     50% {
         opacity: 1;
     }
@@ -300,8 +329,24 @@
     font-family: 'Inter', sans-serif;
     font-size: 1rem;
     line-height: 1.7;
-    color: #d1fae5;
+    color: #065f46;
+    font-weight: 500;
     margin: 0;
+}
+
+/* Styles for highlight boxes on white/light backgrounds */
+.aitsc-section[style*="background-color: #ffffff"] .aitsc-highlight-box h4,
+.aitsc-section--gallery .aitsc-highlight-box h4,
+.aitsc-section--installation .aitsc-highlight-box h4,
+.aitsc-section--compliance .aitsc-highlight-box h4 {
+    color: #1e293b;
+}
+
+.aitsc-section[style*="background-color: #ffffff"] .aitsc-highlight-box p,
+.aitsc-section--gallery .aitsc-highlight-box p,
+.aitsc-section--installation .aitsc-highlight-box p,
+.aitsc-section--compliance .aitsc-highlight-box p {
+    color: #1e293b;
 }
 
 /* ========================================
@@ -324,8 +369,16 @@
 
 /* Tablet (768-991px) */
 @media (max-width: 61.9375rem) {
+
     .aitsc-section--problem,
     .aitsc-section--solution {
+        padding: 4rem 0;
+    }
+
+    .aitsc-section--features,
+    .aitsc-section--gallery,
+    .aitsc-section--installation,
+    .aitsc-section--compliance {
         padding: 4rem 0;
     }
 
@@ -344,8 +397,16 @@
 
 /* Mobile (0-767px) */
 @media (max-width: 47.9375rem) {
+
     .aitsc-section--problem,
     .aitsc-section--solution {
+        padding: 3rem 0;
+    }
+
+    .aitsc-section--features,
+    .aitsc-section--gallery,
+    .aitsc-section--installation,
+    .aitsc-section--compliance {
         padding: 3rem 0;
     }
 

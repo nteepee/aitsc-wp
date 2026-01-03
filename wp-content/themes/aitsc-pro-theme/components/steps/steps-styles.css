@@ -1,0 +1,242 @@
+/* ==========================================================================
+   STEPS COMPONENT STYLES
+   ========================================================================== */
+
+/* Wrapper */
+.aitsc-steps-wrapper {
+    margin-bottom: 4rem;
+    position: relative;
+}
+
+.aitsc-steps__header {
+    margin-bottom: 2rem;
+}
+
+.aitsc-steps__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--aitsc-text-primary);
+    margin-bottom: 0.5rem;
+}
+
+/* Vertical Slider Variant */
+.aitsc-vertical-slider {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-height: 400px;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    border: 1px solid var(--aitsc-border);
+    border-radius: 16px;
+    background: var(--aitsc-bg-primary);
+    scrollbar-width: none;
+}
+
+.aitsc-vertical-slider::-webkit-scrollbar {
+    display: none;
+}
+
+/* Individual Slide */
+.aitsc-vslide {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    min-height: 380px;
+    padding: 3rem;
+    scroll-snap-align: start;
+    border-bottom: 1px solid var(--aitsc-border);
+    transition: all 0.3s ease;
+}
+
+.aitsc-vslide:last-child {
+    border-bottom: none;
+}
+
+.aitsc-vslide:hover {
+    background: var(--aitsc-bg-secondary);
+}
+
+/* Visual Side */
+.aitsc-vslide__visual {
+    position: relative;
+    flex-shrink: 0;
+    width: 180px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.aitsc-vslide__icon {
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, var(--aitsc-primary-light), rgba(0, 92, 178, 0.1));
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 32px rgba(0, 92, 178, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.aitsc-vslide:hover .aitsc-vslide__icon {
+    transform: scale(1.05);
+}
+
+.aitsc-vslide__icon .material-symbols-outlined {
+    font-size: 56px;
+    color: var(--aitsc-primary);
+}
+
+.aitsc-vslide__number {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--aitsc-primary);
+    opacity: 0.15;
+    line-height: 1;
+}
+
+/* Content Side */
+.aitsc-vslide__content {
+    flex: 1;
+}
+
+.aitsc-vslide__content h4 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--aitsc-text-primary);
+    margin-bottom: 0.75rem;
+}
+
+.aitsc-vslide__content p {
+    color: var(--aitsc-text-secondary);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+/* Tags */
+.aitsc-vslide__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.aitsc-tag {
+    display: inline-block;
+    padding: 0.375rem 0.875rem;
+    background: var(--aitsc-primary-light);
+    color: var(--aitsc-primary);
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: 20px;
+}
+
+/* Navigation Dots */
+.aitsc-vslide-nav {
+    position: absolute;
+    right: -40px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.aitsc-vslide-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--aitsc-border);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: block;
+}
+
+.aitsc-vslide-dot:hover,
+.aitsc-vslide-dot:focus {
+    background: var(--aitsc-primary);
+    transform: scale(1.3);
+}
+
+/* Simplified Steps List Variant (Fallback) */
+.aitsc-steps-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.aitsc-step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    border: 1px solid var(--aitsc-border);
+    border-radius: 8px;
+    background: var(--aitsc-bg-primary);
+}
+
+.aitsc-step-item .aitsc-step__number {
+    width: 32px;
+    height: 32px;
+    background: var(--aitsc-primary);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+/* Responsive */
+@media (max-width: 47.9375rem) {
+    .aitsc-vertical-slider {
+        max-height: 500px;
+    }
+
+    .aitsc-vslide {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem;
+        min-height: 480px;
+    }
+
+    .aitsc-vslide__visual {
+        width: 140px;
+        height: 140px;
+    }
+
+    .aitsc-vslide__icon {
+        width: 100px;
+        height: 100px;
+    }
+
+    .aitsc-vslide__icon .material-symbols-outlined {
+        font-size: 42px;
+    }
+
+    .aitsc-vslide__number {
+        font-size: 3rem;
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .aitsc-vslide__tags {
+        justify-content: center;
+    }
+
+    .aitsc-vslide-nav {
+        position: static;
+        flex-direction: row;
+        justify-content: center;
+        transform: none;
+        margin-top: 1.5rem;
+    }
+}

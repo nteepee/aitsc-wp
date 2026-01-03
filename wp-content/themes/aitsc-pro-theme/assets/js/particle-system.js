@@ -8,24 +8,24 @@
 
 class AITSCParticleNetwork {
     constructor(options = {}) {
-        // Configuration - Updated to match Fleet Safe Pro manual colors
+        // Configuration - Harrison AI styled (Clean, Network, Subtle)
         this.config = {
-            particleCount: options.particleCount || 70,
-            connectionDistance: options.connectionDistance || 120,
-            particleSpeed: options.particleSpeed || 0.3,
+            particleCount: options.particleCount || 100, // Higher count for network effect
+            connectionDistance: options.connectionDistance || 150,
+            particleSpeed: options.particleSpeed || 0.2, // Slower, more fluid
             colors: {
-                primary: options.primaryColor || '#1863F7',    // Manual vibrant blue (img-003.png)
-                secondary: options.secondaryColor || '#1841C5', // Manual royal blue (img-001.png)
-                accent: options.accentColor || '#2222A0'       // Manual dark blue (img-002.png)
+                primary: options.primaryColor || '#1863F7',
+                secondary: options.secondaryColor || '#1841C5',
+                accent: options.accentColor || '#2222A0'
             },
             opacity: {
-                particle: 0.8,
-                connection: 0.4
+                particle: 0.6,
+                connection: 0.15 // Very subtle connections
             },
             mouse: {
                 enabled: true,
-                radius: 150,
-                repel: false
+                radius: 200,
+                repel: false // Gentle attraction or just subtle influence
             }
         };
 
@@ -83,13 +83,13 @@ class AITSCParticleNetwork {
     createParticles() {
         this.particles = [];
 
-        // Adjust particle count based on viewport size (reduce on mobile)
+        // Adjust particle count based on viewport size
         const viewportArea = window.innerWidth * window.innerHeight;
         const isMobile = window.innerWidth < 768;
-        const baseCount = isMobile ? 30 : this.config.particleCount;
+        const baseCount = isMobile ? 20 : 40; // Reduced from 100/40 (User requested "Lesser")
         const particleCount = Math.min(
             baseCount,
-            Math.floor(viewportArea / 15000) // ~1 particle per 15000px²
+            Math.floor(viewportArea / 25000) // Lower density
         );
 
         for (let i = 0; i < particleCount; i++) {
@@ -98,9 +98,9 @@ class AITSCParticleNetwork {
                 y: Math.random() * this.canvas.height,
                 vx: (Math.random() - 0.5) * this.config.particleSpeed,
                 vy: (Math.random() - 0.5) * this.config.particleSpeed,
-                size: Math.random() * 3 + 2, // Mini-square size: 2-5px
+                size: Math.random() * 4 + 3, // Bigger size: 3-7px (User requested "Bigger")
                 color: this.getRandomColor(),
-                rotation: Math.random() * Math.PI * 2 // Random rotation
+                // No rotation needed for circles
             });
         }
     }
@@ -138,13 +138,14 @@ class AITSCParticleNetwork {
             particle.x += particle.vx;
             particle.y += particle.vy;
 
-            // Boundary collision (wrap around)
+            // Boundary collision (bounce instead of wrap for a contained feel, or wrap? Let's stick to wrap for continuous flow)
+            // Actually, for a "network" feel, wrapping works well.
             if (particle.x < 0) particle.x = this.canvas.width;
             if (particle.x > this.canvas.width) particle.x = 0;
             if (particle.y < 0) particle.y = this.canvas.height;
             if (particle.y > this.canvas.height) particle.y = 0;
 
-            // Mouse interaction (repel or attract)
+            // Mouse interaction (gentle attraction)
             if (this.mouse.x !== null && this.mouse.y !== null) {
                 const dx = this.mouse.x - particle.x;
                 const dy = this.mouse.y - particle.y;
@@ -154,13 +155,14 @@ class AITSCParticleNetwork {
                     const force = (this.config.mouse.radius - distance) / this.config.mouse.radius;
                     const angle = Math.atan2(dy, dx);
 
-                    if (this.config.mouse.repel) {
-                        particle.x -= Math.cos(angle) * force * 2;
-                        particle.y -= Math.sin(angle) * force * 2;
-                    } else {
-                        particle.x += Math.cos(angle) * force * 0.5;
-                        particle.y += Math.sin(angle) * force * 0.5;
-                    }
+                    // Gentle attraction
+                    const attractionStrength = 0.05;
+                    particle.vx += Math.cos(angle) * force * attractionStrength;
+                    particle.vy += Math.sin(angle) * force * attractionStrength;
+
+                    // Damping to prevent out of control speed
+                    particle.vx *= 0.99;
+                    particle.vy *= 0.99;
                 }
             }
         });
@@ -168,25 +170,20 @@ class AITSCParticleNetwork {
 
     drawParticles() {
         this.particles.forEach(particle => {
-            this.ctx.save();
-            this.ctx.translate(particle.x, particle.y);
-            this.ctx.rotate(particle.rotation);
-
-            // Draw mini-square instead of circle
+            // Draw square particles instead of circles
             this.ctx.fillStyle = this.hexToRgba(particle.color, this.config.opacity.particle);
-            this.ctx.fillRect(-particle.size / 2, -particle.size / 2, particle.size, particle.size);
-
-            this.ctx.restore();
-
-            // Slowly rotate squares for subtle animation
-            particle.rotation += 0.001;
+            this.ctx.fillRect(
+                particle.x - particle.size / 2,
+                particle.y - particle.size / 2,
+                particle.size,
+                particle.size
+            );
         });
     }
 
     drawConnections() {
-        // Adjust connection distance on mobile
         const isMobile = window.innerWidth < 768;
-        const connectionDistance = isMobile ? 80 : this.config.connectionDistance;
+        const connectionDistance = isMobile ? 100 : this.config.connectionDistance;
 
         for (let i = 0; i < this.particles.length; i++) {
             for (let j = i + 1; j < this.particles.length; j++) {
@@ -198,10 +195,10 @@ class AITSCParticleNetwork {
                 const distance = Math.sqrt(dx * dx + dy * dy);
 
                 if (distance < connectionDistance) {
+                    // Opacity based on distance
                     const opacity = (1 - distance / connectionDistance) * this.config.opacity.connection;
-
                     this.ctx.beginPath();
-                    this.ctx.strokeStyle = this.hexToRgba(this.config.colors.primary, opacity);
+                    this.ctx.strokeStyle = this.hexToRgba(this.config.colors.primary, opacity); // Use primary color for connections
                     this.ctx.lineWidth = 0.5;
                     this.ctx.moveTo(p1.x, p1.y);
                     this.ctx.lineTo(p2.x, p2.y);
@@ -219,37 +216,37 @@ class AITSCParticleNetwork {
     }
 
     animate() {
-        // Clear canvas
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-        // Update and draw (NO CONNECTIONS - just floating squares)
         this.updateParticles();
+        this.drawConnections(); // Draw connections first so particles are on top
         this.drawParticles();
 
-        // Continue animation
         this.animationId = requestAnimationFrame(() => this.animate());
     }
 
     destroy() {
-        // Stop animation
         if (this.animationId) {
             cancelAnimationFrame(this.animationId);
         }
-
-        // Remove event listeners
         window.removeEventListener('resize', this.handleResize);
         document.removeEventListener('mousemove', this.handleMouseMove);
         document.removeEventListener('mouseleave', this.handleMouseLeave);
-
-        // Remove canvas
         if (this.canvas && this.canvas.parentNode) {
             this.canvas.parentNode.removeChild(this.canvas);
         }
     }
 }
 
-// Auto-initialize on DOM ready
-document.addEventListener('DOMContentLoaded', function() {
+// Auto-initialize on DOM ready (HOMEPAGE ONLY)
+document.addEventListener('DOMContentLoaded', function () {
+    // Only run on homepage
+    const isHomepage = document.body.classList.contains('home');
+
+    if (!isHomepage) {
+        return; // Exit early if not homepage
+    }
+
     // Check if user prefers reduced motion
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 

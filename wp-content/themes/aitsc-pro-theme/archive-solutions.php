@@ -123,7 +123,7 @@ get_header();
 			<!-- CTA -->
 			<div class="text-center mt-16">
 				<a href="<?php echo esc_url(home_url('/contact')); ?>"
-					class="inline-flex items-center gap-2 px-8 py-4 bg-cyan-600 hover:bg-cyan-700 text-white font-semibold rounded-lg transition-colors shadow-lg">
+					class="aitsc-btn aitsc-btn--primary aitsc-btn--large">
 					Start Your Project
 					<span class="material-symbols-outlined">arrow_forward</span>
 				</a>

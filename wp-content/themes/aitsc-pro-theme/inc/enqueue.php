@@ -26,24 +26,27 @@ function aitsc_enqueue_styles()
 		null
 	);
 
-	// 2. CSS Variables (Design System) - Critical Dependency
-	wp_enqueue_style(
-		'aitsc-variables',
-		AITSC_THEME_URI . '/assets/css/variables.css',
-		array(),
-		AITSC_VERSION
-	);
-
-	// 3. Main Theme Stylesheet (Resets + Base + Components)
+	// 2. Main Theme Stylesheet (Resets + Base + Components)
+	// Note: CSS variables are embedded in style.css, not in separate file
 	wp_enqueue_style(
 		'aitsc-style',
 		get_stylesheet_uri(),
-		array('aitsc-variables'), // Depend on variables
+		array(),
 		AITSC_VERSION
 	);
 
 	// 3. AOS Animation Library (Optional, keeping for potential utility)
 	wp_enqueue_style('aos-css', 'https://unpkg.com/aos@2.3.4/dist/aos.css', array(), '2.3.4');
+
+	// 3. Single Blog Post Styles (Tailwind Compatibility)
+	if (is_singular('post')) {
+		wp_enqueue_style(
+			'aitsc-single-blog',
+			AITSC_THEME_URI . '/assets/css/single-blog-style.css',
+			array('aitsc-style'),
+			AITSC_VERSION
+		);
+	}
 }
 add_action('wp_enqueue_scripts', 'aitsc_enqueue_styles');
 

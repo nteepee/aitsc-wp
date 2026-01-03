@@ -11,22 +11,19 @@ if (!$specs || empty($specs)) {
 ?>
 
 <!-- TECHNICAL SPECIFICATIONS SECTION -->
-<section class="py-24 bg-[#0a0f1d] relative border-y border-white/5">
-    <div class="absolute inset-0 bg-grid-pattern opacity-[0.07] pointer-events-none"
-        style="mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);"></div>
-
+<section id="technical-specs" class="py-24 bg-white relative border-y border-gray-200">
     <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <div class="text-center mb-16">
             <div
-                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-600/20 text-blue-400 text-xs font-bold uppercase tracking-wider mb-4 border border-blue-600/20">
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-600 text-xs font-bold uppercase tracking-wider mb-4">
                 <span class="material-symbols-outlined text-sm">settings_suggest</span> Technical Specifications
             </div>
-            <h2 class="text-3xl md:text-4xl font-semibold text-white mb-4">
+            <h2 class="text-3xl md:text-4xl font-semibold text-slate-900 mb-4">
                 Precision Engineering Down to the Details
             </h2>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border-t border-l border-white/10">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border-t border-l border-gray-200">
             <?php foreach ($specs as $index => $spec): ?>
                 <?php
                 // Extract ACF fields
@@ -38,7 +35,7 @@ if (!$specs || empty($specs)) {
                     str_pad($index + 1, 2, '0', STR_PAD_LEFT) .
                     '</span>';
                 ?>
-                <div class="spec-cell border-r border-b border-white/10">
+                <div class="spec-cell border-r border-b border-gray-200">
                     <?php
                     // Render standardized card component
                     aitsc_render_card(array(
@@ -55,9 +52,9 @@ if (!$specs || empty($specs)) {
         </div>
 
         <div class="mt-16 text-center">
-            <p class="text-slate-400 mb-6 text-sm">Need detailed specifications?</p>
+            <p class="text-slate-600 mb-6 text-sm">Need detailed specifications?</p>
             <a href="<?php echo esc_url(site_url('/contact')); ?>"
-                class="inline-flex items-center gap-2 bg-blue-600/10 hover:bg-blue-600/20 text-blue-400 border border-blue-500/50 px-6 py-3 rounded-md text-sm font-medium transition-colors">
+                class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white border border-blue-600 px-6 py-3 rounded-md text-sm font-medium transition-colors">
                 <span class="material-symbols-outlined text-sm">download</span> Request Datasheet
             </a>
         </div>
@@ -65,17 +62,17 @@ if (!$specs || empty($specs)) {
 </section>
 
 <style>
-/* Dark theme spec card styling override */
+/* Light theme spec card styling override */
 .spec-cell .spec-card.aitsc-card {
-    background: transparent;
-    border: none;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
     border-radius: 0;
     padding: 2rem;
     transition: background-color 0.3s ease;
 }
 
 .spec-cell .spec-card.aitsc-card:hover {
-    background: rgba(255, 255, 255, 0.02);
+    background: #f1f5f9;
     transform: none;
     box-shadow: none;
 }
@@ -89,14 +86,14 @@ if (!$specs || empty($specs)) {
 }
 
 .spec-cell .spec-card .aitsc-card__title {
-    color: white;
+    color: #1e293b;
     font-size: 1.125rem;
     font-weight: 500;
     margin-bottom: 0.5rem;
 }
 
 .spec-cell .spec-card .aitsc-card__description {
-    color: rgb(148, 163, 184);
+    color: #64748b;
     font-size: 0.875rem;
     line-height: 1.6;
 }

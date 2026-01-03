@@ -17,9 +17,9 @@ get_header();
         'title' => 'Custom Electronics & <span class="text-cyan">Safety</span> Engineering',
         'subtitle' => 'FROM CONCEPT TO DEPLOYMENT. AUTOMOTIVE GRADE.',
         'description' => 'Transform your fleet safety vision into reality with end-to-end electronics engineering, from PCB design to ISO 26262 functional safety compliance.',
-        'cta_primary' => 'Explore Fleet Safe Pro',
-        'cta_primary_link' => home_url('/solutions/fleet-safe-pro'),
-        'cta_secondary' => 'Start Your Project',
+        'cta_primary' => 'Passenger Monitoring Systems',
+        'cta_primary_link' => home_url('/solutions/passenger-monitoring-systems/'),
+        'cta_secondary' => 'Get AISTC Consultation',
         'cta_secondary_link' => home_url('/contact'),
         'height' => 'large'
     ]);
@@ -38,7 +38,8 @@ get_header();
         <div class="aitsc-container">
             <div class="mb-12 text-center">
                 <h2 class="text-4xl md:text-5xl font-light text-slate-900 mb-4">Full-Stack Engineering Services</h2>
-                <p class="text-lg text-cyan-600 uppercase tracking-wider">From PCB Design to Functional Safety Compliance</p>
+                <p class="text-lg text-cyan-600 uppercase tracking-wider">From PCB Design to Functional Safety
+                    Compliance</p>
             </div>
 
             <div class="aitsc-grid aitsc-grid--4-col">
@@ -111,7 +112,8 @@ get_header();
     <section class="py-24 bg-slate-50" id="why-us">
         <div class="aitsc-container">
             <div class="mb-12 text-center">
-                <h2 class="text-4xl md:text-5xl font-light text-slate-900 mb-4">Engineering Expertise Meets Real-World Deployment</h2>
+                <h2 class="text-4xl md:text-5xl font-light text-slate-900 mb-4">Engineering Expertise Meets Real-World
+                    Deployment</h2>
                 <p class="text-lg text-cyan-600 uppercase tracking-wider">Why Choose AITSC</p>
             </div>
 
@@ -163,7 +165,8 @@ get_header();
         <div class="aitsc-container">
             <div class="mb-12 text-center">
                 <h2 class="text-4xl md:text-5xl font-light text-slate-900 mb-4">Latest Perspectives</h2>
-                <p class="text-lg text-cyan-600 uppercase tracking-wider">Insights from the forefront of transport tech</p>
+                <p class="text-lg text-cyan-600 uppercase tracking-wider">Insights from the forefront of transport tech
+                </p>
             </div>
 
             <div class="aitsc-grid aitsc-grid--3-col">
@@ -204,11 +207,11 @@ get_header();
 
             <div class="mt-8 text-center">
                 <a href="<?php echo esc_url(home_url('/blog')); ?>"
-                        class="inline-flex items-center gap-2 text-cyan-600 hover:text-cyan-700 font-semibold transition-colors"
-                        aria-label="View all insights and blog articles about electronics engineering and automotive safety">
-                        <span>View All Insights</span>
-                        <span class="material-symbols-outlined">arrow_forward</span>
-                    </a>
+                    class="inline-flex items-center gap-2 text-cyan-600 hover:text-cyan-700 font-semibold transition-colors"
+                    aria-label="View all insights and blog articles about electronics engineering and automotive safety">
+                    <span>View All Insights</span>
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                </a>
             </div>
         </div>
     </section>

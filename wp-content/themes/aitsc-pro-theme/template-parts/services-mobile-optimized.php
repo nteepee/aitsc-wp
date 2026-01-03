@@ -135,7 +135,7 @@ if ($show_case_studies) {
                         </p>
 
                         <!-- Service Features (Mobile Optimized) -->
-                        <?php $features = get_theme_mod("aitsc_service_{$index + 1}_features", array()); ?>
+                        <?php $features = get_theme_mod("aitsc_service_" . ($index + 1) . "_features", array()); ?>
                         <?php if (!empty($features) && is_array($features)) : ?>
                             <ul class="service-features-mobile">
                                 <?php foreach (array_slice($features, 0, 3) as $feature) : ?>

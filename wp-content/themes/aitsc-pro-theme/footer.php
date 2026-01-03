@@ -18,11 +18,13 @@
                     </a>
                 </div>
                 <p class="footer-desc">
-                    Custom electronics engineering for automotive and transport. From concept to deployment - we solve your most expensive technology problems without spending more.
+                    Custom electronics engineering for automotive and transport. From concept to deployment - we solve
+                    your most expensive technology problems without spending more.
                 </p>
                 <div class="footer-contact">
                     <p class="mb-2"><strong class="text-slate-900">1300 AITSC</strong> (1300 000 000)</p>
-                    <p><a href="mailto:info@aitsc.au" class="text-cyan-700 hover:text-cyan-900 focus:text-cyan-900">info@aitsc.au</a></p>
+                    <p><a href="mailto:info@aitsc.au"
+                            class="text-cyan-700 hover:text-cyan-900 focus:text-cyan-900">info@aitsc.au</a></p>
                 </div>
             </div>
 
@@ -30,10 +32,14 @@
             <div class="footer-col">
                 <h4 class="footer-heading">Engineering Services</h4>
                 <ul class="footer-menu">
-                    <li><a href="<?php echo esc_url(home_url('/solutions/passenger-monitoring-systems')); ?>">Passenger Monitoring Systems</a></li>
-                    <li><a href="<?php echo esc_url(home_url('/solutions/custom-pcb-design')); ?>">Custom PCB Design</a></li>
-                    <li><a href="<?php echo esc_url(home_url('/solutions/embedded-systems')); ?>">Embedded Systems</a></li>
-                    <li><a href="<?php echo esc_url(home_url('/solutions/automotive-electronics')); ?>">Automotive Electronics</a></li>
+                    <li><a href="<?php echo esc_url(home_url('/solutions/passenger-monitoring-systems')); ?>">Passenger
+                            Monitoring Systems</a></li>
+                    <li><a href="<?php echo esc_url(home_url('/solutions/custom-pcb-design')); ?>">Custom PCB Design</a>
+                    </li>
+                    <li><a href="<?php echo esc_url(home_url('/solutions/embedded-systems')); ?>">Embedded Systems</a>
+                    </li>
+                    <li><a href="<?php echo esc_url(home_url('/solutions/automotive-electronics')); ?>">Automotive
+                            Electronics</a></li>
                 </ul>
             </div>
 
@@ -42,7 +48,6 @@
                 <h4 class="footer-heading">Company</h4>
                 <ul class="footer-menu">
                     <li><a href="<?php echo esc_url(home_url('/about')); ?>">About Us</a></li>
-                    <li><a href="<?php echo esc_url(home_url('/case-studies')); ?>">Case Studies</a></li>
                     <li><a href="<?php echo esc_url(home_url('/contact')); ?>">Contact</a></li>
                 </ul>
             </div>
@@ -53,7 +58,7 @@
                 <ul class="footer-menu">
                     <li><a href="<?php echo esc_url(home_url('/contact')); ?>">Free Tech Review</a></li>
                     <li><a href="<?php echo get_post_type_archive_link('solutions'); ?>">All Solutions</a></li>
-                    <li><a href="<?php echo get_post_type_archive_link('case-studies'); ?>">Case Studies Archive</a></li>
+                    <li><a href="<?php echo get_post_type_archive_link('case-studies'); ?>">Case Studies</a></li>
                 </ul>
             </div>
 
@@ -101,20 +106,16 @@
         pointer-events: none;
         z-index: 0;
         background-image:
-            repeating-linear-gradient(
-                0deg,
+            repeating-linear-gradient(0deg,
                 transparent,
                 transparent 20px,
                 var(--aitsc-primary) 20px,
-                var(--aitsc-primary) 21px
-            ),
-            repeating-linear-gradient(
-                90deg,
+                var(--aitsc-primary) 21px),
+            repeating-linear-gradient(90deg,
                 transparent,
                 transparent 20px,
                 var(--aitsc-primary) 20px,
-                var(--aitsc-primary) 21px
-            );
+                var(--aitsc-primary) 21px);
         background-size: 40px 40px;
     }
 

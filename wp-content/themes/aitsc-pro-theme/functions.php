@@ -11,7 +11,7 @@ if (!defined('ABSPATH')) {
 }
 
 // Constants
-define('AITSC_VERSION', '3.0.6'); // Bump version
+define('AITSC_VERSION', '3.1.0'); // Paper Stack component
 define('AITSC_THEME_DIR', get_template_directory());
 define('AITSC_THEME_URI', get_template_directory_uri());
 
@@ -29,6 +29,8 @@ require_once AITSC_THEME_DIR . '/inc/aitsc-content-data.php';
 require_once AITSC_THEME_DIR . '/inc/components.php';
 require_once AITSC_THEME_DIR . '/inc/acf-fields.php';
 require_once AITSC_THEME_DIR . '/inc/acf-solution-fields.php';
+require_once AITSC_THEME_DIR . '/inc/acf-seo-fields.php';
+require_once AITSC_THEME_DIR . '/inc/paper-stack-config.php';
 
 /**
  * Check ACF Dependency
@@ -451,9 +453,20 @@ function aitsc_parse_markdown_lite($content)
 
 	return $content;
 }
-add_filter('the_content', 'aitsc_parse_markdown_lite');
-add_filter('the_excerpt', 'aitsc_parse_markdown_lite');
-add_filter('get_the_excerpt', 'aitsc_parse_markdown_lite');
+/**
+ * Temporary: Force Blog Permalink Structure to /blog/%postname%/
+ * Addresses user request to have /blog/ in the URL.
+ */
+function aitsc_force_blog_permalinks()
+{
+	if (get_option('permalink_structure') !== '/blog/%postname%/') {
+		global $wp_rewrite;
+		$wp_rewrite->set_permalink_structure('/blog/%postname%/');
+		flush_rewrite_rules();
+	}
+}
+add_action('init', 'aitsc_force_blog_permalinks');
+
 
 /**
  * End of functions.php

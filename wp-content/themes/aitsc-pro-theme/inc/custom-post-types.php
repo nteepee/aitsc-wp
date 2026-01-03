@@ -123,7 +123,7 @@ function aitsc_register_case_studies_cpt()
 		'show_ui' => true,
 		'show_in_menu' => true,
 		'query_var' => true,
-		'rewrite' => array('slug' => 'case-studies'),
+		'rewrite' => array('slug' => 'case-studies', 'with_front' => false),
 		'capability_type' => 'post',
 		'has_archive' => true,
 		'hierarchical' => false,
@@ -167,7 +167,7 @@ function aitsc_register_solutions_taxonomies()
 		'show_ui' => true,
 		'show_admin_column' => true,
 		'query_var' => true,
-		'rewrite' => array('slug' => 'solutions'),
+		'rewrite' => array('slug' => 'solutions', 'with_front' => false),
 		'show_in_rest' => true,
 	);
 
@@ -199,7 +199,7 @@ function aitsc_register_solutions_taxonomies()
 		'show_admin_column' => true,
 		'update_count_callback' => '_update_post_term_count',
 		'query_var' => true,
-		'rewrite' => array('slug' => 'solution-tag'),
+		'rewrite' => array('slug' => 'solution-tag', 'with_front' => false),
 		'show_in_rest' => true,
 	);
 
@@ -233,7 +233,7 @@ function aitsc_register_case_studies_taxonomies()
 		'show_ui' => true,
 		'show_admin_column' => true,
 		'query_var' => true,
-		'rewrite' => array('slug' => 'case-study-category'),
+		'rewrite' => array('slug' => 'case-study-category', 'with_front' => false),
 		'show_in_rest' => true,
 	);
 
@@ -265,7 +265,7 @@ function aitsc_register_case_studies_taxonomies()
 		'show_admin_column' => true,
 		'update_count_callback' => '_update_post_term_count',
 		'query_var' => true,
-		'rewrite' => array('slug' => 'case-study-tag'),
+		'rewrite' => array('slug' => 'case-study-tag', 'with_front' => false),
 		'show_in_rest' => true,
 	);
 
@@ -627,12 +627,13 @@ add_action('add_meta_boxes', 'aitsc_add_custom_meta_boxes');
 
 /**
  * Add CPT support to main query
+ * NOTE: Disabled to prevent Solutions/Case Studies from appearing in the standard Blog feed.
  */
-function aitsc_add_cpt_to_query($query)
-{
-	if (is_home() && $query->is_main_query()) {
-		$query->set('post_type', array('post', 'solutions', 'case_studies'));
-	}
-	return $query;
-}
-add_filter('pre_get_posts', 'aitsc_add_cpt_to_query');
+// function aitsc_add_cpt_to_query($query)
+// {
+// 	if (is_home() && $query->is_main_query()) {
+// 		$query->set('post_type', array('post', 'solutions', 'case_studies'));
+// 	}
+// 	return $query;
+// }
+// add_filter('pre_get_posts', 'aitsc_add_cpt_to_query');

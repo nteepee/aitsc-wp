@@ -58,8 +58,8 @@ get_header();
     <section class="section full-width bg-panel" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
         <div class="container">
             <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-white">Our Core Values</h2>
-                <p class="text-gray-400 mt-4">The principles that guide our work and partnerships.</p>
+                <h2 class="text-3xl font-bold text-slate-900">Our Core Values</h2>
+                <p class="text-slate-600 mt-4">The principles that guide our work and partnerships.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -68,8 +68,8 @@ get_header();
                         class="w-16 h-16 bg-blue-900/20 text-blue rounded-lg flex items-center justify-center mx-auto mb-6">
                         <span class="material-symbols-outlined text-3xl">shield</span>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2">Safety First</h3>
-                    <p class="text-gray-400">Our unwavering commitment is to the well-being of drivers and the public.
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Safety First</h3>
+                    <p class="text-slate-600">Our unwavering commitment is to the well-being of drivers and the public.
                     </p>
                 </div>
 
@@ -78,8 +78,8 @@ get_header();
                         class="w-16 h-16 bg-blue-900/20 text-blue rounded-lg flex items-center justify-center mx-auto mb-6">
                         <span class="material-symbols-outlined text-3xl">lightbulb</span>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2">Innovation</h3>
-                    <p class="text-gray-400">We continuously push the boundaries of technology to create smarter
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Innovation</h3>
+                    <p class="text-slate-600">We continuously push the boundaries of technology to create smarter
                         solutions.</p>
                 </div>
 
@@ -88,8 +88,8 @@ get_header();
                         class="w-16 h-16 bg-blue-900/20 text-blue rounded-lg flex items-center justify-center mx-auto mb-6">
                         <span class="material-symbols-outlined text-3xl">verified</span>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2">Integrity</h3>
-                    <p class="text-gray-400">We operate with transparency, honesty, and a strong sense of ethical
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Integrity</h3>
+                    <p class="text-slate-600">We operate with transparency, honesty, and a strong sense of ethical
                         responsibility.</p>
                 </div>
             </div>

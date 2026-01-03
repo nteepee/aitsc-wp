@@ -378,6 +378,67 @@ Version: 4.0.0 (White Theme - Harrison.ai Branding)
 	margin-top: 2rem;
 }
 
+/* --- Colors (Added for Template Compatibility) --- */
+.bg-white {
+	background-color: #ffffff !important;
+}
+
+.bg-slate-50 {
+	background-color: #f8fafc !important;
+}
+
+.bg-slate-100 {
+	background-color: #f1f5f9 !important;
+}
+
+.bg-slate-200 {
+	background-color: #e2e8f0 !important;
+}
+
+.bg-slate-900 {
+	background-color: #0f172a !important;
+}
+
+.bg-slate-950 {
+	background-color: #020617 !important;
+}
+
+.text-slate-900 {
+	color: #0f172a !important;
+}
+
+.text-slate-600 {
+	color: #475569 !important;
+}
+
+.text-slate-500 {
+	color: #64748b !important;
+}
+
+.text-slate-400 {
+	color: #94a3b8 !important;
+}
+
+.text-cyan-600 {
+	color: #0891b2 !important;
+}
+
+.text-cyan {
+	color: var(--aitsc-primary) !important;
+}
+
+.text-red-600 {
+	color: #dc2626 !important;
+}
+
+.border-slate-100 {
+	border-color: #f1f5f9 !important;
+}
+
+.border-slate-200 {
+	border-color: #e2e8f0 !important;
+}
+
 /* --- Text --- */
 .text-left {
 	text-align: left;
@@ -392,7 +453,7 @@ Version: 4.0.0 (White Theme - Harrison.ai Branding)
 }
 
 .text-white {
-	color: var(--aitsc-text-primary);
+	color: #FFFFFF !important;
 }
 
 .text-sm {
@@ -3236,7 +3297,7 @@ p a:hover {
 /* Button */
 .submit-btn {
 	background: var(--aitsc-primary) !important;
-	color: #000 !important;
+	color: #fff !important;
 	font-weight: 700 !important;
 	padding: 1rem 2rem !important;
 	border: none !important;
@@ -3839,7 +3900,7 @@ body.no-js {
 .aitsc-container {
 	max-width: var(--aitsc-container-width);
 	margin: 0 auto;
-	padding: 0 2rem;
+	padding: 2rem;
 }
 
 .aitsc-section__header {
@@ -3899,7 +3960,8 @@ body.no-js {
 .aitsc-solution-overview__text {
 	font-size: 1.15rem;
 	line-height: 1.8;
-	color: #ccc;
+	color: #334155;
+	font-weight: 500;
 	margin-bottom: 2rem;
 }
 
@@ -4224,5 +4286,34 @@ body.no-js {
 
 	.site-branding img {
 		max-height: 40px;
+	}
+}
+
+/* ==========================================================================
+   SECTION WRAPPERS (Phase A2 - Design Integration)
+   Background wrappers for component sections with proper spacing
+   ========================================================================== */
+.aitsc-section-wrapper {
+	position: relative;
+	overflow: hidden;
+	padding: 4rem 0;
+}
+
+.aitsc-section-wrapper--dark {
+	background: linear-gradient(180deg,
+			rgba(15, 23, 42, 0.9) 0%,
+			rgba(30, 41, 59, 0.8) 100%);
+}
+
+.aitsc-section-wrapper--gradient {
+	background: linear-gradient(180deg,
+			rgba(30, 41, 59, 0.8) 0%,
+			rgba(15, 23, 42, 0.9) 100%);
+}
+
+/* Responsive spacing */
+@media (min-width: 48rem) {
+	.aitsc-section-wrapper {
+		padding: 6rem 0;
 	}
 }

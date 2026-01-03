@@ -2,7 +2,7 @@
 define('DB_NAME', 'aitsctest_wp');
 define('DB_USER', 'root');
 define('DB_PASSWORD', 'root');
-define('DB_HOST', 'localhost:8889');
+define('DB_HOST', 'localhost:/Applications/MAMP/tmp/mysql/mysql.sock');
 define('DB_CHARSET', 'utf8mb4');
 define('DB_COLLATE', '');
 

@@ -149,6 +149,7 @@
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -479,6 +480,11 @@
         width: 100%;
     }
 
+    /* Fix button alignment - remove left margin when stacked vertically */
+    .aitsc-btn--secondary {
+        margin-left: 0 !important;
+    }
+
     .aitsc-hero--small {
         min-height: 250px;
     }
@@ -561,8 +567,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 15vh; 
-    padding-bottom: 10vh; 
+    padding-top: 15vh;
+    padding-bottom: 10vh;
     min-height: 100vh;
 }
 
@@ -603,11 +609,11 @@
 }
 
 .aitsc-hero--technical-product .aitsc-hero__ctas {
-    margin-top: 3rem; 
-    display: flex; 
-    gap: 1.5rem; 
-    justify-content: center; 
-    align-items: center; 
+    margin-top: 3rem;
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     animation: fadeIn 0.8s ease-out 0.6s forwards;
     opacity: 0;
@@ -615,20 +621,20 @@
 
 /* Data Ticker */
 .data-ticker-wrap {
-    position: absolute; 
-    bottom: 0; 
-    left: 0; 
-    width: 100%; 
-    overflow: hidden; 
-    background: rgba(0, 0, 0, 0.5); 
-    border-top: 1px solid var(--aitsc-grid-line); 
-    padding: 0.75rem 0; 
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.5);
+    border-top: 1px solid var(--aitsc-grid-line);
+    padding: 0.75rem 0;
     backdrop-filter: blur(5px);
 }
 
 .data-ticker {
-    display: flex; 
-    white-space: nowrap; 
+    display: flex;
+    white-space: nowrap;
     animation: ticker 35s linear infinite;
 }
 
@@ -643,36 +649,85 @@
 }
 
 @keyframes ticker {
-    0% { transform: translate3d(0, 0, 0); }
-    100% { transform: translate3d(-50%, 0, 0); }
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(-50%, 0, 0);
+    }
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Colors for Ticker */
-.text-green { color: var(--aitsc-accent); }
-.text-blue { color: var(--aitsc-secondary); }
+.text-green {
+    color: var(--aitsc-accent);
+}
+
+.text-blue {
+    color: var(--aitsc-secondary);
+}
 
 /* Responsive Adjustments */
 @media (max-width: 61.9375rem) {
-    .aitsc-hero--technical-product { padding-bottom: 12vh !important; }
-    .aitsc-hero--technical-product .aitsc-hero__title { font-size: clamp(2.5rem, 8vw, 6rem); }
+    .aitsc-hero--technical-product {
+        padding-bottom: 12vh !important;
+    }
+
+    .aitsc-hero--technical-product .aitsc-hero__title {
+        font-size: clamp(2.5rem, 8vw, 6rem);
+    }
 }
 
 @media (max-width: 47.9375rem) {
-    .aitsc-hero--technical-product { padding-bottom: 13vh !important; }
-    .aitsc-hero--technical-product .aitsc-hero__title { font-size: clamp(2rem, 8vw, 4rem); letter-spacing: -0.02em; }
-    .data-ticker-wrap { padding: 0.5rem 0 !important; }
-    .ticker-item { font-size: 0.65rem; margin-right: 2rem; }
+    .aitsc-hero--technical-product {
+        padding-bottom: 13vh !important;
+    }
+
+    .aitsc-hero--technical-product .aitsc-hero__title {
+        font-size: clamp(2rem, 8vw, 4rem);
+        letter-spacing: -0.02em;
+    }
+
+    .data-ticker-wrap {
+        padding: 0.5rem 0 !important;
+    }
+
+    .ticker-item {
+        font-size: 0.65rem;
+        margin-right: 2rem;
+    }
 }
 
 @media (max-width: 35.9375rem) {
-    .aitsc-hero--technical-product { min-height: 100vh !important; padding-top: 3rem !important; padding-bottom: 3rem !important; }
-    .aitsc-hero--technical-product .aitsc-hero__title { font-size: clamp(1.75rem, 8vw, 2.5rem); margin-bottom: 1rem; }
-    .aitsc-hero--technical-product .aitsc-hero__description { font-size: 0.95rem !important; }
-    .ticker-item { font-size: 0.55rem; margin-right: 1.5rem; }
-}
+    .aitsc-hero--technical-product {
+        min-height: 100vh !important;
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+    }
 
+    .aitsc-hero--technical-product .aitsc-hero__title {
+        font-size: clamp(1.75rem, 8vw, 2.5rem);
+        margin-bottom: 1rem;
+    }
+
+    .aitsc-hero--technical-product .aitsc-hero__description {
+        font-size: 0.95rem !important;
+    }
+
+    .ticker-item {
+        font-size: 0.55rem;
+        margin-right: 1.5rem;
+    }
+}

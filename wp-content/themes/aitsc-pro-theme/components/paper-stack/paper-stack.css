@@ -1,0 +1,165 @@
+/**
+ * Paper Stack Scroll Effect
+ * Universal section-by-section scroll animation
+ *
+ * @package AITSC_Pro_Theme
+ * @version 1.0.1
+ */
+
+/* ============================================================
+   BASE STYLES - Sections start invisible
+   ============================================================ */
+
+.paper-stack-wrapper {
+    position: relative;
+}
+
+/* All sections inside wrapper start hidden */
+.paper-stack-wrapper > section,
+.paper-stack-section {
+    opacity: 0;
+    transform: translateY(var(--ps-distance, 100px));
+    transition: opacity var(--ps-duration, 0.6s) var(--ps-easing, ease-out),
+                transform var(--ps-duration, 0.6s) var(--ps-easing, ease-out);
+    will-change: transform, opacity;
+}
+
+/* When visible, show the section */
+.paper-stack-wrapper > section.is-visible,
+.paper-stack-section.is-visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* ============================================================
+   ANIMATION TRIGGER
+   ============================================================ */
+
+/* When visible, show the section with animation */
+.paper-stack-wrapper > section.is-visible,
+.paper-stack-section.is-visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* ============================================================
+   RESPONSIVE BREAKPOINTS
+   ============================================================ */
+
+/* Mobile (0-767px) */
+@media (max-width: 767px) {
+    .paper-stack-wrapper > section,
+    .paper-stack-section {
+        --ps-distance: 50px;
+        --ps-duration: 0.4s;
+    }
+}
+
+/* Tablet (768-991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .paper-stack-wrapper > section,
+    .paper-stack-section {
+        --ps-distance: 75px;
+        --ps-duration: 0.5s;
+    }
+}
+
+/* Desktop (992px+) */
+@media (min-width: 992px) {
+    .paper-stack-wrapper > section,
+    .paper-stack-section {
+        --ps-distance: 100px;
+        --ps-duration: 0.6s;
+    }
+}
+
+/* Large Desktop (1200px+) */
+@media (min-width: 1200px) {
+    .paper-stack-wrapper > section,
+    .paper-stack-section {
+        --ps-distance: 120px;
+        --ps-duration: 0.7s;
+    }
+}
+
+/* ============================================================
+   VARIANTS
+   ============================================================ */
+
+/* Subtle */
+.paper-stack-wrapper--subtle > section {
+    --ps-distance: 30px;
+    --ps-duration: 0.3s;
+}
+
+/* Dramatic */
+.paper-stack-wrapper--dramatic > section {
+    --ps-distance: 150px;
+    --ps-duration: 0.8s;
+}
+
+/* Fast */
+.paper-stack-wrapper--fast > section {
+    --ps-duration: 0.3s;
+}
+
+/* Slow */
+.paper-stack-wrapper--slow > section {
+    --ps-duration: 1s;
+}
+
+/* ============================================================
+   STAGGERED DELAYS
+   ============================================================ */
+
+.paper-stack-wrapper > section:nth-child(1) { --ps-delay: 0s; }
+.paper-stack-wrapper > section:nth-child(2) { --ps-delay: 0.1s; }
+.paper-stack-wrapper > section:nth-child(3) { --ps-delay: 0.2s; }
+.paper-stack-wrapper > section:nth-child(4) { --ps-delay: 0.3s; }
+.paper-stack-wrapper > section:nth-child(5) { --ps-delay: 0.4s; }
+.paper-stack-wrapper > section:nth-child(n+6) { --ps-delay: 0.5s; }
+
+/* ============================================================
+   ACCESSIBILITY - REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    .paper-stack-wrapper > section,
+    .paper-stack-section {
+        --ps-distance: 0px !important;
+        --ps-duration: 0.001s !important;
+        animation: none !important;
+        transition: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
+/* ============================================================
+   DISABLED STATE
+   ============================================================ */
+
+.paper-stack-section--disabled {
+    --ps-distance: 0px !important;
+    --ps-duration: 0.001s !important;
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+/* ============================================================
+   PRINT STYLES
+   ============================================================ */
+
+@media print {
+    .paper-stack-wrapper > section,
+    .paper-stack-section {
+        --ps-distance: 0px !important;
+        --ps-duration: 0.001s !important;
+        animation: none !important;
+        transition: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
