@@ -19,7 +19,8 @@ if (!defined('ABSPATH')) {
  *
  * Loads all component PHP files for use in templates.
  */
-function aitsc_load_components() {
+function aitsc_load_components()
+{
     $component_dir = get_template_directory() . '/components';
 
     // Load card component
@@ -27,6 +28,9 @@ function aitsc_load_components() {
 
     // Load hero component
     require_once $component_dir . '/hero/hero-universal.php';
+
+    // Load hero solution page component (WorldQuant style)
+    require_once $component_dir . '/hero/hero-solution-page.php';
 
     // Load CTA component
     require_once $component_dir . '/cta/cta-block.php';
@@ -41,6 +45,15 @@ function aitsc_load_components() {
     require_once $component_dir . '/trust-bar/trust-bar.php';
     require_once $component_dir . '/logo-carousel/logo-carousel.php';
     require_once $component_dir . '/image-composition/image-composition.php';
+
+    // Load Steps component
+    require_once $component_dir . '/steps/steps-block.php';
+
+    // Load Tabs component
+    require_once $component_dir . '/tabs/tabs-block.php';
+
+    // Load Gallery component
+    require_once $component_dir . '/gallery/gallery-slider.php';
 }
 add_action('after_setup_theme', 'aitsc_load_components');
 
@@ -49,7 +62,8 @@ add_action('after_setup_theme', 'aitsc_load_components');
  *
  * Enqueues all component CSS files with proper dependencies and versioning.
  */
-function aitsc_enqueue_component_styles() {
+function aitsc_enqueue_component_styles()
+{
     $component_dir = get_template_directory_uri() . '/components';
     $component_path = get_template_directory() . '/components';
 
@@ -90,6 +104,17 @@ function aitsc_enqueue_component_styles() {
         wp_enqueue_style(
             'aitsc-component-hero-animations',
             $component_dir . '/hero/hero-animations.css',
+            array('aitsc-component-hero-variants'),
+            AITSC_VERSION
+        );
+    }
+
+    // Hero solution page component styles (WorldQuant style)
+    $hero_solution_css = $component_path . '/hero/hero-solution-page.css';
+    if (file_exists($hero_solution_css)) {
+        wp_enqueue_style(
+            'aitsc-component-hero-solution-page',
+            $component_dir . '/hero/hero-solution-page.css',
             array('aitsc-component-hero-variants'),
             AITSC_VERSION
         );
@@ -158,6 +183,39 @@ function aitsc_enqueue_component_styles() {
             AITSC_VERSION
         );
     }
+
+    // Steps component styles
+    $steps_css = $component_path . '/steps/steps-styles.css';
+    if (file_exists($steps_css)) {
+        wp_enqueue_style(
+            'aitsc-component-steps',
+            $component_dir . '/steps/steps-styles.css',
+            array(),
+            AITSC_VERSION
+        );
+    }
+
+    // Tabs component styles
+    $tabs_css = $component_path . '/tabs/tabs-styles.css';
+    if (file_exists($tabs_css)) {
+        wp_enqueue_style(
+            'aitsc-component-tabs',
+            $component_dir . '/tabs/tabs-styles.css',
+            array(),
+            AITSC_VERSION
+        );
+    }
+
+    // Gallery component styles
+    $gallery_css = $component_path . '/gallery/gallery-styles.css';
+    if (file_exists($gallery_css)) {
+        wp_enqueue_style(
+            'aitsc-component-gallery',
+            $component_dir . '/gallery/gallery-styles.css',
+            array(),
+            AITSC_VERSION
+        );
+    }
 }
 add_action('wp_enqueue_scripts', 'aitsc_enqueue_component_styles');
 
@@ -166,7 +224,8 @@ add_action('wp_enqueue_scripts', 'aitsc_enqueue_component_styles');
  *
  * Enqueues all component JavaScript files with proper dependencies.
  */
-function aitsc_enqueue_component_scripts() {
+function aitsc_enqueue_component_scripts()
+{
     $component_dir = get_template_directory_uri() . '/components';
     $component_path = get_template_directory() . '/components';
 
@@ -201,7 +260,8 @@ add_action('wp_enqueue_scripts', 'aitsc_enqueue_component_scripts');
  *
  * Required by components for icon display (Material Symbols Outlined).
  */
-function aitsc_enqueue_material_symbols() {
+function aitsc_enqueue_material_symbols()
+{
     wp_enqueue_style(
         'material-symbols-outlined',
         'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0',
@@ -218,16 +278,17 @@ add_action('wp_enqueue_scripts', 'aitsc_enqueue_material_symbols');
  */
 
 // Card shortcode
-function aitsc_card_shortcode($atts) {
+function aitsc_card_shortcode($atts)
+{
     $atts = shortcode_atts(array(
-        'variant'     => 'solid',
-        'title'       => '',
+        'variant' => 'solid',
+        'title' => '',
         'description' => '',
-        'link'        => '',
-        'icon'        => '',
-        'image'       => '',
-        'cta_text'    => __('Learn More', 'aitsc-pro-theme'),
-        'size'        => 'medium'
+        'link' => '',
+        'icon' => '',
+        'image' => '',
+        'cta_text' => __('Learn More', 'aitsc-pro-theme'),
+        'size' => 'medium'
     ), $atts);
 
     ob_start();
@@ -237,17 +298,18 @@ function aitsc_card_shortcode($atts) {
 add_shortcode('aitsc_card', 'aitsc_card_shortcode');
 
 // Hero shortcode
-function aitsc_hero_shortcode($atts) {
+function aitsc_hero_shortcode($atts)
+{
     $atts = shortcode_atts(array(
-        'variant'     => 'page',
-        'title'       => '',
-        'subtitle'    => '',
+        'variant' => 'page',
+        'title' => '',
+        'subtitle' => '',
         'description' => '',
         'cta_primary' => '',
         'cta_primary_link' => '',
         'cta_secondary' => '',
         'cta_secondary_link' => '',
-        'height'      => 'large'
+        'height' => 'large'
     ), $atts);
 
     ob_start();
@@ -257,10 +319,11 @@ function aitsc_hero_shortcode($atts) {
 add_shortcode('aitsc_hero', 'aitsc_hero_shortcode');
 
 // CTA shortcode
-function aitsc_cta_shortcode($atts) {
+function aitsc_cta_shortcode($atts)
+{
     $atts = shortcode_atts(array(
-        'variant'     => 'button',
-        'title'       => '',
+        'variant' => 'button',
+        'title' => '',
         'description' => '',
         'button_text' => '',
         'button_link' => ''
@@ -273,7 +336,8 @@ function aitsc_cta_shortcode($atts) {
 add_shortcode('aitsc_cta', 'aitsc_cta_shortcode');
 
 // Stats shortcode
-function aitsc_stats_shortcode($atts) {
+function aitsc_stats_shortcode($atts)
+{
     // Parse stats from JSON format
     $stats_json = isset($atts['stats']) ? $atts['stats'] : '';
 
@@ -290,7 +354,8 @@ function aitsc_stats_shortcode($atts) {
 add_shortcode('aitsc_stats', 'aitsc_stats_shortcode');
 
 // Testimonials shortcode
-function aitsc_testimonials_shortcode($atts) {
+function aitsc_testimonials_shortcode($atts)
+{
     $testimonials_json = isset($atts['testimonials']) ? $atts['testimonials'] : '';
 
     if (!empty($testimonials_json)) {
@@ -324,7 +389,8 @@ add_shortcode('aitsc_testimonials', 'aitsc_testimonials_shortcode');
  *     @type string $variant Card variant (glass|solid)
  * }
  */
-function aitsc_component_feature_box($args = []) {
+function aitsc_component_feature_box($args = [])
+{
     $defaults = [
         'icon' => 'check_circle',
         'title' => '',
@@ -383,7 +449,8 @@ function aitsc_component_feature_box($args = []) {
  *
  * @param array $specs Array of specification rows [label => value]
  */
-function aitsc_component_spec_table($specs = []) {
+function aitsc_component_spec_table($specs = [])
+{
     if (empty($specs)) {
         return;
     }
@@ -424,7 +491,8 @@ function aitsc_component_spec_table($specs = []) {
  *     @type string $form_shortcode Optional form shortcode
  * }
  */
-function aitsc_component_cta_section($args = []) {
+function aitsc_component_cta_section($args = [])
+{
     $defaults = [
         'title' => 'Ready to Get Started?',
         'description' => 'Contact us to discuss how our solutions can help your project',
@@ -456,11 +524,11 @@ function aitsc_component_cta_section($args = []) {
             <?php else: ?>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <a href="<?php echo esc_url($button_link); ?>"
-                       class="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors duration-200 text-center">
+                        class="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors duration-200 text-center">
                         <?php echo esc_html($button_text); ?>
                     </a>
                     <a href="<?php echo esc_url(home_url('/contact')); ?>"
-                       class="px-8 py-4 border-2 border-blue-600 text-blue-400 hover:bg-blue-600/10 font-semibold rounded-lg transition-all duration-200 text-center">
+                        class="px-8 py-4 border-2 border-blue-600 text-blue-400 hover:bg-blue-600/10 font-semibold rounded-lg transition-all duration-200 text-center">
                         Contact Us
                     </a>
                 </div>
@@ -478,7 +546,8 @@ function aitsc_component_cta_section($args = []) {
  *
  * @param int $post_id Case study post ID
  */
-function aitsc_component_case_study_card($post_id) {
+function aitsc_component_case_study_card($post_id)
+{
     if (!$post_id) {
         return;
     }
@@ -491,12 +560,12 @@ function aitsc_component_case_study_card($post_id) {
     $industry = get_post_meta($post_id, '_case_study_client_industry', true);
     ?>
 
-    <div class="bg-gradient-to-br from-blue-600/10 to-purple-600/10 border border-blue-600/20 rounded-xl overflow-hidden hover:border-blue-600/60 transition-all duration-300 group">
+    <div
+        class="bg-gradient-to-br from-blue-600/10 to-purple-600/10 border border-blue-600/20 rounded-xl overflow-hidden hover:border-blue-600/60 transition-all duration-300 group">
         <?php if ($thumbnail): ?>
             <div class="relative h-48 overflow-hidden">
-                <img src="<?php echo esc_url($thumbnail); ?>"
-                     alt="<?php echo esc_attr($title); ?>"
-                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                <img src="<?php echo esc_url($thumbnail); ?>" alt="<?php echo esc_attr($title); ?>"
+                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
             </div>
         <?php endif; ?>
 
@@ -521,7 +590,7 @@ function aitsc_component_case_study_card($post_id) {
             </div>
 
             <a href="<?php echo esc_url($permalink); ?>"
-               class="mt-4 inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors">
+                class="mt-4 inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors">
                 <span class="text-sm font-semibold">View Case Study</span>
                 <span class="material-symbols-outlined text-xl">arrow_forward</span>
             </a>

@@ -36,30 +36,53 @@ get_header();
 	while (have_posts()):
 		the_post();
 
-		// Hero Section - White Fullwidth Variant
-		$hero = get_field('hero_section', $solution_id);
-		if ($hero) {
-			aitsc_render_hero([
-				'variant' => 'white-fullwidth',
-				'title' => $hero['title'] ?? get_the_title($solution_id),
-				'subtitle' => $hero['subtitle'] ?? '',
-				'description' => $hero['description'] ?? '',
-				'cta_primary' => $hero['cta_text'] ?? 'Learn More',
-				'cta_primary_link' => $hero['cta_link'] ?? get_permalink($solution_id),
-				'cta_secondary' => $hero['cta_secondary_text'] ?? 'Contact Sales',
-				'cta_secondary_link' => $hero['cta_secondary_link'] ?? home_url('/contact'),
-				'image' => $hero['image'] ?? '',
-				'height' => 'large'
+		// Determine hero variant based on category
+		$terms = get_the_terms($solution_id, 'solution_category');
+		$use_worldquant_hero = false;
+		if ($terms && !is_wp_error($terms)) {
+			foreach ($terms as $term) {
+				if ($term->slug === 'passenger-monitoring-systems') {
+					$use_worldquant_hero = true;
+					break;
+				}
+			}
+		}
+
+		// Hero Section - Dynamic based on category
+		if ($use_worldquant_hero && function_exists('aitsc_render_hero_solution')) {
+			// WorldQuant-style hero for passenger monitoring systems
+			aitsc_render_hero_solution([
+				'variant' => 'solution-page',
+				'show_ticker' => false, // Enable ticker if ACF data exists
+				'animation' => true,
+				'post_id' => $solution_id
 			]);
 		} else {
-			// Fallback hero
-			aitsc_render_hero([
-				'variant' => 'white-fullwidth',
-				'title' => get_the_title($solution_id),
-				'subtitle' => 'TRANSPORT SAFETY SOLUTIONS',
-				'description' => get_the_excerpt($solution_id),
-				'height' => 'large'
-			]);
+			// White Fullwidth Hero for other solutions
+			$hero = get_field('hero_section', $solution_id);
+			if ($hero) {
+				aitsc_render_hero([
+					'variant' => 'white-fullwidth',
+					'title' => $hero['title'] ?? get_the_title($solution_id),
+					'subtitle' => $hero['subtitle'] ?? '',
+					'description' => $hero['description'] ?? '',
+					'cta_primary' => $hero['cta_text'] ?? 'Learn More',
+					'cta_primary_link' => $hero['cta_link'] ?? get_permalink($solution_id),
+					'cta_secondary' => $hero['cta_secondary_text'] ?? 'Contact Sales',
+					'cta_secondary_link' => $hero['cta_secondary_link'] ?? home_url('/contact'),
+					'image' => $hero['image'] ?? '',
+					'height' => 'large'
+				]);
+			} else {
+				// Fallback hero
+				aitsc_render_hero([
+					'variant' => 'white-fullwidth',
+					'title' => get_the_title($solution_id),
+					'subtitle' => 'TRANSPORT SAFETY SOLUTIONS',
+					'description' => get_the_excerpt($solution_id),
+					'height' => 'large'
+				]);
+			}
 		}
 
 		// Trust Bar

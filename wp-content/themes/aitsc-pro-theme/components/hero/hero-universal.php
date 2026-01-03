@@ -35,20 +35,21 @@ if (!defined('ABSPATH')) {
  * }
  * @return void
  */
-function aitsc_render_hero($args = array()) {
+function aitsc_render_hero($args = array())
+{
     $defaults = array(
-        'variant'            => 'page',
-        'title'              => '',
-        'subtitle'           => '',
-        'description'        => '',
-        'cta_primary'        => '',
-        'cta_primary_link'   => '',
-        'cta_secondary'      => '',
+        'variant' => 'page',
+        'title' => '',
+        'subtitle' => '',
+        'description' => '',
+        'cta_primary' => '',
+        'cta_primary_link' => '',
+        'cta_secondary' => '',
         'cta_secondary_link' => '',
-        'image'              => '',
-        'show_breadcrumb'    => false,
-        'height'             => 'large',
-        'custom_class'       => ''
+        'image' => '',
+        'show_breadcrumb' => false,
+        'height' => 'large',
+        'custom_class' => ''
     );
 
     $args = wp_parse_args($args, $defaults);
@@ -59,18 +60,18 @@ function aitsc_render_hero($args = array()) {
     }
 
     // Sanitize data
-    $variant            = esc_attr($args['variant']);
-    $title              = wp_kses_post($args['title']);
-    $subtitle           = wp_kses_post($args['subtitle']);
-    $description        = wp_kses_post($args['description']);
-    $cta_primary        = esc_html($args['cta_primary']);
-    $cta_primary_link   = esc_url($args['cta_primary_link']);
-    $cta_secondary      = esc_html($args['cta_secondary']);
+    $variant = esc_attr($args['variant']);
+    $title = wp_kses_post($args['title']);
+    $subtitle = wp_kses_post($args['subtitle']);
+    $description = wp_kses_post($args['description']);
+    $cta_primary = esc_html($args['cta_primary']);
+    $cta_primary_link = esc_url($args['cta_primary_link']);
+    $cta_secondary = esc_html($args['cta_secondary']);
     $cta_secondary_link = esc_url($args['cta_secondary_link']);
-    $image              = esc_url($args['image']);
-    $show_breadcrumb    = (bool) $args['show_breadcrumb'];
-    $height             = esc_attr($args['height']);
-    $custom_class       = esc_attr($args['custom_class']);
+    $image = esc_url($args['image']);
+    $show_breadcrumb = (bool) $args['show_breadcrumb'];
+    $height = esc_attr($args['height']);
+    $custom_class = esc_attr($args['custom_class']);
 
     // Generate ARIA labels for CTA buttons (WCAG 2.1 AA compliance)
     $cta_primary_aria_label = '';
@@ -207,14 +208,15 @@ function aitsc_render_hero($args = array()) {
  *
  * @return void
  */
-function aitsc_breadcrumb() {
+function aitsc_breadcrumb()
+{
     if (is_front_page()) {
         return;
     }
 
     $breadcrumbs = array();
     $breadcrumbs[] = array(
-        'url'  => home_url('/'),
+        'url' => home_url('/'),
         'text' => __('Home', 'aitsc-pro-theme')
     );
 
@@ -222,7 +224,7 @@ function aitsc_breadcrumb() {
     if (is_post_type_archive()) {
         $post_type = get_post_type();
         $breadcrumbs[] = array(
-            'url'  => '',
+            'url' => '',
             'text' => post_type_archive_title('', false)
         );
     }
@@ -235,14 +237,14 @@ function aitsc_breadcrumb() {
             $post_type_obj = get_post_type_object($post_type);
             if ($post_type_obj && $post_type_obj->has_archive) {
                 $breadcrumbs[] = array(
-                    'url'  => get_post_type_archive_link($post_type),
+                    'url' => get_post_type_archive_link($post_type),
                     'text' => $post_type_obj->labels->name
                 );
             }
         }
 
         $breadcrumbs[] = array(
-            'url'  => '',
+            'url' => '',
             'text' => get_the_title()
         );
     }
