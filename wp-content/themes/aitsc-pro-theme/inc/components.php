@@ -54,6 +54,12 @@ function aitsc_load_components()
 
     // Load Gallery component
     require_once $component_dir . '/gallery/gallery-slider.php';
+
+    // Load Problem-Solution component (Phase 2)
+    require_once $component_dir . '/problem-solution/problem-solution-block.php';
+
+    // Load Related Pages navigation (Phase 2)
+    require_once $component_dir . '/navigation/related-pages.php';
 }
 add_action('after_setup_theme', 'aitsc_load_components');
 
@@ -216,6 +222,28 @@ function aitsc_enqueue_component_styles()
             AITSC_VERSION
         );
     }
+
+    // Problem-Solution component styles (Phase 2)
+    $problem_solution_css = $component_path . '/problem-solution/problem-solution-block.css';
+    if (file_exists($problem_solution_css)) {
+        wp_enqueue_style(
+            'aitsc-component-problem-solution',
+            $component_dir . '/problem-solution/problem-solution-block.css',
+            array(),
+            AITSC_VERSION
+        );
+    }
+
+    // Related Pages navigation styles (Phase 2)
+    $related_pages_css = $component_path . '/navigation/related-pages.css';
+    if (file_exists($related_pages_css)) {
+        wp_enqueue_style(
+            'aitsc-component-related-pages',
+            $component_dir . '/navigation/related-pages.css',
+            array(),
+            AITSC_VERSION
+        );
+    }
 }
 add_action('wp_enqueue_scripts', 'aitsc_enqueue_component_styles');
 
@@ -247,6 +275,18 @@ function aitsc_enqueue_component_scripts()
         wp_enqueue_script(
             'aitsc-component-testimonial',
             $component_dir . '/testimonial/carousel.js',
+            array(),
+            AITSC_VERSION,
+            true
+        );
+    }
+
+    // Problem-Solution animations script (Phase 2)
+    $problem_solution_js = $component_path . '/problem-solution/problem-solution-animations.js';
+    if (file_exists($problem_solution_js)) {
+        wp_enqueue_script(
+            'aitsc-component-problem-solution-animations',
+            $component_dir . '/problem-solution/problem-solution-animations.js',
             array(),
             AITSC_VERSION,
             true

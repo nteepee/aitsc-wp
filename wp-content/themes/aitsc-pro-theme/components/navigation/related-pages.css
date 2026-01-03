@@ -1,0 +1,343 @@
+/**
+ * Related Pages Navigation Component Styles
+ *
+ * Interactive card grid with hover previews and smooth transitions
+ *
+ * @package AITSC_Pro_Theme
+ * @subpackage Components
+ * @since 3.3.0
+ */
+
+/* ========================================
+   SECTION BASE
+   ======================================== */
+
+.aitsc-related-pages {
+    padding: 6rem 0;
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.5) 0%, rgba(30, 41, 59, 0.3) 100%);
+    position: relative;
+}
+
+.aitsc-related-pages::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(59, 130, 246, 0.5) 50%,
+        transparent 100%
+    );
+}
+
+/* ========================================
+   CARD GRID
+   ======================================== */
+
+.aitsc-related-pages__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+/* ========================================
+   RELATED CARD - CREATIVE DESIGN
+   ======================================== */
+
+.aitsc-related-card {
+    position: relative;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.aitsc-related-pages.visible .aitsc-related-card {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.aitsc-related-card[data-animation-delay="100"] {
+    animation-delay: 0.1s;
+}
+
+.aitsc-related-card[data-animation-delay="200"] {
+    animation-delay: 0.2s;
+}
+
+.aitsc-related-card[data-animation-delay="300"] {
+    animation-delay: 0.3s;
+}
+
+.aitsc-related-card[data-animation-delay="400"] {
+    animation-delay: 0.4s;
+}
+
+.aitsc-related-card[data-animation-delay="500"] {
+    animation-delay: 0.5s;
+}
+
+.aitsc-related-card[data-animation-delay="600"] {
+    animation-delay: 0.6s;
+}
+
+.aitsc-related-card__link {
+    display: block;
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.6) 0%, rgba(15, 23, 42, 0.8) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    overflow: hidden;
+    text-decoration: none;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.aitsc-related-card__link:hover {
+    transform: translateY(-12px);
+    border-color: rgba(59, 130, 246, 0.4);
+    box-shadow: 0 24px 60px rgba(59, 130, 246, 0.25),
+                0 0 40px rgba(59, 130, 246, 0.15) inset;
+}
+
+/* Glow effect on hover */
+.aitsc-related-card__link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 0%,
+        rgba(59, 130, 246, 0.15) 0%,
+        transparent 50%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.aitsc-related-card__link:hover::before {
+    opacity: 1;
+}
+
+/* Badge */
+.aitsc-related-card__badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(59, 130, 246, 0.9);
+    color: #fff;
+    padding: 0.375rem 0.875rem;
+    border-radius: 20px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    z-index: 3;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    transition: all 0.3s ease;
+}
+
+.aitsc-related-card__link:hover .aitsc-related-card__badge {
+    background: rgba(96, 165, 250, 1);
+    transform: scale(1.05);
+}
+
+/* Image container */
+.aitsc-related-card__image {
+    position: relative;
+    width: 100%;
+    height: 12rem;
+    overflow: hidden;
+    background: rgba(15, 23, 42, 0.9);
+}
+
+.aitsc-related-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.aitsc-related-card__link:hover .aitsc-related-card__image img {
+    transform: scale(1.1);
+    filter: brightness(1.1);
+}
+
+/* Image overlay */
+.aitsc-related-card__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg,
+        transparent 0%,
+        rgba(15, 23, 42, 0.8) 100%
+    );
+    opacity: 0.6;
+    transition: opacity 0.4s ease;
+}
+
+.aitsc-related-card__link:hover .aitsc-related-card__overlay {
+    opacity: 0.3;
+}
+
+/* Content area */
+.aitsc-related-card__content {
+    padding: 1.75rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    position: relative;
+    z-index: 2;
+}
+
+.aitsc-related-card__title {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #fff;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.aitsc-related-card__link:hover .aitsc-related-card__title {
+    color: #93c5fd;
+}
+
+.aitsc-related-card__title .material-symbols-outlined {
+    font-size: 1.25rem;
+    transition: transform 0.3s ease;
+}
+
+.aitsc-related-card__link:hover .aitsc-related-card__title .material-symbols-outlined {
+    transform: translateX(4px);
+}
+
+.aitsc-related-card__excerpt {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #cbd5e1;
+    margin: 0;
+}
+
+/* ========================================
+   CTA SECTION
+   ======================================== */
+
+.aitsc-related-pages__cta {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.aitsc-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.aitsc-btn--primary {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: #fff;
+    border: 2px solid transparent;
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+}
+
+.aitsc-btn--primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(59, 130, 246, 0.6);
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    color: #fff;
+}
+
+.aitsc-btn .material-symbols-outlined {
+    font-size: 1.25rem;
+    transition: transform 0.3s ease;
+}
+
+.aitsc-btn:hover .material-symbols-outlined {
+    transform: translateX(4px);
+}
+
+/* ========================================
+   RESPONSIVE BREAKPOINTS
+   ======================================== */
+
+/* Tablet (768-991px) */
+@media (max-width: 61.9375rem) {
+    .aitsc-related-pages {
+        padding: 4rem 0;
+    }
+
+    .aitsc-related-pages__grid {
+        grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+        gap: 1.5rem;
+    }
+}
+
+/* Phablet (576-767px) */
+@media (max-width: 47.9375rem) {
+    .aitsc-related-pages {
+        padding: 3rem 0;
+    }
+
+    .aitsc-related-pages__grid {
+        grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+        gap: 1.25rem;
+    }
+
+    .aitsc-related-card__content {
+        padding: 1.5rem;
+    }
+
+    .aitsc-related-card__title {
+        font-size: 1.125rem;
+    }
+}
+
+/* Mobile (0-575px) */
+@media (max-width: 35.9375rem) {
+    .aitsc-related-pages__grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .aitsc-related-card__image {
+        height: 10rem;
+    }
+
+    .aitsc-related-card__content {
+        padding: 1.25rem;
+    }
+
+    .aitsc-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 0.875rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
