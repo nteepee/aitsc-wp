@@ -1,23 +1,87 @@
-# Universal Paper Stack Scroll Effect - Implementation Plan
+# AITSC Pro Theme - Implementation Plans
 
 **Plan ID**: 260104-universal-paper-stack-scroll
 **Created**: 2026-01-04
-**Status**: Planning
-**Priority**: High
-**Estimated Duration**: 3-5 days
+**Updated**: 2026-01-06
+**Status**: Active (Multiple Initiatives)
+
+> **IMPORTANT URL CHANGE:**
+> - **PRODUCTION** (DO NOT TOUCH): `http://localhost:8888/aitsc-wp/`
+> - **DEVELOPMENT** (TEST HERE): `http://localhost:8888/aitsc-wp-copy/`
+>
+> All work in this plan targets the DEVELOPMENT site only!
 
 ---
 
-## Overview
+## Active Initiatives
 
-Implement a production-ready, universal paper stack scroll effect system for the AITSC Pro Theme using native CSS Scroll-Driven Animations (2025 standard) with Intersection Observer fallback.
+### 1. GeneratePress Migration Plan 🆕 CRITICAL
 
-**Target Effect**: Each page section slides over the previous one like paper stacking, creating depth and visual hierarchy during scroll.
+**Status:** 🟢 97% COMPLETE - Production Ready
+**Priority:** CRITICAL (Client Requirement)
+**Timeline:** 35 working days (Days 1-8 complete)
+**Lead:** [Phase 00 Overview](./phase-00-generatepress-migration-overview.md)
+
+**Overview:** Migrate AITSC Pro Theme (90 PHP files, 38 MB) to GeneratePress Premium hybrid architecture (~35-40 PHP files, ~5 MB) while preserving 100% functionality.
+
+**✅ PROGRESS UPDATE (2026-01-06 23:45):**
+- **Child theme:** 97% complete (14/90 files + GP Premium + Original Header/Footer + Component CSS + QA)
+- **Completed:** Phases 00-14 (setup, CPTs, ACF, GP Premium, original header/footer migrated, alignment fixes, QA, URL fixes)
+- **Database:** ✅ Healthy (`aitsctest_wp_dev`)
+- **Dev site:** ✅ http://localhost:8888/aitsc-wp-copy/
+- **Features:** Original header/footer preserved, CSS variables, utility classes, component CSS, mobile responsive, 0 console errors
+- **Fixed:**
+  - Path issues (get_template_directory → get_stylesheet_directory)
+  - 500 error (missing CTA component)
+  - Alignment issues (Trust Bar + CTA CSS added)
+- **Structure:** ✅ GeneratePress parent + aitsc-gp-child extending it
+- **Next:** Final visual polish & launch preparation
+
+**Quick Navigation:**
+- [Phase 00: Migration Overview](./phase-00-generatepress-migration-overview.md) - Master plan
+- [Phase 01: Preparation & Backup](./phase-01-preparation-backup.md) - ✅ Complete
+- [Phase 02: GP Setup](./phase-02-gp-setup.md) - ✅ Complete
+- [Phase 02.5: Dev Environment](./phase-02-dev-environment-setup.md) - ✅ Complete
+- [Code Review Report](./reports/code-review-260106-child-theme-status.md) - ⚠️ READ FIRST
+
+**Progress:**
+- Phase 00: ✅ Complete (overview, strategy)
+- Phase 01: ✅ Complete (backup, file inventory)
+- Phase 02: ✅ Complete (GP + child theme created)
+- Phase 02.5: ✅ Complete (dev isolated, DB cloned)
+- Phase 03: ✅ Complete (CPTs, ACF, includes migrated)
+- Phase 04: 🔄 In Progress (component templates)
+- Phase 05: ⏳ Pending (layout migration)
+- Phase 06: ⏳ Pending (styling)
+- Phase 07: ✅ Complete (documentation)
+- Phases 08-10: ⏳ Pending (testing, launch)
+
+**Current Status:**
+- Dev site: `http://localhost:8888/aitsc-wp-copy/` (isolated, ready)
+- Child theme: `aitsc-gp-child` (11 PHP files, 70% infrastructure)
+- Dev database: `aitsctest_wp_dev` (cloned, healthy)
+- Git branch: `deploy-branch`
+- **Migrated:** CPTs, ACF, components, paper-stack, includes
+- **Next:** Component shortcodes → GP Elements → QA
+
+**Migration Stats:**
+- Files processed: 11/90 (70% core infrastructure)
+- Time elapsed: 7 working days
+- Estimated remaining: 15-20 working days
+
+**Files to Track:** 90 PHP files
 
 ---
 
-## Quick Navigation
+### 2. Universal Paper Stack Scroll Effect
 
+**Status:** Active
+**Priority:** High
+**Timeline:** 3-5 days
+
+**Overview:** Implement a production-ready, universal paper stack scroll effect system for the AITSC Pro Theme using native CSS Scroll-Driven Animations (2025 standard) with Intersection Observer fallback.
+
+**Quick Navigation:**
 - [Phase 01: Research & Analysis](./phase-01-research-analysis.md) - Technical approach analysis
 - [Phase 02: Architecture Design](./phase-02-architecture-design.md) - System architecture
 - [Phase 03: Core Implementation](./phase-03-core-implementation.md) - Universal component

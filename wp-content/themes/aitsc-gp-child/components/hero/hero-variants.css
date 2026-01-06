@@ -1,0 +1,733 @@
+/**
+ * Universal Hero Component - Variants
+ *
+ * @package AITSC_Pro_Theme
+ * @subpackage Components
+ * @since 3.1.0
+ */
+
+/* ==========================================================================
+   Hero Component - Base Styles
+   ========================================================================== */
+
+.aitsc-hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* ==========================================================================
+   Variant: Homepage (Large hero with particle background)
+   ========================================================================== */
+
+.aitsc-hero--homepage {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #001a33 0%, #005cb2 100%);
+    color: #ffffff;
+    text-align: center;
+}
+
+.aitsc-hero--homepage .aitsc-hero__content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   Variant: Page (Standard page hero with gradient)
+   ========================================================================== */
+
+.aitsc-hero--page {
+    background: linear-gradient(180deg, #f5f7fa 0%, #ffffff 100%);
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.aitsc-hero--page .aitsc-hero__title {
+    color: #001a33;
+}
+
+.aitsc-hero--page .aitsc-hero__subtitle {
+    color: #005cb2;
+}
+
+/* ==========================================================================
+   Variant: Pillar (Product pillar page with CTA)
+   ========================================================================== */
+
+.aitsc-hero--pillar {
+    background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
+    border-bottom: 3px solid #005cb2;
+}
+
+.aitsc-hero--pillar .aitsc-hero__content {
+    text-align: left;
+    max-width: 700px;
+}
+
+.aitsc-hero--pillar .aitsc-hero__title {
+    font-size: 2.5rem;
+}
+
+/* ==========================================================================
+   Variant: Minimal (Simple title + breadcrumb)
+   ========================================================================== */
+
+.aitsc-hero--minimal {
+    background: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 2rem 0;
+}
+
+.aitsc-hero--minimal .aitsc-hero__subtitle,
+.aitsc-hero--minimal .aitsc-hero__description,
+.aitsc-hero--minimal .aitsc-hero__ctas {
+    display: none;
+}
+
+/* ==========================================================================
+   Heights: Small, Medium, Large, Full
+   ========================================================================== */
+
+.aitsc-hero--small {
+    min-height: 300px;
+}
+
+.aitsc-hero--medium {
+    min-height: 450px;
+}
+
+.aitsc-hero--large {
+    min-height: 600px;
+}
+
+.aitsc-hero--full {
+    min-height: 100vh;
+}
+
+/* ==========================================================================
+   Hero Elements
+   ========================================================================== */
+
+.aitsc-hero__container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: var(--aitsc-container-width, 1200px);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.aitsc-hero__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 26, 51, 0.7);
+    z-index: 1;
+}
+
+.aitsc-hero__particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.aitsc-hero__content {
+    position: relative;
+    z-index: 3;
+    animation: heroFadeIn 0.8s ease-out;
+}
+
+@keyframes heroFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.aitsc-hero__subtitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+}
+
+.aitsc-hero--homepage .aitsc-hero__subtitle {
+    color: #00d4ff;
+}
+
+.aitsc-hero__title {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: inherit;
+}
+
+.aitsc-hero__description {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+}
+
+.aitsc-hero__ctas {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.aitsc-hero--pillar .aitsc-hero__ctas {
+    justify-content: flex-start;
+}
+
+/* ==========================================================================
+   Background Image Support
+   ========================================================================== */
+
+.aitsc-hero[style*="background-image"] {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* ==========================================================================
+   Breadcrumb Navigation
+   ========================================================================== */
+
+.aitsc-hero__breadcrumb {
+    margin-bottom: 1.5rem;
+}
+
+.aitsc-breadcrumb {
+    display: flex;
+    align-items: center;
+}
+
+.aitsc-breadcrumb__list {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.aitsc-breadcrumb__item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.aitsc-breadcrumb__link {
+    color: #005cb2;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.aitsc-breadcrumb__link:hover {
+    color: #001a33;
+    text-decoration: underline;
+}
+
+.aitsc-breadcrumb__current {
+    color: #666;
+    font-weight: 600;
+}
+
+.aitsc-breadcrumb__separator {
+    color: #999;
+}
+
+/* ==========================================================================
+   Button Styles (Hero CTAs)
+   ========================================================================== */
+
+.aitsc-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    border: none;
+}
+
+.aitsc-btn--primary {
+    background: linear-gradient(135deg, #005cb2, #001a33);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 92, 178, 0.3);
+}
+
+.aitsc-btn--primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 92, 178, 0.4);
+}
+
+.aitsc-btn--secondary {
+    background: transparent;
+    color: #005cb2;
+    border: 2px solid #005cb2;
+}
+
+.aitsc-btn--secondary:hover {
+    background: #005cb2;
+    color: #ffffff;
+}
+
+.aitsc-btn--large {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+}
+
+/* ==========================================================================
+   WHITE THEME VARIANTS (Harrison.ai Style)
+   ========================================================================== */
+
+/* White Fullwidth Hero - Full-width photo background with centered overlay text */
+.aitsc-hero--white-fullwidth {
+    min-height: 70vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.aitsc-hero--white-fullwidth::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.6) 100%);
+    z-index: 1;
+}
+
+.aitsc-hero--white-fullwidth .aitsc-hero__container {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    text-align: center;
+}
+
+.aitsc-hero--white-fullwidth .aitsc-hero__content {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 3rem;
+    border-radius: var(--aitsc-radius-lg, 4px);
+    box-shadow: var(--aitsc-shadow-xl);
+}
+
+.aitsc-hero--white-fullwidth .aitsc-hero__subtitle {
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--aitsc-primary, #005cb2);
+    margin-bottom: 1rem;
+}
+
+.aitsc-hero--white-fullwidth .aitsc-hero__title {
+    font-size: 2.75rem;
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--aitsc-text-primary, #1E293B);
+    margin-bottom: 1.5rem;
+}
+
+.aitsc-hero--white-fullwidth .aitsc-hero__description {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--aitsc-text-secondary, #475569);
+    margin-bottom: 2rem;
+}
+
+.aitsc-hero--white-fullwidth .aitsc-hero__ctas {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.aitsc-hero--white-fullwidth .aitsc-btn--primary {
+    background: var(--aitsc-primary, #005cb2);
+    color: var(--aitsc-text-on-primary, #FFFFFF);
+    padding: 1rem 2rem;
+    border-radius: var(--aitsc-radius-lg, 4px);
+    font-weight: 600;
+    box-shadow: var(--aitsc-shadow-md);
+    transition: all var(--aitsc-transition-fast);
+}
+
+.aitsc-hero--white-fullwidth .aitsc-btn--primary:hover {
+    background: var(--aitsc-primary-hover, #004a94);
+    transform: translateY(-2px);
+    box-shadow: var(--aitsc-shadow-lg);
+}
+
+.aitsc-hero--white-fullwidth .aitsc-btn--secondary {
+    background: transparent;
+    color: var(--aitsc-primary, #005cb2);
+    border: 2px solid var(--aitsc-primary, #005cb2);
+    padding: 1rem 2rem;
+    border-radius: var(--aitsc-radius-lg, 4px);
+    font-weight: 600;
+    transition: all var(--aitsc-transition-fast);
+}
+
+.aitsc-hero--white-fullwidth .aitsc-btn--secondary:hover {
+    background: var(--aitsc-primary, #005cb2);
+    color: var(--aitsc-text-on-primary, #FFFFFF);
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+
+@media (max-width: 991px) {
+    .aitsc-hero__title {
+        font-size: 2.5rem;
+    }
+
+    .aitsc-hero--pillar .aitsc-hero__title {
+        font-size: 2rem;
+    }
+
+    .aitsc-hero__description {
+        font-size: 1.1rem;
+    }
+
+    .aitsc-hero--medium {
+        min-height: 350px;
+    }
+
+    .aitsc-hero--large {
+        min-height: 450px;
+    }
+
+    /* White fullwidth hero responsive adjustments */
+    .aitsc-hero--white-fullwidth {
+        min-height: 60vh;
+    }
+
+    .aitsc-hero--white-fullwidth .aitsc-hero__content {
+        padding: 2.5rem;
+    }
+
+    .aitsc-hero--white-fullwidth .aitsc-hero__title {
+        font-size: 2.25rem;
+    }
+
+    .aitsc-hero--white-fullwidth .aitsc-hero__description {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .aitsc-hero__container {
+        padding: 0 1rem;
+    }
+
+    .aitsc-hero__title {
+        font-size: 2rem;
+    }
+
+    .aitsc-hero--pillar .aitsc-hero__title {
+        font-size: 1.75rem;
+    }
+
+    .aitsc-hero__subtitle {
+        font-size: 1rem;
+        letter-spacing: 1px;
+    }
+
+    .aitsc-hero__description {
+        font-size: 1rem;
+    }
+
+    .aitsc-hero__ctas {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .aitsc-btn {
+        width: 100%;
+    }
+
+    /* Fix button alignment - remove left margin when stacked vertically */
+    .aitsc-btn--secondary {
+        margin-left: 0 !important;
+    }
+
+    .aitsc-hero--small {
+        min-height: 250px;
+    }
+
+    .aitsc-hero--medium {
+        min-height: 300px;
+    }
+
+    .aitsc-hero--large {
+        min-height: 350px;
+    }
+
+    .aitsc-hero__breadcrumb {
+        margin-bottom: 1rem;
+    }
+
+    .aitsc-breadcrumb__list {
+        font-size: 0.85rem;
+    }
+
+    /* White fullwidth hero mobile adjustments */
+    .aitsc-hero--white-fullwidth {
+        min-height: 50vh;
+    }
+
+    .aitsc-hero--white-fullwidth .aitsc-hero__content {
+        padding: 2rem 1.5rem;
+    }
+
+    .aitsc-hero--white-fullwidth .aitsc-hero__title {
+        font-size: 1.75rem;
+    }
+
+    .aitsc-hero--white-fullwidth .aitsc-hero__description {
+        font-size: 0.9375rem;
+    }
+
+    .aitsc-hero--white-fullwidth .aitsc-hero__ctas {
+        flex-direction: column;
+    }
+
+    .aitsc-hero--white-fullwidth .aitsc-btn--primary,
+    .aitsc-hero--white-fullwidth .aitsc-btn--secondary {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 575px) {
+    .aitsc-hero__title {
+        font-size: 1.75rem;
+    }
+
+    .aitsc-hero--homepage .aitsc-hero__title {
+        font-size: 1.5rem;
+    }
+}
+
+/* ==========================================================================
+   Accessibility
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .aitsc-hero__content {
+        animation: none;
+    }
+
+    .aitsc-btn {
+        transition: none;
+    }
+}
+
+/* ==========================================================================
+   Variant: Technical Product (WorldQuant Style)
+   ========================================================================== */
+
+.aitsc-hero--technical-product {
+    position: relative;
+    overflow: visible;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 15vh;
+    padding-bottom: 10vh;
+    min-height: 100vh;
+}
+
+.aitsc-hero--technical-product .aitsc-hero__title {
+    font-family: var(--aitsc-font-heading);
+    font-weight: 200;
+    font-size: clamp(2.5rem, 10vw, 8rem);
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+    color: #fff;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+    margin-bottom: 2rem;
+    animation: fadeIn 1s ease-out forwards;
+}
+
+.aitsc-hero--technical-product .aitsc-hero__subtitle {
+    font-family: "Inter", sans-serif;
+    font-size: clamp(0.7rem, 1.5vw, 1.25rem);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--aitsc-primary);
+    margin-bottom: 0;
+    animation: fadeIn 0.8s ease-out 0.2s forwards;
+    opacity: 0;
+}
+
+.aitsc-hero--technical-product .aitsc-hero__description {
+    color: #dfdfdf;
+    font-family: "Inter", sans-serif;
+    max-width: 56.25rem;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.25rem;
+    line-height: 1.8;
+    margin-top: 1rem;
+    animation: fadeIn 0.8s ease-out 0.4s forwards;
+    opacity: 0;
+}
+
+.aitsc-hero--technical-product .aitsc-hero__ctas {
+    margin-top: 3rem;
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    animation: fadeIn 0.8s ease-out 0.6s forwards;
+    opacity: 0;
+}
+
+/* Data Ticker */
+.data-ticker-wrap {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.5);
+    border-top: 1px solid var(--aitsc-grid-line);
+    padding: 0.75rem 0;
+    backdrop-filter: blur(5px);
+}
+
+.data-ticker {
+    display: flex;
+    white-space: nowrap;
+    animation: ticker 35s linear infinite;
+}
+
+.ticker-item {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.8rem;
+    color: #fff;
+    margin-right: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+@keyframes ticker {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(-50%, 0, 0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Colors for Ticker */
+.text-green {
+    color: var(--aitsc-accent);
+}
+
+.text-blue {
+    color: var(--aitsc-secondary);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 61.9375rem) {
+    .aitsc-hero--technical-product {
+        padding-bottom: 12vh !important;
+    }
+
+    .aitsc-hero--technical-product .aitsc-hero__title {
+        font-size: clamp(2.5rem, 8vw, 6rem);
+    }
+}
+
+@media (max-width: 47.9375rem) {
+    .aitsc-hero--technical-product {
+        padding-bottom: 13vh !important;
+    }
+
+    .aitsc-hero--technical-product .aitsc-hero__title {
+        font-size: clamp(2rem, 8vw, 4rem);
+        letter-spacing: -0.02em;
+    }
+
+    .data-ticker-wrap {
+        padding: 0.5rem 0 !important;
+    }
+
+    .ticker-item {
+        font-size: 0.65rem;
+        margin-right: 2rem;
+    }
+}
+
+@media (max-width: 35.9375rem) {
+    .aitsc-hero--technical-product {
+        min-height: 100vh !important;
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+    }
+
+    .aitsc-hero--technical-product .aitsc-hero__title {
+        font-size: clamp(1.75rem, 8vw, 2.5rem);
+        margin-bottom: 1rem;
+    }
+
+    .aitsc-hero--technical-product .aitsc-hero__description {
+        font-size: 0.95rem !important;
+    }
+
+    .ticker-item {
+        font-size: 0.55rem;
+        margin-right: 1.5rem;
+    }
+}

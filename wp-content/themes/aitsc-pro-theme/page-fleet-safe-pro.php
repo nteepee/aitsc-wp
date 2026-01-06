@@ -866,20 +866,49 @@ if (file_exists(get_template_directory() . '/assets/images/fleet-safe-pro/galler
 <!-- 8. PRODUCT GALLERY -->
 <section class="aitsc-section aitsc-section--gallery">
     <?php
-    $gallery_path = get_template_directory() . '/assets/images/fleet-safe-pro/gallery';
-    $gallery_url = get_template_directory_uri() . '/assets/images/fleet-safe-pro/gallery';
     $gallery_images = array();
+    $post_id = get_the_ID();
 
-    if (is_dir($gallery_path)) {
-        $files = scandir($gallery_path);
-        foreach ($files as $file) {
-            if ($file !== '.' && $file !== '..' && preg_match('/\.(jpg|jpeg|png|webp)$/i', $file)) {
-                $gallery_images[] = $gallery_url . '/' . $file;
+    // Try to get ACF gallery images first - use direct post meta retrieval
+    $gallery_meta = get_post_meta($post_id, 'gallery_images', true);
+
+    if ($gallery_meta) {
+        // Handle both JSON string and array formats
+        if (is_string($gallery_meta)) {
+            $acf_gallery = json_decode($gallery_meta, true);
+        } else {
+            $acf_gallery = $gallery_meta;
+        }
+
+        if ($acf_gallery && is_array($acf_gallery)) {
+            foreach ($acf_gallery as $image_data) {
+                $attachment_id = isset($image_data['ID']) ? $image_data['ID'] : $image_data;
+                if (is_numeric($attachment_id)) {
+                    $image_url = wp_get_attachment_url($attachment_id);
+                    if ($image_url) {
+                        $gallery_images[] = $image_url;
+                    }
+                }
             }
         }
     }
 
-    // Fallback images if directory is empty or doesn't exist
+    // Fallback to theme assets if no ACF images
+    if (empty($gallery_images)) {
+        $gallery_path = get_template_directory() . '/assets/images/fleet-safe-pro/gallery';
+        $gallery_url = get_template_directory_uri() . '/assets/images/fleet-safe-pro/gallery';
+
+        if (is_dir($gallery_path)) {
+            $files = scandir($gallery_path);
+            foreach ($files as $file) {
+                if ($file !== '.' && $file !== '..' && preg_match('/\.(jpg|jpeg|png|webp)$/i', $file)) {
+                    $gallery_images[] = $gallery_url . '/' . $file;
+                }
+            }
+        }
+    }
+
+    // Final fallback to placeholder images
     if (empty($gallery_images)) {
         $gallery_images = array(
             'https://placehold.co/600x400/003366/ffffff?text=Sensor+Detail',
